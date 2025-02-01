@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Medilab Bootstrap Template</title>
+   <!-- <title> Index - Medilab Bootstrap Template </title> -->
+  <title>Inmunolife | {% block title %} {% endblock %}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -13,7 +14,7 @@
 
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -30,7 +31,10 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="static/css/main.css" rel="stylesheet">
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+   <!--Enlace CSS local-->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <!-- =======================================================
   * Template Name: Medilab
@@ -1073,8 +1077,10 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- COMENTAMOS PRELOADER PARA VER PROGRESOS -->
   <!-- Preloader -->
-  <div id="preloader"></div>
+  <!-- <div id="preloader"></div> -->
+
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
