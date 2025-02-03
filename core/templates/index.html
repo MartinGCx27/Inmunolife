@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -70,39 +71,33 @@
         <a href="index.html" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="{% static '/img/logo.png' %}" alt=""> -->
-          <h1 class="sitename">Medilab</h1>
+          <h1 class="sitename">Inmunolife</h1>
         </a>
-
+        <!--Modificacion de navbar agregando 2 dropdowns. Emiliux-->
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero" class="active">Home<br></a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#departments">Departments</a></li>
-            <li><a href="#doctors">Doctors</a></li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li><a href="#hero" class="active">Inicio<br></a></li>
+            <li class="dropdown"><a href="#"><span>Nosotros</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Modelo de negocios</a></li>
           </ul>
+        </li>
+        <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#">Mercado objetivo</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Reseñas</a></li>
+      </ul>
+    </li>
+            <li><a href="#contact">Membresias</a></li>
+            <li><a href="#contact">Contactanos</a></li>
+          </ul>
+        </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="cta-btn d-none d-sm-block" href="#appointment">Make an Appointment</a>
+        <a class="cta-btn d-none d-sm-block" href="#appointment">Iniciar sesión</a>
 
       </div>
 
@@ -113,6 +108,7 @@
   <main class="main">
 
     <!-- Hero Section -->
+     <!-- Modificacion de ventana inicio, Emiliux-->
     <section id="hero" class="hero section light-background">
 
       <img src="{% static 'img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
@@ -120,20 +116,19 @@
       <div class="container position-relative">
 
         <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h2>WELCOME TO MEDILAB</h2>
-          <p>We are team of talented designers making websites with Bootstrap</p>
+          <h2>Bienvenido a Inmunolife</h2>
+          <p>Red de salud que te acompaña siempre.</p>
         </div><!-- End Welcome -->
 
         <div class="content row gy-4">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
-              <h3>Why Choose Medilab?</h3>
+              <h3>¿Quiénes somos?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Empresa comprometida con la salud y bienestar de sus socios y familiares, otorgando   los mejores servicios médicos ante cualquier situación inesperada.
               </p>
               <div class="text-center">
-                <a href="#about" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                <a href="#about" class="more-btn"><span>Conoce más de Inmunolife</span> <i class="bi bi-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -145,27 +140,20 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
                     <i class="bi bi-clipboard-data"></i>
-                    <h4>Corporis voluptates officia eiusmod</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Suscribete</h4>
+                    <p>Adquiere tu membresía de salud y bienestar integral, con está
+                      membresía tendrás derecho a servicios de gastos medicos mayores sin deducible y
+                      coaseguro.</p>
                   </div>
                 </div><!-- End Icon Box -->
 
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
                     <i class="bi bi-gem"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>Inmunolife</h4>
+                    <p>Tu salud, nuestro compromiso colectivo.</p>
                   </div>
                 </div><!-- End Icon Box -->
-
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
-                    <i class="bi bi-inboxes"></i>
-                    <h4>Labore consequatur incidid dolore</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div><!-- End Icon Box -->
-
               </div>
             </div>
           </div>
@@ -186,32 +174,42 @@
             <img src="{% static '/img/about.jp' class='img-fluid' %}" alt="">
             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
-
+<!-- Modificación ventana nosotros, agregando valores, mision, vision, acerca de nosotros. Emiliux-->
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <h3>About Us</h3>
+            <h3>Acerca de nosotros</h3>
             <p>
-              Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt reiciendis veritatis asperiores placeat.
-            </p>
+              Inmunolife es una empresa comprometida con hacer accesible
+              la salud de calidad para todos. Ofrecemos la afiliación a
+              aseguradoras que brindan seguros de gastos médicos mayores            </p>
             <ul>
               <li>
                 <i class="fa-solid fa-vial-circle-check"></i>
                 <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                  <h5>Valores</h5>
+                  <p>Solidaridad: Trabajamos juntos para proteger nuestra salud.<br>
+                    Accesibilidad: Hacemos que la salud sea más asequible para todos.<br>
+                    Compromiso: Nos dedicamos al bienestar de nuestros miembros.<br>
+                    Transparencia: Actuamos con honestidad y claridad en todas nuestras operaciones.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-pump-medical"></i>
                 <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                  <h5>Misión</h5>
+                  <p>Facilitar el acceso a seguros
+                    médicos mayores a través
+                    de un modelo colectivo,
+                    ofreciendo a nuestros
+                    miembros servicios médicos
+                    y atención en casos de alto
+                    riesgo.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-heart-circle-xmark"></i>
                 <div>
-                  <h5>Voluptatem et qui exercitationem</h5>
-                  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
+                  <h5>Visión</h5>
+                  <p>Ser la empresa coperativa líder en servicios integrales de salud,promoviendo el bienestar colectivo y el acceso a aseguros médicos de calidad para todos.</p>
                 </div>
               </li>
             </ul>
@@ -269,12 +267,12 @@
     </section><!-- /Stats Section -->
 
     <!-- Services Section -->
+     <!-- Modificacion ventana servicios, agregando mercado objetivo. Emix-->
     <section id="services" class="services section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>¿A quién van dirigidos nuestros seguros?</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -287,9 +285,9 @@
                 <i class="fas fa-heartbeat"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
               </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <p>Personas que no pueden permitirse un seguro médico de
+                gastos mayores individual debido a su alto costo.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -299,9 +297,9 @@
                 <i class="fas fa-pills"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Eosle Commodi</h3>
               </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <p>Familias que buscan acceso a servicios médicos por
+                enfermedades de alto riego y emergencias por accidentes.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -311,9 +309,9 @@
                 <i class="fas fa-hospital-user"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Ledo Markt</h3>
               </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <p>Trabajadores independientes o pequeños empresarios
+                interesados en proteger su salud y la de sus empleados.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -323,39 +321,12 @@
                 <i class="fas fa-dna"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
               </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
+              <p>Personas con un alto nivel de consiencia para evitar cualquier
+                contingencia medica en el futuro.</p>
               <a href="#" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-wheelchair"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-notes-medical"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
         </div>
 
       </div>
@@ -426,9 +397,11 @@
     <section id="departments" class="departments section">
 
       <!-- Section Title -->
+       <!-- Modificacion ventana de preguntas frecuentes -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Departments</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Preguntas frecuentes</h2>
+        <p>A continuación te mostramos algunas respuestas a preguntas que te pueden interesar
+        </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -437,19 +410,16 @@
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">Cardiology</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Inmunolife? </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">Neurology</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">¿Puedo afiliarme si tengo una condición médica preexistente?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">Hepatology</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">¿Cómo funciona la red de médicos especialistas?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">Pediatrics</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-5">Eye Care</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">¿Inmunolife ofrece cobertura fuera del país?</a>
               </li>
             </ul>
           </div>
@@ -458,9 +428,8 @@
               <div class="tab-pane active show" id="departments-tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Cardiology</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>¿Qué cubre la membresía de Vital Seguro?</h3>
+                    <p class="fst-italic">Accidentes, hospitalizaciones, tratamientos de enfermedades graves.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-1.jpg' %}" alt="" class="img-fluid">
@@ -470,9 +439,9 @@
               <div class="tab-pane" id="departments-tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>¿Puedo afiliarme si tengo una condición médica preexistente?</h3>
+                    <p class="fst-italic">No, las enfermedad preexistentes son excluidas de la cobertura de su membresía de
+                      salud.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-2.jpg' %}" alt="" class="img-fluid">
@@ -482,9 +451,9 @@
               <div class="tab-pane" id="departments-tab-3">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <h3>¿Cómo funciona la red de médicos especialistas</h3>
+                    <p class="fst-italic">Los miembros tienen acceso a una red de médicos con descuentos y precios
+                      preferenciales.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-3.jpg' %} " alt="" class="img-fluid">
@@ -494,25 +463,14 @@
               <div class="tab-pane" id="departments-tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                    <h3>¿Inmunolife ofrece cobertura fuera del país?</h3>
+                    <p class="fst-italic">Sí, dependiendo el tipo de membresía que se adquiera.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-4.jpg' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
-              <div class="tab-pane" id="departments-tab-5">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/departments-5.jpg' %}" alt="" class="img-fluid">
-                  </div>
                 </div>
               </div>
             </div>
