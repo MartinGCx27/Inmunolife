@@ -533,17 +533,34 @@
       </div><!-- End Section Title -->
       <!--Emiliux Statics (de aqui para arriba)-->
 
+<!--Parte que hizo Leonardo GEIshow-->
       <div class="container">
 
         <div class="row gy-4">
-
+        <!--MODIFICACIÓN CON EL EQUIPO Y PUESTO-->
+        <!--DIRECTOR GENERAL-->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src='assets/img/doctors/doctors-1.jpg' class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Medical Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                <h4>DIRECTOR GENERAL</h4>
+                <span>Jaime R. Rendo M.</span>
+                <p>
+                  <!--se agrega listas de parte de Leo-->
+                <ul>
+                  <li>
+                    Aprobar presupuestos y planes estratégicos.
+                  </li>
+                  <li>
+                    Supervisar el desempeño de los departamentos.
+                  </li>
+                  <li>
+                    Decidir sobre inversiones y políticas de crecimiento.
+                  </li>
+                </ul>
+                <!--se termina lista-->
+
+              </p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -552,11 +569,11 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div><!--TERMINA CARD DIRECTOR GENERAL-->
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sarah Jhonson</h4>
                 <span>Anesthesiologist</span>
@@ -573,7 +590,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>William Anderson</h4>
                 <span>Cardiology</span>
@@ -590,7 +607,7 @@
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Amanda Jepson</h4>
                 <span>Neurosurgeon</span>
@@ -724,7 +741,7 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="{% static '/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Saul Goodman</h3>
                         <h4>Ceo &amp; Founder</h4>
@@ -744,7 +761,7 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Sara Wilsson</h3>
                         <h4>Designer</h4>
@@ -764,7 +781,7 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Jena Karlis</h3>
                         <h4>Store Owner</h4>
@@ -784,7 +801,7 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
+                      <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Matt Brandon</h3>
                         <h4>Freelancer</h4>
@@ -804,7 +821,7 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>John Larson</h3>
                         <h4>Entrepreneur</h4>
@@ -848,64 +865,64 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-1.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-1.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-2.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-2.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-3.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-3.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-4.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-4.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-5.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-5.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-6.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-6.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-7.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-7.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
-                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              <a href="{% static 'img/gallery/gallery-8.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'img/gallery/gallery-8.jpg' %}" alt="" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -921,8 +938,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <!--Cambio de info en contactanos-->
+        <h2>Contactanos</h2>
+        <p>Te dejamos nuestro contacto directo para que puedas obtener mas información, de igual forma podemos contactarnos contigo llenando el siguiente formulario:</p>
       </div><!-- End Section Title -->
 
       <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
@@ -1089,7 +1107,7 @@
   <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js'gi"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
 
   <!-- Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
