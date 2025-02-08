@@ -19,9 +19,9 @@
   <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https: //fonts.googleapis.com" rel="preconnect">
+  <link href="https: //fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https: //fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -39,10 +39,10 @@
 
   <!-- =======================================================
   * Template Name: Medilab
-  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Template URL: https: //bootstrapmade.com/medilab-free-medical-bootstrap-theme/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
+  * License: https: //bootstrapmade.com/license/
   ======================================================== -->
 </head>
 
@@ -87,7 +87,7 @@
           <ul>
             <li><a href="#">Mercado objetivo</a></li>
             <li><a href="#">Preguntas frecuentes</a></li>
-            <li><a href="#">Reseñas</a></li>
+            <li><a href="#testimonials">Reseñas</a></li>
       </ul>
     </li>
             <li><a href="#contact">Membresias</a></li>
@@ -171,8 +171,9 @@
         <div class="row gy-4 gx-5">
 
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="{% static '/img/about.jp' class='img-fluid' %}" alt="">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+            <!-- Se arregla imagen y link para visualizar video Leonardo -->
+            <img src="{% static '/img/about.jpg'  %}" class="img-fluid" alt="">
+            <a href="https: //www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
 <!-- Modificación ventana nosotros, agregando valores, mision, vision, acerca de nosotros. Emiliux-->
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
@@ -209,7 +210,8 @@
                 <i class="fa-solid fa-heart-circle-xmark"></i>
                 <div>
                   <h5>Visión</h5>
-                  <p>Ser la empresa coperativa líder en servicios integrales de salud,promoviendo el bienestar colectivo y el acceso a aseguros médicos de calidad para todos.</p>
+                  <p>Ser la empresa coperativa líder en servicios integrales de salud,promoviendo 
+                    el bienestar colectivo y el acceso a aseguros médicos de calidad para todos.</p>
                 </div>
               </li>
             </ul>
@@ -482,30 +484,35 @@
     </section><!-- /Departments Section -->
 
     <!-- Doctors Section -->
+<!-- comienzo a comentar seccion de organigrama Leonardo     
     <section id="doctors" class="doctors section">
-
+       -->
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+
+      <!-- <div class="container section-title" data-aos="fade-up">
         <h2>Doctors</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      </div> -->
+      <!-- End Section Title -->
       <!--Emiliux Statics (de aqui para arriba)-->
 
 <!--Parte que hizo Leonardo GEIshow-->
-      <div class="container">
 
-        <div class="row gy-4">
+
+      <!-- <div class="container">
+
+        <div class="row gy-4"> -->
         <!--MODIFICACIÓN CON EL EQUIPO Y PUESTO-->
         <!--DIRECTOR GENERAL-->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>DIRECTOR GENERAL</h4>
                 <span>Jaime R. Rendo M.</span>
-                <p>
+                <p> -->
                   <!--se agrega listas de parte de Leo-->
-                <ul>
+                <!-- <ul>
                   <li>
                     Aprobar presupuestos y planes estratégicos.
                   </li>
@@ -515,10 +522,11 @@
                   <li>
                     Decidir sobre inversiones y políticas de crecimiento.
                   </li>
-                </ul>
+                </ul> -->
+                
                 <!--se termina lista-->
 
-              </p>
+              <!-- </p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -527,9 +535,11 @@
                 </div>
               </div>
             </div>
-          </div><!--TERMINA CARD DIRECTOR GENERAL-->
+          </div> -->
+          
+          <!--TERMINA CARD DIRECTOR GENERAL-->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -544,9 +554,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -561,9 +572,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -578,24 +590,29 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-        </div>
+        <!-- </div>
 
       </div>
 
-    </section><!-- /Doctors Section -->
+    </section> -->
+    <!-- /Doctors Section -->
+<!-- temino de comentar la seccion de organigrama Leonardo -->
 
+<!-- Se empeiza a comentar sección FAQ -->
     <!-- Faq Section -->
-    <section id="faq" class="faq section light-background">
+    <!-- <section id="faq" class="faq section light-background"> -->
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <!-- <div class="container section-title" data-aos="fade-up">
         <h2>Frequently Asked Questions</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      </div> -->
+      <!-- End Section Title -->
 
-      <div class="container">
+      <!-- <div class="container">
 
         <div class="row justify-content-center">
 
@@ -609,57 +626,66 @@
                   <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
                 <div class="faq-content">
                   <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
                 <div class="faq-content">
                   <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
                 <div class="faq-content">
                   <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
                 <div class="faq-content">
                   <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
                 <div class="faq-content">
                   <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-            </div>
+            <!-- </div>
 
-          </div><!-- End Faq Column-->
+          </div> -->
+          <!-- End Faq Column-->
 
-        </div>
+        <!-- </div>
 
       </div>
 
-    </section><!-- /Faq Section -->
+    </section> -->
+    <!-- /Faq Section -->
+     
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
@@ -669,10 +695,10 @@
         <div class="row align-items-center">
 
           <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-            <h3>Testimonials</h3>
+            <h3>RESEÑAS:</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+              Checa esta reseñas que tenemos para ti de otros cliente que han
+              confiado en nosotros, ¿Que esperas? y forma parte de ellos:
             </p>
           </div>
 
@@ -694,6 +720,8 @@
                   }
                 }
               </script>
+
+              <!-- Empieza sección de las sereñas (contenido) -->
               <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
@@ -797,6 +825,7 @@
                 </div><!-- End testimonial item -->
 
               </div>
+              <!-- Termina sección de reseñas (contenido) -->
               <div class="swiper-pagination"></div>
             </div>
 
@@ -813,8 +842,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Galeria</h2>
+        <p>Mira un poco de nuestra galeria y sobre nuestros servicios en formato de fotos:</p>
       </div><!-- End Section Title -->
 
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
@@ -901,19 +930,23 @@
         <p>Te dejamos nuestro contacto directo para que puedas obtener mas información, de igual forma podemos contactarnos contigo llenando el siguiente formulario:</p>
       </div><!-- End Section Title -->
 
-      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div><!-- End Google Maps -->
+      <!-- Se comenta la parte de maps para quitarla Leonardo -->
+      <!-- <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 270px;" src="https: //www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div> -->
+      <!-- End Google Maps -->
+       <!-- se termina de comentar sección de maps Leonardo -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
+          <!-- se odifica información con info de cliente Leonardo -->
           <div class="col-lg-4">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3>Location</h3>
+                <h3>Nuestra Localización:</h3>
                 <p>A108 Adam Street, New York, NY 535022</p>
               </div>
             </div><!-- End Info Item -->
@@ -921,7 +954,7 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Us</h3>
+                <h3>Muestro telefono:</h3>
                 <p>+1 5589 55488 55</p>
               </div>
             </div><!-- End Info Item -->
@@ -929,30 +962,35 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Us</h3>
+                <h3>Nuestro Email:</h3>
                 <p>info@example.com</p>
               </div>
             </div><!-- End Info Item -->
 
           </div>
+          <!-- Se tertmina de actualizar sección de contacto directo -->
 
           <div class="col-lg-8">
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
+                  <p>Ingresa tu nombre:</p>
                   <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
                 </div>
 
                 <div class="col-md-6 ">
+                  <p>Ingresa tu Email:</p>
                   <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
                 </div>
 
-                <div class="col-md-12">
+                <!-- Se Inhabilita subject Leonardo -->
+                <!-- <div class="col-md-12">
                   <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
+                </div> -->
 
                 <div class="col-md-12">
+                  <p>Comparte tus comentarios y/o sugerencias:</p>
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                 </div>
 
@@ -961,7 +999,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit">Enviar</button>
                 </div>
 
               </div>
