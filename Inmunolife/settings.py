@@ -87,7 +87,7 @@ DATABASES = {
         'USER': env.str('DB_USER'),
         'PASSWORD': env.str('DB_PASSWRD'),
         'HOST': env.str('DB_HOST'),
-        'POST': env.int('DB_PORT')
+        'PORT': env.int('DB_PORT')
     }
 }
 
