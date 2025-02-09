@@ -2,15 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-<<<<<<< HEAD
 #Modelo Emilio
 
 #Db Login
 #Crea tabla user con los campos name, email, password, celular (posibles campos: RFC, )
 class User(models.Model):
-    name=models.CharField (max_lenght=20)
+    name=models.CharField (max_length=20)
     email=models.EmailField(null=False, unique=True, )
-    password=models.CharField(min_lenght=7, max_lenght=15, null=False)
+    password=models.CharField(min_length=7, max_length=15, null=False)
     celular=models.CharField(max_length=10)
     
 #Duda
@@ -25,7 +24,6 @@ class Meta:
 
 
     
-=======
 
 class Contactos(models.Model):
     nombre = models.CharField(max_length=100, null=False, unique=True, verbose_name='Nombre')
@@ -60,4 +58,3 @@ class Posts(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ['id']
->>>>>>> master
