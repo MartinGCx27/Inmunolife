@@ -1,25 +1,29 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-'''
+
 #Modelo Emilio
 
 #Db Login
-#Crea tabla user con los campos name, email, password, celular (posibles campos: RFC, )
+#Crea tabla user con los campos name, lastname, second_lastname, email, password, celular (posibles campos: RFC, )
 class User(models.Model):
-    name=models.CharField (max_lenght=20)
-    email=models.EmailField(null=False, unique=True, )
-    password=models.CharField(min_lenght=7, max_lenght=15, null=False)
-    celular=models.CharField(max_length=10)
+    name=models.TextField (max_lenght=50, null=False, verbose_name="Nombre")
+    laststname=models.TextField (max_lenght=20, null=False, verbose_name="Primer apeliido")
+    second_lastname=models.TextField (max_leght=20, null=False, verbose_name="Segundo apellido")
+    email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico")
+    password=models.CharField(min_lenght=8, max_lenght=30, null=False, verbose_name="Contraseña")
+    cellphone_number=models.DecimalField(max_digits=12, decimal_places=0, unique=True, null=False, verbose_name="Número de celular")
 
-#Duda
+#Convertimos la tabla en una varibale
 def __str__(self):
     return self.User
     
+#Clase meta con meta datos de la tabla
 class Meta:
-    db_table = 'user'
-    verbose_name = 'usuario'
-    verbose_name_plural = 'usuarios'
+    db_table = 'User'
+    verbose_name = 'Usuario'
+    verbose_name_plural = 'Usuarios'
+    ordering = ['id']
 
 
 
@@ -53,4 +57,3 @@ class Posts(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ['id']
-'''

@@ -16,8 +16,17 @@
 
   <!-- Favicons -->
    <!-- Modificación del favicon poniendo utilizando logo -Emix -->
-  <link href="{% static 'img/logoInmuno.png' %}" rel="icon">
-  <link href="{% static 'img/logoInmuno.png ' %}" rel="apple-touch-icon">
+  {% comment %} <link class="logo-inmuno" href="{% static 'img/logoInmuno.png' %}" rel="icon">
+  <link class="logo-inmuno" href="{% static 'img/logoInmuno.png ' %}" rel="apple-touch-icon"> 
+  Modificación 2 de los favicons utilizando logo, haciendolo responsive para todos los dispositivos -Emix
+  {% endcomment %}
+<link rel="icon" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" >
+<link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" >
+<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" >
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon1.png' %}" >
+<link rel="manifest" href="{% static 'img/site.webmanifest'%}" >
+<meta name="apple-mobile-Inmuno-life" content="Inmunolife" >
+
 
   <!-- Fonts -->
   <link href="https: //fonts.googleapis.com" rel="preconnect">
@@ -365,7 +374,7 @@
             </div>
           </div>
              {% comment %} 
-             Se comenta parte innecesaria de registrar usuario -Emix
+             Se comenta parte innecesaria de registrar usuario, ocultando campos -Emix
           <div class="row">
             <div class="col-md-4 form-group mt-3">
               <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
@@ -409,7 +418,7 @@
     <section id="departments" class="departments section">
 
       <!-- Section Title -->
-       <!-- Modificacion ventana de preguntas frecuentes -->
+       <!-- Modificacion ventana de preguntas frecuentes -Emix -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Preguntas frecuentes</h2>
         <p>A continuación te mostramos algunas respuestas a preguntas que te pueden interesar

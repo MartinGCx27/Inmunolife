@@ -22,18 +22,18 @@
 - Color de background para todo el sitio web, incluidas las secciones individuales - #ebebeb
 - Color por utilizado para la mayoría del contenido de texto en todo el sitio web. - #A2061D
 - Color de los encabezamientos, subtítulos y título en todo el sitio web - #c02135
-- Color de acento de marca en el sitio web. Se utiliza para botones, enlaces y otros elementos que deben destacar. - #bdbdbd
-- Color del background de los cajones. Tarjetas, cuadros de iconos u otros elementos que requieren una separación visual del fondo global. - #c02135
-- Color de contraste para el texto - #c02135
+- Color de acento de marca en el sitio web. Se utiliza para botones, enlaces y otros elementos que deben destacar. - #c02135
+- Color del background de los cajones. Tarjetas, cuadros de iconos u otros elementos que requieren una separación visual del fondo global. - #bdbdbd
+- Color de contraste para el texto - #bdbdbd
 -Emix
 */
 :root { 
   --background-color: #ebebeb; /* Background color for the entire website, including individual sections */
   --default-color: #A2061D; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #c02135; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #bdbdbd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #C02135; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #c02135; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --accent-color: #c02135; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #bdbdbd; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #bdbdbd; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -43,12 +43,12 @@
 - Color del background para el menú de la navbar - #c02135
 - Color del background para los dropdowns - #ebebee
 - Color del texto de los dropdowns desplegados. - #A2061F
-- Color del texto de los dropdowns desplegados después de aplicar el hover - #bb727
+- Color del texto de los dropdowns desplegados después de aplicar el hover - #bb727b
 -Emix
 */
 :root {
   --nav-color: black;  /* The default color of the main navmenu links */
-  --nav-hover-color: #c02135; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #A2061D; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #c02135; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ebebee; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #A2061F; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -63,7 +63,7 @@
 }
 /* Modificación de los backgrounds de los colores oscuros del sitio web -Emix */
 .dark-background {
-  --background-color: #060606;
+  --background-color: #a3a3a2;
   --default-color: #bdbdbd;
   --heading-color: #c02135;
   --surface-color: #c02135;
@@ -305,7 +305,7 @@ h6 {
 
 .header .logo img {
   max-height: 80px;
-  margin-right: px;
+  margin-right: 2px;
 }
 
 /*Logo inmuno*/
