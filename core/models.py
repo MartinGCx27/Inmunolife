@@ -11,7 +11,7 @@ class User(models.Model):
     laststname=models.TextField (max_lenght=20, null=False, verbose_name="Primer apeliido")
     second_lastname=models.TextField (max_leght=20, null=False, verbose_name="Segundo apellido")
     email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico")
-    password=models.CharField(min_lenght=8, max_lenght=30, null=False, verbose_name="Contraseña")
+    password=models.CharField(max_lenght=30, null=False, verbose_name="Contraseña")
     cellphone_number=models.DecimalField(max_digits=12, decimal_places=0, unique=True, null=False, verbose_name="Número de celular")
 
 #Convertimos la tabla en una varibale
