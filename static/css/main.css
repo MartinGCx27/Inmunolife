@@ -18,38 +18,56 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/*Se modifican los colores de la siguientes secciones del sitio:
+- Color de background para todo el sitio web, incluidas las secciones individuales - #ebebeb
+- Color por utilizado para la mayoría del contenido de texto en todo el sitio web. - #A2061D
+- Color de los encabezamientos, subtítulos y título en todo el sitio web - #c02135
+- Color de acento de marca en el sitio web. Se utiliza para botones, enlaces y otros elementos que deben destacar. - #bdbdbd
+- Color del background de los cajones. Tarjetas, cuadros de iconos u otros elementos que requieren una separación visual del fondo global. - #c02135
+- Color de contraste para el texto - #c02135
+-Emix
+*/
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2c4964; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #1977cc; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ebebeb; /* Background color for the entire website, including individual sections */
+  --default-color: #A2061D; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #c02135; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #bdbdbd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #C02135; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #c02135; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/*Se modifican los colores de la siguientes secciones del sitio:
+- Color de los hiperlinks de la navbar - black
+- Color para el hover del txt de la navbar - #A2061D
+- Color del background para el menú de la navbar - #c02135
+- Color del background para los dropdowns - #ebebee
+- Color del texto de los dropdowns desplegados. - #A2061F
+- Color del texto de los dropdowns desplegados después de aplicar el hover - #bb727
+-Emix
+*/
 :root {
-  --nav-color: #2c4964;  /* The default color of the main navmenu links */
-  --nav-hover-color: #1977cc; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #2c4964; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #1977cc; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: black;  /* The default color of the main navmenu links */
+  --nav-hover-color: #c02135; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #c02135; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ebebee; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #A2061F; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #bb727b; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
+/* Modificación de los backgrounds de los colores claros del sitio web -Emix */
 .light-background {
-  --background-color: #f1f7fc;
-  --surface-color: #ffffff;
+  --background-color: #bdbdbd;
+  --surface-color: #a3a3a3;
 }
-
+/* Modificación de los backgrounds de los colores oscuros del sitio web -Emix */
 .dark-background {
   --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
-  --contrast-color: #ffffff;
+  --default-color: #bdbdbd;
+  --heading-color: #c02135;
+  --surface-color: #c02135;
+  --contrast-color: #bdbdbd;
 }
 
 /* Smooth scroll */
@@ -286,8 +304,13 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 80px;
+  margin-right: px;
+}
+
+/*Logo inmuno*/
+.logo-inmuno{
+  width: 8em;
 }
 
 .header .logo h1 {
@@ -996,10 +1019,10 @@ section,
   padding: 40px 30px;
   width: 100%;
 }
-
+/* Cambio de color de los iconos de ventana hero - #C02135 -Emix*/
 .hero .content .icon-box i {
   font-size: 40px;
-  color: var(--accent-color);
+  color: var(#C02135);
 }
 
 .hero .content .icon-box h4 {
@@ -1107,8 +1130,9 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+/* Cambio de color del background de los cajones de sección "mercado objetivo" -#a3a3a3 -Emix*/
 .services .service-item {
-  background-color: var(--surface-color);
+  background-color: var(#a3a3a3);
   text-align: center;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
   padding: 80px 20px;
@@ -1522,10 +1546,10 @@ section,
   font-weight: 700;
   font-size: 32px;
 }
-
+/* Cambio de color del background de los testimonios #bdbdbd -Emix*/
 .testimonials .swiper {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
-  background-color: var(--surface-color);
+  background-color: var(#bdbdbd);
 }
 
 .testimonials .testimonials-carousel,
@@ -1539,12 +1563,13 @@ section,
   position: relative;
   margin: 30px;
 }
+/* Cambio de color del borde de la caja de los testimonios #bdbdbd -Emix*/
 
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
   height: 90px;
   border-radius: 50px;
-  border: 6px solid var(--background-color);
+  border: 6px solid var(#bdbdbd);
   margin-right: 10px;
 }
 
@@ -1555,7 +1580,7 @@ section,
 }
 
 .testimonials .testimonial-item h4 {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  color: color-mix(in srgb, var(#bdbdbd), transparent 50%);
   font-size: 14px;
   margin: 0;
 }
@@ -1571,7 +1596,7 @@ section,
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--accent-color), transparent 60%);
+  color: color-mix(in srgb, var(#bdbdbd), transparent 60%);
   font-size: 26px;
   line-height: 0;
 }
@@ -1605,10 +1630,11 @@ section,
   position: relative;
 }
 
+
 .testimonials .swiper-pagination .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  background-color: color-mix(in srgb, var(#bdbdbd), transparent 85%);
   opacity: 1;
   border: none;
 }
