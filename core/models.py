@@ -30,13 +30,19 @@ class Meta:
     
 
 class Contactos(models.Model):
-    nom_usuario = models.CharField(max_length=500, null=False, unique=True, verbose_name='Nombre')
+    nombre = models.CharField(max_length=100, null=False, unique=True, verbose_name='Nombre')
+    apellido = models.CharField(max_length=100, null=False, unique=True, verbose_name='Apellido')
+    email = models.EmailField(null=False, unique=True, verbose_name="Email")
+    telefono = models.IntegerField(null=True, unique=False, verbose_name='Telefono')
+    comentarios = models.TextField(null=True, verbose_name='Comentarios')
+    fecha_alta = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
+    estado = models.BooleanField(null=False, verbose_name='Estado')
     
     def __str__(self):
-        return self.nom_usuario
+        return self.nombre
     class Meta:
         db_table = 'contact'
-        verbose_name = 'Contacto'
+        verbose_name = 'Contactos'
         verbose_name_plural = 'Contactos'
         ordering = ['id']
 
