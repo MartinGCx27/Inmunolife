@@ -8,13 +8,13 @@ from django.contrib.auth.models import User
 #Crea tabla user con los campos name, lastname, second_lastname, email, password, celular (posibles campos: RFC, )
 class User(models.Model):
     name=models.TextField (max_length=50, null=False, verbose_name="Nombre")
-    laststname=models.TextField (max_length=20, null=False, verbose_name="Primer apeliido")
+    lastname=models.TextField (max_length=20, null=False, verbose_name="Primer apeliido")
     second_lastname=models.TextField (max_length=20, null=False, verbose_name="Segundo apellido")
     email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico")
-    password=models.CharField(max_length=30, null=False, verbose_name="Contraseña")
-    cellphone_number=models.IntegerField(max_digits=12, decimal_places=0, unique=True, null=False, verbose_name="Número de celular")
+    passrd=models.CharField(max_length=30, null=False, verbose_name="Contraseña")
+    cellphone_number=models.IntegerField(max_length=10, unique=True, null=False, verbose_name="Número de celular")
 
-#Convertimos la tabla en una varibale
+#Convertimos la tabla en una variable
 def __str__(self):
     return self.User
     
