@@ -308,7 +308,7 @@ h6 {
   margin-right: 2px;
 }
 
-/*Logo inmuno*/
+/* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo */
 .logo-inmuno{
   width: 8em;
 }
@@ -1753,3 +1753,4 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
