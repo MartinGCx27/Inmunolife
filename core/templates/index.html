@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -14,13 +15,23 @@
 
 
   <!-- Favicons -->
-  <link href="{% static '/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+   <!-- Modificación del favicon poniendo utilizando logo -Emix -->
+  {% comment %} <link class="logo-inmuno" href="{% static 'img/logoInmuno.png' %}" rel="icon">
+  <link class="logo-inmuno" href="{% static 'img/logoInmuno.png ' %}" rel="apple-touch-icon"> 
+  Modificación 2 de los favicons utilizando logo, haciendolo responsive para todos los dispositivos -Emix
+  {% endcomment %}
+<link rel="icon" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" >
+<link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" >
+<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" >
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon1.png' %}" >
+<link rel="manifest" href="{% static 'img/site.webmanifest'%}" >
+<meta name="apple-mobile-Inmuno-life" content="Inmunolife" >
+
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https: //fonts.googleapis.com" rel="preconnect">
+  <link href="https: //fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https: //fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -38,10 +49,10 @@
 
   <!-- =======================================================
   * Template Name: Medilab
-  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Template URL: https: //bootstrapmade.com/medilab-free-medical-bootstrap-theme/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
+  * License: https: //bootstrapmade.com/license/
   ======================================================== -->
 </head>
 
@@ -51,9 +62,10 @@
 
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        <div class="contact-info d-flex align-items-center"> 
+          <!--Se agrega correo de Inmunolife en la parte superior -Emix -->
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@inmunolife.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55  </span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
@@ -62,47 +74,42 @@
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div> <!-- End Top Bar -->
 
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="{% static '/img/logo.png' %}" alt=""> -->
-          <h1 class="sitename">Medilab</h1>
+           <!-- Se modifica logo agregando logo de Inmunolife -Emix-->
+          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotype inmunolife red lion"> 
+          <h1 class="sitename">Inmunolife</h1>
         </a>
-
+        <!--Modificacion de navbar agregando 2 dropdowns. Emix-->
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero" class="active">Home<br></a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#departments">Departments</a></li>
-            <li><a href="#doctors">Doctors</a></li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li><a href="#hero" class="active">Inicio<br></a></li>
+            <li class="dropdown"><a href="#"><span>Nosotros</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Modelo de negocios</a></li>
           </ul>
+        </li>
+        <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="#">Mercado objetivo</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#testimonials">Reseñas</a></li>
+          </ul>
+        </li>
+            <li><a href="#contact">Membresias</a></li>
+            <li><a href="#contact">Contactanos</a></li>
+          </ul>
+        </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="cta-btn d-none d-sm-block" href="#appointment">Make an Appointment</a>
+        <a class="cta-btn d-none d-sm-block" href="#appointment">Iniciar sesión</a>
 
       </div>
 
@@ -113,6 +120,7 @@
   <main class="main">
 
     <!-- Hero Section -->
+     <!-- Modificacion de ventana inicio, emix-->
     <section id="hero" class="hero section light-background">
 
       <img src="{% static 'img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
@@ -120,20 +128,19 @@
       <div class="container position-relative">
 
         <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h2>WELCOME TO MEDILAB</h2>
-          <p>We are team of talented designers making websites with Bootstrap</p>
+          <h2>Bienvenido a Inmunolife</h2>
+          <p>Red de salud que te acompaña siempre.</p>
         </div><!-- End Welcome -->
 
         <div class="content row gy-4">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
-              <h3>Why Choose Medilab?</h3>
+              <h3>¿Quiénes somos?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Empresa comprometida con la salud y bienestar de sus socios y familiares, otorgando   los mejores servicios médicos ante cualquier situación inesperada.
               </p>
               <div class="text-center">
-                <a href="#about" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+                <a href="#about" class="more-btn"><span>Conoce más de Inmunolife</span> <i class="bi bi-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -145,27 +152,20 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
                     <i class="bi bi-clipboard-data"></i>
-                    <h4>Corporis voluptates officia eiusmod</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                    <h4>Suscribete</h4>
+                    <p>Adquiere tu membresía de salud y bienestar integral, con está
+                      membresía tendrás derecho a servicios de gastos medicos mayores sin deducible y
+                      coaseguro.</p>
                   </div>
                 </div><!-- End Icon Box -->
 
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
                     <i class="bi bi-gem"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>Inmunolife</h4>
+                    <p>Tu acceso a la mejor atención médica.</p>
                   </div>
                 </div><!-- End Icon Box -->
-
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
-                    <i class="bi bi-inboxes"></i>
-                    <h4>Labore consequatur incidid dolore</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div><!-- End Icon Box -->
-
               </div>
             </div>
           </div>
@@ -183,35 +183,47 @@
         <div class="row gy-4 gx-5">
 
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="{% static '/img/about.jp' class='img-fluid' %}" alt="">
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+            <!-- Se arregla imagen y link para visualizar video Leonardo -->
+            <img src="{% static '/img/about.jpg'  %}" class="img-fluid" alt="">
+            <a href="https: //www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
-
+<!-- Modificación ventana nosotros, agregando valores, mision, vision, acerca de nosotros. emix-->
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <h3>About Us</h3>
+            <h3>Acerca de nosotros</h3>
             <p>
-              Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti totam ut eius incidunt reiciendis veritatis asperiores placeat.
-            </p>
+              Inmunolife es una empresa comprometida con hacer accesible
+              la salud de calidad para todos. Ofrecemos la afiliación a
+              aseguradoras que brindan seguros de gastos médicos mayores            </p>
             <ul>
               <li>
                 <i class="fa-solid fa-vial-circle-check"></i>
                 <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                  <h5>Valores</h5>
+                  <p>Solidaridad: Trabajamos juntos para proteger nuestra salud.<br>
+                    Accesibilidad: Hacemos que la salud sea más asequible para todos.<br>
+                    Compromiso: Nos dedicamos al bienestar de nuestros miembros.<br>
+                    Transparencia: Actuamos con honestidad y claridad en todas nuestras operaciones.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-pump-medical"></i>
                 <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                  <h5>Misión</h5>
+                  <p>Facilitar el acceso a seguros
+                    médicos mayores a través
+                    de un modelo colectivo,
+                    ofreciendo a nuestros
+                    miembros servicios médicos
+                    y atención en casos de alto
+                    riesgo.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-heart-circle-xmark"></i>
                 <div>
-                  <h5>Voluptatem et qui exercitationem</h5>
-                  <p>Et velit et eos maiores est tempora et quos dolorem autem tempora incidunt maxime veniam</p>
+                  <h5>Visión</h5>
+                  <p>Ser la empresa coperativa líder en servicios integrales de salud,promoviendo 
+                    el bienestar colectivo y el acceso a aseguros médicos de calidad para todos.</p>
                 </div>
               </li>
             </ul>
@@ -269,12 +281,12 @@
     </section><!-- /Stats Section -->
 
     <!-- Services Section -->
+     <!-- Modificacion ventana servicios, agregando mercado objetivo. Emix-->
     <section id="services" class="services section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>¿A quién van dirigidos nuestros seguros?</h2>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -287,9 +299,9 @@
                 <i class="fas fa-heartbeat"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
               </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <p>Personas que no pueden permitirse un seguro médico de
+                gastos mayores individual debido a su alto costo.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -299,9 +311,9 @@
                 <i class="fas fa-pills"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Eosle Commodi</h3>
               </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <p>Familias que buscan acceso a servicios médicos por
+                enfermedades de alto riego y emergencias por accidentes.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -311,9 +323,9 @@
                 <i class="fas fa-hospital-user"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Ledo Markt</h3>
               </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <p>Trabajadores independientes o pequeños empresarios
+                interesados en proteger su salud y la de sus empleados.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -323,52 +335,26 @@
                 <i class="fas fa-dna"></i>
               </div>
               <a href="#" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
               </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
+              <p>Personas con un alto nivel de consiencia para evitar cualquier
+                contingencia medica en el futuro.</p>
               <a href="#" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-wheelchair"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="fas fa-notes-medical"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
         </div>
 
       </div>
 
     </section><!-- /Services Section -->
 
+    
     <!-- Appointment Section -->
     <section id="appointment" class="appointment section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Appointment</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Registrarse</h2>
+        <p>Registrar usuario de administrador</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -376,19 +362,25 @@
         <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required="">
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required="">
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu celular" required="">
+
+
             </div>
           </div>
+             {% comment %} 
+             Se comenta parte innecesaria de registrar usuario, ocultando campos -Emix
           <div class="row">
             <div class="col-md-4 form-group mt-3">
               <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
             </div>
+         
+            
             <div class="col-md-4 form-group mt-3">
               <select name="department" id="department" class="form-select" required="">
                 <option value="">Select Department</option>
@@ -418,17 +410,19 @@
           </div>
         </form>
 
-      </div>
+      </div> {% endcomment %}
 
-    </section><!-- /Appointment Section -->
+    </section><!-- /Appointment Section -->  
 
     <!-- Departments Section -->
     <section id="departments" class="departments section">
 
       <!-- Section Title -->
+       <!-- Modificacion ventana de preguntas frecuentes -Emix -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Departments</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Preguntas frecuentes</h2>
+        <p>A continuación te mostramos algunas respuestas a preguntas que te pueden interesar
+        </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -437,19 +431,16 @@
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">Cardiology</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Inmunolife? </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">Neurology</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">¿Puedo afiliarme si tengo una condición médica preexistente?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">Hepatology</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">¿Cómo funciona la red de médicos especialistas?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">Pediatrics</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-5">Eye Care</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">¿Inmunolife ofrece cobertura fuera del país?</a>
               </li>
             </ul>
           </div>
@@ -458,9 +449,8 @@
               <div class="tab-pane active show" id="departments-tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Cardiology</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>¿Qué cubre la membresía de Vital Seguro?</h3>
+                    <p class="fst-italic">Accidentes, hospitalizaciones, tratamientos de enfermedades graves.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-1.jpg' %}" alt="" class="img-fluid">
@@ -470,9 +460,9 @@
               <div class="tab-pane" id="departments-tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>¿Puedo afiliarme si tengo una condición médica preexistente?</h3>
+                    <p class="fst-italic">No, las enfermedad preexistentes son excluidas de la cobertura de su membresía de
+                      salud.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-2.jpg' %}" alt="" class="img-fluid">
@@ -482,9 +472,9 @@
               <div class="tab-pane" id="departments-tab-3">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <h3>¿Cómo funciona la red de médicos especialistas</h3>
+                    <p class="fst-italic">Los miembros tienen acceso a una red de médicos con descuentos y precios
+                      preferenciales.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-3.jpg' %} " alt="" class="img-fluid">
@@ -494,25 +484,14 @@
               <div class="tab-pane" id="departments-tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                    <h3>¿Inmunolife ofrece cobertura fuera del país?</h3>
+                    <p class="fst-italic">Sí, dependiendo el tipo de membresía que se adquiera.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static '/img/departments-4.jpg' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
-              <div class="tab-pane" id="departments-tab-5">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/departments-5.jpg' %}" alt="" class="img-fluid">
-                  </div>
                 </div>
               </div>
             </div>
@@ -524,30 +503,35 @@
     </section><!-- /Departments Section -->
 
     <!-- Doctors Section -->
+<!-- comienzo a comentar seccion de organigrama Leonardo     
     <section id="doctors" class="doctors section">
-
+       -->
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+
+      <!-- <div class="container section-title" data-aos="fade-up">
         <h2>Doctors</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-      <!--Emiliux Statics (de aqui para arriba)-->
+      </div> -->
+      <!-- End Section Title -->
+      <!--emix Statics (de aqui para arriba)-->
 
 <!--Parte que hizo Leonardo GEIshow-->
-      <div class="container">
 
-        <div class="row gy-4">
+
+      <!-- <div class="container">
+
+        <div class="row gy-4"> -->
         <!--MODIFICACIÓN CON EL EQUIPO Y PUESTO-->
         <!--DIRECTOR GENERAL-->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>DIRECTOR GENERAL</h4>
                 <span>Jaime R. Rendo M.</span>
-                <p>
+                <p> -->
                   <!--se agrega listas de parte de Leo-->
-                <ul>
+                <!-- <ul>
                   <li>
                     Aprobar presupuestos y planes estratégicos.
                   </li>
@@ -557,10 +541,11 @@
                   <li>
                     Decidir sobre inversiones y políticas de crecimiento.
                   </li>
-                </ul>
+                </ul> -->
+                
                 <!--se termina lista-->
 
-              </p>
+              <!-- </p>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -569,9 +554,11 @@
                 </div>
               </div>
             </div>
-          </div><!--TERMINA CARD DIRECTOR GENERAL-->
+          </div> -->
+          
+          <!--TERMINA CARD DIRECTOR GENERAL-->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -586,9 +573,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -603,9 +591,10 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
@@ -620,24 +609,29 @@
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div> -->
+          <!-- End Team Member -->
 
-        </div>
+        <!-- </div>
 
       </div>
 
-    </section><!-- /Doctors Section -->
+    </section> -->
+    <!-- /Doctors Section -->
+<!-- temino de comentar la seccion de organigrama Leonardo -->
 
+<!-- Se empeiza a comentar sección FAQ -->
     <!-- Faq Section -->
-    <section id="faq" class="faq section light-background">
+    <!-- <section id="faq" class="faq section light-background"> -->
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+      <!-- <div class="container section-title" data-aos="fade-up">
         <h2>Frequently Asked Questions</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      </div> -->
+      <!-- End Section Title -->
 
-      <div class="container">
+      <!-- <div class="container">
 
         <div class="row justify-content-center">
 
@@ -651,57 +645,66 @@
                   <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
                 <div class="faq-content">
                   <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
                 <div class="faq-content">
                   <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
                 <div class="faq-content">
                   <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
                 <div class="faq-content">
                   <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-              <div class="faq-item">
+              <!-- <div class="faq-item">
                 <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
                 <div class="faq-content">
                   <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+              </div> -->
+              <!-- End Faq item-->
 
-            </div>
+            <!-- </div>
 
-          </div><!-- End Faq Column-->
+          </div> -->
+          <!-- End Faq Column-->
 
-        </div>
+        <!-- </div>
 
       </div>
 
-    </section><!-- /Faq Section -->
+    </section> -->
+    <!-- /Faq Section -->
+     
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
@@ -711,10 +714,10 @@
         <div class="row align-items-center">
 
           <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-            <h3>Testimonials</h3>
+            <h3>RESEÑAS:</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+              Checa esta reseñas que tenemos para ti de otros cliente que han
+              confiado en nosotros, ¿Que esperas? y forma parte de ellos:
             </p>
           </div>
 
@@ -736,6 +739,8 @@
                   }
                 }
               </script>
+
+              <!-- Empieza sección de las sereñas (contenido) -->
               <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
@@ -743,8 +748,8 @@
                     <div class="d-flex">
                       <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
-                        <h3>Saul Goodman</h3>
-                        <h4>Ceo &amp; Founder</h4>
+                        <h3>"EJEMPLO cliente:" Saul Goodman</h3>
+                        <h4>Cliente &amp; CEO</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -752,7 +757,9 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                      <span>"EJEMPLO Reseña:" Los agentes son muy profesionales, te explican 
+                        las cosas de forma clara y sincera. Te asesoran de 
+                        manera efectiva y te orientan según tus necesidades.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -763,8 +770,8 @@
                     <div class="d-flex">
                       <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
-                        <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
+                        <h3>"EJEMPLO cliente:" Sara Wilsson</h3>
+                        <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -772,7 +779,11 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                      <span> "EJEMPLO Reseña:" Me atendieron muy bien, me buscaron un 
+                        seguro que necesitaba a un precio muy bueno.
+                        Además te van haciendo seguimiento y te avisan 
+                        de cuando te caduca para renovar o buscar otro 
+                        con mejores condiciones.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -783,8 +794,8 @@
                     <div class="d-flex">
                       <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
-                        <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
+                        <h3>"EJEMPLO cliente:" Jena Karlis</h3>
+                        <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -792,7 +803,10 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                      <span>"EJEMPLO Reseña:" Precio super competitivo
+                        Ofrece seguros con compañías top a mucho mejor 
+                        precio que la mayoría de corredores de seguros.
+                        Por ahora encantada</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -804,7 +818,7 @@
                       <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>Matt Brandon</h3>
-                        <h4>Freelancer</h4>
+                        <h4>"EJEMPLO cliente:" Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -812,7 +826,8 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                      <span>"EJEMPLO Reseña:" Desde el principio,muy buena atención,están pendientes de todo.
+                        Después de contratar también ha seguido siendo todo muy fácil.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
@@ -824,7 +839,7 @@
                       <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
                       <div>
                         <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
+                        <h4>"EJEMPLO cliente:" Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -832,13 +847,17 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                      <span>"EJEMPLO Reseña:" Rápidos, trato muy bueno, 
+                        en todo momento estuvieron pendientes.
+                        A la hora de informarme fueron sinceros.
+                        Les recomendaría sin dudarlo.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
                   </div>
                 </div><!-- End testimonial item -->
 
               </div>
+              <!-- Termina sección de reseñas (contenido) -->
               <div class="swiper-pagination"></div>
             </div>
 
@@ -855,8 +874,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Galeria</h2>
+        <p>Mira un poco de nuestra galeria y sobre nuestros servicios en formato de fotos:</p>
       </div><!-- End Section Title -->
 
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
@@ -943,59 +962,93 @@
         <p>Te dejamos nuestro contacto directo para que puedas obtener mas información, de igual forma podemos contactarnos contigo llenando el siguiente formulario:</p>
       </div><!-- End Section Title -->
 
-      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div><!-- End Google Maps -->
+      <!-- Se comenta la parte de maps para quitarla Leonardo -->
+      <!-- <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border:0; width: 100%; height: 270px;" src="https: //www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div> -->
+      <!-- End Google Maps -->
+       <!-- se termina de comentar sección de maps Leonardo -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
+          <!-- se odifica información con info de cliente Leonardo -->
           <div class="col-lg-4">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3>Location</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h3>Nuestra Localización:</h3>
+                <p>"EJEMPLO Localización:" A108 Adam Street, New York, NY 535022</p>
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <h3>Muestro telefono:</h3>
+                <p>"EJEMPLO telefono" +1 5589 55488 55</p>
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
+                <h3>Nuestro Email:</h3>
+                <p>"EJEMPLO Email:" inmuno@correo.com</p>
               </div>
             </div><!-- End Info Item -->
 
           </div>
+          <!-- Se tertmina de actualizar sección de contacto directo -->
 
           <div class="col-lg-8">
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <p>Ingresa tu nombre:</p>
+                  <input type="text" name="name" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <p>Ingresa tu apellido:</p>
+                  <input type="text" name="apellido" class="form-control" placeholder="Solo primer apellido" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <p>Ingresa tu telefono</p>
+                  <input type="text" class="form-control" name="telefono" placeholder="Tu Telefono" required="">
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-6 ">
+                  <p>Ingresa tu Email:</p>
+                  <input type="email" class="form-control" name="email" placeholder="Tu correo personal" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <!-- The second value will be selected initially -->
+
+                  <!-- Se agrega un label para poder elegir opciones de interes LeonardoGeishow -->
+                  <label for="dog-names">Eligue el tema de tu interes:</label>
+                      <select name="dog-names" id="dog-names">
+                        <option value="rigatoni">Elige una opción</option>
+                        <option value="rigatoni">Mas sobre los seguros</option>
+                        <option value="dave">Cotizar</option>
+                        <option value="pumpernickel">Dudas sobre pagos</option>
+                        <option value="reeses">Dudas en general y sugerencias</option>
+                      </select>
+
+                </div>
+
+                <!-- Se Inhabilita subject Leonardo -->
+                <!-- <div class="col-md-12">
                   <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
+                </div> -->
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <p>Comparte tus comentarios y/o sugerencias:</p>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Inserta tus comentarios" required=""></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -1003,7 +1056,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit">Enviar</button>
                 </div>
 
               </div>
@@ -1024,15 +1077,17 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Medilab</span>
+            <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
+            <span class="sitename">Inmunolife</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
+            <p> "EJEMPLO ubicación:" A108 Adam Street</p>
             <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p class="mt-3"><strong>"EJEMPLO telefono:" Telefono:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>"EJEMPLO email:" Email:</strong> <span>inmuno@correo.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
+            <h4>Nuestras Redes Sociales</h4>
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
             <a href=""><i class="bi bi-instagram"></i></a>
@@ -1041,7 +1096,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Links Utiles</h4>
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
@@ -1052,17 +1107,20 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Nuestros Servicios</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Pagos</a></li>
+            <li><a href="#">Cotizaciones</a></li>
+            <li><a href="#">Contacto</a></li>
+
+            <!-- Se desabilita dos listas LeonardoGeishow -->
+            <!-- <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li> -->
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
+        <!-- Se deshabilita una seccion de footer completa LeonardoGeishow-->
+        <!-- <div class="col-lg-2 col-md-3 footer-links">
           <h4>Hic solutasetp</h4>
           <ul>
             <li><a href="#">Molestiae accusamus iure</a></li>
@@ -1071,16 +1129,14 @@
             <li><a href="#">Dilecta</a></li>
             <li><a href="#">Sit quas consectetur</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
+          <h4>Enlaces Importantes</h4>
           <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
+            <li><a href="#">Nuestro recorrido</a></li>
+            <li><a href="#">Nuestra historia</a></li>
+            <li><a href="#">Compañia que nos respaldan</a></li>
           </ul>
         </div>
 
@@ -1088,10 +1144,12 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Medilab</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Inmunolife</strong> <span>All Rights Reserved</span></p>
     </div>
 
   </footer>
+
+  <!-- Se termina de modificar ionformación del footer -->
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
