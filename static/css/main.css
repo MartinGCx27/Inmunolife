@@ -32,8 +32,8 @@
   --default-color: #A2061D; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #c02135; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #c02135; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #bdbdbd; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #bdbdbd; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --surface-color: #f5f3f3; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #f5f3f3; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -47,12 +47,15 @@
 -Emix
 */
 :root {
-  --nav-color: black;  /* The default color of the main navmenu links */
+  /*Se modifica colores de los links -LGS*/
+  --nav-color: #030303;  /* The default color of the main navmenu links */
   --nav-hover-color: #A2061D; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #c02135; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ebebee; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  /*Se modifica colores del fondo del dropdown -LGS*/
+  --nav-dropdown-background-color: #e9e6e6; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #A2061F; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #bb727b; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  /*Se modifica colores del hover de las letras -LGS*/
+  --nav-dropdown-hover-color: #050404; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -247,11 +250,11 @@ h6 {
 }
 
 .header .topbar {
-  background-color: var(--accent-color);
+  background-color: var(--nav-dropdown-color);
   height: 40px;
   padding: 0;
   font-size: 14px;
-  transition: all 0.5s;
+  transition: all 0.4s;
 }
 
 .header .topbar .contact-info i {
@@ -284,7 +287,7 @@ h6 {
 }
 
 .header .topbar .social-links a {
-  color: color-mix(in srgb, var(--contrast-color), transparent 40%);
+  color: color-mix(in srgb, var(--contrast-color), transparent 20%); /*se modifica el contraste de los social links -LGS*/
   line-height: 0;
   transition: 0.3s;
   margin-left: 20px;
@@ -308,7 +311,7 @@ h6 {
   margin-right: 2px;
 }
 
-/* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo */
+/* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
 .logo-inmuno{
   width: 8em;
 }
@@ -630,7 +633,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #dddada; /*Se cambia color de fondo del footer -LGS*/
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
   font-size: 14px;
   position: relative;
@@ -716,7 +719,7 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
   display: inline-block;
   line-height: 1;
 }
@@ -1007,14 +1010,19 @@ section,
 }
 
 .hero .content .why-box .more-btn:hover {
-  background: var(--surface-color);
+  background: #f5f3f3; /*Se cambia color del boton al hace evento hover -LGS*/
   color: var(--accent-color);
+}
+
+/*Se agrega esta clase para uso gloals de algunos titulos para un color blanco -LGS*/
+.font-inmuno{
+  color:#ebebeb;
 }
 
 .hero .content .icon-box {
   text-align: center;
   border-radius: 10px;
-  background: color-mix(in srgb, var(--surface-color), transparent 20%);
+  background: color-mix(in srgb, #464545, transparent 20%); /*Se modifican los colores de las cards a un gris mas fuerte -LGS*/
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 40px 30px;
   width: 100%;
@@ -1022,7 +1030,7 @@ section,
 /* Cambio de color de los iconos de ventana hero - #C02135 -Emix*/
 .hero .content .icon-box i {
   font-size: 40px;
-  color: var(#C02135);
+  color: #f5f3f3; /*Se cambia el color de la fuente de la card del contenido de inicio -LGS*/
 }
 
 .hero .content .icon-box h4 {
@@ -1033,7 +1041,7 @@ section,
 
 .hero .content .icon-box p {
   font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, #f5f3f3, transparent 30%);
 }
 
 /*--------------------------------------------------------------
@@ -1101,7 +1109,7 @@ section,
 }
 
 .stats .stats-item {
-  background-color: var(--surface-color);
+  background-color: #464545;
   margin-top: -27px;
   padding: 30px 30px 25px 30px;
   width: 100%;
@@ -1117,7 +1125,7 @@ section,
   display: block;
   margin: 10px 0;
   font-weight: 700;
-  color: var(--heading-color);
+  color: white;
 }
 
 .stats .stats-item p {
@@ -1125,6 +1133,7 @@ section,
   margin: 0;
   font-family: var(--heading-font);
   font-size: 16px;
+  color: white;
 }
 
 /*--------------------------------------------------------------
@@ -1132,9 +1141,9 @@ section,
 --------------------------------------------------------------*/
 /* Cambio de color del background de los cajones de sección "mercado objetivo" -#a3a3a3 -Emix*/
 .services .service-item {
-  background-color: var(#a3a3a3);
+  background-color: #dfdcdc; /*Se modifica color del fondo de la card para que se distinga del fondo -LGS*/
   text-align: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 75%);
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
   height: 100%;
@@ -1179,9 +1188,9 @@ section,
   font-size: 22px;
 }
 
-.services .service-item p {
+.services .service-item h5 {
   line-height: 24px;
-  font-size: 14px;
+  font-size: 3vh; /*Se modifica medida de fuente a responsiva -LGS*/
   margin-bottom: 0;
 }
 
@@ -1203,8 +1212,8 @@ section,
 }
 
 .services .service-item:hover h3,
-.services .service-item:hover p {
-  color: var(--contrast-color);
+.services .service-item:hover h5 {
+  color: #f5f3f3; /*Se cambia el color de la leta al hacer la transicion del hover a un blnaco nitido -LGS*/
 }
 
 /*--------------------------------------------------------------
@@ -1287,13 +1296,14 @@ section,
 }
 
 .departments .nav-link:hover {
-  color: var(--accent-color);
+  color: #181a19;
+  background-color: #c9c9c9;
 }
 
 .departments .nav-link.active {
-  color: var(--accent-color);
+  color: #880418;
   border-color: var(--accent-color);
-  background-color: var(--background-color);
+  background-color: #d3cfcf; /*Se agrega este background-color nuevo para dejar marcada la pregunta selccionada -LGS*/
 }
 
 .departments .tab-pane.active {
@@ -1302,7 +1312,7 @@ section,
 
 .departments .details h3 {
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 600px;
   margin-bottom: 20px;
 }
 
@@ -1754,3 +1764,12 @@ section,
   /* Add your styles here */
 }
 
+/*inicio de la clase para dropdown de contactanos elegir opción*/
+.drop-inmuno{
+  background-color: #A2061D;
+}
+
+.dropdown-item:hover{
+  background-color: #9b9999;
+}
+/*Fin de la clase para dropdown de contactanos elegir opción*/

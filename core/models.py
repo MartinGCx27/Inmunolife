@@ -52,22 +52,26 @@ class Meta:
     verbose_name = 'Usuario'
     verbose_name_plural = 'Usuarios'
     ordering = ['id']
-
+'''
 
 
     
+#Se agrega blank=FALSE para validar no tener campos vacios -LGS
 
 class Contactos(models.Model):
-    nombre = models.CharField(max_length=100, null=False, unique=True, verbose_name='Nombre')
-    apellido = models.CharField(max_length=100, null=False, unique=True, verbose_name='Apellido')
-    email = models.EmailField(null=False, unique=True, verbose_name="Email")
-    telefono = models.IntegerField(null=True, unique=False, verbose_name='Telefono')
-    comentarios = models.TextField(null=True, verbose_name='Comentarios')
-    fecha_alta = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
-    estado = models.BooleanField(null=False, verbose_name='Estado')
+    name_contact = models.CharField(max_length=100, null=False, blank=False, unique=False, verbose_name='Nombre')
+    lastname_contact = models.CharField(max_length=100, null=False, blank=False, unique=False, verbose_name='Apellido')
+    email_contact = models.EmailField(null=False, blank=False, unique=True, verbose_name="Email")
+    phone_contact = models.IntegerField(
+        validators=[MinValueValidator(10), MaxValueValidator(10)]
+        , null=True, blank=False ,unique=True, verbose_name='Telefono')
+    topic_contact = models.TextField(null=True, unique=False, blank=False ,verbose_name='Tema de elección')
+    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
+    date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
+    status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')
     
     def __str__(self):
-        return self.nombre
+        return self.name_contact
     class Meta:
         db_table = 'contact'
         verbose_name = 'Contactos'
@@ -91,4 +95,4 @@ class Posts(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ['id']
-        '''
+

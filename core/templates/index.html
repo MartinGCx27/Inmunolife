@@ -152,7 +152,7 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
                     <i class="bi bi-clipboard-data"></i>
-                    <h4>Suscribete</h4>
+                    <h4 class="font-inmuno">Suscribete</h4>
                     <p>Adquiere tu membresía de salud y bienestar integral, con está
                       membresía tendrás derecho a servicios de gastos medicos mayores sin deducible y
                       coaseguro.</p>
@@ -162,7 +162,7 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
                     <i class="bi bi-gem"></i>
-                    <h4>Inmuno</h4>
+                    <h4 class="font-inmuno">Inmuno</h4>
                     <p>Tu acceso a la mejor atención médica.</p>
                   </div>
                 </div><!-- End Icon Box -->
@@ -304,8 +304,8 @@
               <!--Se le quita la siguiente etiqutea a las cards de services con class:streched-link: href="#hero" -Emix -->
               <a class="stretched-link">
               </a>
-              <p>Personas que no pueden permitirse una membresia médicoa de
-                gastos mayores individual debido a su alto costo.</p>
+                <h5>Personas que no pueden permitirse una membresia médicoa de
+                gastos mayores individual debido a su alto costo.</h5>
             </div>
           </div><!-- End Service Item -->
 
@@ -316,8 +316,10 @@
               </div>
               <a class="stretched-link">      
               </a>
-              <p>Familias que buscan acceso a servicios médicos por
-                enfermedades de alto riego y emergencias por accidentes.</p>
+              <h5>
+                Familias que buscan acceso a servicios médicos por
+                enfermedades de alto riego y emergencias por accidentes.
+              </h5>
             </div>
           </div><!-- End Service Item -->
 
@@ -328,8 +330,11 @@
               </div>
               <a href= class="stretched-link">
               </a>
-              <p>Trabajadores independientes o pequeños empresarios
-                interesados en proteger su salud y la de sus empleados.</p>
+              <h5>
+                Trabajadores independientes o pequeños empresarios
+                interesados en proteger su salud y la de sus empleados.
+              </h5>
+              
             </div>
           </div><!-- End Service Item -->
 
@@ -340,8 +345,11 @@
               </div>
               <a class="stretched-link">           
               </a>
-              <p>Personas con un alto nivel de consiencia para evitar cualquier
-                contingencia medica en el futuro.</p>
+              <h5>
+                Personas con un alto nivel de consiencia para evitar cualquier
+                contingencia medica en el futuro.
+              </h5>
+              
               <a class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
@@ -351,7 +359,76 @@
 
     </section><!-- /Services Section -->
 
+    
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment section">
 
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Registrarse</h2>
+        <p>Registrar usuario de administrador</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu celular" required="">
+
+
+            </div>
+          </div>
+             {% comment %} 
+             Se comenta parte innecesaria de registrar usuario, ocultando campos -Emix
+          <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
+            </div>
+         
+            
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select" required="">
+                <option value="">Select Department</option>
+                <option value="Department 1">Department 1</option>
+                <option value="Department 2">Department 2</option>
+                <option value="Department 3">Department 3</option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="doctor" id="doctor" class="form-select" required="">
+                <option value="">Select Doctor</option>
+                <option value="Doctor 1">Doctor 1</option>
+                <option value="Doctor 2">Doctor 2</option>
+                <option value="Doctor 3">Doctor 3</option>
+              </select>
+            </div>
+          </div>
+          {% endcomment %}
+          <!--Se recorrio el endcomment  ya que se estaba comiendo un boton para el registro y esto hacia
+          que el boton de contactanos sirviera para registro a falta de un boton pata el mismo -LGS-->
+
+          <!--Se inhabilita la opción de mensaje, 
+          preguntar a emix si si la usara para el registro o usarala para agregar otro campo-->
+          <!-- <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+          </div> -->
+          <div class="mt-3">
+            <div class="loading">Cargando</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Felicidades, tu registro fue un exito!!!</div>
+            <div><button type="submit">Registrate</button></div>
+            <!--Se cambia el registro a español los div -LGS-->
+          </div>
+        </form>
+
+      </div> 
 
     </section><!-- /Appointment Section -->  
 
@@ -456,7 +533,7 @@
       <!-- End Section Title -->
       <!--emix Statics (de aqui para arriba)-->
 
-<!--Parte que hizo Leonardo GEIshow-->
+<!--Parte que hizo LGS-->
 
 
       <!-- <div class="container">
@@ -720,7 +797,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span> "EJEMPLO Reseña:" Me atendieron muy bien, me buscaron una
+                      <span> "EJEMPLO Reseña:" Me atendieron muy bien, me buscaron una 
                         membresia que necesitaba a un precio muy bueno.
                         Además te van haciendo seguimiento y te avisan 
                         de cuando te caduca para renovar o buscar otro 
@@ -745,8 +822,8 @@
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
                       <span>"EJEMPLO Reseña:" Precio super competitivo
-                        Ofrece seguros con compañías top a mucho mejor 
-                        precio que la mayoría de corredores de seguros.
+                        Ofrece membresias con compañías top a mucho mejor 
+                        precio que la mayoría de corredores de membresias.
                         Por ahora encantada</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
@@ -942,29 +1019,34 @@
 
           </div>
           <!-- Se tertmina de actualizar sección de contacto directo -->
-
+          {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+          </div>
+          {% endif %}
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+
               <div class="row gy-4">
 
                 <div class="col-md-6">
                   <p>Ingresa tu nombre:</p>
-                  <input type="text" name="name" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="">
+                  <input type="text" name="name_contact" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="">
                 </div>
 
                 <div class="col-md-6">
                   <p>Ingresa tu apellido:</p>
-                  <input type="text" name="apellido" class="form-control" placeholder="Solo primer apellido" required="">
+                  <input type="text" name="lastname_contact" class="form-control" placeholder="Solo primer apellido" required="">
                 </div>
 
                 <div class="col-md-6 ">
                   <p>Ingresa tu telefono</p>
-                  <input type="text" class="form-control" name="telefono" placeholder="Tu Telefono" required="">
+                  <input type="text" class="form-control" name="phone_contact" placeholder="Tu Telefono" required="">
                 </div>
 
                 <div class="col-md-6 ">
                   <p>Ingresa tu Email:</p>
-                  <input type="email" class="form-control" name="email" placeholder="Tu correo personal" required="">
+                  <input type="email" class="form-control" name="email_contact" placeholder="Tu correo personal" required="">
                 </div>
 
                 <div class="col-md-6 ">
@@ -972,13 +1054,49 @@
 
                   <!-- Se agrega un label para poder elegir opciones de interes LeonardoGeishow -->
                   <label for="dog-names">Eligue el tema de tu interes:</label>
-                      <select name="dog-names" id="dog-names">
+
+                  <div class="dropdown" name="topic_contact">
+                    <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button" 
+                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" onclick="FbotonOn()">
+                      Elige una opcion
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" role="button">Mas sobre las membresias</a></li>
+                      <li><a class="dropdown-item" role="button">Cotizar</a></li>
+                      <li><a class="dropdown-item" role="button">Dudas sobre pagos</a></li>
+                      <li><a class="dropdown-item" role="button">Dudas en general y sugerencias</a></li>
+                    </ul>
+                  </div>
+
+                  <script>
+                    // JavaScript para dejar marcada la opción seleccionada
+                    document.querySelectorAll('.dropdown-item').forEach(item => {
+                      item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Obtener el texto de la opción seleccionada
+                        const selectedText = this.textContent;
+                        
+                        // Actualizar el texto del botón
+                        document.getElementById('dropdownMenuButton').textContent = selectedText;
+                        
+                        // Cerrar el dropdown después de seleccionar
+                        const dropdown = this.closest('.dropdown');
+                        const button = dropdown.querySelector('.dropdown-toggle');
+                        bootstrap.Dropdown.getInstance(button).hide();
+                      });
+                    });
+                    </script>
+                  
+
+                      <!-- <select name="dog-names" id="dog-names">
                         <option value="rigatoni">Elige una opción</option>
                         <option value="rigatoni">Mas sobre las membresias</option>
                         <option value="dave">Cotizar</option>
                         <option value="pumpernickel">Dudas sobre pagos</option>
                         <option value="reeses">Dudas en general y sugerencias</option>
-                      </select>
+                      </select> -->
 
                 </div>
 
@@ -993,13 +1111,11 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
+                  <div class="loading">Cargando...</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
+                  <div class="sent-message">Felicidades!!! Tu formulario se envio con exito.</div>
                   <button type="submit">Enviar</button>
                 </div>
-
               </div>
             </form>
           </div><!-- End Contact Form -->
@@ -1086,10 +1202,10 @@
             <span class="sitename">Inmuno</span>
           </a>
           <div class="footer-contact pt-3">
-            <p> "EJEMPLO ubicación:" A108 Adam Street</p>
+            <p><strong>"EJEMPLO ubicación:" </strong>A108 Adam Street</p>
             <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>"EJEMPLO telefono:" Telefono:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>"EJEMPLO email:" Email:</strong> <span>inmuno@correo.com</span></p>
+            <p class="mt-3"><strong>"EJEMPLO telefono:"</strong> Telefono: <span>+1 5589 55488 55</span></p>
+            <p><strong>"EJEMPLO email:"</strong> Email: <span>inmuno@correo.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
             <h4>Nuestras Redes Sociales</h4>
@@ -1103,11 +1219,11 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Links Utiles</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#">Membresias</a></li>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#contact">Contactanos</a></li>
           </ul>
         </div>
 
