@@ -1,22 +1,50 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 #Modelo Emilio
-
+'''
 #Db Login
 #Crea tabla user con los campos name, lastname, second_lastname, email, password, celular (posibles campos: RFC, )
-class User(models.Model):
-    name=models.TextField (max_length=50, null=False, verbose_name="Nombre")
-    lastname=models.TextField (max_length=20, null=False, verbose_name="Primer apeliido")
-    second_lastname=models.TextField (max_length=20, null=False, verbose_name="Segundo apellido")
-    email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico")
-    passrd=models.CharField(max_length=30, null=False, verbose_name="Contraseña")
-    cellphone_number=models.IntegerField(max_length=10, unique=True, null=False, verbose_name="Número de celular")
+class User(AbstractBaseUser):
+    name=models.TextField (max_length=50, null=False, verbose_name="Nombre", blank=False)
+    lastname=models.TextField (max_length=20, null=False, verbose_name="Primer apeliido", blank=False)
+    second_lastname=models.TextField (max_length=20, null=False, verbose_name="Segundo apellido", blank=True)
+    email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico", blank=False)
+    passrd=models.CharField(max_length=30, null=False, verbose_name="Contraseña", blank=False)
+    #Se agrega validadores al campo celular
+    cellphone_number=models.IntegerField(unique=True, null=False, verbose_name="Número de celular", blank=False)(
+        validators=[MinValueValidator (10), MaxValueValidator (10)]
+    )
+    user_active = models.BooleanField (default=True, verbose_name="Usuario activo")
+    user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['email, passrd']
+# class User(models.Model):
+#     name=models.TextField (max_length=50, null=False, verbose_name="Nombre")
+#     lastname=models.TextField (max_length=20, null=False, verbose_name="Primer apeliido")
+#     second_lastname=models.TextField (max_length=20, null=False, verbose_name="Segundo apellido")
+#     email=models.EmailField(null=False, unique=True, verbose_name="Correo electronico")
+#     passrd=models.CharField(max_length=30, null=False, verbose_name="Contraseña")
+#     #Se agrega validadores al campo celular
+#     cellphone_number=models.IntegerField(unique=True, null=False, verbose_name="Número de celular")(
+#         validators=[MinValueValidator (10), MaxValueValidator (10)]
+#     )
 
 #Convertimos la tabla en una variable
 def __str__(self):
-    return self.User
+    return f'User {self.name},{self.lastname},{self.second_lastname}'
+
+def has_perm(self,perm,obj = None):
+    return True
+
+def has_module_perms(self,app_label):
+    return True
+@property
+def is_staff(self):
+    return self.usuario_administrador
     
 #Clase meta con meta datos de la tabla
 class Meta:
@@ -63,3 +91,4 @@ class Posts(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ['id']
+        '''
