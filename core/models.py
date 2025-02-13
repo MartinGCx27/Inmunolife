@@ -54,7 +54,13 @@ class Meta:
     ordering = ['id']
 '''
 
-
+#Arreglo para topic_contact (opciones a elegir) -LGS
+options = [
+    [0, 'Mas sobre las membresias'],
+    [1, 'Cotizar'],
+    [2, 'Dudas sobre pagos'],
+    [3, 'Dudas en general y sugerencias'],
+]
     
 #Se agrega blank=FALSE para validar no tener campos vacios -LGS
 
@@ -65,7 +71,7 @@ class Contactos(models.Model):
     phone_contact = models.IntegerField(
         validators=[MinValueValidator(10), MaxValueValidator(10)]
         , null=True, blank=False ,unique=True, verbose_name='Telefono')
-    topic_contact = models.TextField(null=True, unique=False, blank=False ,verbose_name='Tema de elección')
+    topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
     comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')

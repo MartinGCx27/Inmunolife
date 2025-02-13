@@ -1026,27 +1026,28 @@
           {% endif %}
           <div class="col-lg-8">
             <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-
+              {% csrf_token %}
+              
               <div class="row gy-4">
 
                 <div class="col-md-6">
                   <p>Ingresa tu nombre:</p>
-                  <input type="text" name="name_contact" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="">
+                  <input type="text" name="name_contact" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="" value="{{ form.name_contact.value|default:'' }}">
                 </div>
 
                 <div class="col-md-6">
                   <p>Ingresa tu apellido:</p>
-                  <input type="text" name="lastname_contact" class="form-control" placeholder="Solo primer apellido" required="">
+                  <input type="text" name="lastname_contact" class="form-control" placeholder="Solo primer apellido" required="" value="{{ form.lastname_contact.value|default:'' }}">
                 </div>
 
                 <div class="col-md-6 ">
                   <p>Ingresa tu telefono</p>
-                  <input type="text" class="form-control" name="phone_contact" placeholder="Tu Telefono" required="">
+                  <input type="number" class="form-control" name="phone_contact" placeholder="Tu Telefono" required="" value="{{ form.phone_contact.value|default:'' }}">
                 </div>
 
                 <div class="col-md-6 ">
                   <p>Ingresa tu Email:</p>
-                  <input type="email" class="form-control" name="email_contact" placeholder="Tu correo personal" required="">
+                  <input type="email" class="form-control" name="email_contact" placeholder="Tu correo personal" required="" value="{{ form.email_contact.value|default:'' }}">
                 </div>
 
                 <div class="col-md-6 ">
@@ -1107,7 +1108,7 @@
 
                 <div class="col-md-12">
                   <p>Comparte tus comentarios y/o sugerencias:</p>
-                  <textarea class="form-control" name="message" rows="6" placeholder="Inserta tus comentarios" required=""></textarea>
+                  <textarea class="form-control" name="comments_contact" rows="6" placeholder="Inserta tus comentarios" required="">{{ form.comments_contact.value|default:'' }}</textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
