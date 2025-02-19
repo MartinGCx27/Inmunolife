@@ -3,7 +3,6 @@
 from django.conf import settings
 import django.core.validators
 from django.db import migrations, models
-import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -23,7 +22,7 @@ class Migration(migrations.Migration):
                 ('lastname_contact', models.CharField(max_length=100, verbose_name='Apellido')),
                 ('email_contact', models.EmailField(max_length=254, unique=True, verbose_name='Email')),
                 ('phone_contact', models.IntegerField(null=True, unique=True, validators=[django.core.validators.MinValueValidator(10), django.core.validators.MaxValueValidator(10)], verbose_name='Telefono')),
-                ('topic_contact', models.TextField(null=True, verbose_name='Tema de elección')),
+                ('topic_contact', models.IntegerField(choices=[[0, 'Mas sobre las membresias'], [1, 'Cotizar'], [2, 'Dudas sobre pagos'], [3, 'Dudas en general y sugerencias']], null=True, verbose_name='Tema de elección')),
                 ('comments_contact', models.TextField(null=True, verbose_name='Comentarios')),
                 ('date_contact', models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')),
                 ('status_contact', models.BooleanField(default=False, verbose_name='Estado')),

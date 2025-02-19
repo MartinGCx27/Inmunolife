@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect #Se agrega redirect de django -Emix
 from django.http import HttpRequest
+from core.forms import FormContact, RegisterForm
 from django.conf import settings #Se importa settings de la configuración  de django -Emix
 from django.contrib import messages #Se importa messages de django -Emix
 from django.contrib.auth import login
+from .models import User
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
-from core.forms import FormContact, RegisterForm
-from .models import User
-
 
 
 
@@ -25,7 +24,56 @@ def register_user(request):
     
 
     return render(request, "index.html")
+# Función para registrar usuarios 2, -Emix
+# def User(request):
+#     RegistroUsuarioForm = User()
+#     return render(request, 'index.html', {'form': RegistroUsuarioForm})
 
+#     if request.method == 'POST':
+#         RegistroUsuarioForm.save()
+        
+#         return redirect(reverse('home'+'?ok'))
+#     else: 
+#         return redirect(reverse('home'+'?error'))
+# #     # Función para registrar usuarios -Emix
+# def registro_view(request):
+#     error = None
+    
+#     if request.method == 'POST':
+#         try:
+#             if len(cellphone_number) != 10:
+#                 raise ValidationError("El número de celular debe tener 10 dígitos.")
+#                 validate_integer(cellphone_number)
+#         except ValidationError as e:
+#             error = str(e)
+
+#         name = request.POST.get('name')
+#         lastname = request.POST.get('lastname')
+#         second_lastname = request.POST.get('second_lastname')
+#         email = request.POST.get('email')
+#         cellphone_number = request.POST.get('cellphone_number')
+#         password = request.POST.get('password')
+        
+#         if not all([name, lastname, email, cellphone_number, password]):
+#             error = "Todos los campos marcados como obligatorios deben ser llenados."
+#         else:
+#             if User.objects.filter(email=email).exists():
+#                 error = "Este correo electrónico ya está registrado."
+#             elif User.objects.filter(cellphone_number=cellphone_number).exists():
+#                 error = "Este número de celular ya está registrado."
+#             else:
+#                 User.objects.create(
+#                     name=name,
+#                     lastname=lastname,
+#                     second_lastname=second_lastname,
+#                     email=email,
+#                     cellphone_number=cellphone_number,
+#                     password=make_password(password),
+#                     is_active=True,
+#                 )
+#                 return redirect('index.html') 
+    
+#     return render(request, 'index.html', {'error': error})
 
 class FormContactView(HttpRequest):
 
