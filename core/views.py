@@ -1,5 +1,5 @@
 from django.views.generic import CreateView
-from django.urls import reverse_lazy, redirect #Se agrega redirect de django -Emix
+from django.urls import reverse_lazy #Se agrega redirect de django -Emix
 from django.contrib import messages
 from .models import Contactos
 from .forms import FormContact, RegisterForm
@@ -10,6 +10,7 @@ from django.contrib.auth import login
 from .models import User
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
+from django.shortcuts import render, redirect
 
 
 
@@ -40,7 +41,7 @@ class inmunolife_home(CreateView):
         return super().form_valid(form)
     def form_invalid(self, form):
          # Asegúra de mostrar los errores si el formulario es inválido
-         return super().form_invalid(form)
+        return super().form_invalid(form)
 
 
 
