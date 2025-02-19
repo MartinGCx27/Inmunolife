@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Se edita template completo para que sea igual que el Index, -Emix-->
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
    <!-- <title> Index - Medilab Bootstrap Template </title> -->
-  <title>Inmuno | {% block title %} {% endblock %}</title>
+  <title>Inmuno |Login {% block title %} {% endblock %}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
     <!--Template tag load static-->
@@ -111,47 +111,77 @@
   
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Starter Page</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
-            </div>
+<!-- Modal de Inicio de Sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="loginEmail" required>
           </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="loginPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+        <div class="text-center mt-3">
+          <p>¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate</a></p>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
+    </div>
+  </div>
+</div>
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
+<!-- Modal de Registro -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="registerName" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerLastName1" class="form-label">Primer Apellido</label>
+            <input type="text" class="form-control" id="registerLastName1" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerLastName2" class="form-label">Segundo Apellido</label>
+            <input type="text" class="form-control" id="registerLastName2">
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="registerEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="registerPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPhone" class="form-label">Número de Celular</label>
+            <input type="tel" class="form-control" id="registerPhone" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-    </section><!-- /Starter Section Section -->
 
-  </main>
-
-</main>
-
+<!--footer-->
 <footer id="footer" class="footer light-background">
 
   <div class="container footer-top">
