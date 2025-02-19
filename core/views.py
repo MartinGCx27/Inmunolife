@@ -1,8 +1,33 @@
 from django.views.generic import CreateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, redirect #Se agrega redirect de django -Emix
 from django.contrib import messages
 from .models import Contactos
-from .forms import FormContact
+from .forms import FormContact, RegisterForm
+from django.contrib.auth.hashers import make_password
+from django.conf import settings #Se importa settings de la configuración  de django -Emix
+from django.contrib import messages #Se importa messages de django -Emix
+from django.contrib.auth import login
+from .models import User
+from django.core.validators import validate_integer
+from django.core.exceptions import ValidationError
+
+
+
+
+# Función para registrar usuarios intento 3
+def register_user(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #login(request, user)  --> Inicia sesión automáticamente
+            #return redirect("index")  # Redirige a la página principal
+    else:
+        form = RegisterForm()
+    
+
+    return render(request, "index.html")
+
 
 class inmunolife_home(CreateView):
     model = Contactos
@@ -44,6 +69,30 @@ class inmunolife_home(CreateView):
 
 # Create your views here.
 # Home view
-# def inmunolife_home(request):
-#     contact_form = FormContact()
-#     return render(request, "index.html")
+def inmunolife_home(request):
+    return render(request, "index.html")
+
+
+#Función para el captcha en index -Emix
+def index_page(request):
+    if request.method == 'POST':
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        
+        data = {
+            'secret': settings.RECAPTCHA_SECERET_KEY,
+            'respone': recaptcha_response
+        }
+        verify_url = 'https://www.google.com/recaptcha/api.siteverify'
+        response = request.post(verify_url, data=data)
+        result = response.json()
+        
+        if result.get('success'):
+            
+            return redirect('success')
+        
+        else:
+            messages.error(request, 'verificación del reCAPTCHA fallida. Por favor intentelo de nuevo')
+            
+    return render (request, 'index.html')
+        
+        

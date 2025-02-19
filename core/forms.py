@@ -1,6 +1,7 @@
 from django import forms
-from .models import Contactos
+from .models import Contactos, Register
 
+# formulario para contactanos -LGS
 class FormContact(forms.ModelForm):
     class Meta:
         model = Contactos
@@ -13,4 +14,15 @@ class FormContact(forms.ModelForm):
             'topic_contact': forms.Select(attrs={'class': 'dropdown-item'}),
             'comments_contact': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Inserta tus comentarios', 'rows': 6}),
         }
+        
+        
+
+# Clase para registrar usuarios
+class RegisterForm(forms.ModelForm):
+    class Meta:
+        model = Register
+        fields = [
+            'name',
+            'second_lastname'
+            ]
         

@@ -79,9 +79,9 @@
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="#hero" class="logo d-flex align-items-center me-auto"> <!--Se modifica href:index.html por "#hero" -Emix-->
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-           <!-- Se modifica logo agregando logo de Inmuno -Emix-->
+        <a href="#hero" class="logo d-flex align-items-center me-auto"> 
+          <!--Se modifica href:index.html por "#hero" -Emix-->
+          <!-- Se modifica logo agregando logo de Inmuno -Emix-->
           <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotype Inmuno red lion"> 
           <h1 class="sitename">Inmuno</h1>
         </a>
@@ -109,7 +109,7 @@
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="cta-btn d-none d-sm-block" href="#appointment">Iniciar sesión</a>
+        <a class="cta-btn d-none d-sm-block" href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
 
       </div>
 
@@ -117,63 +117,166 @@
 
   </header>
 
+  <!--Se agrega modal par inicio de sesión y modal para registrarse - Emix-->
+  <!--Modal de Inicio de Sesión -Emix -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Se modifica form para que funcione el captcha -Emix-->
+          <form class="forms" action="{% url 'home'%}" method="POST">
+            {% csrf_token %}  
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+             <!-- Se agrega widget de captcha -Emix-->
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"> </div> <!--Falta agregar Captcha del sitio ya desplegado-->
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+          </form>
+          <div class="text-center mt-3">
+            <p>¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Registro -Emix -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Se modifica form para que funcione el captcha -Emix-->
+          <form class="forms" action="{% url 'register_user'%}" method="POST">
+            {% csrf_token %}  <!-- Token de seguridad obligatorio -->
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Nombre</label>
+              <input name="name" type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName1" class="form-label">Primer Apellido</label>
+              <input type="text" class="form-control" id="registerLastName1" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName2" class="form-label">Segundo Apellido</label>
+              <input name="second_lastname" type="text" class="form-control" id="registerLastName2">
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPhone" class="form-label">Número de Celular</label>
+              <input type="tel" class="form-control" id="registerPhone"required pattern="[0-9]+">
+            </div>
+            <!-- Se agrega widget de captcha -Emix-->
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div> <!--Falta agregar Captcha del sitio ya desplegado-->
+            <button id="button-register" name="registerb" type="submit" class="btn btn-primary w-100">Registrarse</button>
+          </form>
+          <!-- Mostrar si todo sale correctamente -->
+          {% if 'ok' in request.GET %}
+          <div>
+            <strong> Usuario registrado con exito </strong>
+          {% endif %}
+          <!-- Mostrar errores si existen -->
+          {% if error %}
+          <strong> No se ha podido generar el usuario, por favor intentelo mas tarde </strong>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
   <main class="main">
 
-    <!-- Hero Section -->
-     <!-- Modificacion de ventana inicio, emix-->
-    <section id="hero" class="hero section light-background">
 
-      <img src="{% static 'img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+<!--Se hace modificación de todo la sección hero para agregar imagenes y efectos, así como las membresias -Emix -->
+<!--Se agregan membresias e info, quitando información de las primeras 2 cards originales -Emix -->
+<!-- Hero Section -->
+<section id="hero" class="hero section light-background">
 
-      <div class="container position-relative">
+  <img src="{% static 'img/hero-bg.jpg' %}" alt="" data-aos="fade-in"> 
 
-        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h2>Bienvenido a Inmuno</h2>
-          <p>Red de salud que te acompaña siempre.</p>
-        </div><!-- End Welcome -->
+  <div class="container position-relative">
 
-        <div class="content row gy-4">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
-              <h3>¿Quiénes somos?</h3>
-              <p>
-                Empresa comprometida con la salud y bienestar de sus socios y familiares, otorgando   los mejores servicios médicos ante cualquier situación inesperada.
-              </p>
-              <div class="text-center">
-                <a href="#about" class="more-btn"><span>Conoce más de Inmuno</span> <i class="bi bi-chevron-right"></i></a>
-              </div>
-            </div>
-          </div><!-- End Why Box -->
+    <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+      <h2>Bienvenido a Inmuno</h2>
+      <p>Red de salud que te acompaña siempre.</p>
+    </div><!-- End Welcome -->
 
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="d-flex flex-column justify-content-center">
-              <div class="row gy-4">
-
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
-                    <i class="bi bi-clipboard-data"></i>
-                    <h4 class="font-inmuno">Suscribete</h4>
-                    <p>Adquiere tu membresía de salud y bienestar integral, con está
-                      membresía tendrás derecho a servicios de gastos medicos mayores sin deducible y
-                      coaseguro.</p>
-                  </div>
-                </div><!-- End Icon Box -->
-
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
-                    <i class="bi bi-gem"></i>
-                    <h4 class="font-inmuno">Inmuno</h4>
-                    <p>Tu acceso a la mejor atención médica.</p>
-                  </div>
-                </div><!-- End Icon Box -->
-              </div>
+    <div class="content row gy-4">
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="icon-box" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+          <div class="icon-content">
+            <h3>¿Quiénes somos?</h3>
+            <p>
+              Empresa comprometida con la salud y bienestar de sus socios y familiares, otorgando los mejores servicios médicos ante cualquier situación inesperada.
+            </p>
+            <div class="text-center">
+              <a href="#about" class="more-btn"><span>Conoce más de Inmuno</span></i></a>
             </div>
           </div>
-        </div><!-- End  Content-->
+        </div>
+      </div><!-- End Why Box -->
 
-      </div>
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de leon again" class="icon-image">
+          <div class="icon-content">
+            <h4 class="font-inmuno">Membresia 1:</h4>
+            <p>Precio Mensual $1,650 <br>
+              Suma Asegurada $1M<br>
+              Renovación Anual de Cobertura<br>
+              Servicio de Urgencias<br>
+              Ambulancia<br>
+              Precio Anual<br>
+              $16,800<br>
+              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS</p>
+          </div>
+        </div>
+      </div><!-- End Icon Box -->
 
-    </section><!-- /Hero Section -->
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de Leon una vez más" class="icon-image">
+          <div class="icon-content">
+            <h4 class="font-inmuno">Membresia 2:</h4>
+            <p>Precio Mensual $1,990<br>
+              Suma Asegurada $2 M<br>
+              Renovación Anual de Cobertura<br>
+              Servicio de Urgencias<br>
+              Ambulancia<br>
+              Cobertura en el extranjero $50 mil USD<br>
+              Precio Anua<br>
+              l$20,500<br>
+              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS</p>
+          </div>
+        </div>
+      </div><!-- End Icon Box -->
+    </div><!-- End Content-->
+
+  </div>
+
+</section><!-- /Hero Section -->
                 
 
     <!-- About Section -->
@@ -1230,6 +1333,9 @@
 
   <!-- Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
+<!--Script para captcha -Emix-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 </body>
 
