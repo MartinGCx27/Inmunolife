@@ -9,16 +9,19 @@ from django.core.validators import MinValueValidator, MaxValueValidator, MinLeng
   #Tabla Usuario -Emix
 class Register(models.Model):  
     name = models.CharField (max_length=20, verbose_name="Nombre", null=False, blank=False)
+    last_name = models.CharField (max_length=25, verbose_name="Primer apellido", null=False, blank=False)
     second_lastname = models.CharField(max_length=20, verbose_name="Segundo apellido", blank=True)
-#     email = models.EmailField(unique=True, verbose_name="Correo electrónico")
-#     cellphone_number = models.CharField(
-#         max_length=10,
-#         unique=True,
-#         validators=[MinLengthValidator(10)],
-#         verbose_name="Número de celular"
-#     )
-#     user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
-#     user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
+    email = models.EmailField(unique=True, verbose_name="Correo electrónico")
+    passrd = models.CharField(max_length= 30, verbose_name='Contraseña', null=False, blank=False)
+    cellphone = models.CharField(
+        max_length=10,
+        unique=True,
+        validators=[MinLengthValidator(10)],
+        verbose_name="Número de celular"
+    )
+
+    user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
+    user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
     
 #     USERNAME_FIELD = 'email'
 #     REQUIRED_FIELDS = ['name', 'lastname', 'cellphone_number']

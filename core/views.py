@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect #Se agrega redirect de django -Emix
 from django.http import HttpRequest
-from core.forms import FormContact, RegisterForm
-from django.contrib.auth.hashers import make_password
 from django.conf import settings #Se importa settings de la configuración  de django -Emix
 from django.contrib import messages #Se importa messages de django -Emix
 from django.contrib.auth import login
-from .models import User
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
+from core.forms import FormContact, RegisterForm
+from .models import User
+
 
 
 
