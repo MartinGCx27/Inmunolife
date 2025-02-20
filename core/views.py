@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import pdb
+=======
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
@@ -20,7 +23,10 @@ from django.shortcuts import render, redirect
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
@@ -36,10 +42,15 @@ class inmunolife_home(CreateView):
         return super().form_valid(form)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         
     def form_invalid(self, form):
         # pdb.set_trace()
         messages.error(self.request, '❌ Error al enviar el formulario. Por favor verifica los campos.')
+=======
+    def form_invalid(self, form):
+        # Asegúra de mostrar los errores si el formulario es inválido
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
     def form_invalid(self, form):
         # Asegúra de mostrar los errores si el formulario es inválido

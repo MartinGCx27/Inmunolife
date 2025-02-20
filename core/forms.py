@@ -11,11 +11,15 @@ class FormContact(forms.ModelForm):
             'lastname_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Tu Apellido'}),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             'phone_contact': forms.NumberInput(attrs={
                                 'class': 'form-control',
                                 'placeholder': 'Tu Teléfono',
                                 'maxlength': '10'
                             }),
+=======
+            'phone_contact': forms.NumberInput(attrs={'class': 'form-control ', 'placeholder': 'Tu Telefono'}),
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
             'phone_contact': forms.NumberInput(attrs={'class': 'form-control ', 'placeholder': 'Tu Telefono'}),
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462

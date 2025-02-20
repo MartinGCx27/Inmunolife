@@ -52,8 +52,13 @@ class Contactos(models.Model):
     email_contact = models.EmailField(null=False, blank=False, unique=True, verbose_name="Email")
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     topic_contact = models.IntegerField(choices=options, null=True, unique=False,verbose_name='Tema de elección')
     comments_contact = models.TextField(null=True, verbose_name='Comentarios')
+=======
+    topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
+    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
     topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
     comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')

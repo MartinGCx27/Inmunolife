@@ -14,10 +14,13 @@ from .views import inmunolife_home
 urlpatterns = [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     # Home
     #Ruta para la vista llamando la clase crerada en views -LGS
     path('', inmunolife_home.as_view(), name='home'),
 =======
+=======
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
     path('', inmunolife_home.as_view(), name='home'),
@@ -26,6 +29,9 @@ urlpatterns = [
     #Ruta para la vista llamando la clase crerada en views -LGS
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
+=======
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 =======
 >>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
