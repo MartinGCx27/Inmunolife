@@ -27,7 +27,7 @@ class inmunolife_home(CreateView):
     def form_invalid(self, form):
         # Asegúra de mostrar los errores si el formulario es inválido
         return super().form_invalid(form)
-
+    
 # Función para registrar usuarios intento 3
 def register_user(request):
     if request.method == "POST":
@@ -109,12 +109,6 @@ class FormContactView(HttpRequest):
             contact = FormContact()
             
         return render(request, 'index.html', {'form':contact, 'mensaje': 'OK'})
-
-# Create your views here.
-# Home view
-# def inmunolife_home(request):
-#     return render(request, "index.html")
-
 
 #Función para el captcha en index -Emix
 def index_page(request):

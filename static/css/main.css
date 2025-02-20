@@ -1807,7 +1807,7 @@ section,
 .form-control {
   border: 1px solid #c02135;
   background-color: #ebebeb;
-  color: #dbdbdb;
+  color: black;
 }
 
 .form-control:focus {
