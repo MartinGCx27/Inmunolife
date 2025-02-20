@@ -80,8 +80,8 @@ def index_page(request):
         recaptcha_response = request.POST.get('g-recaptcha-response')
         
         data = {
-            'secret': settings.RECAPTCHA_SECERET_KEY,
-            'respone': recaptcha_response
+            'secret': settings.RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
         }
         verify_url = 'https://www.google.com/recaptcha/api.siteverify'
         response = request.post(verify_url, data=data)
