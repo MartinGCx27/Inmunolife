@@ -24,7 +24,7 @@ urlpatterns = [
     #path('logout/', logout_then_login, name='logout'),
     
     # Registrar usuario
-    path("register/", register_user, name="register_user")
+    path("register/", views.register_user, name="register_user")
     
 ]
 
