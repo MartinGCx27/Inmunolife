@@ -11,24 +11,6 @@ from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 
-
-
-
-# Función para registrar usuarios intento 3
-def register_user(request):
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            #login(request, user)  --> Inicia sesión automáticamente
-            #return redirect("index")  # Redirige a la página principal
-    else:
-        form = RegisterForm()
-    
-
-    return render(request, "index.html")
-
-      
 class inmunolife_home(CreateView):
     model = Contactos
     form_class = FormContact
@@ -41,6 +23,24 @@ class inmunolife_home(CreateView):
     def form_invalid(self, form):
         # Asegúra de mostrar los errores si el formulario es inválido
         return super().form_invalid(form)
+
+
+# Función para registrar usuarios intento 3
+def register_user(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+             #login(request, user)  --> Inicia sesión automáticamente
+             #return redirect("index")  # Redirige a la página principal
+    else:
+        form = RegisterForm()
+    
+
+    return render(request, "index.html")
+
+
+
 
 
 
@@ -68,6 +68,10 @@ class inmunolife_home(CreateView):
 
 
 # Create your views here.
+# Home view
+# def inmunolife_home(request):
+#     return render(request, "index.html")
+
 
 #Función para el captcha en index -Emix
 def index_page(request):
