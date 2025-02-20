@@ -4,12 +4,16 @@ from django.contrib import messages #Se importa messages de django -Emix
 from .models import Contactos
 from .forms import FormContact, RegisterForm
 
+from django.shortcuts import render, redirect #Se agrega redirect de django -Emix
+from django.http import HttpRequest
+from core.forms import FormContact, RegisterForm
 from django.conf import settings #Se importa settings de la configuración  de django -Emix
 from django.contrib.auth import login
 from .models import User
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
-from django.shortcuts import render, redirect
+
+
 
 class inmunolife_home(CreateView):
     model = Contactos
@@ -23,7 +27,6 @@ class inmunolife_home(CreateView):
     def form_invalid(self, form):
         # Asegúra de mostrar los errores si el formulario es inválido
         return super().form_invalid(form)
-
 
 # Función para registrar usuarios intento 3
 def register_user(request):
