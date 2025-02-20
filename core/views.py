@@ -1,11 +1,10 @@
 from django.views.generic import CreateView
 from django.urls import reverse_lazy #Se agrega redirect de django -Emix
-from django.contrib import messages
+from django.contrib import messages #Se importa messages de django -Emix
 from .models import Contactos
 from .forms import FormContact, RegisterForm
-from django.contrib.auth.hashers import make_password
+
 from django.conf import settings #Se importa settings de la configuración  de django -Emix
-from django.contrib import messages #Se importa messages de django -Emix
 from django.contrib.auth import login
 from .models import User
 from django.core.validators import validate_integer
@@ -80,8 +79,8 @@ def index_page(request):
         recaptcha_response = request.POST.get('g-recaptcha-response')
         
         data = {
-            'secret': settings.RECAPTCHA_SECERET_KEY,
-            'respone': recaptcha_response
+            'secret': settings.RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
         }
         verify_url = 'https://www.google.com/recaptcha/api.siteverify'
         response = request.post(verify_url, data=data)
