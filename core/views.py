@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import pdb
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 from django.views.generic import CreateView
 from django.urls import reverse_lazy #Se agrega redirect de django -Emix
 from django.contrib import messages #Se importa messages de django -Emix
@@ -21,16 +11,6 @@ from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
 class inmunolife_home(CreateView):
     model = Contactos
     form_class = FormContact
@@ -40,25 +20,8 @@ class inmunolife_home(CreateView):
     def form_valid(self, form):
         messages.success(self.request, '¡Mensaje enviado con éxito!')
         return super().form_valid(form)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
     def form_invalid(self, form):
-        # pdb.set_trace()
-        messages.error(self.request, '❌ Error al enviar el formulario. Por favor verifica los campos.')
-=======
-    def form_invalid(self, form):
-        # Asegúra de mostrar los errores si el formulario es inválido
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-    def form_invalid(self, form):
-        # Asegúra de mostrar los errores si el formulario es inválido
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-    def form_invalid(self, form):
-        # Asegúra de mostrar los errores si el formulario es inválido
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
+        messages.error(self.request, 'No se pudo enviar tu formulario. Por favor, revisa los campos e inténtalo de nuevo.')
         return super().form_invalid(form)
 
 

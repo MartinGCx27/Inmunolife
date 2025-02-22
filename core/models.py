@@ -50,23 +50,8 @@ class Contactos(models.Model):
         max_length=10, null=False, blank=False, unique=False, verbose_name='Telefono'
     )
     email_contact = models.EmailField(null=False, blank=False, unique=True, verbose_name="Email")
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    topic_contact = models.IntegerField(choices=options, null=True, unique=False,verbose_name='Tema de elección')
-    comments_contact = models.TextField(null=True, verbose_name='Comentarios')
-=======
     topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
     comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-    topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
-    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-    topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
-    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')
     
@@ -95,4 +80,3 @@ class Contactos(models.Model):
 #         verbose_name = 'Post'
 #         verbose_name_plural = 'Posts'
 #         ordering = ['id']
-

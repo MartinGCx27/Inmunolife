@@ -1931,42 +1931,14 @@ section,
   color: #ffffff;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 /* Fin de las clases para las nuevas cards */
 
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+.bg-success-light {
+  background-color: #d4edda !important; /* Verde claro */
+  color: #155724 !important; /* Texto verde oscuro */
 }
 
-/* estilo de alerta de enviado con exito o no enviado */
-.alert-success {
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
+.bg-danger-light {
+  background-color: #f8d7da !important; /* Rojo claro */
+  color: #721c24 !important; /* Texto rojo oscuro */
 }
-
-.alert-danger {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
-}
-
-.btn-close {
-  float: right;
-  border: none;
-  font-size: 1.2em;
-}
-=======
-/* Fin de las clases para las nuevas cards */
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-/* Fin de las clases para las nuevas cards */
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
-=======
-/* Fin de las clases para las nuevas cards */
->>>>>>> e61f65b0ee301ef82194474740e42b75e1e35462
