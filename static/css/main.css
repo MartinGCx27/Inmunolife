@@ -1932,3 +1932,41 @@ section,
 }
 
 /* Fin de las clases para las nuevas cards */
+
+.bg-success-light {
+  background-color: #d4edda !important; /* Verde claro */
+  color: #155724 !important; /* Texto verde oscuro */
+}
+
+.bg-danger-light {
+  background-color: #f8d7da !important; /* Rojo claro */
+  color: #721c24 !important; /* Texto rojo oscuro */
+}
+
+<style>
+.custom-external-tooltip {
+  position: fixed;
+  z-index: 99999; /* Mayor que el z-index del modal */
+  display: none;
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  max-width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tooltip-arrow {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333;
+}
+
+/* Si usas Bootstrap */
+.modal {
+  z-index: 1050; /* Valor por defecto de Bootstrap */
+}

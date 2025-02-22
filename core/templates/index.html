@@ -103,6 +103,7 @@
             <li><a href="#testimonials">Reseñas</a></li>
           </ul>
         </li>
+        <li><a href="#gallery">Galeria</a></li>
             <li><a href="#contact">Contactanos</a></li>
           </ul>
         </ul>
@@ -166,28 +167,33 @@
             {% csrf_token %}
             <div class="mb-3">
               <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
-              <small class="form-text text-muted">Los nombres y apellidos deben empezar con mayúscula y la contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br> 
+              {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
               <label for="registerName" class="form-label">Nombre</label>
-              <input name="name" type="text" class="form-control" id="registerName" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$" placeholder="Ingresa tu nombre/s">
+              <input name="name" type="text" class="form-control" id="registerName" required placeholder="Nombre o nombres">
             </div>
             <div class="mb-3">
               <label for="registerLastName1" class="form-label">Primer Apellido</label>
-              <input name="last_name" type="text" class="form-control" id="registerLastName1" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu primer apellido">
+              <input name="last_name" type="text" class="form-control" id="registerLastName1" required>
             </div>
             <div class="mb-3">
               <label for="registerLastName2" class="form-label">Segundo Apellido</label>
-              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu segundo apellido">
+              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required>
             </div>
             <div class="mb-3">
               <label for="registerEmail" class="form-label">Correo Electrónico</label>
-              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Ingresa tu correo electronico">
+              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Correo electronico personal">
             </div>
             <label for="registerPassword" class="form-label">Contraseña</label>
-            <input name="passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$" placeholder="Ingresa tu contraseña">
+            <div class="position-relative">
+              <input name="passrd" type="password" class="form-control" id="registerPassword" required 
+              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$"
+              data-bs-toggle="tooltip" data-bs-placement="left">
+            </div>
+            </div>
             <!-- Se agrega label para confirmar contraseña -Emix -->
             <div class="mb-3">
               <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
-              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required placeholder="Confirma tu contraseña">
+              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required>
             </div>
             <!-- Agregamos botón para mostrar contraseñas-->
             <div class="mb-3">
@@ -197,14 +203,35 @@
           
             <div class="mb-3">
               <label for="registerPhone" class="form-label">Número de Celular</label>
-              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="Ingresa tu número de celular a 10 digitos" maxlength="10" minlength="10">
+              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="A 10 digitos    " maxlength="10" minlength="10">
             </div>
             <!-- Small para aviso de correo y celular -Emix -->
-            <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small>
+            {% comment %} <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small><br><br> {% endcomment %}
             <!-- Se agrega widget de captcha -Emix-->
-            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div><br>
             <button id="button-register" name="registerb" type="submit" class="btn btn-primary w-100">Registrarse</button>
+            <div id="passwordTooltip" class="custom-external-tooltip">
+              <div class="tooltip-arrow"></div>
+              <div class="tooltip-inner">
+                Debe contener una mayúscula, una minúscula, un número y un carácter especial.
+              </div>
+            </div>
           </form>
+          <!--Script para el Tooltip -Emix -->
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const passwordField = document.getElementById("registerPassword");
+            const tooltip = document.getElementById("passwordTooltip");
+        
+            passwordField.addEventListener("focus", () => {
+                tooltip.classList.add("show");
+            });
+        
+            passwordField.addEventListener("blur", () => {
+                tooltip.classList.remove("show");
+            });
+        });
+        </script>
           <!-- Script para mostrar la contraseña -Emix -->
           <script>
             function togglePasswordVisibility() {
@@ -1158,103 +1185,127 @@
           
           <div class="col-lg-8">
             {% if messages %}
-          <ul class="messages">
-              {% for message in messages %}
-              <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
-              {% endfor %}
-          </ul>
-          {% endif %}
-            <form method="post">
-              {% csrf_token %}
-              <div class="row gy-4 php-email-form">
-
+    {% for message in messages %}
+        <div class="alert alert-dismissible fade show 
+            {% if message.tags == 'success' %}bg-success-light{% elif message.tags == 'error' %}bg-danger-light{% endif %}" 
+            role="alert">
+            <strong>
+                {% if message.tags == 'success' %}✅ ¡Éxito!{% elif message.tags == 'error' %}❌ Error:{% endif %}
+            </strong> {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+          
+          <form method="post">
+            {% csrf_token %}
+            <div class="row gy-4 php-email-form">
                 <div class="col-md-6">
-                  <p>Ingresa tu nombre:</p>
-                  {{ form.name_contact }}
+                    <p>Ingresa tu nombre:</p>
+                    {{ form.name_contact }}
                 </div>
-
+        
                 <div class="col-md-6">
-                  <p>Ingresa tu apellido:</p>
-                  {{ form.lastname_contact }}
+                    <p>Ingresa tu apellido:</p>
+                    {{ form.lastname_contact }}
                 </div>
-
-                <div class="col-md-6 ">
-                  <p>Ingresa tu telefono</p>
-                  {{ form.phone_contact }}
+        
+                <div class="col-md-6">
+                    <p>Ingresa tu telefono</p>
+                    {{ form.phone_contact }}
+                    {% if form.phone_contact.errors %}
+                      <div class="error text-danger">{{ form.phone_contact.errors.0 }}</div>
+                    {% endif %}
                 </div>
-                <div class="col-md-6 ">
-                  <p>Ingresa tu Email:</p>
-                  {{ form.email_contact }}
+                <script>
+                  function countDigits(input) {
+                      input.value = input.value.replace(/\D/g, '').slice(0, 10);  // Permite solo números y limita a 10 dígitos
+                  }
+              </script>
+        
+                <div class="col-md-6">
+                    <p>Ingresa tu Email:</p>
+                    {{ form.email_contact }}
+                    {% if form.email_contact.errors %}
+                      <div class="error text-danger">{{ form.email_contact.errors.0 }}</div>
+                    {% endif %}
                 </div>
-
-                
-                  <div class="col-md-6">
+        
+                <div class="col-md-6">
                     <label for="topic_contact">Elige el tema de tu interés:</label>
-                
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button"
                             id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if form.topic_contact.value %}
-                                {{ form.topic_contact }}
+                                {% for value, label in form.topic_contact.field.choices %}
+                                    {% if value == form.topic_contact.value %}
+                                        {{ label }}
+                                    {% endif %}
+                                {% endfor %}
                             {% else %}
                                 Elige una opción
                             {% endif %}
                         </a>
-                
+        
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {% for value, label in form.topic_contact.field.choices %}
-                                <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li> 
+                                <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
-                
-                    <!-- Campo oculto para almacenar la opción seleccionada -->
-                    <input type="hidden" name="topic_contact" id="selectedTopic" value="{{ form.topic_contact.value|default:'' }}">
+        
+                    <!-- El select ahora estará visible, pero oculto solo para enviar datos -->
+                    <select class="form-select" name="topic_contact" id="topic_contact" style="display: none;">
+                        <option value="">Elige una opción</option>  <!-- Opción por defecto si no se selecciona nada -->
+                        {% for value, label in form.topic_contact.field.choices %}
+                            <option value="{{ value }}" {% if value == form.topic_contact.value %} selected {% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
-                
-                <script>
-                    document.querySelectorAll('.dropdown-item').forEach(item => {
-                        item.addEventListener('click', function(e) {
-                            e.preventDefault();
-                
-                            // Obtener el texto y el valor de la opción seleccionada
-                            const selectedText = this.textContent;
-                            const selectedValue = this.getAttribute("data-value");
-                
-                            // Actualizar el texto del botón
-                            document.getElementById('dropdownMenuButton').textContent = selectedText;
-                
-                            // Actualizar el campo oculto con el valor seleccionado
-                            document.getElementById('selectedTopic').value = selectedValue;
-                
-                            // Cerrar el dropdown
-                            const dropdown = this.closest('.dropdown');
-                            const button = dropdown.querySelector('.dropdown-toggle');
-                            bootstrap.Dropdown.getInstance(button).hide();
-                        });
-                    });
-                </script>
-                
-                
-
-                <!-- Se Inhabilita subject Leonardo -->
-                <!-- <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div> -->
-
+        
                 <div class="col-md-12">
-                  <p>Comparte tus comentarios y/o sugerencias:</p>
-                  {{ form.comments_contact }}
+                    <p>Comparte tus comentarios y/o sugerencias:</p>
+                    {{ form.comments_contact }}
                 </div>
-
+                    <div class="col-md-12">
+                      <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
+                    </div>        
                 <div class="col-md-12 text-center">
-                  
-                  <button type="submit">Enviar</button>
+                    <button type="submit">Enviar</button>
                 </div>
-                
-              </div>
-              
-             </form>
+            </div>
+        </form>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const dropdownItems = document.querySelectorAll('.dropdown-item');
+                const dropdownButton = document.getElementById('dropdownMenuButton');
+                const selectField = document.getElementById('topic_contact');
+        
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function (e) {
+                        e.preventDefault();
+        
+                        const selectedValue = this.getAttribute("data-value");
+                        const selectedText = this.textContent.trim();
+        
+                        // Actualiza el valor del <select> con el valor seleccionado
+                        selectField.value = selectedValue;
+        
+                        // Actualiza el texto del botón dropdown
+                        dropdownButton.textContent = selectedText;
+        
+                        // Cierra el dropdown
+                        const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownButton);
+                        if (dropdownInstance) {
+                            dropdownInstance.hide();
+                        }
+                    });
+                });
+            });
+        </script>
 
                 
           </div><!-- End Contact Form -->
@@ -1368,9 +1419,11 @@
   <script src="{% static 'js/main.js' %}"></script>
 <!--Script para captcha -Emix-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Script para funciones de Bootstrap y pooper -Emix -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js">
 
-
-</body>
+</body> 
 
 </html>
 
