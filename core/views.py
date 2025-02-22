@@ -20,7 +20,7 @@ class inmunolife_home(CreateView):
         messages.success(self.request, '¡Mensaje enviado con éxito!')
         return super().form_valid(form)
     def form_invalid(self, form):
-        # Asegúra de mostrar los errores si el formulario es inválido
+        messages.error(self.request, 'No se pudo enviar tu formulario. Por favor, revisa los campos e inténtalo de nuevo.')
         return super().form_invalid(form)
 
 #Funcion para registrar ahorá sí chila -Emix

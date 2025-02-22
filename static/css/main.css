@@ -1932,3 +1932,13 @@ section,
 }
 
 /* Fin de las clases para las nuevas cards */
+
+.bg-success-light {
+  background-color: #d4edda !important; /* Verde claro */
+  color: #155724 !important; /* Texto verde oscuro */
+}
+
+.bg-danger-light {
+  background-color: #f8d7da !important; /* Rojo claro */
+  color: #721c24 !important; /* Texto rojo oscuro */
+}
