@@ -18,13 +18,10 @@ class Register(models.Model):
         unique=True,
         validators=[MinLengthValidator(10)],
         verbose_name="Número de celular"
-    )
+    )   
 
     user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
-    user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
-    
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['name', 'lastname', 'cellphone_number']
+    user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
 
     def __str__(self):
         return self.name_contact
@@ -83,4 +80,3 @@ class Contactos(models.Model):
 #         verbose_name = 'Post'
 #         verbose_name_plural = 'Posts'
 #         ordering = ['id']
-

@@ -100,7 +100,11 @@
         </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
+        {% if request.user.is.authenticated %}
+        <a class="cta-btn d-none d-sm-block" href="index.html">Cerrar sesión</a>
+        {% else %}
+        <a class="cta-btn d-none d-sm-block" hre={% url 'login' %}>Iniciar sesión</a>
+        {% endif %}
         <a class="cta-btn d-none d-sm-block" href="#appointment">Iniciar sesión</a>
 
       </div>
