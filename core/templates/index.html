@@ -167,28 +167,33 @@
             {% csrf_token %}
             <div class="mb-3">
               <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
-              <small class="form-text text-muted">Los nombres y apellidos deben empezar con mayúscula y la contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br> 
+              {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
               <label for="registerName" class="form-label">Nombre</label>
-              <input name="name" type="text" class="form-control" id="registerName" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$" placeholder="Ingresa tu nombre/s">
+              <input name="name" type="text" class="form-control" id="registerName" required placeholder="Nombre o nombres">
             </div>
             <div class="mb-3">
               <label for="registerLastName1" class="form-label">Primer Apellido</label>
-              <input name="last_name" type="text" class="form-control" id="registerLastName1" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu primer apellido">
+              <input name="last_name" type="text" class="form-control" id="registerLastName1" required>
             </div>
             <div class="mb-3">
               <label for="registerLastName2" class="form-label">Segundo Apellido</label>
-              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu segundo apellido">
+              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required>
             </div>
             <div class="mb-3">
               <label for="registerEmail" class="form-label">Correo Electrónico</label>
-              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Ingresa tu correo electronico">
+              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Correo electronico personal">
             </div>
             <label for="registerPassword" class="form-label">Contraseña</label>
-            <input name="passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$" placeholder="Ingresa tu contraseña">
+            <div class="position-relative">
+              <input name="passrd" type="password" class="form-control" id="registerPassword" required 
+              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$"
+              data-bs-toggle="tooltip" data-bs-placement="left">
+            </div>
+            </div>
             <!-- Se agrega label para confirmar contraseña -Emix -->
             <div class="mb-3">
               <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
-              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required placeholder="Confirma tu contraseña">
+              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required>
             </div>
             <!-- Agregamos botón para mostrar contraseñas-->
             <div class="mb-3">
@@ -198,14 +203,35 @@
           
             <div class="mb-3">
               <label for="registerPhone" class="form-label">Número de Celular</label>
-              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="Ingresa tu número de celular a 10 digitos" maxlength="10" minlength="10">
+              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="A 10 digitos    " maxlength="10" minlength="10">
             </div>
             <!-- Small para aviso de correo y celular -Emix -->
-            <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small>
+            {% comment %} <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small><br><br> {% endcomment %}
             <!-- Se agrega widget de captcha -Emix-->
-            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div><br>
             <button id="button-register" name="registerb" type="submit" class="btn btn-primary w-100">Registrarse</button>
+            <div id="passwordTooltip" class="custom-external-tooltip">
+              <div class="tooltip-arrow"></div>
+              <div class="tooltip-inner">
+                Debe contener una mayúscula, una minúscula, un número y un carácter especial.
+              </div>
+            </div>
           </form>
+          <!--Script para el Tooltip -Emix -->
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const passwordField = document.getElementById("registerPassword");
+            const tooltip = document.getElementById("passwordTooltip");
+        
+            passwordField.addEventListener("focus", () => {
+                tooltip.classList.add("show");
+            });
+        
+            passwordField.addEventListener("blur", () => {
+                tooltip.classList.remove("show");
+            });
+        });
+        </script>
           <!-- Script para mostrar la contraseña -Emix -->
           <script>
             function togglePasswordVisibility() {
@@ -1393,9 +1419,11 @@
   <script src="{% static 'js/main.js' %}"></script>
 <!--Script para captcha -Emix-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Script para funciones de Bootstrap y pooper -Emix -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js">
 
-
-</body>
+</body> 
 
 </html>
 
