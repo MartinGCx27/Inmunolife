@@ -1,18 +1,13 @@
-from django.views.generic import CreateView
-from django.urls import reverse_lazy #Se agrega redirect de django -Emix
-from django.contrib import messages #Se importa messages de django -Emix
-from .models import Contactos
-from .forms import FormContact, RegisterForm
-
-from django.shortcuts import render, redirect #Se agrega redirect de django -Emix
-from django.http import HttpRequest
-from core.forms import FormContact, RegisterForm
-from django.conf import settings #Se importa settings de la configuración  de django -Emix
-from django.contrib.auth import login
-from .models import User
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
-
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.urls import reverse_lazy 
+from django.contrib import messages 
+from django.conf import settings
+from .models import Contactos  
+from .forms import FormContact, RegisterForm
 
 
 class inmunolife_home(CreateView):
@@ -28,53 +23,26 @@ class inmunolife_home(CreateView):
         # Asegúra de mostrar los errores si el formulario es inválido
         return super().form_invalid(form)
 
-# Función para registrar usuarios intento 3
+#Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
     if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-             #login(request, user)  --> Inicia sesión automáticamente
-             #return redirect("index")  # Redirige a la página principal
+        register = RegisterForm(request.POST)
+        # Obtenemos las contraseñas
+        password = request.POST.get("passrd")
+        confirm_password = request.POST.get("confirm_passrd")
+        # Validamos si las contraseñas coinciden
+        if password != confirm_password:
+            messages.error(request, "Las contraseñas no coinciden.")
+        elif register.is_valid():
+            register.save()
+            messages.success(request, "¡Registro de usuario exitoso!")
+            return redirect("register_user")
+        else:
+            messages.error(request, "Ha ocurrido un error en el registro. Revisa los datos ingresados.")
     else:
-        form = RegisterForm()
+        register = RegisterForm()
     
-
-    return render(request, "index.html")
-
-
-
-
-
-
-# from django.shortcuts import render
-# from django.views.generic import FormView
-# from .forms import FormContact
-
-# class inmunolife_home(FormView):
-#     template_name = 'index.html'  
-#     form_class = FormContact
-
-#     def get_success_url(self):
-#         # Redirige a la misma página después de que el formulario se haya enviado
-#         return self.request.path_info  # Devuelve la URL actual
-
-#     def form_valid(self, form):
-#         # Puedes realizar alguna acción adicional al enviar el formulario, si es necesario
-#         form.save()
-#         # Mostrar un mensaje o agregar algo más si es necesario
-#         return super().form_valid(form)
-
-#     def form_invalid(self, form):
-#         # Asegúrate de mostrar los errores si el formulario es inválido
-#         return super().form_invalid(form)
-
-
-# Create your views here.
-# Home view
-# def inmunolife_home(request):
-#     return render(request, "index.html")
-
+    return render(request, "index.html", {"form": register})
 
 #Función para el captcha en index -Emix
 def index_page(request):
@@ -97,5 +65,11 @@ def index_page(request):
             messages.error(request, 'verificación del reCAPTCHA fallida. Por favor intentelo de nuevo')
             
     return render (request, 'index.html')
+
+#Función para el Login -Emix
+@login_required
+def login(request):
+    return render(request, 'login.html')
+
         
         

@@ -128,15 +128,16 @@
         </div>
         <div class="modal-body">
           <!--Se modifica form para que funcione el captcha -Emix-->
+          <!-- Se agregan placeholder a los inputs -Emix-->
           <form class="forms" action="{% url 'home'%}" method="POST">
             {% csrf_token %}  
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" id="loginEmail" required>
+              <input type="email" class="form-control" id="loginEmail" required placeholder="Ingresa tu correo electronico">
             </div>
             <div class="mb-3">
               <label for="loginPassword" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="loginPassword" required>
+              <input type="password" class="form-control" id="loginPassword" required placeholder="Ingresa tu contraseña">
             </div>
              <!-- Se agrega widget de captcha -Emix-->
             <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"> </div> <!--Falta agregar Captcha del sitio ya desplegado-->
@@ -160,45 +161,68 @@
         </div>
         <div class="modal-body">
           <!--Se modifica form para que funcione el captcha -Emix-->
-          <form class="forms" action="{% url 'register_user'%}" method="POST">
-            {% csrf_token %}  <!-- Token de seguridad obligatorio -->
+          <!-- Se agregan pattern a los inputs y placeholder a los inputs para solicitar información más clara y que se valide que se cumple -Emix -->
+          <form class="forms" action="{% url 'register_user' %}" method="POST">
+            {% csrf_token %}
             <div class="mb-3">
+              <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
+              <small class="form-text text-muted">Los nombres y apellidos deben empezar con mayúscula y la contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br> 
               <label for="registerName" class="form-label">Nombre</label>
-              <input name="name" type="text" class="form-control" id="registerName" required>
+              <input name="name" type="text" class="form-control" id="registerName" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$" placeholder="Ingresa tu nombre/s">
             </div>
             <div class="mb-3">
               <label for="registerLastName1" class="form-label">Primer Apellido</label>
-              <input name="last_name" type="text" class="form-control" id="registerLastName1" required>
+              <input name="last_name" type="text" class="form-control" id="registerLastName1" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu primer apellido">
             </div>
             <div class="mb-3">
               <label for="registerLastName2" class="form-label">Segundo Apellido</label>
-              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required>
+              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu segundo apellido">
             </div>
             <div class="mb-3">
               <label for="registerEmail" class="form-label">Correo Electrónico</label>
-              <input name="email" type="email" class="form-control" id="registerEmail" required>
+              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Ingresa tu correo electronico">
             </div>
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input name="passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$" placeholder="Ingresa tu contraseña">
+            <!-- Se agrega label para confirmar contraseña -Emix -->
             <div class="mb-3">
-              <label for="registerPassword" class="form-label">Contraseña</label>
-              <input name="pass" type="password" class="form-control" id="registerPassword" required>
+              <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required placeholder="Confirma tu contraseña">
             </div>
+            <!-- Agregamos botón para mostrar contraseñas-->
+            <div class="mb-3">
+              <input type="checkbox" id="showPasswords" onclick="togglePasswordVisibility()"> 
+              <label for="showPasswords" class="form-label">Mostrar Contraseñas</label>
+            </div>
+          
             <div class="mb-3">
               <label for="registerPhone" class="form-label">Número de Celular</label>
-              <input name="cellphone" type="tel" class="form-control" id="registerPhone"required pattern="[0-9]+">
+              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="Ingresa tu número de celular a 10 digitos" maxlength="10" minlength="10">
             </div>
+            <!-- Small para aviso de correo y celular -Emix -->
+            <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small>
             <!-- Se agrega widget de captcha -Emix-->
-            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div> <!--Falta agregar Captcha del sitio ya desplegado-->
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
             <button id="button-register" name="registerb" type="submit" class="btn btn-primary w-100">Registrarse</button>
           </form>
-          <!-- Mostrar si todo sale correctamente -->
-          {% if 'ok' in request.GET %}
-          <div>
-            <strong> Usuario registrado con exito </strong>
-          {% endif %}
-          <!-- Mostrar errores si existen -->
-          {% if error %}
-          <strong> No se ha podido generar el usuario, por favor intentelo mas tarde </strong>
-          {% endif %}
+          <!-- Script para mostrar la contraseña -Emix -->
+          <script>
+            function togglePasswordVisibility() {
+              var passwordField = document.getElementById("registerPassword");
+              var confirmPasswordField = document.getElementById("registerConfirmPassword");
+              var showPasswordsCheckbox = document.getElementById("showPasswords");
+          
+              if (showPasswordsCheckbox.checked) {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+              } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+              }
+            }
+          </script>
+          
+          
         </div>
       </div>
     </div>
@@ -218,6 +242,18 @@
   <div class="container position-relative">
 
     <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+
+      <!-- Se agrega If para condicionar que aparece cuando el usuario se registra y cuando no -Emix -->
+      {% if messages %}
+        <div class="container mt-3">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+       </div>
+      {% endif %}
       <h2>Bienvenido a Inmuno</h2>
       <p>Red de salud que te acompaña siempre.</p>
     </div><!-- End Welcome -->
@@ -462,7 +498,7 @@
 
     </section><!-- /Services Section -->
 
-    
+    <!-- Se comenta appointment section -Emix -->
     {% comment %} <!-- Appointment Section -->
     <section id="appointment" class="appointment section">
 
@@ -488,8 +524,6 @@
 
             </div>
           </div>
-             
-             Se comenta parte innecesaria de registrar usuario, ocultando campos -Emix
           <div class="row">
             <div class="col-md-4 form-group mt-3">
               <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
@@ -513,7 +547,6 @@
               </select>
             </div>
           </div>
-        
           <!--Se recorrio el endcomment  ya que se estaba comiendo un boton para el registro y esto hacia
           que el boton de contactanos sirviera para registro a falta de un boton pata el mismo -LGS-->
 
@@ -1122,86 +1155,87 @@
 
           </div>
           <!-- Se tertmina de actualizar sección de contacto directo -->
-          {% if form.errors %}
-          <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
-          </div>
-          {% endif %}
+          
           <div class="col-lg-8">
-            <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="row gy-4">
+            {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+            <form method="post">
+              {% csrf_token %}
+              <div class="row gy-4 php-email-form">
 
                 <div class="col-md-6">
                   <p>Ingresa tu nombre:</p>
-                  <input type="text" name="name_contact" class="form-control" placeholder="Solo primer nombre en caso de tener dos" required="">
+                  {{ form.name_contact }}
                 </div>
 
                 <div class="col-md-6">
                   <p>Ingresa tu apellido:</p>
-                  <input type="text" name="lastname_contact" class="form-control" placeholder="Solo primer apellido" required="">
+                  {{ form.lastname_contact }}
                 </div>
 
                 <div class="col-md-6 ">
                   <p>Ingresa tu telefono</p>
-                  <input type="text" class="form-control" name="phone_contact" placeholder="Tu Telefono" required="">
+                  {{ form.phone_contact }}
                 </div>
-
                 <div class="col-md-6 ">
                   <p>Ingresa tu Email:</p>
-                  <input type="email" class="form-control" name="email_contact" placeholder="Tu correo personal" required="">
+                  {{ form.email_contact }}
                 </div>
 
-                <div class="col-md-6 ">
-                  <!-- The second value will be selected initially -->
-
-                  <!-- Se agrega un label para poder elegir opciones de interes LeonardoGeishow -->
-                  <label for="dog-names">Eligue el tema de tu interes:</label>
-
-                  <div class="dropdown" name="topic_contact">
-                    <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button" 
-                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" onclick="FbotonOn()">
-                      Elige una opcion
-                    </a>
-                  
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <li><a class="dropdown-item" role="button">Mas sobre las membresias</a></li>
-                      <li><a class="dropdown-item" role="button">Cotizar</a></li>
-                      <li><a class="dropdown-item" role="button">Dudas sobre pagos</a></li>
-                      <li><a class="dropdown-item" role="button">Dudas en general y sugerencias</a></li>
-                    </ul>
-                  </div>
-
-                  <script>
-                    // JavaScript para dejar marcada la opción seleccionada
+                
+                  <div class="col-md-6">
+                    <label for="topic_contact">Elige el tema de tu interés:</label>
+                
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button"
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if form.topic_contact.value %}
+                                {{ form.topic_contact }}
+                            {% else %}
+                                Elige una opción
+                            {% endif %}
+                        </a>
+                
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {% for value, label in form.topic_contact.field.choices %}
+                                <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li> 
+                            {% endfor %}
+                        </ul>
+                    </div>
+                
+                    <!-- Campo oculto para almacenar la opción seleccionada -->
+                    <input type="hidden" name="topic_contact" id="selectedTopic" value="{{ form.topic_contact.value|default:'' }}">
+                </div>
+                
+                <script>
                     document.querySelectorAll('.dropdown-item').forEach(item => {
-                      item.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Obtener el texto de la opción seleccionada
-                        const selectedText = this.textContent;
-                        
-                        // Actualizar el texto del botón
-                        document.getElementById('dropdownMenuButton').textContent = selectedText;
-                        
-                        // Cerrar el dropdown después de seleccionar
-                        const dropdown = this.closest('.dropdown');
-                        const button = dropdown.querySelector('.dropdown-toggle');
-                        bootstrap.Dropdown.getInstance(button).hide();
-                      });
+                        item.addEventListener('click', function(e) {
+                            e.preventDefault();
+                
+                            // Obtener el texto y el valor de la opción seleccionada
+                            const selectedText = this.textContent;
+                            const selectedValue = this.getAttribute("data-value");
+                
+                            // Actualizar el texto del botón
+                            document.getElementById('dropdownMenuButton').textContent = selectedText;
+                
+                            // Actualizar el campo oculto con el valor seleccionado
+                            document.getElementById('selectedTopic').value = selectedValue;
+                
+                            // Cerrar el dropdown
+                            const dropdown = this.closest('.dropdown');
+                            const button = dropdown.querySelector('.dropdown-toggle');
+                            bootstrap.Dropdown.getInstance(button).hide();
+                        });
                     });
-                    </script>
-                  
-
-                      <!-- <select name="dog-names" id="dog-names">
-                        <option value="rigatoni">Elige una opción</option>
-                        <option value="rigatoni">Mas sobre las membresias</option>
-                        <option value="dave">Cotizar</option>
-                        <option value="pumpernickel">Dudas sobre pagos</option>
-                        <option value="reeses">Dudas en general y sugerencias</option>
-                      </select> -->
-
-                </div>
+                </script>
+                
+                
 
                 <!-- Se Inhabilita subject Leonardo -->
                 <!-- <div class="col-md-12">
@@ -1210,17 +1244,19 @@
 
                 <div class="col-md-12">
                   <p>Comparte tus comentarios y/o sugerencias:</p>
-                  <textarea class="form-control" name="message" rows="6" placeholder="Inserta tus comentarios" required=""></textarea>
+                  {{ form.comments_contact }}
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Cargando...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Felicidades!!! Tu formulario se envio con exito.</div>
+                  
                   <button type="submit">Enviar</button>
                 </div>
+                
               </div>
-            </form>
+              
+             </form>
+
+                
           </div><!-- End Contact Form -->
 
         </div>
@@ -1229,70 +1265,7 @@
 
     </section><!-- /Contact Section -->
      
-             {% comment %} <!--Se comenta parte innecesaria de registrar usuario, ocultando campos -Emix-->
-    <!-- Appointment Section -->
-    <section id="appointment" class="appointment section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Registrarse</h2>
-        <p>Registrar usuario de administrador</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required="">
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu celular" required="">
-
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
-            </div>
-         
             
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select" required="">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select" required="">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-          </div>
-          <div class="mt-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-            <div class="text-center"><button type="submit">Make an Appointment</button></div>
-          </div>
-        </form>
-
-      </div> {% endcomment %}
-
   </main>
 
   <footer id="footer" class="footer light-background">

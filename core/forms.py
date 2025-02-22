@@ -1,6 +1,5 @@
 from django import forms
 from .models import Contactos, Register
-
 # formulario para contactanos -LGS
 class FormContact(forms.ModelForm):
     class Meta:
@@ -28,5 +27,4 @@ class RegisterForm(forms.ModelForm):
             'email',
             'passrd',
             'cellphone'
-            ]
-        
+        ]
