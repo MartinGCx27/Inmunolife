@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 #Se importa vista creada en views -LGS
 from .views import inmunolife_home
+from django.contrib.auth.views import LogoutView
 
 
  
@@ -17,5 +18,4 @@ urlpatterns = [
     path('login/', views.login, name="login"),
     # Registrar usuario
     path("register/", views.register_user, name="register_user")
-    
 ]

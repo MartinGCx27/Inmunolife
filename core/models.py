@@ -22,9 +22,10 @@ class Register(models.Model):
 
     user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
     user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
+    
 
     def __str__(self):
-        return self.name_contact
+        return self.name  #se arreglo el return ya que esaba mandando a llamar a name_contact -LGS
 #Clase meta con meta datos de la tabla
 class Meta:
     db_table = 'Register'
