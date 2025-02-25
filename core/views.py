@@ -25,24 +25,25 @@ class inmunolife_home(CreateView):
 
 #Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
+    contact_form = FormContact()
     if request.method == "POST":
-        register = RegisterForm(request.POST)
+        register = RegisterForm(request.POST, prefix="register")
         # Obtenemos las contraseñas
         password = request.POST.get("passrd")
         confirm_password = request.POST.get("confirm_passrd")
         # Validamos si las contraseñas coinciden
         if password != confirm_password:
-            messages.error(request, "Las contraseñas no coinciden.")
+            messages.error(request, "Las contraseñas no coinciden.", extra_tags="register")
         elif register.is_valid():
             register.save()
-            messages.success(request, "¡Registro de usuario exitoso!")
+            messages.success(request, "¡Registro de usuario exitoso!", extra_tags="register")
             return redirect("register_user")
         else:
-            messages.error(request, "Ha ocurrido un error en el registro. Revisa los datos ingresados.")
+            messages.error(request, "Ha ocurrido un error en el registro. Revisa los datos ingresados.", extra_tags="register")
     else:
-        register = RegisterForm()
+        register = RegisterForm(prefix="register")
     
-    return render(request, "index.html", {"form": register})
+    return render(request, "index.html", {"form1": register, "form2": contact_form})
 
 #Función para el captcha en index -Emix
 def index_page(request):
