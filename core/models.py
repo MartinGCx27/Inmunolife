@@ -50,9 +50,9 @@ class Contactos(models.Model):
     phone_contact = models.CharField(
         max_length=10, null=False, blank=False, unique=False, verbose_name='Telefono'
     )
-    email_contact = models.EmailField(null=False, blank=False, unique=True, verbose_name="Email")
+    email_contact = models.EmailField(null=False, blank=False, unique=False, verbose_name="Email")
     topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
-    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
+    comments_contact = models.TextField(null=True, blank=True, verbose_name='Comentarios')
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')
     

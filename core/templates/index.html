@@ -1176,26 +1176,26 @@
             <div class="row gy-4 php-email-form">
                 <div class="col-md-6">
                     <p>Ingresa tu nombre:</p>
-                    {{ form2.name_contact }}
+                    {{ form.name_contact }}
                 </div>
         
                 <div class="col-md-6">
                     <p>Ingresa tu apellido:</p>
-                    {{ form2.lastname_contact }}
+                    {{ form.lastname_contact }}
                 </div>
         
                 <div class="col-md-6">
                     <p>Ingresa tu telefono</p>
-                    {{ form2.phone_contact }}
-                    {% if form2.phone_contact.errors %}
-                      <div class="error text-danger">{{ form2.phone_contact.errors.0 }}</div>
+                    {{ form.phone_contact }}
+                    {% if form.phone_contact.errors %}
+                      <div class="error text-danger">{{ form.phone_contact.errors.0 }}</div>
                     {% endif %}
                 </div>
                 <div class="col-md-6">
                     <p>Ingresa tu Email:</p>
-                    {{ form2.email_contact }}
-                    {% if form2.email_contact.errors %}
-                      <div class="error text-danger">{{ form2.email_contact.errors.0 }}</div>
+                    {{ form.email_contact }}
+                    {% if form.email_contact.errors %}
+                      <div class="error text-danger">{{ form.email_contact.errors.0 }}</div>
                     {% endif %}
                 </div>
         
@@ -1204,9 +1204,9 @@
                     <div class="dropdown">
                         <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button"
                             id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            {% if form2.topic_contact.value %}
-                                {% for value, label in form2.topic_contact.field.choices %}
-                                    {% if value == form2.topic_contact.value %}
+                            {% if form.topic_contact.value %}
+                                {% for value, label in form.topic_contact.field.choices %}
+                                    {% if value == form.topic_contact.value %}
                                         {{ label }}
                                     {% endif %}
                                 {% endfor %}
@@ -1216,7 +1216,7 @@
                         </a>
         
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {% for value, label in form2.topic_contact.field.choices %}
+                            {% for value, label in form.topic_contact.field.choices %}
                                 <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li>
                             {% endfor %}
                         </ul>
@@ -1225,7 +1225,7 @@
                     <!-- El select ahora estará visible, pero oculto solo para enviar datos -->
                     <select class="form-select" name="topic_contact" id="topic_contact" style="display: none;">
                         <option value="">Elige una opción</option>  <!-- Opción por defecto si no se selecciona nada -->
-                        {% for value, label in form2.topic_contact.field.choices %}
+                        {% for value, label in form.topic_contact.field.choices %}
                             <option value="{{ value }}" {% if value == form.topic_contact.value %} selected {% endif %}>
                                 {{ label }}
                             </option>
@@ -1235,7 +1235,7 @@
         
                 <div class="col-md-12">
                     <p>Comparte tus comentarios y/o sugerencias:</p>
-                    {{ form2.comments_contact }}
+                    {{ form.comments_contact }}
                 </div>
                     <div class="col-md-12">
                       <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>

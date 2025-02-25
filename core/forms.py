@@ -31,7 +31,7 @@ class FormContact(forms.ModelForm):
                 'title': 'El número debe tener exactamente 10 dígitos.',
                 'oninput': 'filterNumbers(this)',  # Función JS para permitir solo números -LGS
             }),
-            'email_contact': forms.EmailInput(attrs={'class': 'form-control ','required placeholder': 'Tu correo personal'}),
+            'email_contact': forms.EmailInput(attrs={'class': 'form-control','required placeholder': 'Tu correo personal'}),
             'topic_contact': forms.Select(attrs={'class': 'dropdown-item'}),
             'comments_contact': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Inserta tus comentarios', 'rows': 6}),
         }
