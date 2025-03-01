@@ -153,3 +153,12 @@ LOGIN_REDIRECT_URL = 'index.html' #Habrá que cambiar la dirección por la nueva
 
 #Se agrega redirección del logou de admin -Emix
 LOGOUT_REDIRECT_URL = 'index.html' #Habrá que cambiar la dirección por la nueva ya configurada
+
+#Configuración de email -LGS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'leonciogamershow@gmail.com'
+EMAIL_HOST_PASSWORD = 'nlquiztnluorydtf'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

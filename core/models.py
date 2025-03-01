@@ -12,7 +12,7 @@ class Register(models.Model):
     last_name = models.CharField (max_length=25, verbose_name="Primer apellido", null=False, blank=False)
     second_lastname = models.CharField(max_length=20, verbose_name="Segundo apellido", blank=True)
     email = models.EmailField(unique=True, verbose_name="Correo electrónico")
-    passrd = models.CharField(max_length= 30, verbose_name='Contraseña', null=False, blank=False)
+    passrd = models.CharField(max_length= 128, verbose_name='Contraseña', null=False, blank=False)
     cellphone = models.CharField(
         max_length=10,
         unique=True,

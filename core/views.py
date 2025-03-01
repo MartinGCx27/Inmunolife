@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.conf import settings
 from .models import Contactos, Register  #no se estaban importando el modelo Register, se agrega -LGS
 from .forms import FormContact, RegisterForm, LoginForm
+from django.contrib.auth.hashers import make_password
 
 
 
@@ -17,35 +18,44 @@ class inmunolife_home(CreateView):
     form_class = FormContact
     template_name = 'index.html'
     success_url = reverse_lazy('home')
-    
+    prefix = 'contact'
+
+    def get_context_data(self, **kwargs):  #se agrega el get_context_data para maquetar ambos formularios -LGS
+        context = super().get_context_data(**kwargs)
+        context['register_form'] = RegisterForm(prefix="register")
+        return context
+
     def form_valid(self, form):
-        messages.success(self.request, '¡Mensaje enviado con éxito!')
+        # Mensaje éxito contacto (tags: 'success contact')
+        messages.success(self.request, '¡Mensaje de contacto enviado con éxito!', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso -LGS
         return super().form_valid(form)
+
     def form_invalid(self, form):
-        messages.error(self.request, 'No se pudo enviar tu formulario. Por favor, revisa los campos e inténtalo de nuevo.')
-        return super().form_invalid(form)
+        messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
+        return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
 
 #Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
-    contact_form = FormContact()
     if request.method == "POST":
-        register = RegisterForm(request.POST, prefix="register")
-        # Obtenemos las contraseñas
-        password = request.POST.get("passrd")
-        confirm_password = request.POST.get("confirm_passrd")
-        # Validamos si las contraseñas coinciden
-        if password != confirm_password:
-            messages.error(request, "Las contraseñas no coinciden.", extra_tags="register")
-        elif register.is_valid():
-            register.save()
-            messages.success(request, "¡Registro de usuario exitoso!", extra_tags="register")
-            return redirect("register_user")
+        register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
+        if register_form.is_valid():
+            user = register_form.save(commit=False)
+            user.passrd = make_password(register_form.cleaned_data['passrd'])
+            user.save()
+            # Mensaje éxito registro (tags: 'success register')
+            messages.success(request, "¡Registro exitoso!", extra_tags="register")
+            return redirect("home")
         else:
-            messages.error(request, "Ha ocurrido un error en el registro. Revisa los datos ingresados.", extra_tags="register")
-    else:
-        register = RegisterForm(prefix="register")
-    
-    return render(request, "index.html", {"form1": register, "form2": contact_form})
+            # Mensaje error registro (tags: 'error register')
+            messages.error(request, "Error en el registro", extra_tags="register")
+            contact_form = FormContact(prefix="contact")
+            #Si hay un error en ambos formularios los rederiza en index.html -LGS
+            return render(request, "index.html", {
+                "form": contact_form,
+                "register_form": register_form
+            })
+    return redirect("home") #redirecciona a la pagina principal, antes lo hacia a registro -LGS                                                                                                                                                                                                                                                                 
+
 
 #Función para el captcha en index -Emix
 def index_page(request):

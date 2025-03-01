@@ -51,6 +51,12 @@ class FormContact(forms.ModelForm):
 
 # Clase para registrar usuarios
 class RegisterForm(forms.ModelForm):
+    confirm_passrd = forms.CharField(
+        max_length=128,
+        widget=forms.PasswordInput,
+        label="Confirmar Contraseña"
+    )
+
     class Meta:
         model = Register
         fields = [
@@ -61,6 +67,33 @@ class RegisterForm(forms.ModelForm):
             'passrd',
             'cellphone'
         ]
+        widgets = {
+                'passrd': forms.PasswordInput()
+            }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("passrd")
+        confirm_password = cleaned_data.get("confirm_passrd")
+
+        if password != confirm_password:
+            raise forms.ValidationError("Las contraseñas no coinciden.")
+        return cleaned_data
+
+    def clean_email(self): 
+        email = self.cleaned_data.get('email')
+        if Register.objects.filter(email=email).exists():
+            raise forms.ValidationError("Este correo electrónico ya está registrado.")
+        return email
+    
+    def clean_cellphone(self): 
+        cellphone = self.cleaned_data.get('cellphone')
+        if Register.objects.filter(cellphone=cellphone).exists():
+            raise forms.ValidationError("Este número ya está registrado.")
+        if len(cellphone) != 10:
+            raise forms.ValidationError("El celular debe tener 10 dígitos.")
+        return cellphone
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(
