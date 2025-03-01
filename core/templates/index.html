@@ -109,7 +109,8 @@
         </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
+        <div class="mt-3">
+        </div>
         <a class="cta-btn d-none d-sm-block" href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
 
       </div>
@@ -130,7 +131,7 @@
         <div class="modal-body">
           <!--Se modifica form para que funcione el captcha -Emix-->
           <!-- Se agregan placeholder a los inputs -Emix-->
-          <form class="forms" action="{% url 'home'%}" method="POST">
+          <form class="forms" action="{% url 'login'%}" method="POST">
             {% csrf_token %}  
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Correo Electrónico</label>
@@ -142,7 +143,8 @@
             </div>
              <!-- Se agrega widget de captcha -Emix-->
             <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"> </div> <!--Falta agregar Captcha del sitio ya desplegado-->
-            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            <a href="{% url 'password_reset' %}" class="align-items-center">olvide mi contraseña</a>
+            <button type="submit" id="button_login" class="btn btn-primary w-100">Ingresar</button>
           </form>
           <div class="text-center mt-3">
             <p>¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate</a></p>
@@ -165,45 +167,70 @@
           <!-- Se agregan pattern a los inputs y placeholder a los inputs para solicitar información más clara y que se valide que se cumple -Emix -->
           <form class="forms" action="{% url 'register_user' %}" method="POST">
             {% csrf_token %}
+            
+            {% for message in messages %}
+                {% if "register" in message.tags %} <!--Con el extra Tags register solo saldra dentro del Register -LGS-->
+                <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
+                        {{ message }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+            {% endfor %}
+
             <div class="mb-3">
               <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
               {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
               <label for="registerName" class="form-label">Nombre</label>
-              <input name="name" type="text" class="form-control" id="registerName" required placeholder="Nombre o nombres">
+              <input name="register-name" type="text" class="form-control" id="registerName" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$" placeholder="Ingresa tu nombre/s">
             </div>
             <div class="mb-3">
               <label for="registerLastName1" class="form-label">Primer Apellido</label>
-              <input name="last_name" type="text" class="form-control" id="registerLastName1" required>
+              <input name="register-last_name" type="text" class="form-control" id="registerLastName1" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu primer apellido">
             </div>
             <div class="mb-3">
               <label for="registerLastName2" class="form-label">Segundo Apellido</label>
-              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required>
+              <input name="register-second_lastname" type="text" class="form-control" id="registerLastName2" pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$" placeholder="Ingresa tu segundo apellido">
             </div>
             <div class="mb-3">
               <label for="registerEmail" class="form-label">Correo Electrónico</label>
-              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Correo electronico personal">
+              <input name="register-email" type="email" class="form-control" 
+              id="registerEmail" required placeholder="Ingresa tu correo electronico">
+              {% if register_form.email.errors %}  <!-- Se agrega tags para validacion de error si ya existe el correo -LGS -->
+                  <div class="invalid-feedback d-block">
+                      {% for error in register_form.email.errors %}
+                          {{ error }}
+                      {% endfor %}
+                  </div>
+              {% endif %}
             </div>
             <label for="registerPassword" class="form-label">Contraseña</label>
-            <div class="position-relative">
-              <input name="passrd" type="password" class="form-control" id="registerPassword" required 
-              pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$"
-              data-bs-toggle="tooltip" data-bs-placement="left">
-            </div>
-            </div>
+            <input name="register-passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$" placeholder="Ingresa tu contraseña">
             <!-- Se agrega label para confirmar contraseña -Emix -->
             <div class="mb-3">
               <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
-              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required>
+              <input name="register-confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required placeholder="Confirma tu contraseña">
             </div>
             <!-- Agregamos botón para mostrar contraseñas-->
             <div class="mb-3">
-              <input type="checkbox" id="showPasswords" onclick="togglePasswordVisibility()"> 
+              <input type="checkbox" id="showPasswords" onclick="togglePasswordVisibility()">
               <label for="showPasswords" class="form-label">Mostrar Contraseñas</label>
             </div>
           
             <div class="mb-3">
               <label for="registerPhone" class="form-label">Número de Celular</label>
-              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="A 10 digitos    " maxlength="10" minlength="10">
+              <input name="register-cellphone" type="tel" class="form-control" 
+              id="registerPhone" required pattern="[0-9]+" placeholder="Ingresa tu número de celular a 10 digitos" 
+              maxlength="10" minlength="10">
+              {% if register_form.cellphone.errors %} <!-- Se agrega tags para validacion de error si ya existe el TEL. -LGS -->
+                  <div class="invalid-feedback d-block">
+                      {% for error in register_form.cellphone.errors %}
+                          {{ error }}
+                      {% endfor %}
+                  </div>
+              {% endif %}
             </div>
             <!-- Small para aviso de correo y celular -Emix -->
             {% comment %} <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small><br><br> {% endcomment %}
@@ -271,16 +298,7 @@
     <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
 
       <!-- Se agrega If para condicionar que aparece cuando el usuario se registra y cuando no -Emix -->
-      {% if messages %}
-        <div class="container mt-3">
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-          {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-       </div>
-      {% endif %}
+      
       <h2>Bienvenido a Inmuno</h2>
       <p>Red de salud que te acompaña siempre.</p>
     </div><!-- End Welcome -->
@@ -360,7 +378,7 @@
             <p>
               Inmuno es una empresa comprometida con hacer accesible
               la salud de calidad para todos. Ofrecemos la afiliación a
-              aseguradoras que brindan membresias de gastos médicos mayores            </p>
+              aseguradoras que brindan membresias de gastos médicos mayores</p>
             <ul>
               <li>
                 <i class="fa-solid fa-vial-circle-check"></i>
@@ -1184,21 +1202,23 @@
           <!-- Se tertmina de actualizar sección de contacto directo -->
           
           <div class="col-lg-8">
-            {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-dismissible fade show 
-            {% if message.tags == 'success' %}bg-success-light{% elif message.tags == 'error' %}bg-danger-light{% endif %}" 
-            role="alert">
-            <strong>
-                {% if message.tags == 'success' %}✅ ¡Éxito!{% elif message.tags == 'error' %}❌ Error:{% endif %}
-            </strong> {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
-{% endif %}
+            
           
           <form method="post">
             {% csrf_token %}
+
+            {% for message in messages %}
+                {% if "contact" in message.tags %} <!--Con el extra Tags contact solo saldra dentro del ContactForm -LGS-->
+                <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
+                        {{ message }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+            {% endfor %}
+
             <div class="row gy-4 php-email-form">
                 <div class="col-md-6">
                     <p>Ingresa tu nombre:</p>
@@ -1217,12 +1237,6 @@
                       <div class="error text-danger">{{ form.phone_contact.errors.0 }}</div>
                     {% endif %}
                 </div>
-                <script>
-                  function countDigits(input) {
-                      input.value = input.value.replace(/\D/g, '').slice(0, 10);  // Permite solo números y limita a 10 dígitos
-                  }
-              </script>
-        
                 <div class="col-md-6">
                     <p>Ingresa tu Email:</p>
                     {{ form.email_contact }}
@@ -1255,7 +1269,7 @@
                     </div>
         
                     <!-- El select ahora estará visible, pero oculto solo para enviar datos -->
-                    <select class="form-select" name="topic_contact" id="topic_contact" style="display: none;">
+                    <select class="form-select" name="{{ form.topic_contact.html_name }}" id="{{ form.topic_contact.id_for_label }}" style="display: none;">
                         <option value="">Elige una opción</option>  <!-- Opción por defecto si no se selecciona nada -->
                         {% for value, label in form.topic_contact.field.choices %}
                             <option value="{{ value }}" {% if value == form.topic_contact.value %} selected {% endif %}>
@@ -1273,42 +1287,11 @@
                       <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
                     </div>        
                 <div class="col-md-12 text-center">
-                    <button type="submit">Enviar</button>
+                    <button type="submit" id="button_contact">Enviar</button>
                 </div>
             </div>
         </form>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const dropdownItems = document.querySelectorAll('.dropdown-item');
-                const dropdownButton = document.getElementById('dropdownMenuButton');
-                const selectField = document.getElementById('topic_contact');
-        
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', function (e) {
-                        e.preventDefault();
-        
-                        const selectedValue = this.getAttribute("data-value");
-                        const selectedText = this.textContent.trim();
-        
-                        // Actualiza el valor del <select> con el valor seleccionado
-                        selectField.value = selectedValue;
-        
-                        // Actualiza el texto del botón dropdown
-                        dropdownButton.textContent = selectedText;
-        
-                        // Cierra el dropdown
-                        const dropdownInstance = bootstrap.Dropdown.getInstance(dropdownButton);
-                        if (dropdownInstance) {
-                            dropdownInstance.hide();
-                        }
-                    });
-                });
-            });
-        </script>
-
-                
-          </div><!-- End Contact Form -->
+        </div><!-- End Contact Form -->
 
         </div>
 
@@ -1357,9 +1340,9 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nuestros Servicios</h4>
           <ul>
-            <li><a href="#">Pagos</a></li>
-            <li><a href="#">Cotizaciones</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="#hero">Pagos</a></li>
+            <li><a href="#hero">Cotizaciones</a></li>
+            <li><a href="#contact">Contacto</a></li>
 
             <!-- Se desabilita dos listas LeonardoGeishow -->
             <!-- <li><a href="#">Marketing</a></li>
@@ -1419,9 +1402,64 @@
   <script src="{% static 'js/main.js' %}"></script>
 <!--Script para captcha -Emix-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<!-- Script para funciones de Bootstrap y pooper -Emix -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js">
+
+  <!-- Script para el dropdown de formulario contactanos -LGS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configurar el dropdown personalizado
+        const dropdownButton = document.querySelector('.dropdown-toggle');
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        const hiddenSelect = document.getElementById('{{ form.topic_contact.id_for_label }}');
+        
+        // Actualizar el texto del botón cuando se selecciona un ítem
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const value = this.getAttribute('data-value');
+                const label = this.textContent;
+                
+                // Actualizar elementos visuales
+                dropdownButton.textContent = label;
+                hiddenSelect.value = value;
+                
+                // Agregar clase de selección
+                dropdownItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    
+        // Sincronizar estado inicial
+        const initialValue = hiddenSelect.value;
+        if (initialValue) {
+            const initialItem = document.querySelector(`.dropdown-item[data-value="${initialValue}"]`);
+            if (initialItem) {
+                dropdownButton.textContent = initialItem.textContent;
+                initialItem.classList.add('active');
+            }
+        }
+    });
+</script>    
+
+  <!-- Script para aceptar como maximo 10 num. en phonecontact -LGS -->
+  <script>
+    function filterNumbers(input) {
+      // Elimina cualquier carácter que no sea número
+      input.value = input.value.replace(/\D/g, '');
+    
+      // Mostrar mensaje de conteo de dígitos
+      const messageDiv = document.getElementById('phone-error-message');
+      const digitCount = input.value.length;
+    
+      if (digitCount !== 10 && digitCount > 0) {
+        messageDiv.textContent = `Has ingresado ${digitCount} dígitos. Deben ser 10.`;
+        messageDiv.style.color = 'red';
+      } else {
+        messageDiv.textContent = ''; // Limpia mensaje si es correcto
+      }
+    }
+    </script>
+
+
 
 </body> 
 

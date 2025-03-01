@@ -12,7 +12,7 @@ class Register(models.Model):
     last_name = models.CharField (max_length=25, verbose_name="Primer apellido", null=False, blank=False)
     second_lastname = models.CharField(max_length=20, verbose_name="Segundo apellido", blank=True)
     email = models.EmailField(unique=True, verbose_name="Correo electrónico")
-    passrd = models.CharField(max_length= 30, verbose_name='Contraseña', null=False, blank=False)
+    passrd = models.CharField(max_length= 128, verbose_name='Contraseña', null=False, blank=False)
     cellphone = models.CharField(
         max_length=10,
         unique=True,
@@ -22,9 +22,10 @@ class Register(models.Model):
 
     user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
     user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
+    
 
     def __str__(self):
-        return self.name_contact
+        return self.name  #se arreglo el return ya que esaba mandando a llamar a name_contact -LGS
 #Clase meta con meta datos de la tabla
 class Meta:
     db_table = 'Register'
@@ -49,9 +50,9 @@ class Contactos(models.Model):
     phone_contact = models.CharField(
         max_length=10, null=False, blank=False, unique=False, verbose_name='Telefono'
     )
-    email_contact = models.EmailField(null=False, blank=False, unique=True, verbose_name="Email")
+    email_contact = models.EmailField(null=False, blank=False, unique=False, verbose_name="Email")
     topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
-    comments_contact = models.TextField(null=True, blank=False, verbose_name='Comentarios')
+    comments_contact = models.TextField(null=True, blank=True, verbose_name='Comentarios')
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')
     

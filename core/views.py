@@ -1,3 +1,4 @@
+import pdb
 from django.core.validators import validate_integer
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect
@@ -6,8 +7,10 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy 
 from django.contrib import messages 
 from django.conf import settings
-from .models import Contactos  
-from .forms import FormContact, RegisterForm
+from .models import Contactos, Register  #no se estaban importando el modelo Register, se agrega -LGS
+from .forms import FormContact, RegisterForm, LoginForm
+from django.contrib.auth.hashers import make_password
+
 
 
 class inmunolife_home(CreateView):
@@ -15,34 +18,44 @@ class inmunolife_home(CreateView):
     form_class = FormContact
     template_name = 'index.html'
     success_url = reverse_lazy('home')
-    
+    prefix = 'contact'
+
+    def get_context_data(self, **kwargs):  #se agrega el get_context_data para maquetar ambos formularios -LGS
+        context = super().get_context_data(**kwargs)
+        context['register_form'] = RegisterForm(prefix="register")
+        return context
+
     def form_valid(self, form):
-        messages.success(self.request, '¡Mensaje enviado con éxito!')
+        # Mensaje éxito contacto (tags: 'success contact')
+        messages.success(self.request, '¡Mensaje de contacto enviado con éxito!', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso -LGS
         return super().form_valid(form)
+
     def form_invalid(self, form):
-        messages.error(self.request, 'No se pudo enviar tu formulario. Por favor, revisa los campos e inténtalo de nuevo.')
-        return super().form_invalid(form)
+        messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
+        return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
 
 #Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
     if request.method == "POST":
-        register = RegisterForm(request.POST)
-        # Obtenemos las contraseñas
-        password = request.POST.get("passrd")
-        confirm_password = request.POST.get("confirm_passrd")
-        # Validamos si las contraseñas coinciden
-        if password != confirm_password:
-            messages.error(request, "Las contraseñas no coinciden.")
-        elif register.is_valid():
-            register.save()
-            messages.success(request, "¡Registro de usuario exitoso!")
-            return redirect("register_user")
+        register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
+        if register_form.is_valid():
+            user = register_form.save(commit=False)
+            user.passrd = make_password(register_form.cleaned_data['passrd'])
+            user.save()
+            # Mensaje éxito registro (tags: 'success register')
+            messages.success(request, "¡Registro exitoso!", extra_tags="register")
+            return redirect("home")
         else:
-            messages.error(request, "Ha ocurrido un error en el registro. Revisa los datos ingresados.")
-    else:
-        register = RegisterForm()
-    
-    return render(request, "index.html", {"form": register})
+            # Mensaje error registro (tags: 'error register')
+            messages.error(request, "Error en el registro", extra_tags="register")
+            contact_form = FormContact(prefix="contact")
+            #Si hay un error en ambos formularios los rederiza en index.html -LGS
+            return render(request, "index.html", {
+                "form": contact_form,
+                "register_form": register_form
+            })
+    return redirect("home") #redirecciona a la pagina principal, antes lo hacia a registro -LGS                                                                                                                                                                                                                                                                 
+
 
 #Función para el captcha en index -Emix
 def index_page(request):
@@ -67,9 +80,32 @@ def index_page(request):
     return render (request, 'index.html')
 
 #Función para el Login -Emix
-@login_required
+#@login_required
 def login(request):
-    return render(request, 'login.html')
+    last_user = Register.objects.order_by('-id').first()  #para pruebgas de starter page muestre el nombre de usuario -LGS
+     #print("Último usuario registrado:", last_user)
+    return render(request, 'starter-page.html', {'last_user': last_user})
 
-        
-        
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             # Validación de la cuenta y contraseña
+#             email = form.cleaned_data.get('email')
+#             password = form.cleaned_data.get('password')
+
+#             try:
+#                 user = Register.objects.get(email=email)
+#                 if user.passrd == password:
+#                     messages.success(request, 'Inicio de sesión exitoso.')
+#                     return redirect('starter-page')  # Cambia la URL de redirección según tu proyecto
+#                 else:
+#                     messages.error(request, 'Contraseña incorrecta.')
+#             except Register.DoesNotExist:
+#                 messages.error(request, 'No existe una cuenta con este correo.')
+#         else:
+#             messages.error(request, 'Revisa los errores e intenta nuevamente.')
+#     else:
+#         form = LoginForm()
+
+#     return render(request, 'index.html', {'form_login': form})
