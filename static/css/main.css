@@ -1943,10 +1943,9 @@ section,
   color: #721c24 !important; /* Texto rojo oscuro */
 }
 
-<style>
-.custom-external-tooltip {
+/* .custom-external-tooltip {
   position: fixed;
-  z-index: 99999; /* Mayor que el z-index del modal */
+  z-index: 99999;
   display: none;
   background: #333;
   color: white;
@@ -1966,7 +1965,6 @@ section,
   border-color: transparent transparent transparent #333;
 }
 
-/* Si usas Bootstrap */
 .modal {
-  z-index: 1050; /* Valor por defecto de Bootstrap */
-}
+  z-index: 1050;
+} */

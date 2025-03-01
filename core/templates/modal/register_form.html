@@ -1,0 +1,97 @@
+  <!-- Modal de Registro -Emix -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Se modifica form para que funcione el captcha -Emix-->
+          <!-- Se agregan pattern a los inputs y placeholder a los inputs para solicitar información más clara y que se valide que se cumple -Emix -->
+          <form class="forms" action="{% url 'register_user' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
+              {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
+              <label for="registerName" class="form-label">Nombre</label>
+              <input name="name" type="text" class="form-control" id="registerName" required placeholder="Nombre o nombres">
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName1" class="form-label">Primer Apellido</label>
+              <input name="last_name" type="text" class="form-control" id="registerLastName1" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName2" class="form-label">Segundo Apellido</label>
+              <input name="second_lastname" type="text" class="form-control" id="registerLastName2" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Correo Electrónico</label>
+              <input name="email" type="email" class="form-control" id="registerEmail" required placeholder="Correo electronico personal">
+            </div>
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input name="passrd" type="password" class="form-control" id="registerPassword" required 
+            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$">
+        <div id="passwordTooltip" class="tooltip bs-tooltip-start">
+            <div class="tooltip-inner">
+                Debe contener una mayúscula, una minúscula, un número y un carácter especial.
+            </div>
+        </div>
+            <!-- Se agrega label para confirmar contraseña -Emix -->
+            <div class="mb-3">
+              <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+              <input name="confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required>
+            </div>
+            <!-- Agregamos botón para mostrar contraseñas-->
+            <div class="mb-3">
+              <input type="checkbox" id="showPasswords" onclick="togglePasswordVisibility()"> 
+              <label for="showPasswords" class="form-label">Mostrar Contraseñas</label>
+            </div>
+          
+            <div class="mb-3">
+              <label for="registerPhone" class="form-label">Número de Celular</label>
+              <input name="cellphone" type="tel" class="form-control" id="registerPhone" required pattern="[0-9]+" placeholder="A 10 digitos    " maxlength="10" minlength="10">
+            </div>
+            <!-- Small para aviso de correo y celular -Emix -->
+            {% comment %} <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small><br><br> {% endcomment %}
+            <!-- Se agrega widget de captcha -Emix-->
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div><br>
+            <button id="button-register" name="registerb" type="submit" class="btn btn-primary w-100">Registrarse</button>
+          </form>
+          <!--Script para el Tooltip -Emix -->
+          <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const passwordField = document.getElementById("registerPassword");
+            const tooltip = document.getElementById("passwordTooltip");
+        
+            passwordField.addEventListener("focus", () => {
+                tooltip.classList.add("show");
+            });
+        
+            passwordField.addEventListener("blur", () => {
+                tooltip.classList.remove("show");
+            });
+        });
+        </script>
+          <!-- Script para mostrar la contraseña -Emix -->
+          <script>
+            function togglePasswordVisibility() {
+              var passwordField = document.getElementById("registerPassword");
+              var confirmPasswordField = document.getElementById("registerConfirmPassword");
+              var showPasswordsCheckbox = document.getElementById("showPasswords");
+          
+              if (showPasswordsCheckbox.checked) {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+              } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+              }
+            }
+          </script>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<!--Se agrega modal par inicio de sesión y modal para registrarse - Emix-->
+<!--Modal de Inicio de Sesión -Emix -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--Se modifica form para que funcione el captcha -Emix-->
+        <!-- Se agregan placeholder a los inputs -Emix-->
+        <form class="forms" action="{% url 'home'%}" method="POST">
+          {% csrf_token %}  
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="loginEmail" required placeholder="Ingresa tu correo electronico">
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="loginPassword" required placeholder="Ingresa tu contraseña">
+          </div>
+           <!-- Se agrega widget de captcha -Emix-->
+          <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"> </div> <!--Falta agregar Captcha del sitio ya desplegado-->
+          <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+        <div class="text-center mt-3">
+          <p>¿No tienes cuenta? <a href="#modal_register.html" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Regístrate</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

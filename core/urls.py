@@ -16,6 +16,6 @@ urlpatterns = [
     #Login
     path('login/', views.login, name="login"),
     # Registrar usuario
-    path("register/", views.register_user, name="register_user")
+    path('', views.register_user, name="register_user")
     
 ]
