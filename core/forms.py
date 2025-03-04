@@ -2,18 +2,21 @@ from django import forms
 from .models import Contactos, Register
 import requests
 from django.core.exceptions import ValidationError
+from django.contrib.auth.hashers import check_password 
 
+
+#se cambia de int a string las opciones -LGS
 TOPIC_CHOICES = [
-    (0, 'Mas sobre las membresias'),
-    (1, 'Cotizar'),
-    (2, 'Dudas sobre pagos'),
-    (3, 'Dudas en general y sugerencias'),
+    ('Mas sobre las membresias', 'Mas sobre las membresias'),
+    ('Cotizar', 'Cotizar'),
+    ('Dudas sobre pagos', 'Dudas sobre pagos'),
+    ('Dudas en general y sugerencias', 'Dudas en general y sugerencias'),
 ]
 
 # formulario para contactanos -LGS
 class FormContact(forms.ModelForm):
     topic_contact = forms.ChoiceField(
-        choices=TOPIC_CHOICES,
+        choices=TOPIC_CHOICES,  # Usa las opciones actualizadas -LGS
         widget=forms.Select(attrs={'class': 'form-select'}),
         label="Elige el tema de tu interés:"
     )
@@ -96,31 +99,70 @@ class RegisterForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(
-        label="Correo Electrónico",
+    loginEmail = forms.EmailField(
         widget=forms.EmailInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Ingresa tu correo'
-        })
+            'placeholder': 'Correo electrónico',
+            'id': 'loginEmail'
+        }),
+        label="Correo electrónico"
     )
-    password = forms.CharField(
-        label="Contraseña",
+    loginPassword = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Ingresa tu contraseña'
-        })
+            'placeholder': 'Contraseña',
+            'id': 'loginPassword'
+        }),
+        label="Contraseña"
     )
 
     def clean(self):
         cleaned_data = super().clean()
-        email = cleaned_data.get('email')
-        password = cleaned_data.get('password')
+        email = cleaned_data.get('loginEmail')
+        password = cleaned_data.get('loginPassword')
 
-        if email and password:
-            try:
-                user = Register.objects.get(email=email)
-                if user.passrd != password:
-                    self.add_error('password', 'Contraseña incorrecta.')
-            except Register.DoesNotExist:
-                self.add_error('email', 'No existe una cuenta con este correo.')
+        # Validación de campos vacíos
+        if not email or not password:
+            raise forms.ValidationError("Todos los campos son obligatorios.")
+
+        try:
+            user = Register.objects.get(email=email)
+            if not check_password(password, user.passrd):
+                raise forms.ValidationError("Contraseña incorrecta.")
+        except Register.DoesNotExist:
+            raise forms.ValidationError("El correo no está registrado.")
+
+        return cleaned_data
+    
+#Formulario para solicitar el restablecimiento de contraseña -LGS
+class PasswordResetRequestForm(forms.Form):
+
+    email = forms.EmailField(label="Correo Electrónico", widget=forms.EmailInput(attrs={'class': 'form-control'}))
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not Register.objects.filter(email=email).exists():
+            raise ValidationError("Este correo no está registrado.")
+        return email
+
+#Formulario para nueva contraseña -LGS
+class PasswordResetForm(forms.Form):
+    new_password = forms.CharField(
+        label="Nueva Contraseña",
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        required=True
+    )
+    confirm_password = forms.CharField(
+        label="Confirmar Nueva Contraseña",
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        new_password = cleaned_data.get("new_password")
+        confirm_password = cleaned_data.get("confirm_password")
+
+        if new_password and confirm_password and new_password != confirm_password:
+            raise ValidationError("Las contraseñas no coinciden.")
+
         return cleaned_data
