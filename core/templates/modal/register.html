@@ -1,0 +1,148 @@
+  <!-- Modal de Registro -Emix -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true" role="document">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Se modifica form para que funcione el captcha -Emix-->
+          <!-- Se agregan pattern a los inputs y placeholder a los inputs para solicitar información más clara y que se valide que se cumple -Emix -->
+          <form class="forms" action="{% url 'register_user' %}" method="POST">
+            {% csrf_token %}
+            {% for message in messages %}
+            {% if "register" in message.tags %} <!-- Solo mostrar mensajes relacionados al registro -->
+            <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+                <div class="d-flex align-items-center">
+                    <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
+                    {{ message }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+        {% endfor %}
+            <div class="mb-3">
+              <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
+              {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
+              <label for="registerName" class="form-label">Nombre</label>
+              <input name="register-name" type="text" class="form-control" id="registerName" required pattern="^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)(\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$">
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName1" class="form-label">Primer Apellido</label>
+              <input name="register-last_name" type="text" class="form-control" id="registerLastName1" required pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$">
+            </div>
+            <div class="mb-3">
+              <label for="registerLastName2" class="form-label">Segundo Apellido</label>
+              <input name="register-second_lastname" type="text" class="form-control" id="registerLastName2" pattern="^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$">
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Correo Electrónico</label>
+              <input name="register-email" type="email" class="form-control" 
+              id="registerEmail" required placeholder="Correo electronico personal">
+              {% if register_form.email.errors %}  <!-- Se agrega tags para validacion de error si ya existe el correo -LGS -->
+                  <div class="invalid-feedback d-block">
+                      {% for error in register_form.email.errors %}
+                          {{ error }}
+                      {% endfor %}
+                  </div>
+              {% endif %}
+            </div>
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input name="register-passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$#!%*?&])[A-Za-z\d@$!%#*?&]+$">
+            <div class="tooltip-arrow"></div>
+            <div class="tooltip-inner" id="passwordTooltip">
+              Debe contener una mayúscula, una minúscula, un número y un carácter especial.
+            </div>
+            <!-- Se agrega label para confirmar contraseña -Emix -->
+            <div class="mb-3">
+              <label for="registerConfirmPassword" class="form-label">Confirmar Contraseña</label>
+              <input name="register-confirm_passrd" type="password" class="form-control" id="registerConfirmPassword" required placeholder="Tu misma contraseña">
+            </div>
+            <!-- Agregamos botón para mostrar contraseñas-->
+            <div class="mb-3">
+              <input type="checkbox" id="showPasswords" onclick="togglePasswordVisibility()">
+              <label for="showPasswords" class="form-label">Mostrar Contraseñas</label>
+              <!-- Tooltip para mensaje de contraseña -Emix -->
+              <script>
+                var input = document.getElementById("registerPassword");
+                var tooltip = document.getElementById("passwordTooltip");
+              
+                // Muestra el tooltip cuando el usuario da clic en el input
+                input.addEventListener("focus", function () {
+                    tooltip.style.display = "block"; 
+                });
+              
+                // Oculta el tooltip cuando el usuario hace clic fuera del input
+                document.addEventListener("click", function (event) {
+                    if (event.target !== input) {
+                        tooltip.style.display = "none";
+                    }
+                });
+              </script>
+            </div>
+          
+            <div class="mb-3">
+              <label for="registerPhone" class="form-label">Número de Celular</label>
+              <input name="register-cellphone" type="tel" class="form-control" 
+              id="registerPhone" required pattern="[0-9]+" placeholder="Número de celular a 10 digitos" 
+              maxlength="10" minlength="10">
+              {% if register_form.cellphone.errors %} <!-- Se agrega tags para validacion de error si ya existe el TEL. -LGS -->
+                  <div class="invalid-feedback d-block">
+                      {% for error in register_form.cellphone.errors %}
+                          {{ error }}
+                      {% endfor %}
+                  </div>
+              {% endif %}
+            </div>
+            <!-- Small para aviso de correo y celular -Emix -->
+            {% comment %} <small class="form-text text-muted">NOTA: El correo y el número de celular utilizados pueden registrarse en una sola cuenta.</small><br><br> {% endcomment %}
+            <!-- Se agrega widget de captcha -Emix-->
+            <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div><br>
+            <button id="button-register" name="submit_register" type="submit" class="btn btn-primary w-100">Registrarse</button>
+            </div>
+          </form>
+          <!-- Script para mostrar la contraseña -Emix -->
+          <script>
+            function togglePasswordVisibility() {
+              var passwordField = document.getElementById("registerPassword");
+              var confirmPasswordField = document.getElementById("registerConfirmPassword");
+              var showPasswordsCheckbox = document.getElementById("showPasswords");
+          
+              if (showPasswordsCheckbox.checked) {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+              } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+              }
+            }
+          </script>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Script para solucionar quitar fondo gris y poner funcionalidad -Emix -->
+  <script>
+    $(document).on('hidden.bs.modal', function () {
+      if ($('.modal.show').length === 0) { // Verifica si queda algún modal abierto
+          $('body').removeClass('modal-open'); // Restaura el scroll solo si no hay modales abiertos
+          $('.modal-backdrop').remove(); // Elimina el fondo oscuro solo si no hay más modales activos
+      }
+  });
+</script>  
+<!-- Script para abrir automáticamente el modal si hubo errores en el formulario -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+    {% if messages %}
+      {% for message in messages %}
+        {% if "register" in message.tags %}
+          registerModal.show();
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  });
+</script>

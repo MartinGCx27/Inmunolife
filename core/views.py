@@ -36,25 +36,41 @@ class inmunolife_home(CreateView):
 
 #Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
-    if request.method == "POST":
-        register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
+    register_form = RegisterForm()
+    if request.POST:
+        register_form = RegisterForm(request.POST, prefix="register")
         if register_form.is_valid():
             user = register_form.save(commit=False)
             user.passrd = make_password(register_form.cleaned_data['passrd'])
             user.save()
-            # Mensaje éxito registro (tags: 'success register')
-            messages.success(request, "¡Registro exitoso!", extra_tags="register")
-            return redirect("home")
+            messages.add_message(request=request, level=messages.SUCCESS, message="¡Usuario registrado!", extra_tags="register")
+            return redirect('home')
+            
         else:
-            # Mensaje error registro (tags: 'error register')
-            messages.error(request, "Error en el registro", extra_tags="register")
-            contact_form = FormContact(prefix="contact")
-            #Si hay un error en ambos formularios los rederiza en index.html -LGS
-            return render(request, "index.html", {
-                "form": contact_form,
-                "register_form": register_form
-            })
-    return redirect("home") #redirecciona a la pagina principal, antes lo hacia a registro -LGS                                                                                                                                                                                                                                                                 
+            messages.add_message(request=request, level=messages.ERROR, message="¡Usuario no registrado!", extra_tags="register")
+            return redirect('home') 
+
+        
+# def register_user(request):
+#     if request.method == "POST":
+#         register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
+#         if register_form.is_valid():
+#             user = register_form.save(commit=False)
+#             user.passrd = make_password(register_form.cleaned_data['passrd'])
+#             user.save()
+#             # Mensaje éxito registro (tags: 'success register')
+#             messages.success(request, "¡Registro exitoso!", extra_tags="register")
+#             return redirect("home")
+#         else:
+#             # Mensaje error registro (tags: 'error register')
+#             messages.error(request, "Error en el registro", extra_tags="register")
+#             contact_form = FormContact(prefix="contact")
+#             #Si hay un error en ambos formularios los rederiza en index.html -LGS
+#             return render(request, "index.html", {
+#                 "form": contact_form,
+#                 "register_form": register_form
+#             })
+#     return redirect("home") #redirecciona a la pagina principal, antes lo hacia a registro -LGS                                                                                                                                                                                                                                                                 
 
 
 #Función para el captcha en index -Emix

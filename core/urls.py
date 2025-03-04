@@ -17,7 +17,7 @@ urlpatterns = [
     #Login
     path('login/', views.login, name="login"),
     # Registrar usuario
-    path('registro', views.register_user, name='register_user'),
+    path('', views.register_user, name='register_user'),
 
     path('password_reset/', auth_views.PasswordResetView.as_view(
         template_name='registration/password_reset_form.html',  # Tu plantilla
