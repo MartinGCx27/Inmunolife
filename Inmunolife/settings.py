@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -160,9 +161,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'leonciogamershow@gmail.com'
-EMAIL_HOST_PASSWORD = 'nlquiztnluorydtf'
-DEFAULT_FROM_EMAIL = 'Inmunolife <leonciogamershow@gmail.com>'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = f'Inmunolife <{os.environ.get("EMAIL_HOST_USER")}>'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-BASE_URL = 'http://localhost:8000'
+BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')
