@@ -44,23 +44,39 @@ class inmunolife_home(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
         return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
+    
+    def form_valid(self, form):
+        # Mensaje éxito registro (tags: 'success register')
+        messages.success(self.request, '¡Registro realizado con éxito!', extra_tags="register") #Se agrega el extra_tags para el FormRegister para envío exitoso -Emix
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, '¡Erro al realizar el registro!', extra_tags="register") #Se agrega el extra_tags para el FormRegister para envío erroneo -Emix
+        return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
 
 #Funcion para registrar ahorá sí chila -Emix
 def register_user(request):
     register_form = RegisterForm()
     if request.POST:
-        register_form = RegisterForm(request.POST, prefix="register")
+        register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
         if register_form.is_valid():
             user = register_form.save(commit=False)
-            user.passrd = make_password(register_form.cleaned_data['passrd'])
+            user.passrd = make_password(register_form.cleaned_data['passrd'])#Ciframos la contraseña antes de subirla a la db -Emix
             user.save()
             messages.add_message(request=request, level=messages.SUCCESS, message="¡Usuario registrado!", extra_tags="register")
             return redirect('home')
             
         else:
             messages.add_message(request=request, level=messages.ERROR, message="¡Usuario no registrado!", extra_tags="register")
-            return redirect('home') 
-
+            return redirect('home') #Redireccionamos a home para no cerrar el modal y mostrar la imagen 
+            #Si hay un error en ambos formularios los rederiza en index.html -LGS
+    else:
+        contact_form = FormContact(prefix="contact")
+        return render(request, "index.html", {
+        "form": contact_form,
+        "register_form": register_form,
+        "login_form": LoginForm(prefix="login")
+            })
         
 # def register_user(request):
 #     if request.method == "POST":

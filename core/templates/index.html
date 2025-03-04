@@ -137,14 +137,6 @@
 
     <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
 
-      <!-- Se agrega If para condicionar que aparece cuando el usuario se registra y cuando no -Emix -->
-      {% if messages %}
-      <ul class="messages">
-          {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-          {% endfor %}
-      </ul>
-      {% endif %}
       <h2>Bienvenido a Inmuno</h2>
       <p>Red de salud que te acompaña siempre.</p>
     </div><!-- End Welcome -->
