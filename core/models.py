@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 
 
+
 # Create your models here.
 
 #Modelo Emilx
@@ -22,7 +23,9 @@ class Register(models.Model):
 
     user_active = models.BooleanField(default=True, verbose_name="Usuario activo")
     user_admin = models.BooleanField(default=False, verbose_name="Usuario admin")
-    
+
+    reset_token = models.CharField(max_length=255, null=True, blank=True, verbose_name="Token de restablecimiento")
+    reset_token_expiration = models.DateTimeField(null=True, blank=True, verbose_name="Fecha de expiración del token")
 
     def __str__(self):
         return self.name  #se arreglo el return ya que esaba mandando a llamar a name_contact -LGS
@@ -36,10 +39,10 @@ class Meta:
 
 #Arreglo para topic_contact (opciones a elegir) -LGS
 options = [
-    [0, 'Mas sobre las membresias'],
-    [1, 'Cotizar'],
-    [2, 'Dudas sobre pagos'],
-    [3, 'Dudas en general y sugerencias']
+    ('Mas sobre las membresias', 'Mas sobre las membresias'),
+    ('Cotizar', 'Cotizar'),
+    ('Dudas sobre pagos', 'Dudas sobre pagos'),
+    ('Dudas en general y sugerencias', 'Dudas en general y sugerencias')
 ]
     
 #Se agrega blank=FALSE para validar no tener campos vacios -LGS
@@ -51,7 +54,7 @@ class Contactos(models.Model):
         max_length=10, null=False, blank=False, unique=False, verbose_name='Telefono'
     )
     email_contact = models.EmailField(null=False, blank=False, unique=False, verbose_name="Email")
-    topic_contact = models.IntegerField(choices=options, null=True, unique=False, blank=False ,verbose_name='Tema de elección')
+    topic_contact = models.CharField(max_length=50, choices=options, null=True, blank=False, verbose_name='Tema de elección') #Se cambio de Input a charfield
     comments_contact = models.TextField(null=True, blank=True, verbose_name='Comentarios')
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')

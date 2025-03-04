@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 #Se importa vista creada en views -LGS
 from .views import inmunolife_home
-from django.contrib.auth import views as auth_views
+
 
 
  
@@ -15,28 +15,15 @@ urlpatterns = [
     #Ruta para la vista llamando la clase crerada en views -LGS
     path('', inmunolife_home.as_view(), name='home'),
     #Login
-    path('login/', views.login, name="login"),
+    path('login/', views.login_view, name='login'),
     # Registrar usuario
-    path('', views.register_user, name='register_user'),
-
-    path('password_reset/', auth_views.PasswordResetView.as_view(
-        template_name='registration/password_reset_form.html',  # Tu plantilla
-        email_template_name='registration/password_reset_email.html',  # Plantilla de correo personalizada
-        subject_template_name='registration/password_reset_subject.txt',  # Asunto del correo
-        success_url='/password_reset/done/'
-    ), name='password_reset'),
-
-    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
-        template_name='registration/password_reset_done.html'
-    ), name='password_reset_done'),
-
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
-        template_name='registration/password_reset_confirm.html',
-        
-        success_url='/reset/done/'
-    ), name='password_reset_confirm'),
-
-    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
-        template_name='registration/password_reset_complete.html'
-    ), name='password_reset_complete'),
+    path('registro/', views.register_user, name='register_user'),
+    #URL para confirmar existencia de correo -LGS
+    path('password_reset/', views.password_reset_request, name='password_reset'),
+    #URL para modificar la contraseña -LGS
+    path('password_reset_confirm/<str:uidb64>/<str:token>/', views.password_reset_confirm, name='password_reset_confirm'),
+    #URL para vista de confirmacion de envio de correo -LGS
+    path('password_reset_done/', views.password_reset_done, name='password_reset_done'),
+    #URL de cambio hecho exitosamente -LGS
+    path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete')
 ]
