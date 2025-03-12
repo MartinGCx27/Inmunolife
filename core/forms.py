@@ -10,7 +10,7 @@ TOPIC_CHOICES = [
     ('Mas sobre las membresias', 'Mas sobre las membresias'),
     ('Cotizar', 'Cotizar'),
     ('Dudas sobre pagos', 'Dudas sobre pagos'),
-    ('Dudas en general y sugerencias', 'Dudas en general y sugerencias'),
+    ('Dudas generales y sugerencias', 'Dudas en general y sugerencias'),
 ]
 
 # formulario para contactanos -LGS

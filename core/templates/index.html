@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
    <!-- <title> Index - Medilab Bootstrap Template </title> -->
-  <title>Protego Total | {% block title %} {% endblock %}</title>
+  <title>Protego   Total | {% block title %} {% endblock %}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -83,8 +83,8 @@
         <a href="#hero" class="logo d-flex align-items-center me-auto"> 
           <!--Se modifica href:index.html por "#hero" -Emix-->
           <!-- Se modifica logo agregando logo de Inmuno -Emix-->
-          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotype Inmuno red lion"> 
-          <h1 class="sitename">Protego Total</h1>
+          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="Logotipo de Inmuno: Leon rojo"> 
+          <h1 class="sitename">Protego  Total</h1>
         </a>
         <!--Modificacion de navbar agregando 2 dropdowns. Emix-->
         <nav id="navmenu" class="navmenu">
@@ -93,8 +93,8 @@
             <li><a href="#hero">Membresias</a></li>
             <li class="dropdown"><a href="#about"><span>Nosotros</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> <!--Se comenta clases que se le quitan a about - Emix: class="dropdown, bi-chevron-down toggle-dropdown"-->
               <ul>
-                <li><a href="#about">Acerca de Protego total</a></li>
-                <li><a href="#stats">¿Por qué Protego Total?</a></li>
+                <li><a href="#about">Acerca de Protego  Total</a></li>
+                <li><a href="#stats">¿Por qué Protego  Total?</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#services"><span>Servicios</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -131,7 +131,7 @@
 <!-- Hero Section -->
 <section id="hero" class="hero section light-background">
 
-  <img src="{% static 'img/hero-bg.jpg' %}" alt="" data-aos="fade-in"> 
+  <img src="{% static 'img/hero-bg.jpg' %}" alt="Imagen de doctor" data-aos="fade-in"> 
 
   <div class="container position-relative">
 
@@ -150,21 +150,21 @@
       {% endif %}
   {% endfor %}
   
-      <h2>Bienvenido a Inmuno</h2>
-      <p>Red de salud que te acompaña siempre.</p>
+      <h2>Bienvenido a Protego  Total</h2>
+      <p>Tu socio vital.</p>
     </div><!-- End Welcome -->
 
     <div class="content row gy-4">
       <div class="icon-box-container">
         <div class="icon-box">
-        <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un paciente y doctor" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
         <div class="icon-content">
           <div class="membership-card">
             <ul class="membership-features">
-              <li>Todos necesitamos un respaldo, alguien que realmente se la jueguepor nuestra vida y nuestra salud. Una protección completa, queesté siempre en los momentos difíciles, dándolo todo cuando más lonecesitamos.</li>
+              <li>Todos necesitamos un respaldo, alguien que realmente se la juegue por nuestra vida y nuestra salud. Una protección completa, que esté siempre en los momentos difíciles, dándolo todo cuando más lo necesitamos.</li>
             </ul>
             <div class="text-center">
-              <a href="#about" class="more-btn"><span>Conoce más de Protego Total</span></i></a>
+              <a href="#about" class="more-btn"><span>Conoce más de Protego  Total</span></i></a>
             </div>
             <div class="annual-price">
             </div>
@@ -176,10 +176,10 @@
              <!-- Membresia 1 -->
   <div class="icon-box-container">
     <div class="icon-box">
-        <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen una mamá e hija felices con título de membresia uno" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
         <div class="icon-content">
           <div class="membership-card">
-            <h4 class="membership-title">Membresía 1</h4>
+            <h4 class="membership-title">Vital pass</h4>
             <ul class="membership-features">
               <li>Precio Mensual $1,650</li>
               <li>Suma Asegurada $1M</li>
@@ -202,10 +202,10 @@
       <!-- Membresia 2 -->
       <div class="icon-box-container">
         <div class="icon-box">
-        <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de familia feliz con título de membresia dos" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
         <div class="icon-content">
           <div class="membership-card">
-            <h4 class="membership-title">Membresía 2</h4>
+            <h4 class="membership-title">Vital pass +</h4>
             <ul class="membership-features">
               <li>Precio Mensual $1,990</li>
               <li>Suma Asegurada $2 M</li>
@@ -242,14 +242,14 @@
 
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
             <!-- Se arregla imagen y link para visualizar video Leonardo -->
-            <img src="{% static '/img/about.jpg'  %}" class="img-fluid" alt="">
+            <img src="{% static '/img/about.jpg'  %}" class="img-fluid" alt="Imagen de doctores">
             <a href="https: //www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
 <!-- Modificación ventana nosotros, agregando valores, mision, vision, acerca de nosotros. emix-->
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <h3>Acerca de nosotros</h3>
             <p>
-              Protego Total es una empresa comprometida con hacer accesible
+              Protego  Total es una empresa comprometida con hacer accesible
               la salud de calidad para todos. Ofrecemos la afiliación a
               aseguradoras que brindan membresias de gastos médicos mayores</p>
             <ul>
@@ -291,7 +291,7 @@
     <section id="stats" class="stats section light-background">
 
       <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
-        <h2>¿Por qué Protego Total?</h2>
+        <h2>¿Por qué Protego  Total?</h2>
 
         <div class="row gy-4">
 
@@ -355,7 +355,7 @@
               <!--Se le quita la siguiente etiqutea a las cards de services con class:streched-link: href="#hero" -Emix -->
               <a class="stretched-link">
               </a>
-                <h5>Personas que no pueden permitirse una membresia médicoa de
+                <h5>Personas que no pueden permitirse una membresia médica de
                 gastos mayores individual debido a su alto costo.</h5>
             </div>
           </div><!-- End Service Item -->
@@ -497,7 +497,7 @@
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Protego Total? </a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Protego  Total? </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">¿Puedo afiliarme si tengo una condición médica preexistente?</a>
@@ -506,7 +506,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">¿Cómo funciona la red de médicos especialistas?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">Protego Total ofrece cobertura fuera del país?</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">¿Protego  Total ofrece cobertura fuera del país?</a>
               </li>
             </ul>
           </div>
@@ -515,11 +515,11 @@
               <div class="tab-pane active show" id="departments-tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>¿Qué cubre la membresía de Protego Total?</h3>
+                    <h3>¿Qué cubre la membresía de Protego  Total?</h3>
                     <p class="fst-italic">Accidentes, hospitalizaciones, tratamientos de enfermedades graves.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/protego-manos-ancianas.jpg' %}" alt="" class="img-fluid">
+                    <img src="{% static '/img/protego-manos-ancianas.jpg' %}" alt="Imagen de manos de personas de la tercera edad" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -531,7 +531,7 @@
                       salud.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/protego-mano-negativo.png' %}" alt="" class="img-fluid">
+                    <img src="{% static '/img/protego-mano-negativo.png' %}" alt="Imagen de pulgar hacía abajo" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -543,18 +543,18 @@
                       preferenciales.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/protego-doctor-anciano.png' %} " alt="" class="img-fluid">
+                    <img src="{% static '/img/protego-doctor-anciano.png' %} " alt="Imagend de anciano y enfermera" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="departments-tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>¿Protego Total ofrece cobertura fuera del país?</h3>
+                    <h3>¿Protego  Total ofrece cobertura fuera del país?</h3>
                     <p class="fst-italic">Sí, dependiendo el tipo de membresía que se adquiera.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static '/img/protego-mapamundi.jpg' %}" alt="" class="img-fluid">
+                    <img src="{% static '/img/protego-mapamundi.jpg' %}" alt="Imagen de un mapamundi" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -782,8 +782,8 @@
           <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
             <h3>RESEÑAS:</h3>
             <p>
-              Checa esta reseñas que tenemos para ti de otros cliente que han
-              confiado en nosotros, ¿Que esperas? y forma parte de ellos:
+              Observa las reseñas que tenemos para ti de otros clientes que han
+              confiado en nosotros, ¿Que esperas? Forma parte de ellos:
             </p>
           </div>
 
@@ -812,9 +812,9 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 1">
                       <div>
-                        <h3>"EJEMPLO cliente:" Saul Goodman</h3>
+                        <h3>Saul Goodman</h3>
                         <h4>Cliente &amp; CEO</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -823,7 +823,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>"EJEMPLO Reseña:" Los agentes son muy profesionales, te explican 
+                      <span>Los agentes son muy profesionales, te explican 
                         las cosas de forma clara y sincera. Te asesoran de 
                         manera efectiva y te orientan según tus necesidades.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
@@ -834,9 +834,9 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 2">
                       <div>
-                        <h3>"EJEMPLO cliente:" Sara Wilsson</h3>
+                        <h3>Sara Wilsson</h3>
                         <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -845,7 +845,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span> "EJEMPLO Reseña:" Me atendieron muy bien, me buscaron una 
+                      <span>Me atendieron muy bien, me buscaron una 
                         membresia que necesitaba a un precio muy bueno.
                         Además te van haciendo seguimiento y te avisan 
                         de cuando te caduca para renovar o buscar otro 
@@ -858,9 +858,9 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 3">
                       <div>
-                        <h3>"EJEMPLO cliente:" Jena Karlis</h3>
+                        <h3>Jena Karlis</h3>
                         <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -869,7 +869,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>"EJEMPLO Reseña:" Precio super competitivo
+                      <span>Precio super competitivo
                         Ofrece membresias con compañías top a mucho mejor 
                         precio que la mayoría de corredores de membresias.
                         Por ahora encantada</span>
@@ -881,10 +881,10 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 4">
                       <div>
                         <h3>Matt Brandon</h3>
-                        <h4>"EJEMPLO cliente:" Cliente</h4>
+                        <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -892,7 +892,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>"EJEMPLO Reseña:" Desde el principio,muy buena atención,están pendientes de todo.
+                      <span>Desde el principio,muy buena atención, están pendientes de todo.
                         Después de contratar también ha seguido siendo todo muy fácil.</span>
                       <i class="bi bi-quote quote-icon-right"></i>
                     </p>
@@ -902,10 +902,10 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="d-flex">
-                      <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="">
+                      <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 5">
                       <div>
                         <h3>John Larson</h3>
-                        <h4>"EJEMPLO cliente:" Cliente</h4>
+                        <h4>Cliente</h4>
                         <div class="stars">
                           <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
@@ -913,7 +913,7 @@
                     </div>
                     <p>
                       <i class="bi bi-quote quote-icon-left"></i>
-                      <span>"EJEMPLO Reseña:" Rápidos, trato muy bueno, 
+                      <span>Rápidos, trato muy bueno, 
                         en todo momento estuvieron pendientes.
                         A la hora de informarme fueron sinceros.
                         Les recomendaría sin dudarlo.</span>
@@ -951,7 +951,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-equipo1.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-equipo1.jpg' %}" alt="" class="img-fluid img-equipo" >
+                <img src="{% static 'img/galeria-protego/protego-equipo1.jpg' %}" alt="Personas reuniondo las manos de forma entusiasta" class="img-fluid" >
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -959,7 +959,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/proto-equipo2.png' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/proto-equipo2.png' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/proto-equipo2.png' %}" alt="Manos reunidas en el centro de un escritorio" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -967,7 +967,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-hospital.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-hospital.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-hospital.jpg' %}" alt="Sala de espera de un hospital" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -975,7 +975,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" alt="Instrumentos de doctor" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -983,7 +983,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-cuidado-anciana.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-cuidado-anciana.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-cuidado-anciana.jpg' %}" alt="Doctores cuidando señoras de la tercera edad" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -991,7 +991,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-dos-ancianos.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-dos-ancianos.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-dos-ancianos.jpg' %}" alt="Pareja de la tercera edad dandose un beso" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -999,7 +999,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-madre-hija.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-madre-hija.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-madre-hija.jpg' %}" alt="Madre e hija abrazandose" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -1007,7 +1007,7 @@
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
               <a href="{% static 'img/galeria-protego/protego-familia-atardecer.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                <img src="{% static 'img/galeria-protego/protego-familia-atardecer.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/galeria-protego/protego-familia-atardecer.jpg' %}" alt="Siluetas de una familia agarrandose de las manos" class="img-fluid">
               </a>
             </div>
           </div><!-- End Gallery Item -->
@@ -1045,15 +1045,15 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Nuestra Localización:</h3>
-                <p>"EJEMPLO Localización:" A108 Adam Street, New York, NY 535022</p>
+                <p>A108 Adam Street, New York, NY 535022</p>
               </div>
             </div><!-- End Info Item -->
 
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Muestro telefono:</h3>
-                <p>"EJEMPLO telefono" +1 5589 55488 55</p>
+                <h3>Nuestro telefono:</h3>
+                <p>+1 5589 55488 55</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -1061,7 +1061,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Nuestro Email:</h3>
-                <p>"EJEMPLO Email:" protego@correo.com</p>
+                <p>protego@correo.com</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -1176,13 +1176,13 @@
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
             <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
-            <span class="sitename">Protego Total</span>
+            <span class="sitename">Protego  Total</span>
           </a>
           <div class="footer-contact pt-3">
-            <p><strong>"EJEMPLO ubicación:" </strong>A108 Adam Street</p>
+            <p><strong>Ubicación: </strong>A108 Adam Street</p>
             <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>"EJEMPLO telefono:"</strong> Telefono: <span>+1 5589 55488 55</span></p>
-            <p><strong>"EJEMPLO email:"</strong> Email: <span>protego@correo.com</span></p>
+            <p class="mt-3"><strong>Telefono:</strong> Telefono: <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>protego@correo.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
             <h4>Nuestras Redes Sociales</h4>
@@ -1194,7 +1194,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Links Utiles</h4>
+          <h4>Redirecciones Utiles</h4>
           <ul>
             <li><a href="#hero">Inicio</a></li>
             <li><a href="#">Membresias</a></li>
@@ -1242,7 +1242,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego Total</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p>
     </div>
 
   </footer>
