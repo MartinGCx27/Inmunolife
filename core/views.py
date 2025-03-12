@@ -45,83 +45,66 @@ class inmunolife_home(CreateView):
         messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
         return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
     
-    def form_valid(self, form):
-        # Mensaje éxito registro (tags: 'success register')
-        messages.success(self.request, '¡Registro realizado con éxito!', extra_tags="register") #Se agrega el extra_tags para el FormRegister para envío exitoso -Emix
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, '¡Erro al realizar el registro!', extra_tags="register") #Se agrega el extra_tags para el FormRegister para envío erroneo -Emix
-        return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
-
-#Funcion para registrar ahorá sí chila -Emix
+# Función para registrar usuarios -Emix
 def register_user(request):
-    register_form = RegisterForm()
-    if request.POST:
-        register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
-        if register_form.is_valid():
-            user = register_form.save(commit=False)
-            user.passrd = make_password(register_form.cleaned_data['passrd'])#Ciframos la contraseña antes de subirla a la db -Emix
-            user.save()
-            messages.add_message(request=request, level=messages.SUCCESS, message="¡Usuario registrado!", extra_tags="register")
-            return redirect('home')
-            
+    if request.method == "POST":  # Verifica si la solicitud es de tipo POST -Emix
+        register_form = RegisterForm(request.POST, prefix="register")  # Crea una instancia del formulario de registro con los datos enviados y le asigna un prefijo "register" -LGS
+        contact_form = FormContact(prefix="contact")  # Crea una instancia del formulario de contacto con el prefijo "contact" -Emix
+
+        if register_form.is_valid():  # Verifica si el formulario es válido -Emix
+            user = register_form.save(commit=False)  # Guarda el usuario pero aún no lo almacena en la base de datos -Emix
+            user.passrd = make_password(register_form.cleaned_data['passrd'])  # Encripta la contraseña antes de guardarla -Emix
+            user.save()  # Guarda el usuario en la base de datos -Emix
+            # Mensaje éxito registro (tags: 'success register') -Emix
+            messages.success(request, "¡Registro exitoso, favor de iniciar sesión!", extra_tags="register")  # Envía un mensaje de éxito con la etiqueta "register" -Emix
+            register_form = RegisterForm(request.POST, prefix="register")  # Crea una instancia del formulario de registro con los datos enviados y le asigna un prefijo "register" -LGS
+            contact_form = FormContact(prefix="contact")  # Crea una instancia del formulario de contacto con el prefijo "contact" -Emix
+            return redirect ("home") #Redireccionamos a home para no tener problemas con los formularios -Emix
         else:
-            messages.add_message(request=request, level=messages.ERROR, message="¡Usuario no registrado!", extra_tags="register")
-            return redirect('home') #Redireccionamos a home para no cerrar el modal y mostrar la imagen 
-            #Si hay un error en ambos formularios los rederiza en index.html -LGS
-    else:
-        contact_form = FormContact(prefix="contact")
-        return render(request, "index.html", {
-        "form": contact_form,
-        "register_form": register_form,
-        "login_form": LoginForm(prefix="login")
+            # Mensaje error registro (tags: 'error register') -Emix
+            messages.error(request, "Error en el registro, vuelve a abrir el formulario de registro para ver tus errores", extra_tags="register")  # Envía un mensaje de error con la etiqueta "register" -Emix
+            contact_form = FormContact(prefix="contact")  # Crea una instancia del formulario de contacto con el prefijo "contact" -Emix
+            # Si hay un error en ambos formularios los renderiza en index.html -LGS
+            return render (request, 'index.html', {  # Renderiza la página "index.html" enviando los formularios con los errores -Emix
+                "form": contact_form,  # Pasa el formulario de contacto al contexto -Emix
+                "register_form": register_form,  # Pasa el formulario de registro con los errores al contexto -Emix
+                "login_form": LoginForm(prefix="login")  # Crea una instancia del formulario de inicio de sesión con el prefijo "login" y lo pasa al contexto -Emix
             })
-        
-# def register_user(request):
-#     if request.method == "POST":
-#         register_form = RegisterForm(request.POST, prefix="register")#Prefijo para dar nombre a a los elementos del Form register -LGS
-#         if register_form.is_valid():
-#             user = register_form.save(commit=False)
-#             user.passrd = make_password(register_form.cleaned_data['passrd'])
-#             user.save()
-#             # Mensaje éxito registro (tags: 'success register')
-#             messages.success(request, "¡Registro exitoso!", extra_tags="register")
-#             return redirect("home")
-#         else:
-#             # Mensaje error registro (tags: 'error register')
-#             messages.error(request, "Error en el registro", extra_tags="register")
-#             contact_form = FormContact(prefix="contact")
-#             #Si hay un error en ambos formularios los rederiza en index.html -LGS
-#             return render(request, "index.html", {
-#                 "form": contact_form,
-#                 "register_form": register_form,
-#                  "login_form": LoginForm(prefix="login")
-#             })
-#     return redirect("home") #redirecciona a la pagina principal, antes lo hacia a registro -LGS                                                                                                                                                                                                                                                                 
 
-
-#Función para el captcha en index -Emix
+    # Si la solicitud no es POST, renderiza index.html con todos los formularios vacíos -Emix
+    return render(request, "index.html", {
+        "form": FormContact(prefix="contact"),  # Instancia vacía del formulario de contacto -Emix
+        "register_form": RegisterForm(prefix="register"),  # Instancia vacía del formulario de registro -Emix
+        "login_form": LoginForm(prefix="login")  # Instancia vacía del formulario de inicio de sesión -Emix
+    })
+    
+#Función para el captcha -Emix
 def index_page(request):
-    if request.method == 'POST':
-        recaptcha_response = request.POST.get('g-recaptcha-response')
-        
-        data = {
-            'secret': settings.RECAPTCHA_SECRET_KEY,
-            'response': recaptcha_response
-        }
-        verify_url = 'https://www.google.com/recaptcha/api.siteverify'
-        response = request.post(verify_url, data=data)
-        result = response.json()
-        
-        if result.get('success'):
-            
-            return redirect('success')
-        
-        else:
-            messages.error(request, 'verificación del reCAPTCHA fallida. Por favor intentelo de nuevo')
-            
-    return render (request, 'index.html')
+  # Comprueba si la solicitud actual es de tipo POST -Emix
+  if request.method == 'POST':
+    # Obtiene el token de respuesta del reCAPTCHA -Emix
+    recaptcha_response = request.POST.get('g-recaptcha-response')
+    # Prepara los datos necesarios para verificar el reCAPTCHA -Emix
+    data = {
+      'secret': settings.RECAPTCHA_SECRET_KEY, # Clave secreta del reCAPTCHA configurada en settings.py-Emix
+      'response': recaptcha_response # Token de respuesta del reCAPTCHA enviado por el usuario-Emix
+    }
+    # Establece la URL de verificación del reCAPTCHA de Google-Emix
+    verify_url = 'https://www.google.com/recaptcha/api/siteverify'
+    # Realiza una solicitud POST a la URL de verificación -Emix
+    response = request.post(verify_url, data=data)
+    # Convierte la respuesta de la solicitud a un formato JSON para procesar los resultados-Emix
+    result = response.json()
+    # Comprueba si la verificación del reCAPTCHA fue exitosa-Emix
+    if result.get('success'):
+      # Si la verificación es exitosa, redirige al usuario a una página de éxito-Emix
+      return redirect('success')
+    else:
+      # Si la verificación falla, muestra un mensaje de error al usuario-Emix
+      messages.error(request, 'Verificación del reCAPTCHA fallida. Por favor, inténtelo de nuevo')    
+  # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
+  return render(request, 'index.html')
+
 
 
 def login_view(request):

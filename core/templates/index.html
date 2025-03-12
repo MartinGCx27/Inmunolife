@@ -83,7 +83,7 @@
         <a href="#hero" class="logo d-flex align-items-center me-auto"> 
           <!--Se modifica href:index.html por "#hero" -Emix-->
           <!-- Se modifica logo agregando logo de Inmuno -Emix-->
-          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotype Inmuno red lion"> 
+          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotipo Inmuno leon rojo"> 
           <h1 class="sitename">Inmuno</h1>
         </a>
         <!--Modificacion de navbar agregando 2 dropdowns. Emix-->
@@ -136,61 +136,96 @@
   <div class="container position-relative">
 
     <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-
+      {% for message in messages %}
+      {% if "register" in message.tags %} <!-- Con el extra Tags contact solo saldrá dentro del ContactForm -LGS -->
+      <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
+          <div class="d-flex align-items-center">
+              <span class="me-2">
+                  {% if 'success' in message.tags %} 😸 {% else %} 😿 {% endif %}
+              </span>
+              {{ message }}
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+  {% endfor %}
+  
       <h2>Bienvenido a Inmuno</h2>
       <p>Red de salud que te acompaña siempre.</p>
     </div><!-- End Welcome -->
 
     <div class="content row gy-4">
-      <div class="col-lg-4 d-flex align-items-stretch">
-        <div class="icon-box" data-aos="zoom-out" data-aos-delay="200">
-          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
-          <div class="icon-content">
-            <h3>¿Quiénes somos?</h3>
-            <p>
-              Empresa comprometida con la salud y bienestar de sus socios y familiares, otorgando los mejores servicios médicos ante cualquier situación inesperada.
-            </p>
+      <div class="icon-box-container">
+        <div class="icon-box">
+        <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <div class="icon-content">
+          <div class="membership-card">
+            <ul class="membership-features">
+              <li>Todos necesitamos un respaldo, alguien que realmente se la jueguepor nuestra vida y nuestra salud. Una protección completa, queesté siempre en los momentos difíciles, dándolo todo cuando más lonecesitamos.</li>
+            </ul>
             <div class="text-center">
               <a href="#about" class="more-btn"><span>Conoce más de Inmuno</span></i></a>
             </div>
+            <div class="annual-price">
+            </div>
           </div>
         </div>
-      </div><!-- End Why Box -->
-
-      <div class="col-lg-4 d-flex align-items-stretch">
-        <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
-          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de leon again" class="icon-image">
-          <div class="icon-content">
-            <h4 class="font-inmuno">Membresia 1:</h4>
-            <p>Precio Mensual $1,650 <br>
-              Suma Asegurada $1M<br>
-              Renovación Anual de Cobertura<br>
-              Servicio de Urgencias<br>
-              Ambulancia<br>
-              Precio Anual<br>
-              $16,800<br>
-              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS</p>
+        </div>
+      </div> 
+      <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
+             <!-- Membresia 1 -->
+  <div class="icon-box-container">
+    <div class="icon-box">
+        <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <div class="icon-content">
+          <div class="membership-card">
+            <h4 class="membership-title">Membresía 1</h4>
+            <ul class="membership-features">
+              <li>Precio Mensual $1,650</li>
+              <li>Suma Asegurada $1M</li>
+              <li>Renovación Anual de Cobertura</li>
+              <li>Servicio de Urgencias</li>
+              <li>Ambulancia</li>
+              <li>Precio anual:</li>
+            </ul>
+            <div class="annual-price">
+              <span class="old-price">$19,800</span>
+              <span class="discount-price">$16,800*</span>
+            </div>
+            <p class="footnote">
+              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+            </p>
           </div>
         </div>
-      </div><!-- End Icon Box -->
-
-      <div class="col-lg-4 d-flex align-items-stretch">
-        <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
-          <img src="{% static 'img/leon.jpeg' %}" alt="Imagen de Leon una vez más" class="icon-image">
-          <div class="icon-content">
-            <h4 class="font-inmuno">Membresia 2:</h4>
-            <p>Precio Mensual $1,990<br>
-              Suma Asegurada $2 M<br>
-              Renovación Anual de Cobertura<br>
-              Servicio de Urgencias<br>
-              Ambulancia<br>
-              Cobertura en el extranjero $50 mil USD<br>
-              Precio Anua<br>
-              l$20,500<br>
-              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS</p>
+      </div> 
+    </div>
+      <!-- Membresia 2 -->
+      <div class="icon-box-container">
+        <div class="icon-box">
+        <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de un leon jajajaja" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <div class="icon-content">
+          <div class="membership-card">
+            <h4 class="membership-title">Membresía 2</h4>
+            <ul class="membership-features">
+              <li>Precio Mensual $1,990</li>
+              <li>Suma Asegurada $2 M</li>
+              <li>Renovación Anual de Cobertura</li>
+              <li>Servicio de Urgencias</li>
+              <li>Ambulancia</li>
+              <li>Cobertura en el extranjero $50 mil USD</li>
+              <li>Precio Anual: </li>
+            </ul>
+            <div class="annual-price">
+              <span class="old-price">$23,800</span>
+              <span class="discount-price">$20,500*</span>
+            </div>
+            <p class="footnote">
+              *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+            </p>
           </div>
         </div>
-      </div><!-- End Icon Box -->
+      </div>
+    </div>
     </div><!-- End Content-->
 
   </div>
@@ -222,31 +257,25 @@
                 <i class="fa-solid fa-vial-circle-check"></i>
                 <div>
                   <h5>Valores</h5>
-                  <p>Solidaridad: Trabajamos juntos para proteger nuestra salud.<br>
-                    Accesibilidad: Hacemos que la salud sea más asequible para todos.<br>
-                    Compromiso: Nos dedicamos al bienestar de nuestros miembros.<br>
-                    Transparencia: Actuamos con honestidad y claridad en todas nuestras operaciones.</p>
+                  <p>Protección: Resguardamos con astucia la salud de cada socio dentro de la comunidad, asegurándonos de volvernos cada vez más grandes y másfuertes.<br>
+                    Cobertura: Queremos que cada una de tus preocupaciones médicas estén cubiertas por eso, creamos planes diferentes que cubran todas esas necesidades que puedan surgirte.<br>
+                    Alianza: Nos vinculamos a los mejores lugares y con las mejores personalidades para volvernos juntos cada vez más fuertes.<br>
+                    Innovación: Vemos a la innovación como un socio más con el que contamos para mantenernos protegidos, por lo que le damos un papel fundamental en nuestra mejora constante.<br>
+                    Accesibilidad: Mantener nuestra infraestructura siempre afilada para estar conectados, porque sabemos que es vital para nuestros socios poder hacer el llamado oportuno en pro de su salud.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-pump-medical"></i>
                 <div>
                   <h5>Misión</h5>
-                  <p>Facilitar el acceso a membresias
-                    médicas mayores a través
-                    de un modelo colectivo,
-                    ofreciendo a nuestros
-                    miembros servicios médicos
-                    y atención en casos de alto
-                    riesgo.</p>
+                  <p>Dar a nuestros miembros el pase a una sociedad comprometida con su protección, brindando beneficios integrales ante cualquier necesidad de salud a través de nuestra plataforma digital.</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-heart-circle-xmark"></i>
                 <div>
                   <h5>Visión</h5>
-                  <p>Ser la empresa coperativa líder en servicios integrales de salud,promoviendo 
-                    el bienestar colectivo y el acceso a aseguros médicos de calidad para todos.</p>
+                  <p>Ser un referente de protección, unidad e innovación, poniendo la salud al alcance de todos con la seguridad y el respaldo que merecen.</p>
                 </div>
               </li>
             </ul>

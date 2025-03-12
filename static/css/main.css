@@ -1843,45 +1843,67 @@ section,
 
 /* Fin de las clases para los modales */
 
-/* Se crean clases para las nuevas cards -Emix*/
-/* Estilos específicos para el primer icon-box */
-.content .col-lg-4:nth-child(1) .icon-box .icon-content {
+/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix  */
+
+/* 
+   1) Estilos específicos para la primera card (si aplica):
+      - Si la card es la primera dentro de .content,
+        el overlay (.icon-content) tendrá fondo #c02135 (rojo)
+        y el texto en blanco (#fff).
+*/
+.content .icon-box-container:nth-child(1) .icon-box .icon-content {
   background-color: #c02135;
   color: #fff;
 }
 
-/* Aplicamos herencia de color para la primer card*/
-.content .col-lg-4:nth-child(1) .icon-box .icon-content h3,
-.content .col-lg-4:nth-child(1) .icon-box .icon-content p,
-.content .col-lg-4:nth-child(1) .icon-box .icon-content a {
+/* 
+   - Aplicamos color: inherit para que h3, p y a dentro del
+     overlay hereden el color blanco.
+*/
+.content .icon-box-container:nth-child(1) .icon-box .icon-content h3,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content h4,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content p,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content a {
   color: inherit;
 }
 
-/* Estilos para las demás cards*/
+/* 
+   2) Estilos generales para las cards (imagen con overlay):
+      - .icon-box es el contenedor principal que aloja
+        la imagen de fondo y el overlay con el contenido.
+*/
 .icon-box {
-  position: relative;
+  position: relative;   /* Permite posicionar el overlay absoluto */
   overflow: hidden;
-  height: 90vh;
+  height: 90vh;        /* Ajusta la altura */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
-  flex: 1 1 30%;
+  margin-bottom: 0; /* Elimina el margen inferior */
+  flex: 1 1 30%;       /* Crece/encoge para adaptarse al contenedor */
 }
 
+/* 
+   - .icon-image es la imagen de fondo:
+     * object-fit: cover la recorta para llenar el contenedor.
+     * transition: opacity para que pueda desvanecerse al hover.
+*/
 .icon-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
+  z-index: 0; /* Queda detrás del overlay */
 }
 
+/* 
+   - .icon-content es el overlay que aparecerá sobre la imagen:
+     * Por defecto, opacity: 0 (invisible).
+     * Se centra el contenido en vertical y horizontal.
+*/
 .icon-content {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1890,36 +1912,51 @@ section,
   opacity: 0; 
   transition: opacity 0.3s ease;
   padding: 1rem;
-  z-index: 1; 
+  z-index: 1; /* Va por encima de la imagen */
 }
 
+/* 
+   - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).
+*/
 .icon-box:hover .icon-content {
   opacity: 1;
 }
 
+/* 
+   - Al hacer hover sobre .icon-box, la imagen se desvanece (opacity:0).
+     Esto permite que se vea solo el overlay.
+*/
 .icon-box:hover .icon-image {
   opacity: 0;
 }
-/* Estilo para los títulos */
-.icon-content h3, .icon-content h4 {
+
+/* 
+   3) Estilos para títulos y párrafos dentro del overlay:
+      - Tipografía y efectos para resaltar el texto sobre la imagen.
+*/
+.icon-content h3, 
+.icon-content h4 {
   font-family: 'Arial Black', sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
+  /* Pequeña sombra para hacer resaltar el texto */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilo para los párrafos */
 .icon-content p {
   font-family: 'Georgia', serif;
   font-size: 1.1rem;
-  line-height:2.1;
+  line-height: 2.1;
   margin-bottom: 1rem;
 }
 
-/* Estilo para el botón */
+/* 
+   4) Estilo para el botón (.more-btn) dentro del overlay:
+      - Cambio de color al hacer hover.
+*/
 .more-btn {
-  background-color: #a3a3a3;
-  color: #c02135;
+  background-color: #a3a3a3;  /* Gris claro */
+  color: #c02135;            /* Rojo */
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -1927,11 +1964,105 @@ section,
 }
 
 .more-btn:hover {
-  background-color: #c02135;
-  color: #ffffff;
+  background-color: #c02135; /* Se vuelve rojo */
+  color: #ffffff;            /* Texto blanco */
 }
 
+/* 
+   5) Estilos para la Tarjeta de Membresía (.membership-card)
+      dentro del overlay:
+      - Caja blanca con borde, padding y sombra,
+        donde se muestra info del plan/precio.
+*/
+.membership-card {
+  background-color: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  max-width: 350px;
+  margin: 0 auto; /* Centra la tarjeta */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 
+   - Título de la membresía (por ej. "Membresía 1"):
+     Se usa var(--heading-color) para mantener la paleta.
+*/
+.membership-title {
+  color: var(--heading-color);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* 
+   - Lista de características (precio mensual, cobertura, etc.):
+     * Se remueven los bullets y se ajustan márgenes.
+*/
+.membership-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  color: var(--default-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.membership-features li {
+  margin-bottom: 0.5rem;
+}
+
+/* 
+   - .annual-price agrupa el precio viejo y el nuevo
+     (con descuento). 
+*/
+.annual-price {
+  margin: 1rem 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* 
+   - Precio anterior tachado, en un tono más claro.
+*/
+.old-price {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+/* 
+   - Precio con descuento en verde (#28a745) 
+     y tamaño de fuente mayor.
+*/
+.discount-price {
+  color: #28a745;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 
+   - Pie de nota (footnote) para mensajes como
+     "*En caso de pagar de manera anual..."
+*/
+.footnote {
+  font-size: 0.9rem;
+  color: var(--default-color) !important;
+  margin-top: 1rem;
+}
+
+/* Ajusta el margen entre icon-box-container */
+.icon-box-container {
+  width: 33%;
+  margin-bottom: 2.5rem; /* Ajusta el margen inferior */
+}
+
+
 /* Fin de las clases para las nuevas cards */
+
 
 .bg-success-light {
   background-color: #d4edda !important; /* Verde claro */

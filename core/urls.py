@@ -15,9 +15,9 @@ urlpatterns = [
     #Ruta para la vista llamando la clase crerada en views -LGS
     path('', inmunolife_home.as_view(), name='home'),
     #Login
-    path('login/', views.login_view, name='login'),
+    path('/login', views.login_view, name='login'),
     # Registrar usuario
-    path('registro/', views.register_user, name='register_user'),
+    path('/register', views.register_user, name='register_user'),
     #URL para confirmar existencia de correo -LGS
     path('password_reset/', views.password_reset_request, name='password_reset'),
     #URL para modificar la contraseña -LGS
