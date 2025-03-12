@@ -1943,3 +1943,31 @@ section,
   color: #721c24 !important; /* Texto rojo oscuro */
 }
 
+/* Borde grueso y color rojo de olvide contraseña -LGS*/
+#showPasswords {
+  border: 2px solid #dc3545 !important;
+  border-radius: 0.25em;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Check personalizado de olvide contraseña -LGS*/
+#showPasswords:checked {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* Label en rojo de olvide contraseña -LGS*/
+.form-check-label {
+  color: #dc3545 !important;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.img-equipo {
+  height: 500px; /* Altura deseada */
+  width: auto; /* Mantiene proporción original */
+}
