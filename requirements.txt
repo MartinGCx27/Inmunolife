@@ -22,5 +22,4 @@ typing-extensions==4.12.2
 tzdata==2025.1
 urllib3==2.3.0
 whitenoise==6.9.0
-#Ayuda a cargar variables de entorno -LGS
-python-dotenv==1.0.1
+

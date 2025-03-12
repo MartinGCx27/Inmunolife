@@ -177,7 +177,7 @@ def password_reset_request(request):
                 fail_silently=False,
             )
 
-            messages.success(request, "Se ha enviado un correo con instrucciones para restablecer tu contraseña.", extra_tags="password_reset")
+            
             return redirect("password_reset_done")  #Redirige a la página de éxito -LGS
         else:
             messages.error(request, "No existe una cuenta con este correo.", extra_tags="password_reset")
@@ -191,31 +191,38 @@ def password_reset_confirm(request, uidb64, token):
     try:
         # Decodifica el ID del usuario desde la URL
         uid = urlsafe_base64_decode(uidb64).decode()
+        # Obtiene el usuario de la base de datos usando el ID -LGS
         user = Register.objects.get(pk=uid)
     except (TypeError, ValueError, OverflowError, Register.DoesNotExist):
-        user = None
+        user = None #verifica si el usuario existe
 
     if user and validate_reset_token(user, token):
         if request.method == "POST":
             form = PasswordResetForm(request.POST)
             if form.is_valid():
                 new_password = form.cleaned_data['new_password']
-                user.password = make_password(new_password)  # Encripta la nueva contraseña
-                user.reset_token = None  #Elimina el token después de usarlo
-                user.reset_token_expiration = None  # Elimina la fecha de expiración
-                user.save()
+                #Actualiza la contraseña con hash seguro -LGS
+                user.password = make_password(new_password)
+                user.reset_token = None #Ayuda a invalidar token usado -LGS
+                user.reset_token_expiration = None #Ayuda a invalidar token expirado -LGS
+                user.save()  #Guarda los cambios en la base de datos -LGS
 
                 messages.success(request, "Tu contraseña ha sido cambiada con éxito.", extra_tags="password_reset")
-                return redirect("password_reset_complete")  # Redirige a la página de éxito
+                return redirect("password_reset_complete")
             else:
-                messages.error(request, "Por favor, corrige los errores del formulario.", extra_tags="password_reset")
+                messages.error(request, "Las contraseñas no coinciden, favor de corregir.", extra_tags="password_reset")
         else:
             form = PasswordResetForm()
+        
+        # Pasar el nombre de usuario al contexto
+        context = {
+            "form": form,
+            "username": user.name  #darle el nombre y contexto para llamar al usuario en el template -LGS
+        }
+        return render(request, "password_reset_confirm.html", context)
     else:
         messages.error(request, "El enlace no es válido o ha expirado.", extra_tags="password_reset")
         return redirect("password_reset")
-
-    return render(request, "password_reset_confirm.html", {"form": form})
 
 #funcion simple para renderizar el templete que dice "correo enviado" -LGS
 def password_reset_done(request):
