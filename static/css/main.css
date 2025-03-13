@@ -176,7 +176,7 @@ h6 {
 /* PHP Email Form Messages */
 .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #183050;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -1285,7 +1285,7 @@ section,
 }
 
 .departments .nav-link.active {
-  color: #880418;
+  color: #183050;
   border-color: var(--accent-color);
   background-color: #d3cfcf; /*Se agrega este background-color nuevo para dejar marcada la pregunta selccionada -LGS*/
 }
@@ -1754,7 +1754,7 @@ section,
 
 /*inicio de la clase para dropdown de contactanos elegir opción*/
 .drop-inmuno{
-  background-color: #A2061D;
+  background-color: #183050;
 }
 
 .dropdown-item:hover{
@@ -1767,19 +1767,19 @@ section,
 /* Estilos generales del modal */
 .modal-content {
   background-color: #bdbdbd;
-  color: #c02135;
+  color: #183050;
   border-radius: 10px;
   border: none;
 }
 
 /* Estilo del header del modal */
 .modal-header {
-  border-bottom: 1px solid #c02135;
+  border-bottom: 1px solid #183050;
 }
 
 /* Título del modal */
 .modal-title {
-  color: #c02135;
+  color: #183050;
 }
 
 /* Botón de cerrar */
@@ -1789,35 +1789,35 @@ section,
 
 /* Estilos de los inputs */
 .form-control {
-  border: 1px solid #c02135;
+  border: 1px solid #183050;
   background-color: #ebebeb;
   color: black;
 }
 
 .form-control:focus {
-  border-color: #c02135;
+  border-color: #183050;
   box-shadow: 0 0 5px rgba(192, 33, 53, 0.7);
 }
 
 /* Etiquetas de los formularios */
 .form-label {
-  color: #c02135;
+  color: #183050;
 }
 
 /* Botones de acción */
 .btn-primary {
-  background-color: #A2061D !important;
+  background-color: #5279ab !important;
   border: none;
   color: #ffffff !important;
 }
 
 .btn-primary:hover {
-  background-color: #820516 !important;
+  background-color: #5279ab !important;
 }
 
 /* Enlace para cambiar entre modales */
 .text-center a {
-  color: #c02135;
+  color: #183050;
   text-decoration: none;
 }
 
@@ -1836,7 +1836,7 @@ section,
         y el texto en blanco (#fff).
 */
 .content .icon-box-container:nth-child(1) .icon-box .icon-content {
-  background-color: #c02135;
+  background-color: #183050;
   color: #fff;
 }
 
@@ -1940,7 +1940,7 @@ section,
 */
 .more-btn {
   background-color: #a3a3a3;  /* Gris claro */
-  color: #c02135;            /* Rojo */
+  color: #183050;            /* Rojo */
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -1948,7 +1948,7 @@ section,
 }
 
 .more-btn:hover {
-  background-color: #c02135; /* Se vuelve rojo */
+  background-color: #183050; /* Se vuelve rojo */
   color: #ffffff;            /* Texto blanco */
 }
 
@@ -2023,7 +2023,7 @@ section,
      y tamaño de fuente mayor.
 */
 .discount-price {
-  color: #28a745;
+  color: #183050;
   font-size: 2rem;
   font-weight: bold;
 }
