@@ -1,10 +1,10 @@
 /**
-* Template Name: Medilab
-* Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Template Name: Medilab
+ * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+ * Updated: Aug 07 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
 
 /*--------------------------------------------------------------
 # Font & Color Variables
@@ -12,63 +12,49 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Poppins",  sans-serif;
-  --nav-font: "Raleway",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Raleway", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-/*Se modifican los colores de la siguientes secciones del sitio:
-- Color de background para todo el sitio web, incluidas las secciones individuales - #ebebeb
-- Color por utilizado para la mayoría del contenido de texto en todo el sitio web. - #A2061D
-- Color de los encabezamientos, subtítulos y título en todo el sitio web - #c02135
-- Color de acento de marca en el sitio web. Se utiliza para botones, enlaces y otros elementos que deben destacar. - #c02135
-- Color del background de los cajones. Tarjetas, cuadros de iconos u otros elementos que requieren una separación visual del fondo global. - #bdbdbd
-- Color de contraste para el texto - #bdbdbd
--Emix
-*/
-:root { 
-  --background-color: #224069; /* Color de fondo principal */
-  --default-color: #224069; /* Color por defecto para el texto */
-  --heading-color: #224069; /* Color para encabezados y títulos */
-  --accent-color: #224069; /* Color de acento para botones, enlaces, etc. */
-  --surface-color: #1b3554; /* Color de fondo para elementos separados */
-  --contrast-color: #ffffff; /* Color de contraste para texto */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-/*Se modifican los colores de la siguientes secciones del sitio:
-- Color de los hiperlinks de la navbar - black
-- Color para el hover del txt de la navbar - #A2061D
-- Color del background para el menú de la navbar - #c02135
-- Color del background para los dropdowns - #ebebee
-- Color del texto de los dropdowns desplegados. - #A2061F
-- Color del texto de los dropdowns desplegados después de aplicar el hover - #bb727b
--Emix
-*/
-/* Colores específicos del menú de navegación */
+/* Global Colors */
 :root {
-  --nav-color: #ffffff; /* Color de los enlaces del menú principal */
-  --nav-hover-color: #1b3554; /* Color al pasar el cursor sobre los enlaces */
-  --nav-mobile-background-color: #224069; /* Fondo del menú móvil */
-  --nav-dropdown-background-color: #1b3554; /* Fondo de los dropdowns */
-  --nav-dropdown-color: #ffffff; /* Texto de los dropdowns desplegados */
-  --nav-dropdown-hover-color: #cfd8e3; /* Texto de los dropdowns al pasar el cursor */
+  --primary-color: #224069; /* Base color */
+  --primary-color-light: #3a5c8a; /* Lighter variation */
+  --primary-color-lighter: #5279ab; /* Even lighter */
+  --primary-color-dark: #183050; /* Darker variation */
+  --background-color: #f0f4f8; /* Very light gray/blue */
+  --default-color: #333333; /* Dark gray for general text */
+  --heading-color: var(--primary-color); /* Primary color for headings */
+  --accent-color: var(--primary-color); /* Primary color for accents */
+  --surface-color: #ffffff; /* White for surfaces */
+  --contrast-color: #ffffff; /* White for contrast text */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-/* Modificación de los backgrounds de los colores claros del sitio web -Emix */
-.light-background {
-  --background-color: #2a4a7b;
-  --surface-color: #3c5e91;
+/* Nav Menu Colors */
+:root {
+  --nav-color: #333333; /* Dark gray */
+  --nav-hover-color: var(--primary-color);
+  --nav-mobile-background-color: var(--primary-color);
+  --nav-dropdown-background-color: #e6eef5; /* Lightest blue */
+  --nav-dropdown-color: #333333;
+  --nav-dropdown-hover-color: var(--primary-color-dark);
 }
-/* Modificación de los backgrounds de los colores oscuros del sitio web -Emix */
+
+/* Color Presets */
+.light-background {
+  --background-color: #dde6f0; /* Lighter blue-gray */
+  --surface-color: #c5d4e5; /* Even lighter */
+}
+
 .dark-background {
-  --background-color: #1b3554;
-  --default-color: #cfd8e3;
-  --heading-color: #224069;
-  --surface-color: #224069;
-  --contrast-color: #cfd8e3;
+  --background-color: #183050; /* Darker primary */
+  --default-color: #c5d4e5; /* Lighter text */
+  --heading-color: var(--contrast-color);
+  --surface-color: var(--primary-color-dark);
+  --contrast-color: var(--contrast-color);
 }
 
 /* Smooth scroll */
@@ -92,7 +78,7 @@ a {
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: var(--primary-color-light);
   text-decoration: none;
 }
 
@@ -106,12 +92,14 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* Pulsating Play Button
-------------------------------*/
+/* Pulsating Play Button */
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  background: radial-gradient(
+    var(--accent-color) 50%,
+    color-mix(in srgb, var(--accent-color), transparent 75%) 52%
+  );
   border-radius: 50%;
   display: block;
   position: relative;
@@ -185,8 +173,7 @@ h6 {
   }
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+/* PHP Email Form Messages */
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -267,7 +254,6 @@ h6 {
 }
 
 @media (max-width: 575px) {
-
   .header .topbar .contact-info i a,
   .header .topbar .contact-info i span {
     font-size: 13px;
@@ -285,7 +271,7 @@ h6 {
 }
 
 .header .topbar .social-links a {
-  color: color-mix(in srgb, var(--contrast-color), transparent 20%); /*se modifica el contraste de los social links -LGS*/
+  color: color-mix(in srgb, var(--contrast-color), transparent 20%);
   line-height: 0;
   transition: 0.3s;
   margin-left: 20px;
@@ -310,7 +296,7 @@ h6 {
 }
 
 /* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
-.logo-inmuno{
+.logo-inmuno {
   width: 8em;
 }
 
@@ -385,12 +371,12 @@ h6 {
     position: relative;
   }
 
-  .navmenu>ul>li {
+  .navmenu > ul > li {
     white-space: nowrap;
     padding: 15px 14px;
   }
 
-  .navmenu>ul>li:last-child {
+  .navmenu > ul > li:last-child {
     padding-right: 0;
   }
 
@@ -417,7 +403,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu>ul>li>a:before {
+  .navmenu > ul > li > a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -431,13 +417,13 @@ h6 {
   }
 
   .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
+  .navmenu li:hover > a:before,
   .navmenu .active:before {
     visibility: visible;
     width: 100%;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -476,11 +462,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -492,7 +478,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;

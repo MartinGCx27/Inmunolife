@@ -46,6 +46,7 @@ class inmunolife_home(CreateView):
         return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
     
 # Función para registrar usuarios -Emix
+
 def register_user(request):
     if request.method == "POST":  # Verifica si la solicitud es de tipo POST -Emix
         register_form = RegisterForm(request.POST, prefix="register")  # Crea una instancia del formulario de registro con los datos enviados y le asigna un prefijo "register" -LGS
@@ -57,26 +58,20 @@ def register_user(request):
             user.save()  # Guarda el usuario en la base de datos -Emix
             # Mensaje éxito registro (tags: 'success register') -Emix
             messages.success(request, "¡Registro exitoso, favor de iniciar sesión!", extra_tags="register")  # Envía un mensaje de éxito con la etiqueta "register" -Emix
-            register_form = RegisterForm(request.POST, prefix="register")  # Crea una instancia del formulario de registro con los datos enviados y le asigna un prefijo "register" -LGS
-            contact_form = FormContact(prefix="contact")  # Crea una instancia del formulario de contacto con el prefijo "contact" -Emix
-            return redirect ("home") #Redireccionamos a home para no tener problemas con los formularios -Emix
+            return redirect("home")  # Redireccionamos a home para no tener problemas con los formularios -Emix
         else:
             # Mensaje error registro (tags: 'error register') -Emix
-            messages.error(request, "Error en el registro, vuelve a abrir el formulario de registro para ver tus errores", extra_tags="register")  # Envía un mensaje de error con la etiqueta "register" -Emix
-            contact_form = FormContact(prefix="contact")  # Crea una instancia del formulario de contacto con el prefijo "contact" -Emix
-            # Si hay un error en ambos formularios los renderiza en index.html -LGS
-            return render (request, 'index.html', {  # Renderiza la página "index.html" enviando los formularios con los errores -Emix
-                "form": contact_form,  # Pasa el formulario de contacto al contexto -Emix
-                "register_form": register_form,  # Pasa el formulario de registro con los errores al contexto -Emix
-                "login_form": LoginForm(prefix="login")  # Crea una instancia del formulario de inicio de sesión con el prefijo "login" y lo pasa al contexto -Emix
-            })
-
+            messages.error(request, "Error en el registro, correo y/o celular ya registrados", extra_tags="register")  # Envía un mensaje de error con la etiqueta "register" -Emix
+            # Redireccionamos a home con un parámetro en la URL que indique que se deben mostrar los errores en el modal de registro -Emix
+            return redirect(reverse("home") + "?modal=register")
+    
     # Si la solicitud no es POST, renderiza index.html con todos los formularios vacíos -Emix
     return render(request, "index.html", {
         "form": FormContact(prefix="contact"),  # Instancia vacía del formulario de contacto -Emix
         "register_form": RegisterForm(prefix="register"),  # Instancia vacía del formulario de registro -Emix
         "login_form": LoginForm(prefix="login")  # Instancia vacía del formulario de inicio de sesión -Emix
     })
+
     
 #Función para el captcha -Emix
 def index_page(request):

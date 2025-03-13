@@ -11,17 +11,17 @@
         <!-- Se agregan pattern a los inputs y placeholder a los inputs para solicitar información más clara y que se valide que se cumple -Emix -->
         <form class="forms" action="{% url 'register_user' %}" method="POST" onsubmit="return validatePasswords()">
           {% csrf_token %}
-          {% comment %} {% for message in messages %}
+{% for message in messages %}
           {% if "register" in message.tags %} <!-- Solo mostrar mensajes relacionados al registro -->
           <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
               <div class="d-flex align-items-center">
-                  <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
+                  <span class="me-2">{% if 'error' in message.tags %}❌{% endif %}</span>
                   {{ message }}
               </div>
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           {% endif %}
-      {% endfor %} {% endcomment %}
+      {% endfor %}
           <div class="mb-3">
             <!-- Agregamos small para msj de requerimientos en el formulario -Emix -->
             {% comment %} <small class="form-text text-muted">La contraseña debe incluir una mayúscula, una minúscula, un número y un símbolo (@$!%*?#&). Ejemplo: "Inmuno1$"  </small><br>  {% endcomment %}
@@ -171,44 +171,57 @@ function validatePasswords() {
 }
 </script>
 <!-- Script para abrir automáticamente el modal si hubo errores en el formulario -->
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Obtiene el elemento del modal de registro a través de su id -Emix
-  var registerModalElem = document.getElementById('registerModal');
-  // Crea una instancia del modal de Bootstrap para controlar su comportamiento-Emix
-  var registerModal = new bootstrap.Modal(registerModalElem);
-  // Busca el mensaje de error para el campo de correo electrónico dentro del modal-Emix
-  var emailError = registerModalElem.querySelector('#registerEmail ~ .invalid-feedback');
-  // Busca el mensaje de error para el campo de número de celular dentro del modal-Emix
-  var cellphoneError = registerModalElem.querySelector('#registerPhone ~ .invalid-feedback');
-  // Busca el mensaje de error de contraseñas usando el selector específico del div de error-Emix
-  var passwordError = registerModalElem.querySelector('#registerConfirmPassword ~ .invalid-feedback.d-block');
-  // Inicializa una variable para almacenar el mensaje de error general-Emix
-  var errorMsg = '';
-  // Si existe un mensaje de error para el correo electrónico, lo agrega al mensaje general-Emix
-  if (emailError) {
-    errorMsg += 'Error en el correo electrónico. ';
-  }
-  // Si existe un mensaje de error para el número de celular, lo agrega al mensaje general-Emix
-  if (cellphoneError) {
-    errorMsg += 'Error en el número de celular. ';
-  }
-  // Si existe un mensaje de error de contraseñas, agrega el texto correspondiente-Emix
-  if (passwordError) {
-    errorMsg += 'Error: Las contraseñas no coinciden. ';
-  }
-  // Si hay algún mensaje de error, muestra el modal de registro-Emix
-  if (errorMsg) {
-    // Muestra el modal de registro-Emix
-    registerModal.show(); 
-    // Crea un nuevo elemento div para mostrar el mensaje de error-Emix
-    var errorDisplay = document.createElement('div');
-    // Establece las clases CSS para que el mensaje tenga un estilo de alerta de error-Emix
-    errorDisplay.className = 'alert alert-danger mt-3';
-    // Establece el texto del mensaje de error dentro del elemento creado-Emix
-    errorDisplay.textContent = errorMsg;
-    // Inserta el mensaje de error antes del formulario dentro del modal -Emix
-    registerModalElem.querySelector('.modal-body').insertBefore(errorDisplay, registerModalElem.querySelector('form'));
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtiene el elemento del modal de registro a través de su id -Emix
+    var registerModalElem = document.getElementById('registerModal');
+    // Crea una instancia del modal de Bootstrap para controlar su comportamiento-Emix
+    var registerModal = new bootstrap.Modal(registerModalElem);
+    // Busca el mensaje de error para el campo de correo electrónico dentro del modal-Emix
+    var emailError = registerModalElem.querySelector('#registerEmail ~ .invalid-feedback');
+    // Busca el mensaje de error para el campo de número de celular dentro del modal-Emix
+    var cellphoneError = registerModalElem.querySelector('#registerPhone ~ .invalid-feedback');
+    // Busca el mensaje de error de contraseñas usando el selector específico del div de error-Emix
+    var passwordError = registerModalElem.querySelector('#registerConfirmPassword ~ .invalid-feedback.d-block');
+    // Inicializa una variable para almacenar el mensaje de error general-Emix
+    var errorMsg = '';
+    // Si existe un mensaje de error para el correo electrónico, lo agrega al mensaje general-Emix
+    if (emailError) {
+      errorMsg += 'Error en el correo electrónico. ';
     }
-    });
-    </script>
+    // Si existe un mensaje de error para el número de celular, lo agrega al mensaje general-Emix
+    if (cellphoneError) {
+      errorMsg += 'Error en el número de celular. ';
+    }
+    // Si existe un mensaje de error de contraseñas, agrega el texto correspondiente-Emix
+    if (passwordError) {
+      errorMsg += 'Error: Las contraseñas no coinciden. ';
+    }
+  
+    // Verifica si la URL tiene el parámetro modal=register -Emix
+    const params = new URLSearchParams(window.location.search);
+    var urlModal = params.get("modal") === "register";
+  
+    // Si hay algún mensaje de error o el modal debe abrirse por la URL, muestra el modal de registro -Emix
+    if (errorMsg || urlModal) {
+      // Muestra el modal de registro-Emix
+      registerModal.show(); 
+  
+      // Si hay errores, muestra el mensaje de error -Emix
+      if (errorMsg) {
+        var errorDisplay = document.createElement('div');
+        errorDisplay.className = 'alert alert-danger mt-3';
+        errorDisplay.textContent = errorMsg;
+        registerModalElem.querySelector('.modal-body').insertBefore(errorDisplay, registerModalElem.querySelector('form'));
+      }
+  
+      // Si el modal se abrió por la URL, elimina el parámetro al cerrarlo -Emix
+      if (urlModal) {
+        registerModalElem.addEventListener("hidden.bs.modal", function () {
+          history.replaceState(null, "", window.location.pathname);
+        });
+      }
+    }
+  });
+  </script>
+  
