@@ -1006,6 +1006,7 @@ section,
 .hero .content .icon-box {
   text-align: center;
   border-radius: 10px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background: color-mix(in srgb, #464545, transparent 20%); /*Se modifican los colores de las cards a un gris mas fuerte -LGS*/
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 40px 30px;
