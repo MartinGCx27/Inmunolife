@@ -165,5 +165,4 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = f'Inmunolife <{os.environ.get("EMAIL_HOST_USER")}>'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')

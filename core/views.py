@@ -44,9 +44,8 @@ class inmunolife_home(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
         return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
-    
-# Función para registrar usuarios -Emix
 
+# Función para registrar usuarios -Emix
 def register_user(request):
     if request.method == "POST":  # Verifica si la solicitud es de tipo POST -Emix
         register_form = RegisterForm(request.POST, prefix="register")  # Crea una instancia del formulario de registro con los datos enviados y le asigna un prefijo "register" -LGS
@@ -99,7 +98,6 @@ def index_page(request):
       messages.error(request, 'Verificación del reCAPTCHA fallida. Por favor, inténtelo de nuevo')    
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
-
 
 
 def login_view(request):

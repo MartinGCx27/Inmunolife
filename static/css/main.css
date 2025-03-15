@@ -510,7 +510,7 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
+    background-color: white;
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     overflow-y: auto;
@@ -1774,7 +1774,7 @@ section,
 
 /* Estilo del header del modal */
 .modal-header {
-  border-bottom: 1px solid #183050;
+  border-bottom: 1px solid #183050 !important;
 }
 
 /* Título del modal */
@@ -1784,7 +1784,7 @@ section,
 
 /* Botón de cerrar */
 .btn-close {
-  filter: invert(38%) sepia(95%) saturate(4782%) hue-rotate(342deg) brightness(91%) contrast(99%);
+  filter: invert(14%) sepia(9%) saturate(7499%) hue-rotate(187deg) brightness(92%) contrast(89%);
 }
 
 /* Estilos de los inputs */
@@ -1796,7 +1796,7 @@ section,
 
 .form-control:focus {
   border-color: #183050;
-  box-shadow: 0 0 5px rgba(192, 33, 53, 0.7);
+  box-shadow: 0 0 5px #183050;
 }
 
 /* Etiquetas de los formularios */
@@ -1928,8 +1928,8 @@ section,
 }
 
 .icon-content p {
-  font-family: 'Georgia', serif;
-  font-size: 1.1rem;
+  font-family: 'Arial Black', sans;
+  font-size: 0.7rem !important;
   line-height: 2.1;
   margin-bottom: 1rem;
 }
@@ -2055,12 +2055,12 @@ section,
 
 .bg-danger-light {
   background-color: #f8d7da !important; /* Rojo claro */
-  color: #721c24 !important; /* Texto rojo oscuro */
+  color: #183050 !important; /* Texto rojo oscuro */
 }
 
 /* Borde grueso y color rojo de olvide contraseña -LGS*/
 #showPasswords {
-  border: 2px solid #dc3545 !important;
+  border: 2px solid #5279ab !important;
   border-radius: 0.25em;
   width: 1.2em;
   height: 1.2em;
@@ -2070,14 +2070,14 @@ section,
 
 /* Check personalizado de olvide contraseña -LGS*/
 #showPasswords:checked {
-  background-color: #dc3545 !important;
-  border-color: #dc3545 !important;
+  background-color: #5279ab !important;
+  border-color: #5279ab !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
 }
 
 /* Label en rojo de olvide contraseña -LGS*/
 .form-check-label {
-  color: #dc3545 !important;
+  color: #5279ab !important;
   margin-left: 8px;
   font-weight: 500;
 }
