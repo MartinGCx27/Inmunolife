@@ -25,5 +25,8 @@ urlpatterns = [
     #URL para vista de confirmacion de envio de correo -LGS
     path('password_reset_done/', views.password_reset_done, name='password_reset_done'),
     #URL de cambio hecho exitosamente -LGS
-    path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete')
+    path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete'),
+    path('login/', views.login_view, name='login'),
+    path('inicio/', views.starter_page, name='starter_page'),
+    path('logout/', views.logout_view, name='logout'),
 ]
