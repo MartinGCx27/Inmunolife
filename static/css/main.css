@@ -2083,7 +2083,35 @@ section,
   font-weight: 500;
 }
 
-.img-equipo {
-  height: 500px; /* Altura deseada */
-  width: auto; /* Mantiene proporción original */
+#img-equipo1{
+  filter: sepia(55%) grayscale(15%) contrast(125%) !important;
+}
+
+#img-equipo2{
+  filter: saturate(75%) opacity(90%) contrast(125%) brightness(70%);
+}
+
+#img-intrument{
+  filter: opacity(90%) contrast(125%) brightness(85%);
+}
+
+#img-jovenes{
+  filter: brightness(0.8) grayscale(0.3) saturate(1.4) sepia(0.2);
+}
+
+#img-med-edad{
+  filter: brightness(0.7) contrast(0.9) grayscale(0.3) saturate(1.7) sepia(0.1);
+}
+
+#img-madre-hija{
+  filter: brightness(1.1) contrast(0.9) grayscale(0.5) saturate(1.3) sepia(0.2);
+}
+
+#img-atardecer{
+  filter: brightness(1.1) contrast(1.2) grayscale(0.5) opacity(0.9) saturate(1.5) sepia(0.4);
+}
+
+#img-pulgar{
+  width: 9.375em;
+  height: 9.375em;
 }
