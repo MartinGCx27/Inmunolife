@@ -193,8 +193,8 @@ def starter_page(request):
         
 
         context = {
-            'user': current_user, # Usuario autenticado en la base de datosd -LGS
-            'last_user': last_registered_user  # Último registro 
+            'user': current_user, #Usuario autenticado en la base de datosd -LGS
+            'last_user': last_registered_user  #Último registro 
         }
         
         return render(request, 'starter-page.html', context)
