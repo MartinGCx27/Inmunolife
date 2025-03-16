@@ -99,29 +99,31 @@ def index_page(request):
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
 
-
+#Función para el login -Emix
 def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST) #Instancia del formulario de login -LGS
-        if form.is_valid():
-            email = form.cleaned_data['loginEmail']
-            password = form.cleaned_data['loginPassword']
+    return render(request, "login_successful.html")
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST) #Instancia del formulario de login -LGS
+#         if form.is_valid():
+#             email = form.cleaned_data['loginEmail']
+#             password = form.cleaned_data['loginPassword']
             
-            try:
-                user = Register.objects.get(email=email) #ayudara a validar si en register existe email -LGS
-                if check_password(password, user.passrd):  
-                    messages.success(request, "¡Bienvenidoooo!", extra_tags="login") # si existe el email dara una bienvenida -LGS
-                    return redirect('home')
-                else:
-                    messages.error(request, "Contraseña incorrecta", extra_tags="login")
-            except Register.DoesNotExist:
-                messages.error(request, "El correo no está registrado", extra_tags="login")
-        else:
-            for error in form.errors.values():
-                messages.error(request, error[0], extra_tags="login")
+#             try:
+#                 user = Register.objects.get(email=email) #ayudara a validar si en register existe email -LGS
+#                 if check_password(password, user.passrd):  
+#                     messages.success(request, "¡Bienvenidoooo!", extra_tags="login") # si existe el email dara una bienvenida -LGS
+#                     return redirect('home')
+#                 else:
+#                     messages.error(request, "Contraseña incorrecta", extra_tags="login")
+#             except Register.DoesNotExist:
+#                 messages.error(request, "El correo no está registrado", extra_tags="login")
+#         else:
+#             for error in form.errors.values():
+#                 messages.error(request, error[0], extra_tags="login")
         
-        return render(request, "index.html")
-    return redirect('home')
+#         return render(request, "index.html")
+#     return redirect('home')
 
 #Función para generar el token personalizado -LGS
 def generate_reset_token(user):

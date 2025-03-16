@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% extends "starter-page.html" %}
+    <!--Template tag load static-->
+    {% load static %}
+<html lang="es">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Inicio de sesión exitoso!</title>
+</head>
+<body>
+    <section id="hero" class="hero section light-background">
+        <img src="{% static 'img/hero-bg.jpg' %}" alt="Imagen de doctor" data-aos="fade-in"> 
+        <div class="container position-relative">
+          <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+            <h2>Bienvenido a Protego  Total</h2>
+            <p>Tu socio vital.</p>
+          </div><!-- End Welcome -->
+          
+          <div class="content row">
+                    <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
+            <!-- Membresia 1 -->
+            <div class="col-xs-12 col-lg-4 py-2">
+              {% comment %} <div class="icon-box-container"> {% endcomment %}
+                <div class="icon-box">
+                  <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen una mamá e hija felices con título de membresia uno" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+                  <div class="icon-content">
+                    <div class="membership-card">
+                      <h4 class="membership-title">Vital pass</h4>
+                      <ul class="membership-features">
+                        <li>Precio Mensual $1,650</li>
+                        <li>Suma Asegurada $1M</li>
+                        <li>Renovación Anual de Cobertura</li>
+                        <li>Servicio de Urgencias</li>
+                        <li>Ambulancia</li>
+                        <li>Precio anual:</li>
+                      </ul>
+                      <div class="annual-price">
+                        <span class="old-price">$19,800</span>
+                        <span class="discount-price">$16,800*</span>
+                      </div>
+                      <p class="footnote">
+                        *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+                      </p>
+                      <div class="text-center">
+                        <a href="#about" class="more-btn"><span>Comprar membresia</span></i></a>
+                      </div>
+                    </div>
+                </div> 
+              </div>
+            </div>
+            <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
+            <!-- Membresia 1 -->
+            <div class="col-xs-12 col-lg-4 py-2">
+              {% comment %} <div class="icon-box-container"> {% endcomment %}
+                <div class="icon-box">
+                  <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de familia feliz con título de membresia dos" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+                  <div class="icon-content">
+                    <div class="membership-card">
+                      <h4 class="membership-title">Vital pass +</h4>
+                      <ul class="membership-features">
+                        <li>Precio Mensual $1,990</li>
+                        <li>Suma Asegurada $2 M</li>
+                        <li>Renovación Anual de Cobertura</li>
+                        <li>Servicio de Urgencias</li>
+                        <li>Ambulancia</li>
+                        <li>Cobertura en el extranjero $50 mil USD</li>
+                        <li>Precio Anual: </li>
+                      </ul>
+                      <div class="annual-price">
+                        <span class="old-price">$23,800</span>
+                        <span class="discount-price">$20,500*</span>
+                      </div>
+                      <p class="footnote">
+                        *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+                      </p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Content-->
+            <!-- Membresia 2 -->
+            <div class="col-xs-12 col-lg-4 py-2">
+              <div class="icon-box">
+                <img src="{% static 'img/Membresia2.jpg' %}" alt="Imagen de un paciente y doctor con membresia 3" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+                <div class="icon-content">
+                  <div class="membership-card">
+                    <h4 class="membership-title">Vital pass select</h4>
+                    <ul class="membership-features">
+                      <li>Precio Mensual</li>
+                      <li>Suma Asegurada</li>
+                      <li>Renovación Anual de Cobertura</li>
+                      <li>Servicio de Urgencias</li>
+                      <li>Ambulancia</li>
+                      <li>Cobertura en el extranjero</li>
+                      <li>Precio Anual: </li>
+                    </ul>
+                    <div class="annual-price">
+                      <span class="old-price">$00,800</span>
+                      <span class="discount-price">$00,000*</span>
+                    </div>
+                    <p class="footnote">
+                      *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Content-->
+        </div>
+        </div>
+        
+      </section><!-- /Hero Section -->
+      {% endblock%}
+</body>
+</html>
