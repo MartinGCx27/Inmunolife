@@ -11,8 +11,17 @@
         <div class="modal-body">
           <!--Se modifica form para que funcione el captcha -Emix-->
           <!-- Se agregan placeholder a los inputs -Emix-->
-          <form class="forms" action="{% url 'login'%}" method="POST">
-            {% csrf_token %}  
+          <form class="forms" action="{% url 'login' %}" method="POST">
+            {% if messages %}
+            {% for message in messages %}
+                {% if 'login' in message.tags %}  <!-- Filtra por etiqueta 'login' -->
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+            {% csrf_token %}
             <div class="mb-3">
               <label for="loginEmail" class="form-label">Correo Electrónico</label>
               <input name="login-email" type="email" class="form-control" id="loginEmail" required>
@@ -23,7 +32,7 @@
                 <input name="login-password" type="password" class="form-control" id="loginPassword" required>
                 <!-- Se agrega boton de mostrar y ocultar contraseña -Emix -->
                 <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                  <i class="fas fa-eye"></i> <!-- Ícono de FontAwesome -->
+                  <i class="fas fa-eye"></i>
                 </button>
               </div>
             </div>
@@ -44,38 +53,38 @@
   {% endblock %}
   <!-- Script para mostrar la contraseña -Emix-->
   <script>
-  // Agrega un event listener al elemento con ID "togglePassword" -Emix
-  document.getElementById("togglePassword").addEventListener("click", function () {
-  // Obtiene el campo de contraseña por su ID -Emix
-  var passwordField = document.getElementById("loginPassword");  
-  // Obtiene el icono dentro del botón usando querySelector -Emix
-  var icon = this.querySelector("i");
-  // Verifica si el tipo del campo de contraseña es "password" -Emix
-    if (passwordField.type === "password") {
-  // Si es "password", cambia el tipo a "text" para mostrar la contraseña -Emix
-    passwordField.type = "text";
-  // Remueve la clase "fa-eye" (ojo abierto) del icono -Emix
-    icon.classList.remove("fa-eye");
-  // Agrega la clase "fa-eye-slash" (ojo tachado) para indicar que la contraseña es visible -Emix
-    icon.classList.add("fa-eye-slash");
-    } 
-    else 
-    {
-  // Si el tipo no es "password" (es decir, es "text"), lo cambia de vuelta a "password" -Emix
-    passwordField.type = "password";
-  // Remueve la clase "fa-eye-slash" (ojo tachado) -Emix
-    icon.classList.remove("fa-eye-slash");
-  // Agrega la clase "fa-eye" (ojo abierto) para indicar que la contraseña está oculta -Emix
-    icon.classList.add("fa-eye");
-     }
-  });
+    // Agrega un event listener al elemento con ID "togglePassword" -Emix
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      // Obtiene el campo de contraseña por su ID -Emix
+      var passwordField = document.getElementById("loginPassword");  
+      // Obtiene el icono dentro del botón usando querySelector -Emix
+      var icon = this.querySelector("i");
+      // Verifica si el tipo del campo de contraseña es "password" -Emix
+      if (passwordField.type === "password") {
+        // Si es "password", cambia el tipo a "text" para mostrar la contraseña -Emix
+        passwordField.type = "text";
+        // Remueve la clase "fa-eye" (ojo abierto) del icono -Emix
+        icon.classList.remove("fa-eye");
+        // Agrega la clase "fa-eye-slash" (ojo tachado) para indicar que la contraseña es visible -Emix
+        icon.classList.add("fa-eye-slash");
+      } 
+      else 
+      {
+        // Si el tipo no es "password" (es decir, es "text"), lo cambia de vuelta a "password" -Emix
+        passwordField.type = "password";
+        // Remueve la clase "fa-eye-slash" (ojo tachado) -Emix
+        icon.classList.remove("fa-eye-slash");
+        // Agrega la clase "fa-eye" (ojo abierto) para indicar que la contraseña está oculta -Emix
+        icon.classList.add("fa-eye");
+      }
+    });
   </script>
   <!-- Script para solucionar quitar fondo gris y poner funcionalidad -Emix -->
   <script>
     $(document).on('hidden.bs.modal', function () {
       if ($('.modal.show').length === 0) { // Verifica si queda algún modal abierto -Emix
-          $('body').removeClass('modal-open'); // Restaura el scroll solo si no hay modales abiertos -Emix
-          $('.modal-backdrop').remove(); // Elimina el fondo oscuro solo si no hay más modales activos -Emix
+        $('body').removeClass('modal-open'); // Restaura el scroll solo si no hay modales abiertos -Emix
+        $('.modal-backdrop').remove(); // Elimina el fondo oscuro solo si no hay más modales activos -Emix
       }
-  });
-</script>  
+    });
+  </script>  

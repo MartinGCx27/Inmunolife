@@ -20,6 +20,7 @@ import time
 import secrets
 from datetime import timedelta
 from django.utils import timezone
+import requests
 
 
 
@@ -99,6 +100,122 @@ def index_page(request):
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
 
+#Función para login
+def login_view(request):
+    # Vista principal para el proceso de inicio de sesión
+    if request.method == 'POST':
+        #Verificación de datos recibidos -LGS
+        print("Datos recibidos:", request.POST)  #Debug que muestra los datos del formulario -LGS
+        
+        #Validación de reCAPTCHA -LGS
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        secret_key = settings.RECAPTCHA_SECRET_KEY  # Clave secreta desde settings.py
+        data = {'secret': secret_key, 'response': recaptcha_response}
+        
+        #Verificación con servidor de Google para que funcione el captcha -LGS
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        captcha_result = response.json()
+        print("Respuesta reCAPTCHA:", captcha_result)  # Depuración: Muestra respuesta de Google
+        
+        #Manejo de fallos en reCAPTCHA -LGS
+        if not captcha_result.get('success'):
+            messages.error(request, 'Error en el reCAPTCHA', extra_tags="login")
+            return redirect('home')
+
+        #Proceso de autenticación manual -LGS
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+        try:
+            #Búsqueda de usuario por email -LGS
+            user = Register.objects.get(email=email)
+            print("Usuario encontrado:", user) #Depuración: Confirma usuario encontrado -LGS
+            
+            #Verificación de contraseña existente -LGS
+            if check_password(password, user.passrd):
+                print("Contraseña válida")  #Depuración: Confirma contraseña correcta -LGS
+                
+                #Creación de sesión de usuario -LGS
+                request.session['user_id'] = user.id  #Almacena ID de usuario -LGS
+                request.session['logged_in'] = True  #Bandera de autenticación -LGS
+                request.session.set_expiry(3600)  #Expiración de sesión en 1 hora (3600 segundos) -LGS
+                
+                print("Sesión después de login:", request.session.items())  #Debug que muestra datos de sesión -LGS
+                
+                return redirect('starter_page')  #Redirección a página protegida -LGS
+            else:
+                #Mensaje de contraseña incorrecta
+                print("Contraseña incorrecta")
+                messages.error(request, 'Contraseña incorrecta', extra_tags="login")
+        except Register.DoesNotExist:
+            #Mensaje de usuario no registrado -LGS
+            print("Usuario no existe")
+            messages.error(request, 'Usuario no registrado', extra_tags="login")
+        
+        #Redirección con parámetro para mostrar modal de login y no perder la vista -LGS
+        return redirect(reverse("home") + "?modal=login")
+    
+    return redirect('home')
+
+def login_required_custom(view_func):
+    # Decorador personalizado para protección de rutas
+    def wrapper(request, *args, **kwargs):
+        #Verificación de estado de sesión -LGS
+        print("Verificando sesión:", request.session.get('logged_in'))  # Depuración
+        
+        #Validación de autenticación -LGS
+        if not request.session.get('logged_in'):
+            messages.error(request, 'Debes iniciar sesión para acceder')
+            return redirect('home')  # Redirección si no está autenticado
+        
+        #Ejecución de la vista protegida si está autenticado -LGS
+        return view_func(request, *args, **kwargs)
+    return wrapper
+
+#Vista principal protegida que muestra información del usuario -LGS
+@login_required_custom
+def starter_page(request):
+
+    try:
+        # Obtener datos del usuario actual desde la sesión -LGS
+        user_id = request.session.get('user_id')
+        print(f"ID de usuario en sesión: {user_id}")  #Depuración id del usuario -LGS
+        
+        #Obtener objeto del usuario actual 
+        current_user = Register.objects.get(id=user_id)
+        
+        #Obtener último usuario registrado -LGS
+        last_registered_user = Register.objects.order_by('-id').first()
+        
+        #Debug de datos
+        print(f"Usuario actual: {current_user.email}")
+        print(f"Último registrado: {last_registered_user.email if last_registered_user else 'Ninguno'}")
+        
+
+        context = {
+            'user': current_user, #Usuario autenticado en la base de datosd -LGS
+            'last_user': last_registered_user  #Último registro 
+        }
+        
+        return render(request, 'starter-page.html', context)
+    
+    except Register.DoesNotExist:
+        #Manejo de error si usuario no existe -LGS
+        print("Error: Usuario no encontrado en BD") #Debug para usuario no encontrado -LGS
+        messages.error(request, 'La cuenta no existe')
+        return redirect('home')
+    
+    except Exception as e:
+        #Manejo de errores genéricos
+        print(f"Error inesperado: {str(e)}")
+        messages.error(request, 'Error al cargar la página')
+        return redirect('home')
+
+#Vista para cierre de sesión -LGS
+def logout_view(request):
+    request.session.flush()  #Borra todos los datos de sesión al deslogearte -LGS
+    
+    return redirect('home') #Redirección a página principal -LGS
 
 #Función para generar el token personalizado -LGS
 def generate_reset_token(user):
@@ -159,39 +276,41 @@ def password_reset_request(request):
 #Vista para manejar la confirmación del restablecimiento de contraseña.
 def password_reset_confirm(request, uidb64, token):    
     try:
-        # Decodifica el ID del usuario desde la URL
         uid = urlsafe_base64_decode(uidb64).decode()
-        # Obtiene el usuario de la base de datos usando el ID -LGS
         user = Register.objects.get(pk=uid)
-    except (TypeError, ValueError, OverflowError, Register.DoesNotExist):
-        user = None #verifica si el usuario existe
+        print(f"Usuario encontrado: {user.email}")  # Debug
+        print(f"Token recibido: {token}")  # Debug
+        print(f"Token en BD: {user.reset_token}")  # Debug
+        print(f"Expiración: {user.reset_token_expiration}")  # Debug
+    except Exception as e:
+        print(f"Error decodificando: {str(e)}")
+        user = None
 
     if user and validate_reset_token(user, token):
         if request.method == "POST":
             form = PasswordResetForm(request.POST)
             if form.is_valid():
                 new_password = form.cleaned_data['new_password']
-                #Actualiza la contraseña con hash seguro -LGS
-                user.password = make_password(new_password)
-                user.reset_token = None #Ayuda a invalidar token usado -LGS
-                user.reset_token_expiration = None #Ayuda a invalidar token expirado -LGS
-                user.save()  #Guarda los cambios en la base de datos -LGS
-
-                messages.success(request, "Tu contraseña ha sido cambiada con éxito.", extra_tags="password_reset")
+                
+                # Actualiza la contraseña (CORREGIDO)
+                user.passrd = make_password(new_password)
+                user.reset_token = None
+                user.reset_token_expiration = None
+                user.save()
+                
+                print("Nueva contraseña:", new_password)  # Debug
+                print("Hash guardado:", user.passrd)  # Debug
+                
+                messages.success(request, "¡Contraseña actualizada!")
                 return redirect("password_reset_complete")
             else:
-                messages.error(request, "Las contraseñas no coinciden, favor de corregir.", extra_tags="password_reset")
+                messages.error(request, "Error en el formulario")
         else:
             form = PasswordResetForm()
         
-        # Pasar el nombre de usuario al contexto
-        context = {
-            "form": form,
-            "username": user.name  #darle el nombre y contexto para llamar al usuario en el template -LGS
-        }
-        return render(request, "password_reset_confirm.html", context)
+        return render(request, "password_reset_confirm.html", {"form": form, "username": user.name})
     else:
-        messages.error(request, "El enlace no es válido o ha expirado.", extra_tags="password_reset")
+        messages.error(request, "Enlace inválido o expirado")
         return redirect("password_reset")
 
 #funcion simple para renderizar el templete que dice "correo enviado" -LGS
@@ -233,3 +352,4 @@ def password_reset_complete(request):
 #         form = LoginForm()
 
 #     return render(request, 'index.html', {'form_login': form})
+

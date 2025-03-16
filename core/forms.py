@@ -1,6 +1,5 @@
 from django import forms
 from .models import Contactos, Register
-import requests
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import check_password 
 
