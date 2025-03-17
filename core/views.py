@@ -100,7 +100,7 @@ def index_page(request):
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
 
-#Función para login
+
 def login_view(request):
     # Vista principal para el proceso de inicio de sesión
     if request.method == 'POST':
@@ -142,7 +142,7 @@ def login_view(request):
                 
                 print("Sesión después de login:", request.session.items())  #Debug que muestra datos de sesión -LGS
                 
-                return redirect('starter_page')  #Redirección a página protegida -LGS
+                return redirect('login_successful')  #Redirección a página protegida -LGS
             else:
                 #Mensaje de contraseña incorrecta
                 print("Contraseña incorrecta")
@@ -174,7 +174,7 @@ def login_required_custom(view_func):
 
 #Vista principal protegida que muestra información del usuario -LGS
 @login_required_custom
-def starter_page(request):
+def login_successful(request):
 
     try:
         # Obtener datos del usuario actual desde la sesión -LGS
@@ -197,7 +197,7 @@ def starter_page(request):
             'last_user': last_registered_user  #Último registro 
         }
         
-        return render(request, 'starter-page.html', context)
+        return render(request, 'login_successful.html', context)
     
     except Register.DoesNotExist:
         #Manejo de error si usuario no existe -LGS
@@ -216,6 +216,7 @@ def logout_view(request):
     request.session.flush()  #Borra todos los datos de sesión al deslogearte -LGS
     
     return redirect('home') #Redirección a página principal -LGS
+    return render(request, "login_successful.html")
 
 #Función para generar el token personalizado -LGS
 def generate_reset_token(user):

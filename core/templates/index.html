@@ -149,7 +149,7 @@
         </div>
         {% endif %}
         {% endfor %}
-        {% comment %} {% for message in messages %}
+        {% for message in messages %}
       {% if "login" in message.tags %}  <!-- Solo mostramos los mensajes de login -->
           <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
             <div class="d-flex align-items-center">
@@ -161,7 +161,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         {% endif %}
-        {% endfor %} {% endcomment %}
+        {% endfor %}
         
         <h2>Bienvenido a Protego  Total</h2>
         <p>Tu socio vital.</p>
