@@ -43,7 +43,7 @@ class inmunolife_home(CreateView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Error en el formulario de contacto', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
+        messages.error(self.request, 'Error en el formulario de contacto. Por favor vuelve a intentarlo', extra_tags="contact") #Se agrega el extra_tags para el FormContact para envio exitoso-LGS
         return super().form_invalid(form)  #Renderiza el template con el formulario inválido -LGS
 
 # Función para registrar usuarios -Emix
@@ -61,7 +61,7 @@ def register_user(request):
             return redirect("home")  # Redireccionamos a home para no tener problemas con los formularios -Emix
         else:
             # Mensaje error registro (tags: 'error register') -Emix
-            messages.error(request, "Error en el registro, correo y/o celular ya registrados", extra_tags="register")  # Envía un mensaje de error con la etiqueta "register" -Emix
+            messages.error(request, "Error en el registro, correo y/o celular ya registrados. Por favor vuelve a intentarlo", extra_tags="register")  # Envía un mensaje de error con la etiqueta "register" -Emix
             # Redireccionamos a home con un parámetro en la URL que indique que se deben mostrar los errores en el modal de registro -Emix
             return redirect(reverse("home") + "?modal=register")
     
@@ -100,7 +100,7 @@ def index_page(request):
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
 
-
+#Función para login
 def login_view(request):
     # Vista principal para el proceso de inicio de sesión
     if request.method == 'POST':
@@ -119,38 +119,41 @@ def login_view(request):
         
         #Manejo de fallos en reCAPTCHA -LGS
         if not captcha_result.get('success'):
-            messages.error(request, 'Error en el reCAPTCHA', extra_tags="login")
+            messages.error(request, 'Error en el reCAPTCHA. Por favor intentelo de nuevo', extra_tags="login")
             return redirect('home')
 
         #Proceso de autenticación manual -LGS
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+        email = request.POST.get('loginEmail')
+        password = request.POST.get('loginPassword')
         
         try:
             #Búsqueda de usuario por email -LGS
             user = Register.objects.get(email=email)
             print("Usuario encontrado:", user) #Depuración: Confirma usuario encontrado -LGS
+            print(f"Contraseña ingresada: '{password}'")  #Debug de contraseña ingresada -Emix
+            print(f"Hash almacenado: '{user.passrd}'") #Debug de contraseña hasheada -Emix
+            print(f"¿Coinciden?: {check_password(password, user.passrd)}")
             
             #Verificación de contraseña existente -LGS
             if check_password(password, user.passrd):
                 print("Contraseña válida")  #Depuración: Confirma contraseña correcta -LGS
                 
-                #Creación de sesión de usuario -LGS
+                # #Creación de sesión de usuario -LGS
                 request.session['user_id'] = user.id  #Almacena ID de usuario -LGS
                 request.session['logged_in'] = True  #Bandera de autenticación -LGS
                 request.session.set_expiry(3600)  #Expiración de sesión en 1 hora (3600 segundos) -LGS
                 
-                print("Sesión después de login:", request.session.items())  #Debug que muestra datos de sesión -LGS
+                # print("Sesión después de login:", request.session.items())  #Debug que muestra datos de sesión -LGS
                 
                 return redirect('login_successful')  #Redirección a página protegida -LGS
             else:
                 #Mensaje de contraseña incorrecta
                 print("Contraseña incorrecta")
-                messages.error(request, 'Contraseña incorrecta', extra_tags="login")
+                messages.error(request, 'Contraseña incorrecta. Por favor intentelo de nuevo', extra_tags="login")
         except Register.DoesNotExist:
             #Mensaje de usuario no registrado -LGS
             print("Usuario no existe")
-            messages.error(request, 'Usuario no registrado', extra_tags="login")
+            messages.error(request, 'Usuario no registrado. Por favor intentelo de nuevo', extra_tags="login")
         
         #Redirección con parámetro para mostrar modal de login y no perder la vista -LGS
         return redirect(reverse("home") + "?modal=login")
@@ -201,14 +204,14 @@ def login_successful(request):
     
     except Register.DoesNotExist:
         #Manejo de error si usuario no existe -LGS
-        print("Error: Usuario no encontrado en BD") #Debug para usuario no encontrado -LGS
-        messages.error(request, 'La cuenta no existe')
+        print("Error: Usuario no encontrado en BD. Intentelo de nuevo") #Debug para usuario no encontrado -LGS
+        messages.error(request, 'La cuenta no existe. Intentelo de nuevo')
         return redirect('home')
     
     except Exception as e:
         #Manejo de errores genéricos
         print(f"Error inesperado: {str(e)}")
-        messages.error(request, 'Error al cargar la página')
+        messages.error(request, 'Error al cargar la página. Intentelo de nuevo')
         return redirect('home')
 
 #Vista para cierre de sesión -LGS
@@ -216,7 +219,6 @@ def logout_view(request):
     request.session.flush()  #Borra todos los datos de sesión al deslogearte -LGS
     
     return redirect('home') #Redirección a página principal -LGS
-    return render(request, "login_successful.html")
 
 #Función para generar el token personalizado -LGS
 def generate_reset_token(user):
@@ -268,7 +270,7 @@ def password_reset_request(request):
             
             return redirect("password_reset_done")  #Redirige a la página de éxito -LGS
         else:
-            messages.error(request, "No existe una cuenta con este correo.", extra_tags="password_reset")
+            messages.error(request, "No existe una cuenta con este correo. Intentelo de nuevo", extra_tags="password_reset")
 
     form = PasswordResetRequestForm() 
     return render(request, "password_reset_request.html", {"form": form})
@@ -305,13 +307,13 @@ def password_reset_confirm(request, uidb64, token):
                 messages.success(request, "¡Contraseña actualizada!")
                 return redirect("password_reset_complete")
             else:
-                messages.error(request, "Error en el formulario")
+                messages.error(request, "Error en el formulario. Intentelo de nuevo")
         else:
             form = PasswordResetForm()
         
         return render(request, "password_reset_confirm.html", {"form": form, "username": user.name})
     else:
-        messages.error(request, "Enlace inválido o expirado")
+        messages.error(request, "Enlace inválido o expirado. Por favor intentelo de nuevo")
         return redirect("password_reset")
 
 #funcion simple para renderizar el templete que dice "correo enviado" -LGS

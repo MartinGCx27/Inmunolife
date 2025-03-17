@@ -26,7 +26,7 @@ urlpatterns = [
     #URL de cambio hecho exitosamente -LGS
     path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete'),
     #Ruta para el login exitoso -Emix
-    path('inicio/', views.login_successful, name='login_succesful'),
+    path('inicio/', views.login_successful, name='login_successful'),
     #Ruta para el logout 
     path('logout/', views.logout_view, name='logout')
 ]

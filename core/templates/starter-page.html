@@ -50,7 +50,7 @@
 </head>
 
 <body class="starter-page-page">
-  
+  {% block navbar %} 
   <header id="header" class="header sticky-top">
     
     <div class="topbar d-flex align-items-center">
@@ -69,7 +69,7 @@
       </div>
     </div> <!-- End Top Bar -->
     <!-- Se modifica la navbar de starter-page para que se mantenga con la general y se modifica en el template del login -Emix-->
-    {% block navbar%}
+
     <div class="branding d-flex align-items-center">
       
       <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -108,9 +108,10 @@
       <a class="cta-btn d-none d-sm-block" href="" data-toggle="modal" data-target="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
     </div>
   </div>
-  {% endblock %}
+
   
 </header>
+{% endblock navbar %}
 
 <main class="main">
   {% block content %}
@@ -156,10 +157,10 @@
       </div>
     </nav>
   </div><!-- End Page Title -->
-  {%endblock%}
+  {% endblock content %}
 </main>
 
-{% block footer%}
+{% block footer %}
 <footer id="footer" class="footer light-background">
   
   <div class="container footer-top">
