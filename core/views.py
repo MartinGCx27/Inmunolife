@@ -325,34 +325,5 @@ def password_reset_complete(request):
     return render(request, "password_reset_complete.html")
 
 
-#Función para el Login -Emix
-#@login_required
-# def login(request):
-#     last_user = Register.objects.order_by('-id').first()  #para pruebgas de starter page muestre el nombre de usuario -LGS
-#      #print("Último usuario registrado:", last_user)
-#     return render(request, 'starter-page.html', {'last_user': last_user})
-
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             # Validación de la cuenta y contraseña
-#             email = form.cleaned_data.get('email')
-#             password = form.cleaned_data.get('password')
-
-#             try:
-#                 user = Register.objects.get(email=email)
-#                 if user.passrd == password:
-#                     messages.success(request, 'Inicio de sesión exitoso.')
-#                     return redirect('starter-page')  # Cambia la URL de redirección según tu proyecto
-#                 else:
-#                     messages.error(request, 'Contraseña incorrecta.')
-#             except Register.DoesNotExist:
-#                 messages.error(request, 'No existe una cuenta con este correo.')
-#         else:
-#             messages.error(request, 'Revisa los errores e intenta nuevamente.')
-#     else:
-#         form = LoginForm()
-
-#     return render(request, 'index.html', {'form_login': form})
-
+def error_404_view(request):
+    return render(request, "temp_errors/404_error.html", status=404)

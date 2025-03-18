@@ -28,5 +28,7 @@ urlpatterns = [
     #Ruta para el login exitoso -Emix
     path('inicio/', views.login_successful, name='login_successful'),
     #Ruta para el logout 
-    path('logout/', views.logout_view, name='logout')
+    path('logout/', views.logout_view, name='logout'),
+    #Ruta para error 404
+    path('error404/', views.error_404_view, name='error 404')
 ]
