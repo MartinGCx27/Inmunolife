@@ -2115,3 +2115,8 @@ section,
   width: 9.375em;
   height: 9.375em;
 }
+
+#logo-quantum{
+  max-width: 4.688em;
+  margin-bottom: 0.625em;
+}
