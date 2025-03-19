@@ -147,10 +147,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
 
 #Se agregan keys para el captcha -Emix
-
+#localhost keys -LGS
 RECAPTCHA_PUBLIC_KEY = '6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik'
 RECAPTCHA_SECRET_KEY = '6LcNY9gqAAAAAJGPhcCdVJ9IL61jYkD6nGOiHRbE'
 
+#server keys -LGS
+RECAPTCHA_PUBLIC_KEY = '6Ld9l_UqAAAAAAmI9BYtTU4WTvz1pF9fVI2cHm31'
+RECAPTCHA_SECRET_KEY = '6Ld9l_UqAAAAADbcmQ51FdjHXjUJXw6eixj_0mGx'
 
 #Se agrega redirección del login de admin -Emix
 LOGIN_REDIRECT_URL = 'index.html' #Habrá que cambiar la dirección por la nueva ya configurada
