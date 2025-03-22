@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 #Se importa vista creada en views -LGS
 from .views import inmunolife_home
+from django.contrib import admin
 
 
 
@@ -11,6 +12,8 @@ from .views import inmunolife_home
 # URLS from App Core
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    # Home
     #Ruta para la vista llamando la clase crerada en views -LGS
     path('', inmunolife_home.as_view(), name='home'),
     #Ruta para la view de login -Emix

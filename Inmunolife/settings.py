@@ -147,13 +147,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
 
 #Se agregan keys para el captcha -Emix
-RECAPTCHA_SECRET_KEY = '6Ld9l_UqAAAAADbcmQ51FdjHXjUJXw6eixj_0mGx'
-RECAPTCHA_PUBLIC_KEY = '6Ld9l_UqAAAAAAmI9BYtTU4WTvz1pF9fVI2cHm31'
+#localhost keys -LGS
+RECAPTCHA_PUBLIC_KEY = '6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik'
+RECAPTCHA_SECRET_KEY = '6LcNY9gqAAAAAJGPhcCdVJ9IL61jYkD6nGOiHRbE'
+
+#server keys -LGS
+# RECAPTCHA_PUBLIC_KEY = '6Ld9l_UqAAAAAAmI9BYtTU4WTvz1pF9fVI2cHm31'
+# RECAPTCHA_SECRET_KEY = '6Ld9l_UqAAAAADbcmQ51FdjHXjUJXw6eixj_0mGx'
+
 #Se agrega redirección del login de admin -Emix
-LOGIN_REDIRECT_URL = 'index.html' #Habrá que cambiar la dirección por la nueva ya configurada
+LOGIN_REDIRECT_URL = '/' #Habrá que cambiar la dirección por la nueva ya configurada
 
 #Se agrega redirección del logou de admin -Emix
-LOGOUT_REDIRECT_URL = 'index.html' #Habrá que cambiar la dirección por la nueva ya configurada
+LOGOUT_REDIRECT_URL = '/' #Habrá que cambiar la dirección por la nueva ya configurada
+
+#Se modifico de index.html a / para el logut de admin mande a la pagina principal sin conflictos -LGS
 
 #Configuración de email -LGS
 
@@ -166,3 +174,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = f'Inmunolife <{os.environ.get("EMAIL_HOST_USER")}>'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')
+
+# Usar plantilla personalizada para error 403
+HANDLER403 = 'django.views.defaults.permission_denied'
