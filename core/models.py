@@ -58,9 +58,13 @@ class Contactos(models.Model):
     comments_contact = models.TextField(null=True, blank=True, verbose_name='Comentarios')
     date_contact = models.DateTimeField(auto_now_add=True, verbose_name='Fecha alta')
     status_contact = models.BooleanField(default=False ,null=False, blank=False, verbose_name='Estado')
+
+    #Nuevo campo para marcar como visto -LGS
+    seen_contact = models.BooleanField(default=False, verbose_name="Visto")
     
     def __str__(self):
-        return self.name_contact
+            return f"{self.name_contact} ({'Visto' if self.seen_contact else 'No visto'})"
+
     class Meta:
         db_table = 'contact'
         verbose_name = 'Contactos'
