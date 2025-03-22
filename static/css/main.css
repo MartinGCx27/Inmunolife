@@ -1006,7 +1006,6 @@ section,
 .hero .content .icon-box {
   text-align: center;
   border-radius: 10px;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background: color-mix(in srgb, #464545, transparent 20%); /*Se modifican los colores de las cards a un gris mas fuerte -LGS*/
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 40px 30px;
@@ -1858,14 +1857,16 @@ section,
         la imagen de fondo y el overlay con el contenido.
 */
 .icon-box {
-  position: relative;   /* Permite posicionar el overlay absoluto */
+  position: relative;
   overflow: hidden;
-  /* height: 90vh;        Ajusta la altura */
-  display: flex;
+  width: 100%;             /* Que ocupe todo el ancho de la col */
+  min-height: 600px;       /* Ajusta la altura mínima deseada */
+  margin-bottom: 0;
+  display: flex;           /* Si mantienes display flex para centrar el overlay */
   align-items: center;
   justify-content: center;
-  margin-bottom: 0; /* Elimina el margen inferior */
-  flex: 1 1 30%;       /* Crece/encoge para adaptarse al contenedor */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 0 0 10px black;
 }
 
 /* 
@@ -1874,12 +1875,13 @@ section,
      * transition: opacity para que pueda desvanecerse al hover.
 */
 .icon-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  width: 100%;       /* Asegura que ocupe el ancho completo del .icon-box */
+  height: 100%;      /* Haz que la imagen llene la altura del contenedor */
+  object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
   transition: opacity 0.3s ease;
-  z-index: 0; /* Queda detrás del overlay */
-}
+  z-index: 0;
+} /* Queda detrás del overlay */
 
 /* 
    - .icon-content es el overlay que aparecerá sobre la imagen:
@@ -1897,7 +1899,8 @@ section,
   opacity: 0; 
   transition: opacity 0.3s ease;
   padding: 1rem;
-  z-index: 1; /* Va por encima de la imagen */
+  z-index: 1;
+  box-shadow: 0 0 10px black !important;
 }
 
 /* 
@@ -1963,11 +1966,23 @@ section,
   background-color: #fff;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
   border-radius: 10px;
-  padding: 20px;
+  padding: 2px;
   text-align: center;
-  max-width: 350px;
+  max-width: 290px;
   margin: 0 auto; /* Centra la tarjeta */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 9px #183050;
+}
+/*Agregamos otra clase para mostrar el texto hexagonal*/
+.membership-cardd {
+  background-color: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 10px;
+  padding: 50px;
+  text-align: center;
+  max-width: 390px;
+  margin: 0 auto; /* Centra la tarjeta */
+  box-shadow: 0 0 9px #183050;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 /* 
@@ -2008,6 +2023,7 @@ section,
   align-items: baseline;
   justify-content: center;
   gap: 0.5rem;
+  /* box-shadow: 0 0 10px black; */
 }
 
 /* 
@@ -2042,7 +2058,8 @@ section,
 /* Ajusta el margen entre icon-box-container */
 .icon-box-container {
   width: 33%;
-  margin-bottom: 2.5rem; /* Ajusta el margen inferior */
+  margin-bottom: 2.5rem;
+   /* Ajusta el margen inferior */
 }
 
 
