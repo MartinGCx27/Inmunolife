@@ -161,6 +161,8 @@ LOGIN_REDIRECT_URL = '/' #Habrá que cambiar la dirección por la nueva ya confi
 #Se agrega redirección del logou de admin -Emix
 LOGOUT_REDIRECT_URL = '/' #Habrá que cambiar la dirección por la nueva ya configurada
 
+#Se modifico de index.html a / para el logut de admin mande a la pagina principal sin conflictos -LGS
+
 #Configuración de email -LGS
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

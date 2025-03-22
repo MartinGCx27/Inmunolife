@@ -96,20 +96,3 @@ class ContactosAdmin(admin.ModelAdmin):
     
     acciones_personalizadas.short_description = "Acción rápida"
 
-#Agregar permisos personalizados después de la migración -LGS
-def crear_permisos_personalizados():
-    content_type = ContentType.objects.get_for_model(Register)
-
-    #Permiso para activar usuarios -LGS
-    Permission.objects.get_or_create(
-        codename='can_activate_users',
-        name='Puede activar usuarios',
-        content_type=content_type,
-    )
-
-    #Permiso para desactivar usuarios -LGS
-    Permission.objects.get_or_create(
-        codename='can_deactivate_users',
-        name='Puede desactivar usuarios',
-        content_type=content_type,
-    )
