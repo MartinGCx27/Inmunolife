@@ -1860,7 +1860,7 @@ section,
 .icon-box {
   position: relative;   /* Permite posicionar el overlay absoluto */
   overflow: hidden;
-  height: 90vh;        /* Ajusta la altura */
+  /* height: 90vh;        Ajusta la altura */
   display: flex;
   align-items: center;
   justify-content: center;
