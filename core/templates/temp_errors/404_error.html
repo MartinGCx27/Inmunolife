@@ -1,0 +1,18 @@
+<!-- 404.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página no encontrada</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <img src="{% static 'img/404.png' %}" class="img-fluid" style="max-width: 400px;">
+        <div class="alert alert-warning mt-4">
+            <h4>¡Ups! Página no encontrada</h4>
+            <a href="{% url 'home' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

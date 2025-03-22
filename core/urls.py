@@ -16,10 +16,10 @@ urlpatterns = [
     # Home
     #Ruta para la vista llamando la clase crerada en views -LGS
     path('', inmunolife_home.as_view(), name='home'),
-    #Login
-    path('/login', views.login_view, name='login'),
-    # Registrar usuario
-    path('/register', views.register_user, name='register_user'),
+    #Ruta para la view de login -Emix
+    path('login/', views.login_view, name='login'),
+    # Registrar usuario -Emix
+    path('register/', views.register_user, name='register_user'),
     #URL para confirmar existencia de correo -LGS
     path('password_reset/', views.password_reset_request, name='password_reset'),
     #URL para modificar la contraseña -LGS
@@ -28,7 +28,10 @@ urlpatterns = [
     path('password_reset_done/', views.password_reset_done, name='password_reset_done'),
     #URL de cambio hecho exitosamente -LGS
     path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete'),
-    path('login/', views.login_view, name='login'),
-    path('inicio/', views.starter_page, name='starter_page'),
+    #Ruta para el login exitoso -Emix
+    path('inicio/', views.login_successful, name='login_successful'),
+    #Ruta para el logout 
     path('logout/', views.logout_view, name='logout'),
+    #Ruta para error 404
+    path('error404/', views.error_404_view, name='error 404')
 ]

@@ -12,6 +12,7 @@
   <!--Template tag load static-->
   {% load static %}
   
+  
   <!-- Favicons -->
   <link rel="icon" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" >
   <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" >
@@ -49,14 +50,14 @@
 </head>
 
 <body class="starter-page-page">
-  
+  {% block navbar %} 
   <header id="header" class="header sticky-top">
     
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center"> 
           <!--Se agrega correo de Inmuno en la parte superior -Emix -->
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@protego.com</a></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@Protego_Total.com</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55  </span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
@@ -67,184 +68,200 @@
         </div>
       </div>
     </div> <!-- End Top Bar -->
-    
+    <!-- Se modifica la navbar de starter-page para que se mantenga con la general y se modifica en el template del login -Emix-->
+
     <div class="branding d-flex align-items-center">
       
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="#hero" class="logo d-flex align-items-center me-auto"> 
           <!--Se modifica href:index.html por "#hero" -Emix-->
           <!-- Se modifica logo agregando logo de Inmuno -Emix-->
-          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="logotype Inmuno red lion"> 
-          <h1 class="sitename">Protego Total</h1>
+          <img class ="logo-inmuno" src="{% static '/img/logoinmuno.png' %}" alt="Logotipo de Inmuno: Leon rojo"> 
+          <h1 class="sitename">Protego  Total</h1>
         </a>
         <!--Modificacion de navbar agregando 2 dropdowns. Emix-->
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero">Inicio<br></a></li>
-            <li><a href="#hero">Cotizaciones y Reajustes</a></li>
-            <li><a href="#hero">Registros</a></li> <!--Se comenta clases que se le quitan a about - Emix: class="dropdown, bi-chevron-down toggle-dropdown"-->
-            <li><a href="#hero">Pagos</a></li> <!--Se comenta clases que se le quitan a about - Emix: class="dropdown, bi-chevron-down toggle-dropdown"-->
-            <li><a href="#hero">Contactos</a></li>
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-        <a class="cta-btn d-none d-sm-block" href="{% url 'home' %}">Cerrar sesión</a></a>
-        
-        
-        
-      </div>
-      
-    </div>
-    
-  </header>
-  
-  <main class="main">
-    
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>¡Bienvenido! {{ user.name }} {{ user.last_name }}</h1>
-
-              <h2>Tus datos:</h2>
-              <p>{{ user.name }} {{ user.last_name }} {{ ser.second_lastname }}</p>
-              <p>{{ user.email }}</p>
-              <p>Celular: {{ last_user.cellphone }}</p>
-              <!--LOGAICA PARA MOSTRAR EL NOMBRE DE USUARIO JUNTO CON MAS DATOS-->
-              {% if last_user %}
-              <div class="user-info">
-                <p><strong>Último usuario registrado:</strong></p>
-                <ul>
-                  <li>Nombre: {{ last_user.name }} {{ last_user.last_name }} {{ last_user.second_lastname }}</li>
-                  <li>Correo: {{ last_user.email }}</li>
-                  <li>Celular: {{ last_user.cellphone }}</li>
-                </ul>
-              </div>
-              {% else %}
-              <p>No hay usuarios registrados aún.</p>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <section id="admin">
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Seccion para validar sesion exitosa!!!</h2>
-          
-        </div>
-      </section>
-      
-      <nav class="breadcrumbs">
-        <div class="container">
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
-  </main>
-  
-  
-  <footer id="footer" class="footer light-background">
-    
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
-            <span class="sitename">Protego Total</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p><strong>"ubicación:" </strong>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"> Telefono: <span>+1 5589 55488 55</span></p>
-            <p>Email: <span>Protego@correo.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <h4>Nuestras Redes Sociales</h4>
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Links Utiles</h4>
-          <ul>
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#">Membresias</a></li>
-            <li><a href="#about">Sobre Nosotros</a></li>
-            <li><a href="#services">Servicios</a></li>
+            <li><a href="#hero" class="active">Inicio<br></a></li>
+            <li><a href="#hero">Membresias</a></li>
+            <li class="dropdown"><a href="#about"><span>Nosotros</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> <!--Se comenta clases que se le quitan a about - Emix: class="dropdown, bi-chevron-down toggle-dropdown"-->
+              <ul>
+                <li><a href="#about">Acerca de Protego  Total</a></li>
+                <li><a href="#stats">¿Por qué Protego  Total?</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#services"><span>Servicios</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#services">¿A quiénes van dirigidas las membresias?</a></li>
+                <li><a href="#departments">Preguntas frecuentes</a></li>
+                <li><a href="#testimonials">Reseñas</a></li>
+              </ul>
+            </li>
+            <li><a href="#gallery">Galeria</a></li>
             <li><a href="#contact">Contactanos</a></li>
           </ul>
-        </div>
-        
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nuestros Servicios</h4>
-          <ul>
-            <li><a href="#">Pagos</a></li>
-            <li><a href="#">Cotizaciones</a></li>
-            <li><a href="#">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <div class="mt-3">
+      </div>
+      <a class="cta-btn d-none d-sm-block" href="" data-toggle="modal" data-target="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+    </div>
+  </div>
+
+  
+</header>
+{% endblock navbar %}
+
+<main class="main">
+  {% block content %}
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>¡Bienvenido! {{ user.name }} {{ user.last_name }}</h1>
             
-            <!-- Se desabilita dos listas LeonardoGeishow -->
-            <!-- <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li> -->
-          </ul>
+            <h2>Tus datos:</h2>
+            <p>{{ user.name }} {{ user.last_name }} {{ ser.second_lastname }}</p>
+            <p>{{ user.email }}</p>
+            <p>Celular: {{ last_user.cellphone }}</p>
+            <!--LOGAICA PARA MOSTRAR EL NOMBRE DE USUARIO JUNTO CON MAS DATOS-->
+            {% if last_user %}
+            <div class="user-info">
+              <p><strong>Último usuario registrado:</strong></p>
+              <ul>
+                <li>Nombre: {{ last_user.name }} {{ last_user.last_name }} {{ last_user.second_lastname }}</li>
+                <li>Correo: {{ last_user.email }}</li>
+                <li>Celular: {{ last_user.cellphone }}</li>
+              </ul>
+            </div>
+            {% else %}
+            <p>No hay usuarios registrados aún.</p>
+            {% endif %}
+          </div>
         </div>
-        
-        <!-- Se deshabilita una seccion de footer completa LeonardoGeishow-->
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div> -->
-        
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Enlaces Importantes</h4>
-          <ul>
-            <li><a href="#">Nuestro recorrido</a></li>
-            <li><a href="#">Nuestra historia</a></li>
-            <li><a href="#">Compañia que nos respaldan</a></li>
-          </ul>
-        </div>
-        
       </div>
     </div>
     
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego Total</strong> <span>All Rights Reserved</span></p>
-    </div>
+    <section id="admin">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Seccion para validar sesion exitosa!!!</h2>
+        
+      </div>
+    </section>
     
-  </footer>
+    <nav class="breadcrumbs">
+      <div class="container">
+      </div>
+    </nav>
+  </div><!-- End Page Title -->
+  {% endblock content %}
+</main>
+
+{% block footer %}
+<footer id="footer" class="footer light-background">
   
-  <!-- Se termina de modificar ionformación del footer -->
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
+          <span class="sitename">Protego  Total</span>
+        </a>
+        <div class="footer-contact pt-3">
+          <p><strong>Ubicación: </strong>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p class="mt-3"><strong>Telefono:</strong> Telefono: <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>protego@correo.com</span></p>
+        </div>
+        <div class="social-links d-flex mt-4">
+          <h4>Nuestras Redes Sociales</h4>
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Redirecciones Utiles</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#">Membresias</a></li>
+          <li><a href="#about">Sobre Nosotros</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#contact">Contactanos</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Nuestros Servicios</h4>
+        <ul>
+          <li><a href="#hero">Pagos</a></li>
+          <li><a href="#hero">Cotizaciones</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          
+          <!-- Se desabilita dos listas LeonardoGeishow -->
+          <!-- <li><a href="#">Marketing</a></li>
+          <li><a href="#">Graphic Design</a></li> -->
+        </ul>
+      </div>
+      
+      <!-- Se deshabilita una seccion de footer completa LeonardoGeishow-->
+      <!-- <div class="col-lg-2 col-md-3 footer-links">
+      <h4>Hic solutasetp</h4>
+      <ul>
+      <li><a href="#">Molestiae accusamus iure</a></li>
+      <li><a href="#">Excepturi dignissimos</a></li>
+      <li><a href="#">Suscipit distinctio</a></li>
+      <li><a href="#">Dilecta</a></li>
+      <li><a href="#">Sit quas consectetur</a></li>
+      </ul>
+      </div> -->
+      
+      <div class="col-lg-2 col-md-3 footer-links">
+        <h4>Enlaces Importantes</h4>
+        <ul>
+          <li><a href="#">Nuestro recorrido</a></li>
+          <li><a href="#">Nuestra historia</a></li>
+          <li><a href="#">Compañia que nos respaldan</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
   
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div class="container copyright text-center mt-4">
+    <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p>
+  </div>
   
-  <!-- COMENTAMOS PRELOADER PARA VER PROGRESOS -->
-  <!-- Preloader -->
-  <!-- <div id="preloader"></div> -->
-  
-  
-  <!-- Vendor JS Files -->
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-  
-  <!-- Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
-  
-  
+</footer>
+{% endblock %}
+
+<!-- Se termina de modificar ionformación del footer -->
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- COMENTAMOS PRELOADER PARA VER PROGRESOS -->
+<!-- Preloader -->
+<!-- <div id="preloader"></div> -->
+
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+
 </body>
 
 </html>

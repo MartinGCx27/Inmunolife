@@ -149,6 +149,19 @@
         </div>
         {% endif %}
         {% endfor %}
+        {% for message in messages %}
+      {% if "login" in message.tags %}  <!-- Solo mostramos los mensajes de login -->
+          <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
+            <div class="d-flex align-items-center">
+            <span class="me-2">
+            {% if 'error' in message.tags %} 😿 {% endif %}
+            </span>
+              {{ message }}
+            </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+        {% endfor %}
         
         <h2>Bienvenido a Protego  Total</h2>
         <p>Tu socio vital.</p>
