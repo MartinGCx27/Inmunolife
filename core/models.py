@@ -29,12 +29,13 @@ class Register(models.Model):
 
     def __str__(self):
         return self.name  #se arreglo el return ya que esaba mandando a llamar a name_contact -LGS
-#Clase meta con meta datos de la tabla
-class Meta:
-    db_table = 'Register'
-    verbose_name = 'Registro'
-    verbose_name_plural = 'Registros'
-    ordering = ['id']
+    #Clase meta con meta datos de la tabla
+    #Se orianta de clase Meta y se cambia el verbose ay verbose_plural para admin.py -LGS
+    class Meta:
+        db_table = 'Register'
+        verbose_name = 'Usuario Protego'
+        verbose_name_plural = 'Usuarios Protego'
+        ordering = ['id']
 
 
 #Arreglo para topic_contact (opciones a elegir) -LGS

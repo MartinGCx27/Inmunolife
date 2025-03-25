@@ -100,64 +100,71 @@ def index_page(request):
   # Si la solicitud no es POST, simplemente renderiza la página de inicio-Emix
   return render(request, 'index.html')
 
-#Función para login
+#Función para login -LGS
 def login_view(request):
     # Vista principal para el proceso de inicio de sesión
     if request.method == 'POST':
-        #Verificación de datos recibidos -LGS
-        print("Datos recibidos:", request.POST)  #Debug que muestra los datos del formulario -LGS
+        # Verificación de datos recibidos -LGS
+        print("Datos recibidos:", request.POST)  # Debug que muestra los datos del formulario -LGS
         
-        #Validación de reCAPTCHA -LGS
-        recaptcha_response = request.POST.get('g-recaptcha-response')
+        # Validación de reCAPTCHA -LGS
+        recaptcha_response = request.POST.get('g-recaptcha-response')  # Obtiene la respuesta del captcha
         secret_key = settings.RECAPTCHA_SECRET_KEY  # Clave secreta desde settings.py
         data = {'secret': secret_key, 'response': recaptcha_response}
         
-        #Verificación con servidor de Google para que funcione el captcha -LGS
+        # Verificación con servidor de Google para que funcione el captcha -LGS
         response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
         captcha_result = response.json()
         print("Respuesta reCAPTCHA:", captcha_result)  # Depuración: Muestra respuesta de Google
         
-        #Manejo de fallos en reCAPTCHA -LGS
+        # Manejo de fallos en reCAPTCHA -LGS
         if not captcha_result.get('success'):
             messages.error(request, 'Error en el reCAPTCHA. Por favor intentelo de nuevo', extra_tags="login")
             return redirect('home')
 
-        #Proceso de autenticación manual -LGS
-        email = request.POST.get('loginEmail')
-        password = request.POST.get('loginPassword')
+        # Proceso de autenticación manual -LGS
+        email = request.POST.get('loginEmail')  # Obtiene el correo ingresado
+        password = request.POST.get('loginPassword')  # Obtiene la contraseña ingresada
         
         try:
-            #Búsqueda de usuario por email -LGS
+            # Búsqueda de usuario por email -LGS
             user = Register.objects.get(email=email)
-            print("Usuario encontrado:", user) #Depuración: Confirma usuario encontrado -LGS
-            print(f"Contraseña ingresada: '{password}'")  #Debug de contraseña ingresada -Emix
-            print(f"Hash almacenado: '{user.passrd}'") #Debug de contraseña hasheada -Emix
-            print(f"¿Coinciden?: {check_password(password, user.passrd)}")
-            
-            #Verificación de contraseña existente -LGS
+            print("Usuario encontrado:", user)  # Depuración: Confirma usuario encontrado -LGS
+            print(f"Contraseña ingresada: '{password}'")  # Debug de contraseña ingresada -Emix
+            print(f"Hash almacenado: '{user.passrd}'")  # Debug de contraseña hasheada -Emix
+            print(f"¿Coinciden?: {check_password(password, user.passrd)}")  # Verifica coincidencia
+
+            #Validación de usuario activo -LGS
+            if not user.user_active:
+                messages.error(request, 'No se pudo iniciar sesión, usuario inactivo. Contacta a soporte.', extra_tags="login")
+                return redirect(reverse("home") + "?modal=login")
+
+            # Verificación de contraseña existente -LGS
             if check_password(password, user.passrd):
-                print("Contraseña válida")  #Depuración: Confirma contraseña correcta -LGS
+                print("Contraseña válida")  # Depuración: Confirma contraseña correcta -LGS
                 
-                # #Creación de sesión de usuario -LGS
-                request.session['user_id'] = user.id  #Almacena ID de usuario -LGS
-                request.session['logged_in'] = True  #Bandera de autenticación -LGS
-                request.session.set_expiry(3600)  #Expiración de sesión en 1 hora (3600 segundos) -LGS
+                # Creación de sesión de usuario -LGS
+                request.session['user_id'] = user.id  # Almacena ID de usuario -LGS
+                request.session['logged_in'] = True  # Bandera de autenticación -LGS
+                request.session.set_expiry(3600)  # Expiración de sesión en 1 hora (3600 segundos) -LGS
                 
-                # print("Sesión después de login:", request.session.items())  #Debug que muestra datos de sesión -LGS
+                # print("Sesión después de login:", request.session.items())  # Debug que muestra datos de sesión -LGS
                 
-                return redirect('login_successful')  #Redirección a página protegida -LGS
+                return redirect('login_successful')  # Redirección a página protegida -LGS
             else:
-                #Mensaje de contraseña incorrecta
+                # Mensaje de contraseña incorrecta -LGS
                 print("Contraseña incorrecta")
                 messages.error(request, 'Contraseña incorrecta. Por favor intentelo de nuevo', extra_tags="login")
+        
         except Register.DoesNotExist:
-            #Mensaje de usuario no registrado -LGS
+            # Mensaje de usuario no registrado -LGS
             print("Usuario no existe")
             messages.error(request, 'Usuario no registrado. Por favor intentelo de nuevo', extra_tags="login")
         
-        #Redirección con parámetro para mostrar modal de login y no perder la vista -LGS
+        # Redirección con parámetro para mostrar modal de login y no perder la vista -LGS
         return redirect(reverse("home") + "?modal=login")
     
+    # Redirección si el método no es POST -LGS
     return redirect('home')
 
 def login_required_custom(view_func):
@@ -170,10 +177,11 @@ def login_required_custom(view_func):
         if not request.session.get('logged_in'):
             messages.error(request, 'Debes iniciar sesión para acceder')
             return redirect('home')  # Redirección si no está autenticado
-        
+
         #Ejecución de la vista protegida si está autenticado -LGS
         return view_func(request, *args, **kwargs)
     return wrapper
+
 
 #Vista principal protegida que muestra información del usuario -LGS
 @login_required_custom
