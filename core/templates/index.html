@@ -150,16 +150,16 @@
         {% endif %}
         {% endfor %}
         {% for message in messages %}
-      {% if "login" in message.tags %}  <!-- Solo mostramos los mensajes de login -->
-          <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
-            <div class="d-flex align-items-center">
+        {% if "login" in message.tags %}  <!-- Solo mostramos los mensajes de login -->
+        <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
+          <div class="d-flex align-items-center">
             <span class="me-2">
-            {% if 'error' in message.tags %} 😿 {% endif %}
+              {% if 'error' in message.tags %} 😿 {% endif %}
             </span>
-              {{ message }}
-            </div>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{ message }}
           </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {% endif %}
         {% endfor %}
         
@@ -168,79 +168,79 @@
       </div><!-- End Welcome -->
       
       <div class="content row">
-                <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
+        <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
         <!-- Membresía 1 -->
         <div class="col-xs-12 col-lg-4 py-2">
           {% comment %} <div class="icon-box-container"> {% endcomment %}
-            <div class="icon-box">
-              <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen una mamá e hija felices con título de Membresía uno" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
-              <div class="icon-content">
-                <div class="membership-cardd">
-                  <h4 class="membership-title">Vital pass</h4>
-                  <ul class="membership-features">
-                    <li>Precio Mensual $1,650</li>
-                    <li>Suma Asegurada $1M</li>
-                    <li>Renovación Anual de Cobertura</li>
-                    <li>Servicio de Urgencias</li>
-                    <li>Ambulancia</li>
-                    <li>Precio anual:</li>
-                  </ul>
-                  <div class="annual-price">
-                    <span class="old-price">$19,800</span>
-                    <span class="discount-price">$16,800*</span>
-                  </div>
-                  <p class="footnote">
-                    *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
-                  </p>
+          <div class="icon-box">
+            <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen una mamá e hija felices con título de Membresía uno" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+            <div class="icon-content">
+              <div class="membership-cardd">
+                <h4 class="membership-title">Vital pass</h4>
+                <ul class="membership-features">
+                  <li>Precio Mensual $1,650</li>
+                  <li>Suma Asegurada $1M</li>
+                  <li>Renovación Anual de Cobertura</li>
+                  <li>Servicio de Urgencias</li>
+                  <li>Ambulancia</li>
+                  <li>Precio anual:</li>
+                </ul>
+                <div class="annual-price">
+                  <span class="old-price">$19,800</span>
+                  <span class="discount-price">$16,800*</span>
                 </div>
+                <p class="footnote">
+                  *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+                </p>
+              </div>
               {% comment %} </div> {% endcomment %}
             </div> 
           </div>
         </div>
         {% comment %} <div class="col-xs-12 col-lg-4 py-2">
         {% comment %} <div class="icon-box-container">
-          <div class="icon-box">
-            <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un paciente y doctor" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
-            <div class="icon-content">
-              <div class="membership-card">
-                <ul class="membership-features">
-                  <li>Todos necesitamos un respaldo, alguien que realmente se la juegue por nuestra vida y nuestra salud. Una protección completa, que esté siempre en los momentos difíciles, dándolo todo cuando más lo necesitamos.</li>
-                </ul>
-                <div class="text-center">
-                  <a href="#about" class="more-btn"><span>Conoce más de Protego  Total</span></i></a>
-                </div>
-                <div class="annual-price">
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="icon-box">
+        <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un paciente y doctor" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+        <div class="icon-content">
+        <div class="membership-card">
+        <ul class="membership-features">
+        <li>Todos necesitamos un respaldo, alguien que realmente se la juegue por nuestra vida y nuestra salud. Una protección completa, que esté siempre en los momentos difíciles, dándolo todo cuando más lo necesitamos.</li>
+        </ul>
+        <div class="text-center">
+        <a href="#about" class="more-btn"><span>Conoce más de Protego  Total</span></i></a>
+        </div>
+        <div class="annual-price">
+        </div>
+        </div>
+        </div>
+        </div>
         {% comment %} </div> 
-      </div> {% endcomment %}
+        </div> {% endcomment %}
         <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
         <!-- Membresía 1 -->
         <div class="col-xs-12 col-lg-4 py-2">
           {% comment %} <div class="icon-box-container"> {% endcomment %}
-            <div class="icon-box">
-              <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de familia feliz con título de Membresía dos" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
-              <div class="icon-content">
-                <div class="membership-card">
-                  <h4 class="membership-title">Vital pass +</h4>
-                  <ul class="membership-features">
-                    <li>Precio Mensual $1,990</li>
-                    <li>Suma Asegurada $2 M</li>
-                    <li>Renovación Anual de Cobertura</li>
-                    <li>Servicio de Urgencias</li>
-                    <li>Ambulancia</li>
-                    <li>Cobertura en el extranjero $50 mil USD</li>
-                    <li>Precio Anual: </li>
-                  </ul>
-                  <div class="annual-price">
-                    <span class="old-price">$23,800</span>
-                    <span class="discount-price">$20,500*</span>
-                  </div>
-                  <p class="footnote">
-                    *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
-                  </p>
+          <div class="icon-box">
+            <img src="{% static 'img/Membresia1.jpg' %}" alt="Imagen de familia feliz con título de Membresía dos" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
+            <div class="icon-content">
+              <div class="membership-card">
+                <h4 class="membership-title">Vital pass +</h4>
+                <ul class="membership-features">
+                  <li>Precio Mensual $1,990</li>
+                  <li>Suma Asegurada $2 M</li>
+                  <li>Renovación Anual de Cobertura</li>
+                  <li>Servicio de Urgencias</li>
+                  <li>Ambulancia</li>
+                  <li>Cobertura en el extranjero $50 mil USD</li>
+                  <li>Precio Anual: </li>
+                </ul>
+                <div class="annual-price">
+                  <span class="old-price">$23,800</span>
+                  <span class="discount-price">$20,500*</span>
+                </div>
+                <p class="footnote">
+                  *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
+                </p>
                 {% comment %} </div> {% endcomment %}
               </div>
             </div>
@@ -248,7 +248,7 @@
         </div><!-- End Content-->
         <!-- Membresía 2 -->
         <div class="col-xs-12 col-lg-4 py-2">
-        {% comment %} <div class="icon-box-container"> {% endcomment %}
+          {% comment %} <div class="icon-box-container"> {% endcomment %}
           <div class="icon-box">
             <img src="{% static 'img/Membresia2.jpg' %}" alt="Imagen de un paciente y doctor con Membresía 3" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
             <div class="icon-content">
@@ -270,12 +270,12 @@
                 <p class="footnote">
                   *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
                 </p>
-              {% comment %} </div> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+              </div>
             </div>
           </div>
-        </div>
-      </div><!-- End Content-->
-    </div>
+        </div><!-- End Content-->
+      </div>
     </div>
     
   </section><!-- /Hero Section -->
@@ -300,9 +300,9 @@
             Protego  Total es una empresa comprometida con hacer accesible
             la salud de calidad para todos. Ofrecemos la afiliación a
             aseguradoras que brindan Membresías de gastos médicos mayores</p>
-            <ul>
+            <ol style="list-style-type: none;">
               <li>
-                <i class="fa-solid fa-vial-circle-check"></i>
+                <i class="fa-solid fa-vial-circle-check fa-2x"></i>
                 <div>
                   <h5>Valores</h5>
                   <p>Protección: Resguardamos con astucia la salud de cada socio dentro de la comunidad, asegurándonos de volvernos cada vez más grandes y más fuertes.<br>
@@ -310,559 +310,604 @@
                     Alianza: Nos vinculamos a los mejores lugares y con las mejores personalidades para volvernos juntos cada vez más fuertes.<br>
                     Innovación: Vemos a la innovación como un socio más con el que contamos para mantenernos protegidos, por lo que le damos un papel fundamental en nuestra mejora constante.<br>
                     Accesibilidad: Mantener nuestra infraestructura siempre afilada para estar conectados, porque sabemos que es vital para nuestros socios poder hacer el llamado oportuno en pro de su salud.</p>
-                  </div>
+                </div>
                 </li>
                 <li>
-                  <i class="fa-solid fa-pump-medical"></i>
+                  <i class="fa-regular fa-font-awesome fa-2x"></i>
                   <div>
                     <h5>Misión</h5>
-                    <p>Dar a nuestros miembros el pase a una sociedad comprometida con su protección, brindando beneficios integrales ante cualquier necesidad de salud a través de nuestra plataforma digital.</p>
+                    <p>Dar a nuestros miembros el pase a una sociedad comprometida con su protección, brindando beneficios integrales ante cualquier necesidad de salud a través de nuestra plataforma digital
+                    </p>
                   </div>
                 </li>
                 <li>
-                  <i class="fa-solid fa-heart-circle-xmark"></i>
+                  <i class="fa-solid fa-heart-circle-xmark fa-2x"></i>
                   <div>
                     <h5>Visión</h5>
                     <p>Ser un referente de protección, unidad e innovación, poniendo la salud al alcance de todos con la seguridad y el respaldo que merecen.</p>
                   </div>
                 </li>
-              </ul>
-            </div>
-            
-          </div>
-          
+            </ol>
         </div>
-        
-      </section><!-- /About Section -->
+      </div>
+      </div>
       
-      <!-- Stats Section -->
-      <section id="stats" class="stats section light-background">
+    </section><!-- /About Section -->
+    
+    <!-- Stats Section -->
+    <section id="stats" class="stats section light-background">
+      
+      <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
+        <h2>¿Por qué Protego  Total?</h2>
         
-        <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
-          <h2>¿Por qué Protego  Total?</h2>
+        <div class="row gy-4">
           
-          <div class="row gy-4">
-            
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fa-solid fa-user-doctor"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="2" class="purecounter"></span>
-                <p>Hospitales afiliados</p>
-              </div>
-            </div><!-- End Stats Item -->
-            
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fa-regular fa-hospital"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="2" class="purecounter"></span>
-                <p>Miembros satisfechos</p>
-              </div>
-            </div><!-- End Stats Item -->
-            
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-              <i class="fas fa-flask"></i>
-              <div class="stats-item">
-                <span data-purecounter-start="0" data-purecounter-end="2000" data-purecounter-duration="2" class="purecounter"></span>
-                <p>Cuentas hospitalarias pagadas</p>
-              </div>
-            </div><!-- End Stats Item -->
-            
-            {% comment %}
-            Se comenta cuarto item de la sección "por que nosotros" <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="fas fa-award"></i>
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+            <i class="fa-solid fa-user-doctor"></i>
             <div class="stats-item">
-            <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Awards</p>
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="2" class="purecounter"></span>
+              <p>Hospitales afiliados</p>
             </div>
-            </div><!-- End Stats Item --> {% endcomment %}
+          </div><!-- End Stats Item -->
+          
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+            <i class="fa-regular fa-hospital"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="2" class="purecounter"></span>
+              <p>Miembros satisfechos</p>
+            </div>
+          </div><!-- End Stats Item -->
+          
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
+            <i class="fas fa-flask"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="2000" data-purecounter-duration="2" class="purecounter"></span>
+              <p>Cuentas hospitalarias pagadas</p>
+            </div>
+          </div><!-- End Stats Item -->
+          
+          {% comment %}
+          Se comenta cuarto item de la sección "por que nosotros" <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+          <i class="fas fa-award"></i>
+          <div class="stats-item">
+          <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Awards</p>
+          </div>
+          </div><!-- End Stats Item --> {% endcomment %}
+          
+        </div>
+        
+      </div>
+      
+    </section><!-- /Stats Section -->
+    
+    <!-- Services Section -->
+    <!-- Modificacion ventana servicios, agregando mercado objetivo. Emix-->
+    <section id="services" class="services section">
+      
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>¿A quién van dirigidas nuestras Membresías?</h2>
+      </div><!-- End Section Title -->
+      
+      <div class="container">
+        
+        <div class="row gy-4">
+          
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <!--Se le quita la siguiente etiqutea a las cards de services con class:streched-link: href="#hero" -Emix -->
+              <a class="stretched-link">
+              </a>
+              <h5>Personas de 18 a 63 años que no pueden permitirse una Membresía médica de
+                gastos mayores individual debido a su alto costo.</h5>
+              </div>
+            </div><!-- End Service Item -->
             
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="service-item position-relative">
+                <div class="icon">
+                  <i class="fas fa-pills"></i>
+                </div>
+                <a class="stretched-link">      
+                </a>
+                <h5>
+                  Familias que buscan acceso a servicios médicos por
+                  enfermedades de alto riego y emergencias por accidentes.
+                </h5>
+              </div>
+            </div><!-- End Service Item -->
+            
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="service-item position-relative">
+                <div class="icon">
+                  <i class="fas fa-hospital-user"></i>
+                </div>
+                <a href= class="stretched-link">
+                </a>
+                <h5>
+                  Trabajadores independientes o pequeños empresarios
+                  interesados en proteger su salud y la de sus empleados.
+                </h5>
+                
+              </div>
+            </div><!-- End Service Item -->
+            
+            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="service-item position-relative">
+                <div class="icon">
+                  <i class="fas fa-dna"></i>
+                </div>
+                <a class="stretched-link">           
+                </a>
+                <h5>
+                  Personas con un alto nivel de conciencia para evitar cualquier
+                  contingencia medica en el futuro.
+                </h5>
+                
+                <a class="stretched-link"></a>
+              </div>
+            </div><!-- End Service Item -->
           </div>
           
         </div>
         
-      </section><!-- /Stats Section -->
+      </section><!-- /Services Section -->
       
-      <!-- Services Section -->
-      <!-- Modificacion ventana servicios, agregando mercado objetivo. Emix-->
-      <section id="services" class="services section">
+      <!-- Se comenta appointment section -Emix -->
+      {% comment %} <!-- Appointment Section -->
+      <section id="appointment" class="appointment section">
+      
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+      <h2>Registrarse</h2>
+      <p>Registrar usuario de administrador</p>
+      </div><!-- End Section Title -->
+      
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      
+      <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+      <div class="row">
+      <div class="col-md-4 form-group">
+      <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required="">
+      </div>
+      <div class="col-md-4 form-group mt-3 mt-md-0">
+      <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required="">
+      </div>
+      <div class="col-md-4 form-group mt-3 mt-md-0">
+      <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu celular" required="">
+      
+      
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-4 form-group mt-3">
+      <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
+      </div>
+      
+      
+      <div class="col-md-4 form-group mt-3">
+      <select name="department" id="department" class="form-select" required="">
+      <option value="">Select Department</option>
+      <option value="Department 1">Department 1</option>
+      <option value="Department 2">Department 2</option>
+      <option value="Department 3">Department 3</option>
+      </select>
+      </div>
+      <div class="col-md-4 form-group mt-3">
+      <select name="doctor" id="doctor" class="form-select" required="">
+      <option value="">Select Doctor</option>
+      <option value="Doctor 1">Doctor 1</option>
+      <option value="Doctor 2">Doctor 2</option>
+      <option value="Doctor 3">Doctor 3</option>
+      </select>
+      </div>
+      </div>
+      <!--Se recorrio el endcomment  ya que se estaba comiendo un boton para el registro y esto hacia
+      que el boton de Contáctanos sirviera para registro a falta de un boton pata el mismo -LGS-->
+      
+      <!--Se inhabilita la opción de mensaje, 
+      preguntar a emix si si la usara para el registro o usarala para agregar otro campo-->
+      <!-- <div class="form-group mt-3">
+      <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+      </div> -->
+      <div class="mt-3">
+      <div class="loading">Cargando</div>
+      <div class="error-message"></div>
+      <div class="sent-message">Felicidades, tu registro fue un exito!!!</div>
+      <div><button type="submit">Registrate</button></div>
+      <!--Se cambia el registro a español los div -LGS-->
+      </div>
+      </form>
+      
+      </div> 
+      
+      </section><!-- /Appointment Section -->   {% endcomment %}
+      
+      <!-- Departments Section -->
+      <section id="departments" class="departments section">
         
         <!-- Section Title -->
+        <!-- Modificacion ventana de preguntas frecuentes -Emix -->
         <div class="container section-title" data-aos="fade-up">
-          <h2>¿A quién van dirigidas nuestras Membresías?</h2>
-        </div><!-- End Section Title -->
-        
-        <div class="container">
-          
-          <div class="row gy-4">
-            
-            <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="service-item  position-relative">
-                <div class="icon">
-                  <i class="fas fa-heartbeat"></i>
-                </div>
-                <!--Se le quita la siguiente etiqutea a las cards de services con class:streched-link: href="#hero" -Emix -->
-                <a class="stretched-link">
-                </a>
-                <h5>Personas de 18 a 63 años que no pueden permitirse una Membresía médica de
-                  gastos mayores individual debido a su alto costo.</h5>
-                </div>
-              </div><!-- End Service Item -->
-              
-              <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-item position-relative">
-                  <div class="icon">
-                    <i class="fas fa-pills"></i>
-                  </div>
-                  <a class="stretched-link">      
-                  </a>
-                  <h5>
-                    Familias que buscan acceso a servicios médicos por
-                    enfermedades de alto riego y emergencias por accidentes.
-                  </h5>
-                </div>
-              </div><!-- End Service Item -->
-              
-              <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-item position-relative">
-                  <div class="icon">
-                    <i class="fas fa-hospital-user"></i>
-                  </div>
-                  <a href= class="stretched-link">
-                  </a>
-                  <h5>
-                    Trabajadores independientes o pequeños empresarios
-                    interesados en proteger su salud y la de sus empleados.
-                  </h5>
-                  
-                </div>
-              </div><!-- End Service Item -->
-              
-              <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-item position-relative">
-                  <div class="icon">
-                    <i class="fas fa-dna"></i>
-                  </div>
-                  <a class="stretched-link">           
-                  </a>
-                  <h5>
-                    Personas con un alto nivel de conciencia para evitar cualquier
-                    contingencia medica en el futuro.
-                  </h5>
-                  
-                  <a class="stretched-link"></a>
-                </div>
-              </div><!-- End Service Item -->
-            </div>
-            
-          </div>
-          
-        </section><!-- /Services Section -->
-        
-        <!-- Se comenta appointment section -Emix -->
-        {% comment %} <!-- Appointment Section -->
-        <section id="appointment" class="appointment section">
-        
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-        <h2>Registrarse</h2>
-        <p>Registrar usuario de administrador</p>
+          <h2>Preguntas frecuentes</h2>
+          <p>A continuación te mostramos algunas respuestas a preguntas que te pueden interesar
+          </p>
         </div><!-- End Section Title -->
         
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-        
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-        <div class="row">
-        <div class="col-md-4 form-group">
-        <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" required="">
-        </div>
-        <div class="col-md-4 form-group mt-3 mt-md-0">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Tu email" required="">
-        </div>
-        <div class="col-md-4 form-group mt-3 mt-md-0">
-        <input type="tel" class="form-control" name="phone" id="phone" placeholder="Tu celular" required="">
-        
-        
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-4 form-group mt-3">
-        <input type="datetime-local" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" required="">
-        </div>
-        
-        
-        <div class="col-md-4 form-group mt-3">
-        <select name="department" id="department" class="form-select" required="">
-        <option value="">Select Department</option>
-        <option value="Department 1">Department 1</option>
-        <option value="Department 2">Department 2</option>
-        <option value="Department 3">Department 3</option>
-        </select>
-        </div>
-        <div class="col-md-4 form-group mt-3">
-        <select name="doctor" id="doctor" class="form-select" required="">
-        <option value="">Select Doctor</option>
-        <option value="Doctor 1">Doctor 1</option>
-        <option value="Doctor 2">Doctor 2</option>
-        <option value="Doctor 3">Doctor 3</option>
-        </select>
-        </div>
-        </div>
-        <!--Se recorrio el endcomment  ya que se estaba comiendo un boton para el registro y esto hacia
-        que el boton de Contáctanos sirviera para registro a falta de un boton pata el mismo -LGS-->
-        
-        <!--Se inhabilita la opción de mensaje, 
-        preguntar a emix si si la usara para el registro o usarala para agregar otro campo-->
-        <!-- <div class="form-group mt-3">
-        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-        </div> -->
-        <div class="mt-3">
-        <div class="loading">Cargando</div>
-        <div class="error-message"></div>
-        <div class="sent-message">Felicidades, tu registro fue un exito!!!</div>
-        <div><button type="submit">Registrate</button></div>
-        <!--Se cambia el registro a español los div -LGS-->
-        </div>
-        </form>
-        
-        </div> 
-        
-        </section><!-- /Appointment Section -->   {% endcomment %}
-        
-        <!-- Departments Section -->
-        <section id="departments" class="departments section">
           
-          <!-- Section Title -->
-          <!-- Modificacion ventana de preguntas frecuentes -Emix -->
-          <div class="container section-title" data-aos="fade-up">
-            <h2>Preguntas frecuentes</h2>
-            <p>A continuación te mostramos algunas respuestas a preguntas que te pueden interesar
-            </p>
-          </div><!-- End Section Title -->
-          
-          <div class="container" data-aos="fade-up" data-aos-delay="100">
-            
-            <div class="row">
-              <div class="col-lg-3">
-                <ul class="nav nav-tabs flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Protego  Total? </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">¿Puedo afiliarme si tengo una condición médica preexistente?</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">¿Cómo funciona la red de médicos especialistas?</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">¿Protego  Total ofrece cobertura fuera del país?</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-9 mt-4 mt-lg-0">
-                <div class="tab-content">
-                  <div class="tab-pane active show" id="departments-tab-1">
-                    <div class="row">
-                      <div class="col-lg-8 details order-2 order-lg-1">
-                        <h3>¿Qué cubre la membresía de Protego  Total?</h3>
-                        <p class="fst-italic">Accidentes, hospitalizaciones, tratamientos de enfermedades graves.</p>
+          <div class="row">
+            <div class="col-lg-3">
+              <ul class="nav nav-tabs flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#departments-tab-1">¿Qué cubre la membresía de Protego  Total? </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">¿Puedo afiliarme si tengo una condición médica preexistente?</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">¿Cómo funciona la red de médicos especialistas?</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">¿Protego  Total ofrece cobertura fuera del país?</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-9 mt-4 mt-lg-0">
+              <div class="tab-content">
+                <div class="tab-pane active show" id="departments-tab-1">
+                  <div class="row">
+                    <div class="col-lg-8 details order-2 order-lg-1">
+                      <h3>¿Qué cubre la membresía de Protego  Total?</h3>
+                      <p class="fst-italic">Accidentes, hospitalizaciones, tratamientos de enfermedades graves.</p>
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="{% static '/img/protego-manos-ancianas.jpg' %}" alt="Imagen de manos de personas de la tercera edad" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="departments-tab-2">
+                  <div class="row">
+                    <div class="col-lg-8 details order-2 order-lg-1">
+                      <h3>¿Puedo afiliarme si tengo una condición médica preexistente?</h3>
+                      <p class="fst-italic">Sí se puede afiliar, pero la enfermedad no está cubierta por el seguro</p>
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="{% static '/img/protego-pulgar.png' %}" alt="Imagen de pulgar hacía abajo" class="img-fluid" id="img-pulgar">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="departments-tab-3">
+                  <div class="row">
+                    <div class="col-lg-8 details order-2 order-lg-1">
+                      <h3>¿Cómo funciona la red de médicos especialistas</h3>
+                      <p class="fst-italic">Los miembros tienen acceso a una red de médicos con descuentos y precios
+                        preferenciales.</p>
                       </div>
                       <div class="col-lg-4 text-center order-1 order-lg-2">
-                        <img src="{% static '/img/protego-manos-ancianas.jpg' %}" alt="Imagen de manos de personas de la tercera edad" class="img-fluid">
+                        <img src="{% static '/img/protego-doctor-anciano.png' %} " alt="Imagend de anciano y enfermera" class="img-fluid">
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane" id="departments-tab-2">
+                  <div class="tab-pane" id="departments-tab-4">
                     <div class="row">
                       <div class="col-lg-8 details order-2 order-lg-1">
-                        <h3>¿Puedo afiliarme si tengo una condición médica preexistente?</h3>
-                        <p class="fst-italic">Sí se puede afiliar, pero la enfermedad no está cubierta por el seguro</p>
-                        </div>
-                        <div class="col-lg-4 text-center order-1 order-lg-2">
-                          <img src="{% static '/img/protego-pulgar.png' %}" alt="Imagen de pulgar hacía abajo" class="img-fluid" id="img-pulgar">
-                        </div>
+                        <h3>¿Protego  Total ofrece cobertura fuera del país?</h3>
+                        <p class="fst-italic">Sí, dependiendo el tipo de membresía que se adquiera.</p>
                       </div>
-                    </div>
-                    <div class="tab-pane" id="departments-tab-3">
-                      <div class="row">
-                        <div class="col-lg-8 details order-2 order-lg-1">
-                          <h3>¿Cómo funciona la red de médicos especialistas</h3>
-                          <p class="fst-italic">Los miembros tienen acceso a una red de médicos con descuentos y precios
-                            preferenciales.</p>
-                          </div>
-                          <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="{% static '/img/protego-doctor-anciano.png' %} " alt="Imagend de anciano y enfermera" class="img-fluid">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-pane" id="departments-tab-4">
-                        <div class="row">
-                          <div class="col-lg-8 details order-2 order-lg-1">
-                            <h3>¿Protego  Total ofrece cobertura fuera del país?</h3>
-                            <p class="fst-italic">Sí, dependiendo el tipo de membresía que se adquiera.</p>
-                          </div>
-                          <div class="col-lg-4 text-center order-1 order-lg-2">
-                            <img src="{% static '/img/protego-mapamundi.jpg' %}" alt="Imagen de un mapamundi" class="img-fluid">
-                          </div>
-                        </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <img src="{% static '/img/protego-mapamundi.jpg' %}" alt="Imagen de un mapamundi" class="img-fluid">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+          </div>
+        </div>
+        
+      </div>
+      
+    </section><!-- /Departments Section -->
+    
+    <!-- Doctors Section -->
+    <!-- comienzo a comentar seccion de organigrama Leonardo     
+    <section id="doctors" class="doctors section">
+    -->
+    <!-- Section Title -->
+    
+    <!-- <div class="container section-title" data-aos="fade-up">
+    <h2>Doctors</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div> -->
+    <!-- End Section Title -->
+    <!--emix Statics (de aqui para arriba)-->
+    
+    <!--Parte que hizo LGS-->
+    
+    
+    <!-- <div class="container">
+    
+    <div class="row gy-4"> -->
+    <!--MODIFICACIÓN CON EL EQUIPO Y PUESTO-->
+    <!--DIRECTOR GENERAL-->
+    <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="team-member d-flex align-items-start">
+    <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    <h4>DIRECTOR GENERAL</h4>
+    <span>Jaime R. Rendo M.</span>
+    <p> -->
+    <!--se agrega listas de parte de Leo-->
+    <!-- <ul>
+    <li>
+    Aprobar presupuestos y planes estratégicos.
+    </li>
+    <li>
+    Supervisar el desempeño de los departamentos.
+    </li>
+    <li>
+    Decidir sobre inversiones y políticas de crecimiento.
+    </li>
+    </ul> -->
+    
+    <!--se termina lista-->
+    
+    <!-- </p>
+    <div class="social">
+    <a href=""><i class="bi bi-twitter-x"></i></a>
+    <a href=""><i class="bi bi-facebook"></i></a>
+    <a href=""><i class="bi bi-instagram"></i></a>
+    <a href=""> <i class="bi bi-linkedin"></i> </a>
+    </div>
+    </div>
+    </div>
+    </div> -->
+    
+    <!--TERMINA CARD DIRECTOR GENERAL-->
+    
+    <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="team-member d-flex align-items-start">
+    <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    <h4>Sarah Jhonson</h4>
+    <span>Anesthesiologist</span>
+    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+    <div class="social">
+    <a href=""><i class="bi bi-twitter-x"></i></a>
+    <a href=""><i class="bi bi-facebook"></i></a>
+    <a href=""><i class="bi bi-instagram"></i></a>
+    <a href=""> <i class="bi bi-linkedin"></i> </a>
+    </div>
+    </div>
+    </div>
+    </div> -->
+    <!-- End Team Member -->
+    
+    <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+    <div class="team-member d-flex align-items-start">
+    <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    <h4>William Anderson</h4>
+    <span>Cardiology</span>
+    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+    <div class="social">
+    <a href=""><i class="bi bi-twitter-x"></i></a>
+    <a href=""><i class="bi bi-facebook"></i></a>
+    <a href=""><i class="bi bi-instagram"></i></a>
+    <a href=""> <i class="bi bi-linkedin"></i> </a>
+    </div>
+    </div>
+    </div>
+    </div> -->
+    <!-- End Team Member -->
+    
+    <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="team-member d-flex align-items-start">
+    <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    <h4>Amanda Jepson</h4>
+    <span>Neurosurgeon</span>
+    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+    <div class="social">
+    <a href=""><i class="bi bi-twitter-x"></i></a>
+    <a href=""><i class="bi bi-facebook"></i></a>
+    <a href=""><i class="bi bi-instagram"></i></a>
+    <a href=""> <i class="bi bi-linkedin"></i> </a>
+    </div>
+    </div>
+    </div>
+    </div> -->
+    <!-- End Team Member -->
+    
+    <!-- </div>
+    
+    </div>
+    
+    </section> -->
+    <!-- /Doctors Section -->
+    <!-- temino de comentar la seccion de organigrama Leonardo -->
+    
+    <!-- Se empeiza a comentar sección FAQ -->
+    <!-- Faq Section -->
+    <!-- <section id="faq" class="faq section light-background"> -->
+    
+    <!-- Section Title -->
+    <!-- <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div> -->
+    <!-- End Section Title -->
+    
+    <!-- <div class="container">
+    
+    <div class="row justify-content-center">
+    
+    <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+    
+    <div class="faq-container">
+    
+    <div class="faq-item faq-active">
+    <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+    <div class="faq-content">
+    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- <div class="faq-item">
+    <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+    <div class="faq-content">
+    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- <div class="faq-item">
+    <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+    <div class="faq-content">
+    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- <div class="faq-item">
+    <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+    <div class="faq-content">
+    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- <div class="faq-item">
+    <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
+    <div class="faq-content">
+    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- <div class="faq-item">
+    <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
+    <div class="faq-content">
+    <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
+    </div>
+    <i class="faq-toggle bi bi-chevron-right"></i>
+    </div> -->
+    <!-- End Faq item-->
+    
+    <!-- </div>
+    
+    </div> -->
+    <!-- End Faq Column-->
+    
+    <!-- </div>
+    
+    </div>
+    
+    </section> -->
+    <!-- /Faq Section -->
+    
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      
+      <div class="container">
+        
+        <div class="row align-items-center">
+          
+          <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
+            <h3>RESEÑAS:</h3>
+            <p>
+              Observa las reseñas que tenemos para ti de otros clientes que han
+              confiado en nosotros, ¿Qué esperas? Forma parte de ellos:
+            </p>
           </div>
           
-        </section><!-- /Departments Section -->
-        
-        <!-- Doctors Section -->
-        <!-- comienzo a comentar seccion de organigrama Leonardo     
-        <section id="doctors" class="doctors section">
-        -->
-        <!-- Section Title -->
-        
-        <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Doctors</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-        </div> -->
-        <!-- End Section Title -->
-        <!--emix Statics (de aqui para arriba)-->
-        
-        <!--Parte que hizo LGS-->
-        
-        
-        <!-- <div class="container">
-        
-        <div class="row gy-4"> -->
-        <!--MODIFICACIÓN CON EL EQUIPO Y PUESTO-->
-        <!--DIRECTOR GENERAL-->
-        <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-        <h4>DIRECTOR GENERAL</h4>
-        <span>Jaime R. Rendo M.</span>
-        <p> -->
-        <!--se agrega listas de parte de Leo-->
-        <!-- <ul>
-        <li>
-        Aprobar presupuestos y planes estratégicos.
-        </li>
-        <li>
-        Supervisar el desempeño de los departamentos.
-        </li>
-        <li>
-        Decidir sobre inversiones y políticas de crecimiento.
-        </li>
-        </ul> -->
-        
-        <!--se termina lista-->
-        
-        <!-- </p>
-        <div class="social">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""> <i class="bi bi-linkedin"></i> </a>
-        </div>
-        </div>
-        </div>
-        </div> -->
-        
-        <!--TERMINA CARD DIRECTOR GENERAL-->
-        
-        <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-        <h4>Sarah Jhonson</h4>
-        <span>Anesthesiologist</span>
-        <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-        <div class="social">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""> <i class="bi bi-linkedin"></i> </a>
-        </div>
-        </div>
-        </div>
-        </div> -->
-        <!-- End Team Member -->
-        
-        <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-        <h4>William Anderson</h4>
-        <span>Cardiology</span>
-        <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-        <div class="social">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""> <i class="bi bi-linkedin"></i> </a>
-        </div>
-        </div>
-        </div>
-        </div> -->
-        <!-- End Team Member -->
-        
-        <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-        <h4>Amanda Jepson</h4>
-        <span>Neurosurgeon</span>
-        <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-        <div class="social">
-        <a href=""><i class="bi bi-twitter-x"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""> <i class="bi bi-linkedin"></i> </a>
-        </div>
-        </div>
-        </div>
-        </div> -->
-        <!-- End Team Member -->
-        
-        <!-- </div>
-        
-        </div>
-        
-        </section> -->
-        <!-- /Doctors Section -->
-        <!-- temino de comentar la seccion de organigrama Leonardo -->
-        
-        <!-- Se empeiza a comentar sección FAQ -->
-        <!-- Faq Section -->
-        <!-- <section id="faq" class="faq section light-background"> -->
-        
-        <!-- Section Title -->
-        <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-        </div> -->
-        <!-- End Section Title -->
-        
-        <!-- <div class="container">
-        
-        <div class="row justify-content-center">
-        
-        <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-        
-        <div class="faq-container">
-        
-        <div class="faq-item faq-active">
-        <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-        <div class="faq-content">
-        <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- <div class="faq-item">
-        <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
-        <div class="faq-content">
-        <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- <div class="faq-item">
-        <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-        <div class="faq-content">
-        <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- <div class="faq-item">
-        <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-        <div class="faq-content">
-        <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- <div class="faq-item">
-        <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
-        <div class="faq-content">
-        <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- <div class="faq-item">
-        <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
-        <div class="faq-content">
-        <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
-        </div>
-        <i class="faq-toggle bi bi-chevron-right"></i>
-        </div> -->
-        <!-- End Faq item-->
-        
-        <!-- </div>
-        
-        </div> -->
-        <!-- End Faq Column-->
-        
-        <!-- </div>
-        
-        </div>
-        
-        </section> -->
-        <!-- /Faq Section -->
-        
-        
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section">
-          
-          <div class="container">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
             
-            <div class="row align-items-center">
+            <div class="swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
               
-              <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-                <h3>RESEÑAS:</h3>
-                <p>
-                  Observa las reseñas que tenemos para ti de otros clientes que han
-                  confiado en nosotros, ¿Qué esperas? Forma parte de ellos:
-                </p>
-              </div>
-              
-              <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+              <!-- Empieza sección de las sereñas (contenido) -->
+              <div class="swiper-wrapper">
                 
-                <div class="swiper init-swiper">
-                  <script type="application/json" class="swiper-config">
-                    {
-                      "loop": true,
-                      "speed": 600,
-                      "autoplay": {
-                        "delay": 5000
-                      },
-                      "slidesPerView": "auto",
-                      "pagination": {
-                        "el": ".swiper-pagination",
-                        "type": "bullets",
-                        "clickable": true
-                      }
-                    }
-                  </script>
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="d-flex">
+                      <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 1">
+                      <div>
+                        <h3>Saul Goodman</h3>
+                        <h4>Cliente &amp; CEO</h4>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>Los agentes son muy profesionales, te explican 
+                        las cosas de forma clara y sincera. Te asesoran de 
+                        manera efectiva y te orientan según tus necesidades.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div><!-- End testimonial item -->
                   
-                  <!-- Empieza sección de las sereñas (contenido) -->
-                  <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 2">
+                        <div>
+                          <h3>Sara Wilsson</h3>
+                          <h4>Cliente</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span>Me atendieron muy bien, me buscaron una 
+                          Membresía que necesitaba a un precio muy bueno.
+                          Además te van haciendo seguimiento y te avisan 
+                          de cuando te caduca para renovar o buscar otro 
+                          con mejores condiciones.</span>
+                          <i class="bi bi-quote quote-icon-right"></i>
+                        </p>
+                      </div>
+                    </div><!-- End testimonial item -->
                     
                     <div class="swiper-slide">
                       <div class="testimonial-item">
                         <div class="d-flex">
-                          <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 1">
+                          <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 3">
                           <div>
-                            <h3>Saul Goodman</h3>
-                            <h4>Cliente &amp; CEO</h4>
+                            <h3>Jena Karlis</h3>
+                            <h4>Cliente</h4>
                             <div class="stars">
                               <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
@@ -870,9 +915,10 @@
                         </div>
                         <p>
                           <i class="bi bi-quote quote-icon-left"></i>
-                          <span>Los agentes son muy profesionales, te explican 
-                            las cosas de forma clara y sincera. Te asesoran de 
-                            manera efectiva y te orientan según tus necesidades.</span>
+                          <span>Precio super competitivo.
+                            Ofrece Membresías con compañías top a mucho mejor 
+                            precio que la mayoría de corredores de Membresías.
+                            Por ahora encantada</span>
                             <i class="bi bi-quote quote-icon-right"></i>
                           </p>
                         </div>
@@ -881,9 +927,9 @@
                       <div class="swiper-slide">
                         <div class="testimonial-item">
                           <div class="d-flex">
-                            <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 2">
+                            <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 4">
                             <div>
-                              <h3>Sara Wilsson</h3>
+                              <h3>Matt Brandon</h3>
                               <h4>Cliente</h4>
                               <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -892,11 +938,8 @@
                           </div>
                           <p>
                             <i class="bi bi-quote quote-icon-left"></i>
-                            <span>Me atendieron muy bien, me buscaron una 
-                              Membresía que necesitaba a un precio muy bueno.
-                              Además te van haciendo seguimiento y te avisan 
-                              de cuando te caduca para renovar o buscar otro 
-                              con mejores condiciones.</span>
+                            <span>Desde el principio, muy buena atención, están pendientes de todo.
+                              Después de contratar también ha seguido siendo todo muy fácil.</span>
                               <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                           </div>
@@ -905,9 +948,9 @@
                         <div class="swiper-slide">
                           <div class="testimonial-item">
                             <div class="d-flex">
-                              <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 3">
+                              <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 5">
                               <div>
-                                <h3>Jena Karlis</h3>
+                                <h3>John Larson</h3>
                                 <h4>Cliente</h4>
                                 <div class="stars">
                                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -916,470 +959,426 @@
                             </div>
                             <p>
                               <i class="bi bi-quote quote-icon-left"></i>
-                              <span>Precio super competitivo.
-                                Ofrece Membresías con compañías top a mucho mejor 
-                                precio que la mayoría de corredores de Membresías.
-                                Por ahora encantada</span>
+                              <span>Rápidos, trato muy bueno, 
+                                en todo momento estuvieron pendientes.
+                                A la hora de informarme fueron sinceros.
+                                Les recomendaría sin dudarlo.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                               </p>
                             </div>
                           </div><!-- End testimonial item -->
                           
-                          <div class="swiper-slide">
-                            <div class="testimonial-item">
-                              <div class="d-flex">
-                                <img src=" {% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 4">
-                                <div>
-                                  <h3>Matt Brandon</h3>
-                                  <h4>Cliente</h4>
-                                  <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                  </div>
-                                </div>
-                              </div>
-                              <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Desde el principio, muy buena atención, están pendientes de todo.
-                                  Después de contratar también ha seguido siendo todo muy fácil.</span>
-                                  <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                              </div>
-                            </div><!-- End testimonial item -->
-                            
-                            <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <div class="d-flex">
-                                  <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img flex-shrink-0" alt="Imagen de cliente 5">
-                                  <div>
-                                    <h3>John Larson</h3>
-                                    <h4>Cliente</h4>
-                                    <div class="stars">
-                                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <p>
-                                  <i class="bi bi-quote quote-icon-left"></i>
-                                  <span>Rápidos, trato muy bueno, 
-                                    en todo momento estuvieron pendientes.
-                                    A la hora de informarme fueron sinceros.
-                                    Les recomendaría sin dudarlo.</span>
-                                    <i class="bi bi-quote quote-icon-right"></i>
-                                  </p>
-                                </div>
-                              </div><!-- End testimonial item -->
-                              
-                            </div>
-                            <!-- Termina sección de reseñas (contenido) -->
-                            <div class="swiper-pagination"></div>
-                          </div>
-                          
                         </div>
-                        
+                        <!-- Termina sección de reseñas (contenido) -->
+                        <div class="swiper-pagination"></div>
                       </div>
-                      
-                    </div>
-                    
-                  </section><!-- /Testimonials Section -->
-                  
-                  <!-- Gallery Section -->
-                  <section id="gallery" class="gallery section">
-                    
-                    <div class="container section-title" data-aos="fade-up">
-                      <h2>Galería</h2>
-                      <p>Mira un poco de nuestra Galería y sobre nuestros servicios en formato de fotos:</p>
-                    </div><!-- End Section Title -->
-              
-                    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-              
-                      <div class="row g-0">
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/Galeria-protego/protego-equipo1.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/Galeria-protego/protego-equipo1.jpg' %}" alt="" class="img-fluid" id="img-equipo1">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/Galeria-protego/proto-equipo2.png' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/Galeria-protego/proto-equipo2.png' %}" alt="" class="img-fluid" id="img-equipo2">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" alt="" class="img-fluid" id="img-intrument">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/galeria-protego/protego-jovenes.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/galeria-protego/protego-jovenes.jpg' %}" alt="" class="img-fluid" id="img-jovenes">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/Galeria-protego/protego-mexican.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/Galeria-protego/protego-mexican.jpg' %}" alt="" class="img-fluid">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/galeria-protego/protego-mediana-edad.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/galeria-protego/protego-mediana-edad.jpg' %}" alt="" class="img-fluid" id="img-med-edad">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/Galeria-protego/protego-madre-hija.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/Galeria-protego/protego-madre-hija.jpg' %}" alt="" class="img-fluid" id="img-madre-hija">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                        <div class="col-lg-3 col-md-4">
-                          <div class="gallery-item">
-                            <a href="{% static 'img/Galeria-protego/protego-familia-atardecer.jpg' %}" class="glightbox" data-gallery="images-gallery">
-                              <img src="{% static 'img/Galeria-protego/protego-familia-atardecer.jpg' %}" alt="" class="img-fluid" id="img-atardecer">
-                            </a>
-                          </div>
-                        </div><!-- End Gallery Item -->
-              
-                      </div>
-              
-                    </div>
-              
-                  </section><!-- /Gallery Section -->
-                  
-                  <!-- Contact Section -->
-                  <section id="contact" class="contact section">
-                    
-                    <!-- Section Title -->
-                    <div class="container section-title" data-aos="fade-up">
-                      <!--Cambio de info en Contáctanos-->
-                      <h2>Contáctanos</h2>
-                      <p>Te dejamos nuestro contacto directo para que puedas obtener mas información, de igual forma podemos contactarnos contigo llenando el siguiente formulario:</p>
-                    </div><!-- End Section Title -->
-                    
-                    <!-- Se comenta la parte de maps para quitarla Leonardo -->
-                    <!-- <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-                    <iframe style="border:0; width: 100%; height: 270px;" src="https: //www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div> -->
-                    <!-- End Google Maps -->
-                    <!-- se termina de comentar sección de maps Leonardo -->
-                    
-                    <div class="container" data-aos="fade-up" data-aos-delay="100">
-                      
-                      <div class="row gy-4">
-                        
-                        <!-- se odifica información con info de cliente Leonardo -->
-                        <div class="col-lg-4">
-                          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                              <h3>Nuestra Localización:</h3>
-                              <p>A108 Adam Street, New York, NY 535022</p>
-                            </div>
-                          </div><!-- End Info Item -->
-                          
-                          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-telephone flex-shrink-0"></i>
-                            <div>
-                              <h3>Nuestro teléfono:</h3>
-                              <p>+1 5589 55488 55</p>
-                            </div>
-                          </div><!-- End Info Item -->
-                          
-                          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                              <h3>Nuestro Email:</h3>
-                              <p>protego@correo.com</p>
-                            </div>
-                          </div><!-- End Info Item -->
-                          
-                        </div>
-                        <!-- Se tertmina de actualizar sección de contacto directo -->
-                        
-                        <div class="col-lg-8">
-                          
-                          
-                          <form method="post">
-                            {% csrf_token %}
-                            
-                            {% for message in messages %}
-                            {% if "contact" in message.tags %} <!--Con el extra Tags contact solo saldra dentro del ContactForm -LGS-->
-                            <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
-                              <div class="d-flex align-items-center">
-                                <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
-                                {{ message }}
-                              </div>
-                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                            
-                            <div class="row gy-4 php-email-form">
-                              <div class="col-md-6">
-                                <p>Ingresa tu nombre:</p>
-                                {{ form.name_contact }}
-                              </div>
-                              
-                              <div class="col-md-6">
-                                <p>Ingresa tu apellido:</p>
-                                {{ form.lastname_contact }}
-                              </div>
-                              
-                              <div class="col-md-6">
-                                <p>Ingresa tu teléfono:</p>
-                                {{ form.phone_contact }}
-                                {% if form.phone_contact.errors %}
-                                <div class="error text-danger">{{ form.phone_contact.errors.0 }}</div>
-                                {% endif %}
-                              </div>
-                              <div class="col-md-6">
-                                <p>Ingresa tu Email:</p>
-                                {{ form.email_contact }}
-                                {% if form.email_contact.errors %}
-                                <div class="error text-danger">{{ form.email_contact.errors.0 }}</div>
-                                {% endif %}
-                              </div>
-                              
-                              <div class="col-md-6">
-                                <label for="topic_contact">Elige el tema de tu interés:</label>
-                                <div class="dropdown">
-                                  <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button"
-                                  id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                  {% if form.topic_contact.value %}
-                                  {% for value, label in form.topic_contact.field.choices %}
-                                  {% if value == form.topic_contact.value %}
-                                  {{ label }}
-                                  {% endif %}
-                                  {% endfor %}
-                                  {% else %}
-                                  Elige una opción
-                                  {% endif %}
-                                </a>
-                                
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  {% for value, label in form.topic_contact.field.choices %}
-                                  <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li>
-                                  {% endfor %}
-                                </ul>
-                              </div>
-                              
-                              <!-- El select ahora estará visible, pero oculto solo para enviar datos -->
-                              <select class="form-select" name="{{ form.topic_contact.html_name }}" id="{{ form.topic_contact.id_for_label }}" style="display: none;">
-                                <option value="">Elige una opción</option>  <!-- Opción por defecto si no se selecciona nada -->
-                                {% for value, label in form.topic_contact.field.choices %}
-                                <option value="{{ value }}" {% if value == form.topic_contact.value %} selected {% endif %}>
-                                  {{ label }}
-                                </option>
-                                {% endfor %}
-                              </select>
-                            </div>
-                            
-                            <div class="col-md-12">
-                              <p>Comparte tus comentarios y/o sugerencias:</p>
-                              {{ form.comments_contact }}
-                            </div>
-                            <div class="col-md-12">
-                              <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
-                            </div>        
-                            <div class="col-md-12 text-center">
-                              <button type="submit" id="button_contact">Enviar</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div><!-- End Contact Form -->
                       
                     </div>
                     
                   </div>
                   
-                </section><!-- /Contact Section -->
+                </div>
                 
-                
-              </main>
+              </section><!-- /Testimonials Section -->
               
-              <footer id="footer" class="footer light-background">
+              <!-- Gallery Section -->
+              <section id="gallery" class="gallery section">
                 
-                <div class="container footer-top">
+                <div class="container section-title" data-aos="fade-up">
+                  <h2>Galería</h2>
+                  <p>Mira un poco de nuestra Galería y sobre nuestros servicios en formato de fotos:</p>
+                </div><!-- End Section Title -->
+                
+                <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+                  
+                  <div class="row g-0">
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/Galeria-protego/protego-equipo1.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/Galeria-protego/protego-equipo1.jpg' %}" alt="" class="img-fluid" id="img-equipo1">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/Galeria-protego/proto-equipo2.png' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/Galeria-protego/proto-equipo2.png' %}" alt="" class="img-fluid" id="img-equipo2">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/galeria-protego/protego-instrumentos-doctor.jpg' %}" alt="" class="img-fluid" id="img-intrument">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/galeria-protego/protego-jovenes.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/galeria-protego/protego-jovenes.jpg' %}" alt="" class="img-fluid" id="img-jovenes">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/Galeria-protego/protego-mexican.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/Galeria-protego/protego-mexican.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/galeria-protego/protego-mediana-edad.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/galeria-protego/protego-mediana-edad.jpg' %}" alt="" class="img-fluid" id="img-med-edad">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/Galeria-protego/protego-madre-hija.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/Galeria-protego/protego-madre-hija.jpg' %}" alt="" class="img-fluid" id="img-madre-hija">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="{% static 'img/Galeria-protego/protego-familia-atardecer.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                          <img src="{% static 'img/Galeria-protego/protego-familia-atardecer.jpg' %}" alt="" class="img-fluid" id="img-atardecer">
+                        </a>
+                      </div>
+                    </div><!-- End Gallery Item -->
+                    
+                  </div>
+                  
+                </div>
+                
+              </section><!-- /Gallery Section -->
+              
+              <!-- Contact Section -->
+              <section id="contact" class="contact section">
+                
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                  <!--Cambio de info en Contáctanos-->
+                  <h2>Contáctanos</h2>
+                  <p>Te dejamos nuestro contacto directo para que puedas obtener mas información, de igual forma podemos contactarnos contigo llenando el siguiente formulario:</p>
+                </div><!-- End Section Title -->
+                
+                <!-- Se comenta la parte de maps para quitarla Leonardo -->
+                <!-- <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border:0; width: 100%; height: 270px;" src="https: //www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div> -->
+                <!-- End Google Maps -->
+                <!-- se termina de comentar sección de maps Leonardo -->
+                
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+                  
                   <div class="row gy-4">
-                    <div class="col-lg-4 col-md-6 footer-about">
-                      <a href="index.html" class="logo d-flex align-items-center">
-                        <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
-                        <span class="sitename">Protego  Total</span>
-                      </a>
-                      <div class="footer-contact pt-3">
-                        <p><strong>Ubicación: </strong>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>teléfono:</strong> teléfono: <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>protego@correo.com</span></p>
-                      </div>
-                      <div class="social-links mt-4">
-                        <h4>Nuestras Redes Sociales</h4>
-                        <div class="d-flex gap-3 mt-2">  <!--Se agrega GAP que sirve para dar espacio solo entre los elementos sin afectar el exterior del div -LGS-->
-                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
+                    
+                    <!-- se odifica información con info de cliente Leonardo -->
+                    <div class="col-lg-4">
+                      <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                          <h3>Nuestra Localización:</h3>
+                          <p>A108 Adam Street, New York, NY 535022</p>
                         </div>
+                      </div><!-- End Info Item -->
+                      
+                      <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                          <h3>Nuestro teléfono:</h3>
+                          <p>+1 5589 55488 55</p>
+                        </div>
+                      </div><!-- End Info Item -->
+                      
+                      <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                          <h3>Nuestro Email:</h3>
+                          <p>protego@correo.com</p>
+                        </div>
+                      </div><!-- End Info Item -->
+                      
                     </div>
-                    </div>
+                    <!-- Se tertmina de actualizar sección de contacto directo -->
                     
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Redirecciones Utiles</h4>
-                      <ul>
-                        <li><a href="#hero">Inicio</a></li>
-                        <li><a href="#">Membresías</a></li>
-                        <li><a href="#about">Sobre Nosotros</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#contact">Contáctanos</a></li>
-                      </ul>
-                    </div>
-                    
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Nuestros Servicios</h4>
-                      <ul>
-                        <li><a href="#hero">Pagos</a></li>
-                        <li><a href="#hero">Cotizaciones</a></li>
-                        <li><a href="#contact">Contacto</a></li>
+                    <div class="col-lg-8">
+                      
+                      
+                      <form method="post">
+                        {% csrf_token %}
                         
-                        <!-- Se desabilita dos listas LeonardoGeishow -->
-                        <!-- <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li> -->
-                      </ul>
+                        {% for message in messages %}
+                        {% if "contact" in message.tags %} <!--Con el extra Tags contact solo saldra dentro del ContactForm -LGS-->
+                        <div class="alert alert-dismissible fade show {% if 'success' in message.tags %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+                          <div class="d-flex align-items-center">
+                            <span class="me-2">{% if 'success' in message.tags %}✅{% else %}❌{% endif %}</span>
+                            {{ message }}
+                          </div>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        
+                        <div class="row gy-4 php-email-form">
+                          <div class="col-md-6">
+                            <p>Ingresa tu nombre:</p>
+                            {{ form.name_contact }}
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <p>Ingresa tu apellido:</p>
+                            {{ form.lastname_contact }}
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <p>Ingresa tu teléfono:</p>
+                            {{ form.phone_contact }}
+                            {% if form.phone_contact.errors %}
+                            <div class="error text-danger">{{ form.phone_contact.errors.0 }}</div>
+                            {% endif %}
+                          </div>
+                          <div class="col-md-6">
+                            <p>Ingresa tu Email:</p>
+                            {{ form.email_contact }}
+                            {% if form.email_contact.errors %}
+                            <div class="error text-danger">{{ form.email_contact.errors.0 }}</div>
+                            {% endif %}
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <label for="topic_contact">Elige el tema de tu interés:</label>
+                            <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle drop-inmuno" href="#" role="button"
+                              id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                              {% if form.topic_contact.value %}
+                              {% for value, label in form.topic_contact.field.choices %}
+                              {% if value == form.topic_contact.value %}
+                              {{ label }}
+                              {% endif %}
+                              {% endfor %}
+                              {% else %}
+                              Elige una opción
+                              {% endif %}
+                            </a>
+                            
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              {% for value, label in form.topic_contact.field.choices %}
+                              <li><a class="dropdown-item" href="#" data-value="{{ value }}">{{ label }}</a></li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                          
+                          <!-- El select ahora estará visible, pero oculto solo para enviar datos -->
+                          <select class="form-select" name="{{ form.topic_contact.html_name }}" id="{{ form.topic_contact.id_for_label }}" style="display: none;">
+                            <option value="">Elige una opción</option>  <!-- Opción por defecto si no se selecciona nada -->
+                            {% for value, label in form.topic_contact.field.choices %}
+                            <option value="{{ value }}" {% if value == form.topic_contact.value %} selected {% endif %}>
+                              {{ label }}
+                            </option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <p>Comparte tus comentarios y/o sugerencias:</p>
+                          {{ form.comments_contact }}
+                        </div>
+                        <div class="col-md-12">
+                          <div class="g-recaptcha" data-sitekey="6LcNY9gqAAAAABxaScYq2wj_GqeQCD3ighKvzpik"></div>
+                        </div>        
+                        <div class="col-md-12 text-center">
+                          <button type="submit" id="button_contact">Enviar</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div><!-- End Contact Form -->
+                  
+                </div>
+                
+              </div>
+              
+            </section><!-- /Contact Section -->
+            
+            
+          </main>
+          
+          <footer id="footer" class="footer light-background">
+            
+            <div class="container footer-top">
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                  <a href="index.html" class="logo d-flex align-items-center">
+                    <!-- Se modifica la informaci+on del Footer Leonardo Geishow -->
+                    <span class="sitename">Protego  Total</span>
+                  </a>
+                  <div class="footer-contact pt-3">
+                    <p><strong>Ubicación: </strong>A108 Adam Street</p>
+                    <p>New York, NY 535022</p>
+                    <p class="mt-3"><strong>teléfono:</strong> teléfono: <span>+1 5589 55488 55</span></p>
+                    <p><strong>Email:</strong> <span>protego@correo.com</span></p>
+                  </div>
+                  <div class="social-links mt-4">
+                    <h4>Nuestras Redes Sociales</h4>
+                    <div class="d-flex gap-3 mt-2">  <!--Se agrega GAP que sirve para dar espacio solo entre los elementos sin afectar el exterior del div -LGS-->
+                      <a href=""><i class="bi bi-twitter-x"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
                     </div>
-                    
-                    <!-- Se deshabilita una seccion de footer completa LeonardoGeishow-->
-                    <!-- <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
-                    <ul>
-                    <li><a href="#">Molestiae accusamus iure</a></li>
-                    <li><a href="#">Excepturi dignissimos</a></li>
-                    <li><a href="#">Suscipit distinctio</a></li>
-                    <li><a href="#">Dilecta</a></li>
-                    <li><a href="#">Sit quas consectetur</a></li>
-                    </ul>
-                    </div> -->
-                    
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Enlaces Importantes</h4>
-                      <ul>
-                        <li><a href="#">Nuestro recorrido</a></li>
-                        <li><a href="#">Nuestra historia</a></li>
-                        <li><a href="#">Compañia que nos respaldan</a></li>
-                      </ul>
-                    </div>
-                    
                   </div>
                 </div>
                 
-                <div class="container copyright text-center mt-4">
-                  <img src="{% static 'img/logo-quantum.png' %}" alt="Logo" id="logo-quantum" class="img-fluid" style=" ">
-                  <p>Powered by <strong>Qwantum Qwerty</strong></p>
-                  <!-- <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p> -->
+                <div class="col-lg-2 col-md-3 footer-links">
+                  <h4>Redirecciones Utiles</h4>
+                  <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#">Membresías</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contáctanos</a></li>
+                  </ul>
                 </div>
                 
-              </footer>
+                <div class="col-lg-2 col-md-3 footer-links">
+                  <h4>Nuestros Servicios</h4>
+                  <ul>
+                    <li><a href="#hero">Pagos</a></li>
+                    <li><a href="#hero">Cotizaciones</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    
+                    <!-- Se desabilita dos listas LeonardoGeishow -->
+                    <!-- <li><a href="#">Marketing</a></li>
+                    <li><a href="#">Graphic Design</a></li> -->
+                  </ul>
+                </div>
+                
+                <!-- Se deshabilita una seccion de footer completa LeonardoGeishow-->
+                <!-- <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Hic solutasetp</h4>
+                <ul>
+                <li><a href="#">Molestiae accusamus iure</a></li>
+                <li><a href="#">Excepturi dignissimos</a></li>
+                <li><a href="#">Suscipit distinctio</a></li>
+                <li><a href="#">Dilecta</a></li>
+                <li><a href="#">Sit quas consectetur</a></li>
+                </ul>
+                </div> -->
+                
+                <div class="col-lg-2 col-md-3 footer-links">
+                  <h4>Enlaces Importantes</h4>
+                  <ul>
+                    <li><a href="#">Nuestro recorrido</a></li>
+                    <li><a href="#">Nuestra historia</a></li>
+                    <li><a href="#">Compañia que nos respaldan</a></li>
+                  </ul>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="container copyright text-center mt-4">
+              <img src="{% static 'img/logo-quantum.png' %}" alt="Logo" id="logo-quantum" class="img-fluid" style=" ">
+              <p>Powered by <strong>Qwantum Qwerty</strong></p>
+              <!-- <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p> -->
+            </div>
+            
+          </footer>
+          
+          <!-- Se termina de modificar ionformación del footer -->
+          
+          <!-- Scroll Top -->
+          <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+          
+          <!-- COMENTAMOS PRELOADER PARA VER PROGRESOS -->
+          <!-- Preloader -->
+          <!-- <div id="preloader"></div> -->
+          
+          
+          <!-- Vendor JS Files -->
+          <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+          <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+          <script src="{% static 'vendor/aos/aos.js' %}"></script>
+          <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+          <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+          <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+          
+          <!-- Main JS File -->
+          <script src="{% static 'js/main.js' %}"></script>
+          <!--Script para captcha -Emix-->
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+          
+          <!-- Script para el dropdown de formulario Contáctanos -LGS -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              // Configurar el dropdown personalizado
+              const dropdownButton = document.querySelector('.dropdown-toggle');
+              const dropdownItems = document.querySelectorAll('.dropdown-item');
+              const hiddenSelect = document.getElementById('{{ form.topic_contact.id_for_label }}');
               
-              <!-- Se termina de modificar ionformación del footer -->
-              
-              <!-- Scroll Top -->
-              <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-              
-              <!-- COMENTAMOS PRELOADER PARA VER PROGRESOS -->
-              <!-- Preloader -->
-              <!-- <div id="preloader"></div> -->
-              
-              
-              <!-- Vendor JS Files -->
-              <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-              <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-              <script src="{% static 'vendor/aos/aos.js' %}"></script>
-              <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-              <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
-              <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-              
-              <!-- Main JS File -->
-              <script src="{% static 'js/main.js' %}"></script>
-              <!--Script para captcha -Emix-->
-              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-              
-              <!-- Script para el dropdown de formulario Contáctanos -LGS -->
-              <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                  // Configurar el dropdown personalizado
-                  const dropdownButton = document.querySelector('.dropdown-toggle');
-                  const dropdownItems = document.querySelectorAll('.dropdown-item');
-                  const hiddenSelect = document.getElementById('{{ form.topic_contact.id_for_label }}');
+              // Actualizar el texto del botón cuando se selecciona un ítem
+              dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const value = this.getAttribute('data-value');
+                  const label = this.textContent;
                   
-                  // Actualizar el texto del botón cuando se selecciona un ítem
-                  dropdownItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      const value = this.getAttribute('data-value');
-                      const label = this.textContent;
-                      
-                      // Actualizar elementos visuales
-                      dropdownButton.textContent = label;
-                      hiddenSelect.value = value;
-                      
-                      // Agregar clase de selección
-                      dropdownItems.forEach(i => i.classList.remove('active'));
-                      this.classList.add('active');
-                    });
-                  });
+                  // Actualizar elementos visuales
+                  dropdownButton.textContent = label;
+                  hiddenSelect.value = value;
                   
-                  // Sincronizar estado inicial
-                  const initialValue = hiddenSelect.value;
-                  if (initialValue) {
-                    const initialItem = document.querySelector(`.dropdown-item[data-value="${initialValue}"]`);
-                    if (initialItem) {
-                      dropdownButton.textContent = initialItem.textContent;
-                      initialItem.classList.add('active');
-                    }
-                  }
+                  // Agregar clase de selección
+                  dropdownItems.forEach(i => i.classList.remove('active'));
+                  this.classList.add('active');
                 });
-              </script>    
+              });
               
-              <!-- Script para aceptar como maximo 10 num. en phonecontact -LGS -->
-              <script>
-                function filterNumbers(input) {
-                  // Elimina cualquier carácter que no sea número
-                  input.value = input.value.replace(/\D/g, '');
-                  
-                  // Mostrar mensaje de conteo de dígitos
-                  const messageDiv = document.getElementById('phone-error-message');
-                  const digitCount = input.value.length;
-                  
-                  if (digitCount !== 10 && digitCount > 0) {
-                    messageDiv.textContent = `Has ingresado ${digitCount} dígitos. Deben ser 10.`;
-                    messageDiv.style.color = 'red';
-                  } else {
-                    messageDiv.textContent = ''; // Limpia mensaje si es correcto
-                  }
+              // Sincronizar estado inicial
+              const initialValue = hiddenSelect.value;
+              if (initialValue) {
+                const initialItem = document.querySelector(`.dropdown-item[data-value="${initialValue}"]`);
+                if (initialItem) {
+                  dropdownButton.textContent = initialItem.textContent;
+                  initialItem.classList.add('active');
                 }
-              </script>
+              }
+            });
+          </script>    
+          
+          <!-- Script para aceptar como maximo 10 num. en phonecontact -LGS -->
+          <script>
+            function filterNumbers(input) {
+              // Elimina cualquier carácter que no sea número
+              input.value = input.value.replace(/\D/g, '');
               
+              // Mostrar mensaje de conteo de dígitos
+              const messageDiv = document.getElementById('phone-error-message');
+              const digitCount = input.value.length;
               
-              
-            </body> 
-            
-            </html>
-            
-            <!--hola k ase-->
+              if (digitCount !== 10 && digitCount > 0) {
+                messageDiv.textContent = `Has ingresado ${digitCount} dígitos. Deben ser 10.`;
+                messageDiv.style.color = 'red';
+              } else {
+                messageDiv.textContent = ''; // Limpia mensaje si es correcto
+              }
+            }
+          </script>
+          
+          
+          
+        </body> 
+        
+        </html>
+        
+        <!--hola k ase-->
