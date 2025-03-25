@@ -1868,6 +1868,18 @@ section,
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   filter: drop-shadow(0 0 10px red);}
 
+.div-backgrd {
+  /* position: relative;
+  overflow: hidden;
+  width: 100%;             
+  min-height: 810px;     
+  margin-bottom: 0;
+  display: flex;           
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+  filter: drop-shadow(0 0 400px rgb(255, 255, 255));}
+
 /* 
    - .icon-image es la imagen de fondo:
      * object-fit: cover la recorta para llenar el contenedor.

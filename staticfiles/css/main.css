@@ -1,10 +1,10 @@
 /**
-* Template Name: Medilab
-* Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Template Name: Medilab
+ * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+ * Updated: Aug 07 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
 
 /*--------------------------------------------------------------
 # Font & Color Variables
@@ -12,65 +12,49 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Poppins",  sans-serif;
-  --nav-font: "Raleway",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Raleway", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-/*Se modifican los colores de la siguientes secciones del sitio:
-- Color de background para todo el sitio web, incluidas las secciones individuales - #ebebeb
-- Color por utilizado para la mayoría del contenido de texto en todo el sitio web. - #A2061D
-- Color de los encabezamientos, subtítulos y título en todo el sitio web - #c02135
-- Color de acento de marca en el sitio web. Se utiliza para botones, enlaces y otros elementos que deben destacar. - #c02135
-- Color del background de los cajones. Tarjetas, cuadros de iconos u otros elementos que requieren una separación visual del fondo global. - #bdbdbd
-- Color de contraste para el texto - #bdbdbd
--Emix
-*/
-:root { 
-  --background-color: #ebebeb; /* Background color for the entire website, including individual sections */
-  --default-color: #A2061D; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #c02135; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #c02135; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #f5f3f3; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #f5f3f3; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-/*Se modifican los colores de la siguientes secciones del sitio:
-- Color de los hiperlinks de la navbar - black
-- Color para el hover del txt de la navbar - #A2061D
-- Color del background para el menú de la navbar - #c02135
-- Color del background para los dropdowns - #ebebee
-- Color del texto de los dropdowns desplegados. - #A2061F
-- Color del texto de los dropdowns desplegados después de aplicar el hover - #bb727b
--Emix
-*/
+/* Global Colors */
 :root {
-  /*Se modifica colores de los links -LGS*/
-  --nav-color: #030303;  /* The default color of the main navmenu links */
-  --nav-hover-color: #A2061D; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #c02135; /* Used as the background color for mobile navigation menu */
-  /*Se modifica colores del fondo del dropdown -LGS*/
-  --nav-dropdown-background-color: #e9e6e6; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #A2061F; /* Used for navigation links of the dropdown items in the navigation menu. */
-  /*Se modifica colores del hover de las letras -LGS*/
-  --nav-dropdown-hover-color: #050404; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --primary-color: #224069; /* Base color */
+  --primary-color-light: #3a5c8a; /* Lighter variation */
+  --primary-color-lighter: #5279ab; /* Even lighter */
+  --primary-color-dark: #183050; /* Darker variation */
+  --background-color: #f0f4f8; /* Very light gray/blue */
+  --default-color: #333333; /* Dark gray for general text */
+  --heading-color: var(--primary-color); /* Primary color for headings */
+  --accent-color: var(--primary-color); /* Primary color for accents */
+  --surface-color: #ffffff; /* White for surfaces */
+  --contrast-color: #ffffff; /* White for contrast text */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-/* Modificación de los backgrounds de los colores claros del sitio web -Emix */
-.light-background {
-  --background-color: #bdbdbd;
-  --surface-color: #a3a3a3;
+/* Nav Menu Colors */
+:root {
+  --nav-color: #333333; /* Dark gray */
+  --nav-hover-color: var(--primary-color);
+  --nav-mobile-background-color: var(--primary-color);
+  --nav-dropdown-background-color: #e6eef5; /* Lightest blue */
+  --nav-dropdown-color: #333333;
+  --nav-dropdown-hover-color: var(--primary-color-dark);
 }
-/* Modificación de los backgrounds de los colores oscuros del sitio web -Emix */
+
+/* Color Presets */
+.light-background {
+  --background-color: #dde6f0; /* Lighter blue-gray */
+  --surface-color: #c5d4e5; /* Even lighter */
+}
+
 .dark-background {
-  --background-color: #a3a3a3;
-  --default-color: #bdbdbd;
-  --heading-color: #c02135;
-  --surface-color: #c02135;
-  --contrast-color: #bdbdbd;
+  --background-color: #183050; /* Darker primary */
+  --default-color: #c5d4e5; /* Lighter text */
+  --heading-color: var(--contrast-color);
+  --surface-color: var(--primary-color-dark);
+  --contrast-color: var(--contrast-color);
 }
 
 /* Smooth scroll */
@@ -94,7 +78,7 @@ a {
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: var(--primary-color-light);
   text-decoration: none;
 }
 
@@ -108,12 +92,14 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* Pulsating Play Button
-------------------------------*/
+/* Pulsating Play Button */
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  background: radial-gradient(
+    var(--accent-color) 50%,
+    color-mix(in srgb, var(--accent-color), transparent 75%) 52%
+  );
   border-radius: 50%;
   display: block;
   position: relative;
@@ -187,11 +173,10 @@ h6 {
   }
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+/* PHP Email Form Messages */
 .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #183050;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -269,7 +254,6 @@ h6 {
 }
 
 @media (max-width: 575px) {
-
   .header .topbar .contact-info i a,
   .header .topbar .contact-info i span {
     font-size: 13px;
@@ -287,7 +271,7 @@ h6 {
 }
 
 .header .topbar .social-links a {
-  color: color-mix(in srgb, var(--contrast-color), transparent 20%); /*se modifica el contraste de los social links -LGS*/
+  color: color-mix(in srgb, var(--contrast-color), transparent 20%);
   line-height: 0;
   transition: 0.3s;
   margin-left: 20px;
@@ -312,7 +296,7 @@ h6 {
 }
 
 /* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
-.logo-inmuno{
+.logo-inmuno {
   width: 8em;
 }
 
@@ -387,12 +371,12 @@ h6 {
     position: relative;
   }
 
-  .navmenu>ul>li {
+  .navmenu > ul > li {
     white-space: nowrap;
     padding: 15px 14px;
   }
 
-  .navmenu>ul>li:last-child {
+  .navmenu > ul > li:last-child {
     padding-right: 0;
   }
 
@@ -419,7 +403,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu>ul>li>a:before {
+  .navmenu > ul > li > a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -433,13 +417,13 @@ h6 {
   }
 
   .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
+  .navmenu li:hover > a:before,
   .navmenu .active:before {
     visibility: visible;
     width: 100%;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -478,11 +462,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -494,7 +478,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -526,7 +510,7 @@ h6 {
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
+    background-color: white;
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     overflow-y: auto;
@@ -1301,7 +1285,7 @@ section,
 }
 
 .departments .nav-link.active {
-  color: #880418;
+  color: #183050;
   border-color: var(--accent-color);
   background-color: #d3cfcf; /*Se agrega este background-color nuevo para dejar marcada la pregunta selccionada -LGS*/
 }
@@ -1770,7 +1754,7 @@ section,
 
 /*inicio de la clase para dropdown de contactanos elegir opción*/
 .drop-inmuno{
-  background-color: #A2061D;
+  background-color: #183050;
 }
 
 .dropdown-item:hover{
@@ -1783,57 +1767,57 @@ section,
 /* Estilos generales del modal */
 .modal-content {
   background-color: #bdbdbd;
-  color: #c02135;
+  color: #183050;
   border-radius: 10px;
   border: none;
 }
 
 /* Estilo del header del modal */
 .modal-header {
-  border-bottom: 1px solid #c02135;
+  border-bottom: 1px solid #183050 !important;
 }
 
 /* Título del modal */
 .modal-title {
-  color: #c02135;
+  color: #183050;
 }
 
 /* Botón de cerrar */
 .btn-close {
-  filter: invert(38%) sepia(95%) saturate(4782%) hue-rotate(342deg) brightness(91%) contrast(99%);
+  filter: invert(14%) sepia(9%) saturate(7499%) hue-rotate(187deg) brightness(92%) contrast(89%);
 }
 
 /* Estilos de los inputs */
 .form-control {
-  border: 1px solid #c02135;
+  border: 1px solid #183050;
   background-color: #ebebeb;
   color: black;
 }
 
 .form-control:focus {
-  border-color: #c02135;
-  box-shadow: 0 0 5px rgba(192, 33, 53, 0.7);
+  border-color: #183050;
+  box-shadow: 0 0 5px #183050;
 }
 
 /* Etiquetas de los formularios */
 .form-label {
-  color: #c02135;
+  color: #183050;
 }
 
 /* Botones de acción */
 .btn-primary {
-  background-color: #A2061D !important;
+  background-color: #5279ab !important;
   border: none;
   color: #ffffff !important;
 }
 
 .btn-primary:hover {
-  background-color: #820516 !important;
+  background-color: #5279ab !important;
 }
 
 /* Enlace para cambiar entre modales */
 .text-center a {
-  color: #c02135;
+  color: #183050;
   text-decoration: none;
 }
 
@@ -1843,45 +1827,69 @@ section,
 
 /* Fin de las clases para los modales */
 
-/* Se crean clases para las nuevas cards -Emix*/
-/* Estilos específicos para el primer icon-box */
-.content .col-lg-4:nth-child(1) .icon-box .icon-content {
-  background-color: #c02135;
+/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix  */
+
+/* 
+   1) Estilos específicos para la primera card (si aplica):
+      - Si la card es la primera dentro de .content,
+        el overlay (.icon-content) tendrá fondo #c02135 (rojo)
+        y el texto en blanco (#fff).
+*/
+.content .icon-box-container:nth-child(1) .icon-box .icon-content {
+  background-color: #183050;
   color: #fff;
 }
 
-/* Aplicamos herencia de color para la primer card*/
-.content .col-lg-4:nth-child(1) .icon-box .icon-content h3,
-.content .col-lg-4:nth-child(1) .icon-box .icon-content p,
-.content .col-lg-4:nth-child(1) .icon-box .icon-content a {
+/* 
+   - Aplicamos color: inherit para que h3, p y a dentro del
+     overlay hereden el color blanco.
+*/
+.content .icon-box-container:nth-child(1) .icon-box .icon-content h3,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content h4,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content p,
+.content .icon-box-container:nth-child(1) .icon-box .icon-content a {
   color: inherit;
 }
 
-/* Estilos para las demás cards*/
+/* 
+   2) Estilos generales para las cards (imagen con overlay):
+      - .icon-box es el contenedor principal que aloja
+        la imagen de fondo y el overlay con el contenido.
+*/
 .icon-box {
   position: relative;
   overflow: hidden;
-  height: 90vh;
-  display: flex;
+  width: 100%;             /* Que ocupe todo el ancho de la col */
+  min-height: 810px;       /* Ajusta la altura mínima deseada */
+  margin-bottom: 0;
+  display: flex;           /* Si mantienes display flex para centrar el overlay */
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
-  flex: 1 1 30%;
-}
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: drop-shadow(0 0 10px red);}
 
+/* 
+   - .icon-image es la imagen de fondo:
+     * object-fit: cover la recorta para llenar el contenedor.
+     * transition: opacity para que pueda desvanecerse al hover.
+*/
 .icon-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  width: 100%;       /* Asegura que ocupe el ancho completo del .icon-box */
+  height: 100%;      /* Haz que la imagen llene la altura del contenedor */
+  object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
   transition: opacity 0.3s ease;
-}
+  z-index: 0;
+} /* Queda detrás del overlay */
 
+/* 
+   - .icon-content es el overlay que aparecerá sobre la imagen:
+     * Por defecto, opacity: 0 (invisible).
+     * Se centra el contenido en vertical y horizontal.
+*/
 .icon-content {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1890,36 +1898,52 @@ section,
   opacity: 0; 
   transition: opacity 0.3s ease;
   padding: 1rem;
-  z-index: 1; 
+  z-index: 1;
+  box-shadow: 0 0 10px black !important;
 }
 
+/* 
+   - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).
+*/
 .icon-box:hover .icon-content {
   opacity: 1;
 }
 
+/* 
+   - Al hacer hover sobre .icon-box, la imagen se desvanece (opacity:0).
+     Esto permite que se vea solo el overlay.
+*/
 .icon-box:hover .icon-image {
   opacity: 0;
 }
-/* Estilo para los títulos */
-.icon-content h3, .icon-content h4 {
+
+/* 
+   3) Estilos para títulos y párrafos dentro del overlay:
+      - Tipografía y efectos para resaltar el texto sobre la imagen.
+*/
+.icon-content h3, 
+.icon-content h4 {
   font-family: 'Arial Black', sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
+  /* Pequeña sombra para hacer resaltar el texto */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilo para los párrafos */
 .icon-content p {
-  font-family: 'Georgia', serif;
-  font-size: 1.1rem;
-  line-height:2.1;
+  font-family: 'Arial Black', sans;
+  font-size: 0.7rem !important;
+  line-height: 2.1;
   margin-bottom: 1rem;
 }
 
-/* Estilo para el botón */
+/* 
+   4) Estilo para el botón (.more-btn) dentro del overlay:
+      - Cambio de color al hacer hover.
+*/
 .more-btn {
-  background-color: #a3a3a3;
-  color: #c02135;
+  background-color: #a3a3a3;  /* Gris claro */
+  color: #183050;            /* Rojo */
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -1927,11 +1951,119 @@ section,
 }
 
 .more-btn:hover {
-  background-color: #c02135;
-  color: #ffffff;
+  background-color: #183050; /* Se vuelve rojo */
+  color: #ffffff;            /* Texto blanco */
 }
 
+/* 
+   5) Estilos para la Tarjeta de Membresía (.membership-card)
+      dentro del overlay:
+      - Caja blanca con borde, padding y sombra,
+        donde se muestra info del plan/precio.
+*/
+.membership-card {
+  background-color: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 10px;
+  padding: 2px;
+  text-align: center;
+  max-width: 290px;
+  margin: 0 auto; /* Centra la tarjeta */
+  box-shadow: 0 0 9px #183050;
+}
+/*Agregamos otra clase para mostrar el texto hexagonal*/
+.membership-cardd {
+  background-color: #fff;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  border-radius: 10px;
+  padding: 50px;
+  text-align: center;
+  max-width: 390px;
+  margin: 0 auto; /* Centra la tarjeta */
+  box-shadow: 0 0 9px #183050;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* 
+   - Título de la membresía (por ej. "Membresía 1"):
+     Se usa var(--heading-color) para mantener la paleta.
+*/
+.membership-title {
+  color: var(--heading-color);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* 
+   - Lista de características (precio mensual, cobertura, etc.):
+     * Se remueven los bullets y se ajustan márgenes.
+*/
+.membership-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  color: var(--default-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.membership-features li {
+  margin-bottom: 0.5rem;
+}
+
+/* 
+   - .annual-price agrupa el precio viejo y el nuevo
+     (con descuento). 
+*/
+.annual-price {
+  margin: 1rem 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  /* box-shadow: 0 0 10px black; */
+}
+
+/* 
+   - Precio anterior tachado, en un tono más claro.
+*/
+.old-price {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+/* 
+   - Precio con descuento en verde (#28a745) 
+     y tamaño de fuente mayor.
+*/
+.discount-price {
+  color: #183050;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 
+   - Pie de nota (footnote) para mensajes como
+     "*En caso de pagar de manera anual..."
+*/
+.footnote {
+  font-size: 0.9rem;
+  color: var(--default-color) !important;
+  margin-top: 1rem;
+}
+
+/* Ajusta el margen entre icon-box-container */
+.icon-box-container {
+  width: 33%;
+  margin-bottom: 2.5rem;
+   /* Ajusta el margen inferior */
+}
+
+
 /* Fin de las clases para las nuevas cards */
+
 
 .bg-success-light {
   background-color: #d4edda !important; /* Verde claro */
@@ -1940,6 +2072,67 @@ section,
 
 .bg-danger-light {
   background-color: #f8d7da !important; /* Rojo claro */
-  color: #721c24 !important; /* Texto rojo oscuro */
+  color: #183050 !important; /* Texto rojo oscuro */
 }
 
+/* Borde grueso y color rojo de olvide contraseña -LGS*/
+#showPasswords {
+  border: 2px solid #5279ab !important;
+  border-radius: 0.25em;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Check personalizado de olvide contraseña -LGS*/
+#showPasswords:checked {
+  background-color: #5279ab !important;
+  border-color: #5279ab !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* Label en rojo de olvide contraseña -LGS*/
+.form-check-label {
+  color: #5279ab !important;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+#img-equipo1{
+  filter: sepia(55%) grayscale(15%) contrast(125%) !important;
+}
+
+#img-equipo2{
+  filter: saturate(75%) opacity(90%) contrast(125%) brightness(70%);
+}
+
+#img-intrument{
+  filter: opacity(90%) contrast(125%) brightness(85%);
+}
+
+#img-jovenes{
+  filter: brightness(0.8) grayscale(0.3) saturate(1.4) sepia(0.2);
+}
+
+#img-med-edad{
+  filter: brightness(0.7) contrast(0.9) grayscale(0.3) saturate(1.7) sepia(0.1);
+}
+
+#img-madre-hija{
+  filter: brightness(1.1) contrast(0.9) grayscale(0.5) saturate(1.3) sepia(0.2);
+}
+
+#img-atardecer{
+  filter: brightness(1.1) contrast(1.2) grayscale(0.5) opacity(0.9) saturate(1.5) sepia(0.4);
+}
+
+#img-pulgar{
+  width: 9.375em;
+  height: 9.375em;
+}
+
+#logo-quantum{
+  max-width: 4.688em;
+  margin-bottom: 0.625em;
+}
