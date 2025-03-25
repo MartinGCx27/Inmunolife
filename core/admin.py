@@ -27,7 +27,7 @@ class RegisterAdmin(admin.ModelAdmin):
     #`readonly_fields`: Hace que el campo `reset_token_expiration` sea solo de lectura -LGS
     readonly_fields = ('reset_token_expiration',)
 
-    # Agrega las acciones personalizadas que aparecen como opciones rápidas en el admin -LGS
+    #Agrega las acciones personalizadas que aparecen como opciones rápidas en el admin -LGS
     actions = ['activar_usuarios', 'desactivar_usuarios', 'eliminar_usuarios']  # Mantengo una sola acción de eliminar
 
     # Acción personalizada para activar usuarios -LGS
