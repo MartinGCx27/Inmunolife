@@ -324,14 +324,14 @@ def password_reset_confirm(request, uidb64, token):
         messages.error(request, "Enlace inválido o expirado. Por favor intentelo de nuevo")
         return redirect("password_reset")
 
-#funcion simple para renderizar el templete que dice "correo enviado" -LGS
+#funcion simple para renderizar el template que dice "correo enviado" -LGS
 def password_reset_done(request):
     return render(request, "password_reset_done.html")
 
-#funcion simple para renderizar el templete que dice "cambio completado de contraseña"
+#funcion simple para renderizar el template que dice "cambio completado de contraseña"
 def password_reset_complete(request):
     return render(request, "password_reset_complete.html")
 
-
+#Función temporal para renderiar error 404 -Emix
 def error_404_view(request):
     return render(request, "temp_errors/404_error.html", status=404)

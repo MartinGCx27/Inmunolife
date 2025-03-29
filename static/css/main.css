@@ -1835,6 +1835,11 @@ section,
         el overlay (.icon-content) tendrá fondo #c02135 (rojo)
         y el texto en blanco (#fff).
 */
+.card-box{
+  min-width: 350px; 
+  max-width: 50px !important;        
+  min-height: 810px;    
+}
 .content .icon-box-container:nth-child(1) .icon-box .icon-content {
   background-color: #183050;
   color: #fff;
@@ -1856,17 +1861,22 @@ section,
       - .icon-box es el contenedor principal que aloja
         la imagen de fondo y el overlay con el contenido.
 */
+
 .icon-box {
   position: relative;
   overflow: hidden;
-  width: 100%;             /* Que ocupe todo el ancho de la col */
-  min-height: 810px;       /* Ajusta la altura mínima deseada */
+  min-width: 350px; 
+  max-width: 250px !important;        
+  min-height: 810px;  
+  max-height: 100 !important;   
   margin-bottom: 0;
   display: flex;           /* Si mantienes display flex para centrar el overlay */
   align-items: center;
   justify-content: center;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 10px red);}
+  filter: drop-shadow(0 0 10px red);
+}
+
 
 .div-backgrd {
   /* position: relative;
@@ -1886,11 +1896,13 @@ section,
      * transition: opacity para que pueda desvanecerse al hover.
 */
 .icon-image {
-  display: block;
-  width: 100%;       /* Asegura que ocupe el ancho completo del .icon-box */
-  height: 100%;      /* Haz que la imagen llene la altura del contenedor */
+  width: 100% !important;
+  height: 97% !important;
+  display: block;   /* Haz que la imagen llene la altura del contenedor */
   object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
   transition: opacity 0.3s ease;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
   z-index: 0;
 } /* Queda detrás del overlay */
 
@@ -1900,6 +1912,8 @@ section,
      * Se centra el contenido en vertical y horizontal.
 */
 .icon-content {
+  width: 100% !important;
+  height: 100% !important;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   display: flex;
@@ -1913,6 +1927,7 @@ section,
   z-index: 1;
   box-shadow: 0 0 10px black !important;
 }
+
 
 /* 
    - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).

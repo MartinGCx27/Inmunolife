@@ -52,9 +52,10 @@
             {% endif %}
           </div>
           <label for="registerPassword" class="form-label">Contraseña</label>
-          <input name="register-passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]+$">          <div class="tooltip-arrow"></div>
+          <input name="register-passrd" type="password" class="form-control" id="registerPassword" required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@$!%#*?&]{8,}$">          
+          <div class="tooltip-arrow"></div>
           <div class="tooltip-inner" id="passwordTooltip">
-            Debe contener una mayúscula, una minúscula, un número y un carácter especial.
+            Debe contener 8 caracteres como minimo, entre ellos una mayúscula, una minúscula, un número y un carácter especial.
           </div>
           <!-- Se agrega label para confirmar contraseña -Emix -->
           <div class="mb-3">
