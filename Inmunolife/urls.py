@@ -28,3 +28,5 @@ urlpatterns = [
     # URLS from App registration
     # path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+handler404 = 'core.views.handling_404' #URL para 404 -Emix

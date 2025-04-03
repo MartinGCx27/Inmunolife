@@ -1835,6 +1835,11 @@ section,
         el overlay (.icon-content) tendrá fondo #c02135 (rojo)
         y el texto en blanco (#fff).
 */
+.card-box{
+  min-width: 350px; 
+  max-width: 50px !important;        
+  min-height: 810px;    
+}
 .content .icon-box-container:nth-child(1) .icon-box .icon-content {
   background-color: #183050;
   color: #fff;
@@ -1856,17 +1861,34 @@ section,
       - .icon-box es el contenedor principal que aloja
         la imagen de fondo y el overlay con el contenido.
 */
+
 .icon-box {
   position: relative;
   overflow: hidden;
-  width: 100%;             /* Que ocupe todo el ancho de la col */
-  min-height: 810px;       /* Ajusta la altura mínima deseada */
+  min-width: 350px; 
+  max-width: 250px !important;        
+  min-height: 810px;  
+  max-height: 100 !important;   
   margin-bottom: 0;
   display: flex;           /* Si mantienes display flex para centrar el overlay */
   align-items: center;
   justify-content: center;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 10px red);}
+  filter: drop-shadow(0 0 10px red);
+}
+
+
+.div-backgrd {
+  /* position: relative;
+  overflow: hidden;
+  width: 100%;             
+  min-height: 810px;     
+  margin-bottom: 0;
+  display: flex;           
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+  filter: drop-shadow(0 0 400px rgb(255, 255, 255));}
 
 /* 
    - .icon-image es la imagen de fondo:
@@ -1874,11 +1896,13 @@ section,
      * transition: opacity para que pueda desvanecerse al hover.
 */
 .icon-image {
-  display: block;
-  width: 100%;       /* Asegura que ocupe el ancho completo del .icon-box */
-  height: 100%;      /* Haz que la imagen llene la altura del contenedor */
+  width: 100% !important;
+  height: 97% !important;
+  display: block;   /* Haz que la imagen llene la altura del contenedor */
   object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
   transition: opacity 0.3s ease;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
   z-index: 0;
 } /* Queda detrás del overlay */
 
@@ -1888,6 +1912,8 @@ section,
      * Se centra el contenido en vertical y horizontal.
 */
 .icon-content {
+  width: 100% !important;
+  height: 100% !important;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   display: flex;
@@ -1901,6 +1927,7 @@ section,
   z-index: 1;
   box-shadow: 0 0 10px black !important;
 }
+
 
 /* 
    - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).
@@ -2135,4 +2162,133 @@ section,
 #logo-quantum{
   max-width: 4.688em;
   margin-bottom: 0.625em;
+}
+ /* Clases para error 404 */
+ /* Error Page Styles */
+.error-container {
+  position: relative;
+  height: 100vh;
+  /* background: #0a0a0a; */
+  background: var(--primary-color-dark);
+    
+  overflow: hidden;
+}
+
+.error-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-code {
+  font-size: 15rem;
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+  position: relative;
+  text-shadow: 3px 3px 0 #ff003c, -3px -3px 0 #00d9ff;
+  animation: glitch-animation 2s infinite;
+}
+
+@keyframes glitch-animation {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.error-code::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 #ff003c;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.error-code::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 #00d9ff;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0% { clip: rect(30px, 9999px, 50px, 0); }
+  30% { clip: rect(10px, 9999px, 80px, 0); }
+  60% { clip: rect(60px, 9999px, 30px, 0); }
+  90% { clip: rect(80px, 9999px, 10px, 0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip: rect(70px, 9999px, 90px, 0); }
+  30% { clip: rect(40px, 9999px, 20px, 0); }
+  60% { clip: rect(90px, 9999px, 70px, 0); }
+  90% { clip: rect(20px, 9999px, 40px, 0); }
+}
+
+.error-message {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.error-description {
+  color: #888;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.home-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.error-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff003c, #00d9ff);
+  opacity: 0.05;
+  z-index: 1;
+  animation: background-animation 20s linear infinite;
+}
+
+@keyframes background-animation {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
 }

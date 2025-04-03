@@ -144,7 +144,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' #MODIFICACIÓN PARA DESARROLLO DE ERROR 404 EN PRODUCCIÓN
 
 #Se agregan keys para el captcha -Emix
 

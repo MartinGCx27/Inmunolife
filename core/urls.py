@@ -34,5 +34,5 @@ urlpatterns = [
     #Ruta para el logout 
     path('logout/', views.logout_view, name='logout'),
     #Ruta para error 404
-    path('error404/', views.error_404_view, name='error 404')
+    path('error404/', views.error404_view, name='error 404')
 ]
