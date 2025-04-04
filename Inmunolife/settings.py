@@ -49,8 +49,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware', #AGREGAMOS MIDDLEWARE PARA DESPLEGAR STATIC FILES EN PROD
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #AGREGAMOS MIDDLEWARE PARA DESPLEGAR STATIC FILES EN PROD
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
-STATIC_ROOT = BASE_DIR / "staticfiles" #CONFIGURACIÓN PARA SERVER PROD
+STATIC_ROOT = BASE_DIR / 'staticfiles' #CONFIGURACIÓN PARA SERVER PROD
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static') #ANTERIOR CONFIGURACIÓN DE STATICS
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -144,7 +144,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
+#Cambio para uso en desarrollo Debug=False
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
 
 #Se agregan keys para el captcha -Emix
 
@@ -177,3 +180,22 @@ BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')
 
 # Usar plantilla personalizada para error 403
 HANDLER403 = 'django.views.defaults.permission_denied'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'django_error.log',  # Guardará los errores aquí
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}

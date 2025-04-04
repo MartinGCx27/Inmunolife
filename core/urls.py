@@ -3,11 +3,11 @@ from django.urls import path
 from . import views
 #Se importa vista creada en views -LGS
 from .views import inmunolife_home
-from django.contrib import admin 
+from django.contrib import admin
+from django.conf.urls import handler500
 
 
-
- 
+handler500 = views.error_500_view 
 
 # URLS from App Core
 
@@ -34,5 +34,8 @@ urlpatterns = [
     #Ruta para el logout 
     path('logout/', views.logout_view, name='logout'),
     #Ruta para error 404
-    path('error404/', views.error_404_view, name='error 404')
+    path('error404/', views.error_404_view, name='error 404'),
+    path('force_error/', views.error_500_view, name='force_error')
+    # path("error500/", views.trigger_error)
 ]
+
