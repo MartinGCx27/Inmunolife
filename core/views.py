@@ -333,13 +333,12 @@ def password_reset_done(request):
 def password_reset_complete(request):
     return render(request, "password_reset_complete.html")
 
-#Función temporal para renderiar error 404 -Emix
-def error_404_view(request):
-    return render(request, "temp_errors/404_error.html", status=404)
-
-def error_500_view(request):
-    # Puedes retornar directamente un template para el error 500
-    return render(request, "tem-errors/server-error-500.html", status=500)
+#Función solo para ver el error 404 -Emix
+def error404_view(request):
+    return render(request, "temp_errors/404.html", status=404)
 #Función nueva para función correcta de error 404 -Emix
 def handling_404(request, exception):
     return render(request, "temp_errors/404.html", status=404)
+def error_500_view(request):
+    # Puedes retornar directamente un template para el error 500
+    return render(request, "temp_errors/server-error-500.html", status=500)
