@@ -1,7 +1,17 @@
 {% extends "starter-page.html" %}
+{% load static %}
+{% block favicon %}
+{% load static %}
+<link rel="icon" href="{% static 'img/favicon-96x96-n.png' %}" sizes="96x96" >
+<link rel="icon" type="image/svg+xml" href="{% static 'img/favicon-n.svg' %}" >
+<link rel="shortcut icon" href="{% static 'img/favicon-n.ico' %}" >
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon-n.png' %}" >
+<link rel="manifest" href="{% static 'img/site.webmanifest-n'%}" >
+<meta name="apple-mobile-Inmuno-life" content="Inmuno" >
+{% endblock favicon %}
+
 {% block navbar %}
 <header id="header" class="header sticky-top">
-    
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center"> 
@@ -18,8 +28,7 @@
       </div>
     </div> <!-- End Top Bar -->
 </header>
-{% endblock %}
-{% load static %}
+{% endblock navbar %}
   <!-- Main CSS File -->
 <link href="{% static 'css/main.css' %}" rel="stylesheet">
 {% block content %}
@@ -35,4 +44,12 @@
     <div class="error-background">
     </div>
 </div>
-{% endblock %}
+{% endblock content %}
+{% block footer %}
+<footer id="footer" class="footer light-background">  
+<div class="container copyright text-center">
+  <img src="{% static 'img/logo-quantum.png' %}" alt="Logo de Quantum Qwerty" id="logo-quantum" class="img-fluid" style=" ">
+  <p>Powered by <strong>Quantum Qwerty</strong></p>
+</div>
+</footer>
+{% endblock footer %}

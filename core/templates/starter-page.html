@@ -12,14 +12,16 @@
   <!--Template tag load static-->
   {% load static %}
   
-  
+  {% block favicon %}
   <!-- Favicons -->
   <link rel="icon" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" >
   <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" >
   <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" >
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon1.png' %}" >
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" >
   <link rel="manifest" href="{% static 'img/site.webmanifest'%}" >
   <meta name="apple-mobile-Inmuno-life" content="Inmuno" >
+  {% endblock favicon %}
+
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -51,7 +53,9 @@
 
 <body class="starter-page-page">
   {% block navbar %} 
-  <header id="header" class="header sticky-top">
+    <!-- Se modifica header para mantener la navbar fija y solucionar problema de temblor -Emix/LGS -->
+  {% comment %} <header id="header" class="header sticky-top"> {% endcomment %}
+    <header id="header" class="header fixed-top">
     
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
@@ -219,8 +223,8 @@
   </div>
   
   <div class="container copyright text-center mt-4">
-    <img src="{% static 'img/logo-quantum.png' %}" alt="Logo" id="logo-quantum" class="img-fluid" style=" ">
-    <p>Powered by <strong>Qwantum Qwerty</strong></p>
+    <img src="{% static 'img/logo-quantum.png' %}" alt="Logo de Quantum Qwerty" id="logo-quantum" class="img-fluid" style=" ">
+    <p>Powered by <strong>Quantum Qwerty</strong></p>
   </div>
   
 </footer>
