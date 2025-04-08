@@ -297,7 +297,12 @@ h6 {
 
 /* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
 .logo-inmuno {
-  width: 8em;
+  width: 3.8rem;
+}
+
+.logo-inmuno-leter {
+  width: 9.8rem;
+  aspect-ratio: 7 / 3;
 }
 
 .header .logo h1 {
@@ -2185,7 +2190,7 @@ body.error-page footer {
 }
 
 /* Contenedor principal del error 500 */
-.error-container {
+.error-containercinco {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2292,7 +2297,7 @@ body.error-page footer {
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #5279ab;
+  background-color: #5279ab !important; 
   color: #000;
   text-decoration: none;
   font-weight: bold;
@@ -2345,4 +2350,132 @@ body.error-page footer {
   .error-btn {
     padding: 6px 12px;  /* Reducimos el tamaño del botón */
   }
+}
+ /* Clases para error 404 */
+ .error-container {
+  position: relative;
+  height: 100vh;
+  /* background: #0a0a0a; */
+  background: var(--primary-color-dark);
+    
+  overflow: hidden;
+}
+
+.error-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-code {
+  font-size: 15rem;
+  font-weight: 900;
+  margin: 0;
+  color: #fff;
+  position: relative;
+  text-shadow: 3px 3px 0 #ff003c, -3px -3px 0 #00d9ff;
+  animation: glitch-animation 2s infinite;
+}
+
+@keyframes glitch-animation {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.error-code::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 #ff003c;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.error-code::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 #00d9ff;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0% { clip: rect(30px, 9999px, 50px, 0); }
+  30% { clip: rect(10px, 9999px, 80px, 0); }
+  60% { clip: rect(60px, 9999px, 30px, 0); }
+  90% { clip: rect(80px, 9999px, 10px, 0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip: rect(70px, 9999px, 90px, 0); }
+  30% { clip: rect(40px, 9999px, 20px, 0); }
+  60% { clip: rect(90px, 9999px, 70px, 0); }
+  90% { clip: rect(20px, 9999px, 40px, 0); }
+}
+
+.error-messagecuatro {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.error-description {
+  color: #888;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.home-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.error-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff003c, #00d9ff);
+  opacity: 0.05;
+  z-index: 1;
+  animation: background-animation 20s linear infinite;
+}
+
+@keyframes background-animation {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
 }
