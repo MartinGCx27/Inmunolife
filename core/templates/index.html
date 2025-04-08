@@ -23,7 +23,7 @@
   <link rel="icon" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" >
   <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}" >
   <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" >
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon1.png' %}" >
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" >
   <link rel="manifest" href="{% static 'img/site.webmanifest'%}" >
   <meta name="apple-mobile-Inmuno-life" content="Inmuno">
   
@@ -58,8 +58,9 @@
 </head>
 
 <body class="index-page">
-  
-  <header id="header" class="header sticky-top">
+    <!-- Se modifica header para mantener la navbar fija y solucionar problema de temblor -Emix/LGS -->
+  {% comment %} <header id="header" class="header sticky-top"> {% endcomment %}
+    <header id="header" class="header fixed-top">
     
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
@@ -137,6 +138,9 @@
     <div class="container position-relative">
       
       <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+        <br>
+        <br>
+        <br>
         {% for message in messages %}
         {% if "register" in message.tags %} <!-- Con el extra Tags contact solo saldrá dentro del ContactForm -LGS -->
         <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
@@ -163,8 +167,8 @@
         </div>
         {% endif %}
         {% endfor %}
-        
-        <h2>Bienvenido a Protego  Total</h2>
+        <!-- Se agregan saltos de línea para que se pueda visualizar la bienvenida con la modificación de la navbar -Emix-->
+        <br><br><h2>Bienvenido a Protego  Total</h2>
         <p>Tu socio vital.</p>
       </div><!-- End Welcome -->
       
@@ -1290,7 +1294,7 @@
             
             <div class="container copyright text-center mt-4">
               <img src="{% static 'img/logo-quantum.png' %}" alt="Logo" id="logo-quantum" class="img-fluid" style=" ">
-              <p>Powered by <strong>Qwantum Qwerty</strong></p>
+              <p>Powered by <strong>Quantum Qwerty</strong></p>
               <!-- <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p> -->
             </div>
             
