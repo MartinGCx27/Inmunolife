@@ -12,12 +12,16 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Montserrat", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
+  /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Poppins", sans-serif;
-  --nav-font: "Raleway", sans-serif;
+  --nav-font: "Raleway", sans-serif; */
 }
+
 
 /* Global Colors */
 :root {
@@ -71,6 +75,17 @@ body {
   font-family: var(--default-font);
 }
 
+.title-protego{
+  font-family: var(--default-font);
+  font-weight: 700;
+  font-size: 3.5rem !important;
+}
+
+p, a, span, strong {
+  font-family: var(--default-font);
+  font-weight: 400; /* Puedes ajustar aquí también si quieres */
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -90,6 +105,8 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 /* Pulsating Play Button */
