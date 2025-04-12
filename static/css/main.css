@@ -20,13 +20,17 @@
 }
 
 /* Global Colors */
+/* Colores: 
+Azul profundo: #2E338B - color principal
+Azul fresco: #1DA4D4 - color secundario
+Gris acero: #656F86 - color complementario o acento */
 :root {
-  --primary-color: #224069; /* Base color */
+  --primary-color: #2E338B; /* Base color */ 
   --primary-color-light: #3a5c8a; /* Lighter variation */
-  --primary-color-lighter: #5279ab; /* Even lighter */
+  --primary-color-lighter: #1DA4D4; /* Even lighter */
   --primary-color-dark: #183050; /* Darker variation */
   --background-color: #f0f4f8; /* Very light gray/blue */
-  --default-color: #333333; /* Dark gray for general text */
+  --default-color: #656F86; /* Dark gray for general text */
   --heading-color: var(--primary-color); /* Primary color for headings */
   --accent-color: var(--primary-color); /* Primary color for accents */
   --surface-color: #ffffff; /* White for surfaces */
@@ -35,11 +39,11 @@
 
 /* Nav Menu Colors */
 :root {
-  --nav-color: #333333; /* Dark gray */
+  --nav-color: #656F86; /* Dark gray */
   --nav-hover-color: var(--primary-color);
   --nav-mobile-background-color: var(--primary-color);
   --nav-dropdown-background-color: #e6eef5; /* Lightest blue */
-  --nav-dropdown-color: #333333;
+  --nav-dropdown-color: #656F86;
   --nav-dropdown-hover-color: var(--primary-color-dark);
 }
 
@@ -306,8 +310,7 @@ h6 {
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
-}
-
+} 
 .header .cta-btn,
 .header .cta-btn:focus {
   color: var(--contrast-color);
