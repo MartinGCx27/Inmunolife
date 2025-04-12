@@ -1299,10 +1299,51 @@ section,
   animation: fadeIn 0.5s ease-out;
 }
 
+.departments h2 {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .departments .details h3 {
-  font-size: 26px;
-  font-weight: 600px;
-  margin-bottom: 20px;
+  /* font-size: 26px; */
+  /* font-weight: 600px; */
+  /* margin-bottom: 20px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.departments p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.departments-nav ul,
+.departments-nav a {
+  /* font-size: 26px; */
+  /* font-weight: 600px; */
+  /* margin-bottom: 20px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600 !important;
+  font-style: normal;
 }
 
 .departments .details p {
@@ -1541,10 +1582,30 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
+/* se modifica clase en h3 para secion reseñas -LGS */
 .testimonials .info h3 {
+  /* font-weight: 700;
+  font-size: 32px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 700;
-  font-size: 32px;
+  font-style: normal;
 }
+
+/* se crea clase en p para secion reseñas -LGS */
+.testimonials .info p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 /* Cambio de color del background de los testimonios #bdbdbd -Emix*/
 .testimonials .swiper {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
@@ -1572,16 +1633,44 @@ section,
   margin-right: 10px;
 }
 
+/* se modifica clase en h3 para secion reseñas en carrusel -LGS */
 .testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
+  /* font-size: 18px;
+  font-weight: bold; */
   margin: 10px 0 5px 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
+/* se modifica clase en h4 para secion reseñas -LGS */
 .testimonials .testimonial-item h4 {
   color: color-mix(in srgb, var(#bdbdbd), transparent 50%);
-  font-size: 14px;
+  /* font-size: 14px; */
   margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* se modifica clase en span para secion reseñas -LGS */
+.testimonials .testimonial-item span {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .testimonials .testimonial-item .stars {
@@ -1665,6 +1754,7 @@ section,
 
 .gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
+  interpolate-size: allow-keywords;
 }
 
 .gallery .gallery-item:hover img {
@@ -1690,19 +1780,6 @@ section,
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
   margin-right: 15px;
-}
-
-.contact .info-item h3 {
-  padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
 }
 
 .contact .php-email-form {
@@ -2478,4 +2555,179 @@ body.error-page footer {
   0% { transform: scale(1) rotate(0deg); }
   50% { transform: scale(1.2) rotate(180deg); }
   100% { transform: scale(1) rotate(360deg); }
+}
+
+
+
+
+/* se crean clases de galeria para modificar texto -LGS */
+.gallery h2{
+  padding: 0;
+  font-size: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.gallery p{
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Se crean clases de contacto para editar texto -LGS */
+.contact h2 {
+  padding: 0;
+  font-size: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.contact .info-item h3 {
+  padding: 0;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.contact-desc p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.contact-desc label {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Se crean clases de footer para editar texto -LGS */
+.footer span{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.3rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.footer p{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.footer strong{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.footer span{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.footer h4{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.footer ul li{
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* id para strong de quantum qwerty -LGS */
+#quantum {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Se crean clases de templates para editar texto -LGS */
+.password_reset {
+  font-family: "Montserrat", sans-serif;
+}
+
+.password_reset h2 {
+  padding: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.password_reset p {
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.password_reset a {
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* se crea transicion nueva para otones ejemplo en opciones de form contact -LGS */
+.contact_drop {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.contact_drop:hover {
+  transform: scale(1.1);
 }
