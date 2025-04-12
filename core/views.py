@@ -339,6 +339,9 @@ def error404_view(request):
 #Función nueva para función correcta de error 404 -Emix
 def handling_404(request, exception):
     return render(request, "temp_errors/404.html", status=404)
+#Función nueva para función correcta de error 500 -Emix
+def handling_500(request):
+    return render(request, "temp_errors/server-error-500.html")
 def error_500_view(request):
-    # Puedes retornar directamente un template para el error 500
+#Puedes retornar directamente un template para el error 500
     return render(request, "temp_errors/server-error-500.html", status=500)

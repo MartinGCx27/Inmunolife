@@ -297,16 +297,21 @@ h6 {
 
 /* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
 .logo-inmuno {
+<<<<<<< HEAD
   width: 3.8rem;
 }
 
 .logo-inmuno-leter {
   width: 9.8rem;
   aspect-ratio: 7 / 3;
+=======
+  width: 5.5rem;
+  height: 5.5rem;
+  aspect-ratio: 1 / 1;
+>>>>>>> ramaEmix
 }
-
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 35px;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);

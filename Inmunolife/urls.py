@@ -30,3 +30,4 @@ urlpatterns = [
 ]
 
 handler404 = 'core.views.handling_404' #URL para 404 -Emix
+handler500 = 'core.views.handling_500' #URL para 500 -Emix
