@@ -12,21 +12,29 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Montserrat", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
+  /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Poppins", sans-serif;
-  --nav-font: "Raleway", sans-serif;
+  --nav-font: "Raleway", sans-serif; */
 }
 
+
 /* Global Colors */
+/* Colores: 
+Azul profundo: #2E338B - color principal
+Azul fresco: #1DA4D4 - color secundario
+Gris acero: #656F86 - color complementario o acento */
 :root {
-  --primary-color: #224069; /* Base color */
+  --primary-color: #2E338B; /* Base color */ 
   --primary-color-light: #3a5c8a; /* Lighter variation */
-  --primary-color-lighter: #5279ab; /* Even lighter */
+  --primary-color-lighter: #1DA4D4; /* Even lighter */
   --primary-color-dark: #183050; /* Darker variation */
   --background-color: #f0f4f8; /* Very light gray/blue */
-  --default-color: #333333; /* Dark gray for general text */
+  --default-color: #656F86; /* Dark gray for general text */
   --heading-color: var(--primary-color); /* Primary color for headings */
   --accent-color: var(--primary-color); /* Primary color for accents */
   --surface-color: #ffffff; /* White for surfaces */
@@ -35,11 +43,11 @@
 
 /* Nav Menu Colors */
 :root {
-  --nav-color: #333333; /* Dark gray */
+  --nav-color: #656F86; /* Dark gray */
   --nav-hover-color: var(--primary-color);
   --nav-mobile-background-color: var(--primary-color);
   --nav-dropdown-background-color: #e6eef5; /* Lightest blue */
-  --nav-dropdown-color: #333333;
+  --nav-dropdown-color: #656F86;
   --nav-dropdown-hover-color: var(--primary-color-dark);
 }
 
@@ -71,6 +79,17 @@ body {
   font-family: var(--default-font);
 }
 
+.title-protego{
+  font-family: var(--default-font);
+  font-weight: 700;
+  font-size: 3.5rem !important;
+}
+
+p, a, span, strong {
+  font-family: var(--default-font);
+  font-weight: 400; /* Puedes ajustar aquí también si quieres */
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -90,6 +109,8 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 /* Pulsating Play Button */
@@ -297,26 +318,16 @@ h6 {
 
 /* Se agrega la clase logo-inmuno y se modifica el css de arriba para poder cambiar tamaño de logo -LGS*/
 .logo-inmuno {
-<<<<<<< HEAD
-  width: 3.8rem;
-}
-
-.logo-inmuno-leter {
-  width: 9.8rem;
-  aspect-ratio: 7 / 3;
-=======
   width: 5.5rem;
   height: 5.5rem;
   aspect-ratio: 1 / 1;
->>>>>>> ramaEmix
 }
 .header .logo h1 {
   font-size: 35px;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
-}
-
+} 
 .header .cta-btn,
 .header .cta-btn:focus {
   color: var(--contrast-color);
@@ -1304,10 +1315,51 @@ section,
   animation: fadeIn 0.5s ease-out;
 }
 
+.departments h2 {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .departments .details h3 {
-  font-size: 26px;
-  font-weight: 600px;
-  margin-bottom: 20px;
+  /* font-size: 26px; */
+  /* font-weight: 600px; */
+  /* margin-bottom: 20px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.departments p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.departments-nav ul,
+.departments-nav a {
+  /* font-size: 26px; */
+  /* font-weight: 600px; */
+  /* margin-bottom: 20px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600 !important;
+  font-style: normal;
 }
 
 .departments .details p {
@@ -1546,10 +1598,30 @@ section,
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
+/* se modifica clase en h3 para secion reseñas -LGS */
 .testimonials .info h3 {
+  /* font-weight: 700;
+  font-size: 32px; */
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 700;
-  font-size: 32px;
+  font-style: normal;
 }
+
+/* se crea clase en p para secion reseñas -LGS */
+.testimonials .info p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 /* Cambio de color del background de los testimonios #bdbdbd -Emix*/
 .testimonials .swiper {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
@@ -1577,16 +1649,44 @@ section,
   margin-right: 10px;
 }
 
+/* se modifica clase en h3 para secion reseñas en carrusel -LGS */
 .testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
+  /* font-size: 18px;
+  font-weight: bold; */
   margin: 10px 0 5px 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 2.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
+/* se modifica clase en h4 para secion reseñas -LGS */
 .testimonials .testimonial-item h4 {
   color: color-mix(in srgb, var(#bdbdbd), transparent 50%);
-  font-size: 14px;
+  /* font-size: 14px; */
   margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* se modifica clase en span para secion reseñas -LGS */
+.testimonials .testimonial-item span {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .testimonials .testimonial-item .stars {
@@ -1670,6 +1770,7 @@ section,
 
 .gallery .gallery-item img {
   transition: all ease-in-out 0.4s;
+  interpolate-size: allow-keywords;
 }
 
 .gallery .gallery-item:hover img {
@@ -2472,7 +2573,10 @@ body.error-page footer {
   100% { transform: scale(1) rotate(360deg); }
 }
 
-/* se crean clases de gaelria para modificar texto -LGS */
+
+
+
+/* se crean clases de galeria para modificar texto -LGS */
 .gallery h2{
   padding: 0;
   font-size: 2.5rem;
@@ -2490,7 +2594,7 @@ body.error-page footer {
   font-style: normal;
 }
 
-/* Se crean clases para editar texto -LGS */
+/* Se crean clases de contacto para editar texto -LGS */
 .contact h2 {
   padding: 0;
   font-size: 2.5rem;
@@ -2502,7 +2606,7 @@ body.error-page footer {
 
 .contact .info-item h3 {
   padding: 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -2512,23 +2616,34 @@ body.error-page footer {
 .contact .info-item p {
   padding: 0;
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
-.contact .info-item span {
+.contact-desc p {
   padding: 0;
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
 
+.contact-desc label {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Se crean clases de footer para editar texto -LGS */
 .footer span{
   padding: 0;
   margin-bottom: 0;
@@ -2589,7 +2704,8 @@ body.error-page footer {
   font-style: normal;
 }
 
-.quantum {
+/* id para strong de quantum qwerty -LGS */
+#quantum {
   padding: 0;
   margin-bottom: 0;
   font-size: 1rem;
@@ -2597,4 +2713,37 @@ body.error-page footer {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+}
+
+/* Se crean clases de templates para editar texto -LGS */
+.password_reset {
+  font-family: "Montserrat", sans-serif;
+}
+
+.password_reset h2 {
+  padding: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.password_reset p {
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.password_reset a {
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* se crea transicion nueva para otones ejemplo en opciones de form contact -LGS */
+.contact_drop {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.contact_drop:hover {
+  transform: scale(1.1);
 }
