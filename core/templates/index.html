@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <!-- <title> Index - Medilab Bootstrap Template </title> -->
-  <title>Protego Total | {% block title %} {% endblock %}</title>
+  <title>Protego   Total | {% block title %} {% endblock %}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   
@@ -140,6 +140,9 @@
     <div class="container position-relative">
       
       <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+        <br>
+        <br>
+        <br>
         {% for message in messages %}
         {% if "register" in message.tags %} <!-- Con el extra Tags contact solo saldrá dentro del ContactForm -LGS -->
         <div class="alert alert-dismissible fade show {% if 'success' in message.tags %} alert-success{% else %} alert-danger{% endif %}" role="alert">
@@ -170,10 +173,11 @@
         <br><br><h2 class="title-protego">Bienvenido a Protego Total</h2>
         <p>Tu socio vital.</p>
       </div><!-- End Welcome -->
-        <div class="content row">
+      
+      <div class="content row">
         <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
         <!-- Membresía 1 -->
-        <div class="card-box col-xs-12 col-xxl-3 py-2 px-3 mx-3">
+        {% comment %} <div class="card-box col-xs-12 col-xxl-3 py-2 px-3 mx-3">
           <div class="icon-box-container">
             <div class="icon-box">
               <img src="{% static 'img/Membresia.jpg' %}" alt="Imagen una mamá e hija felices con título de Membresía uno" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
@@ -199,25 +203,6 @@
               </div> 
             </div>
           </div>
-          <div class="col-xs-12 col-lg-4 py-2">
-            <div class="icon-box-container">
-              <div class="icon-box">
-                <img src="{% static 'img/AboutUS.jpg' %}" alt="Imagen de un paciente y doctor" class="icon-image"> <!-- Imagen de prueba de Leon -Emix-->
-                <div class="icon-content">
-                  <div class="membership-card">
-                    <ul class="membership-features">
-                      <li>Todos necesitamos un respaldo, alguien que realmente se la juegue por nuestra vida y nuestra salud. Una protección completa, que esté siempre en los momentos difíciles, dándolo todo cuando más lo necesitamos.</li>
-                    </ul>
-                    <div class="text-center">
-                      <a href="#about" class="more-btn"><span>Conoce más de Protego  Total</span></i></a>
-                    </div>
-                    <div class="annual-price">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div> 
-            </div> 
             <!-- Se modifican las cards para que tengan un mejor estilaje -Emix-->
             <!-- Membresía 1 -->
             <div class="card-box col-xs-12 col-xxl-4 py-2 px-3 mx-3">
@@ -276,103 +261,11 @@
                       </div>
                     </div>
                   </div>
-                </div><!-- End Content-->
-              </div> 
-            </div> 
-
-          </section><!-- /Hero Section -->
-            <!-- Se agrega slider para membresias -Emix-->
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide custom-carousel" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div><!-- End Content--> {% endcomment %}
               </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="{% static 'img/Membresia.jpg' %}" class="d-block w-100" alt="...">
-                  <div class="icon-content">
-                    <div class="membership-card">
-                      <h4 class="membership-title">Vital pass</h4>
-                      <ul class="membership-features">
-                        <li>Precio Mensual $1,650</li>
-                        <li>Suma Asegurada $1M</li>
-                        <li>Renovación Anual de Cobertura</li>
-                        <li>Servicio de Urgencias</li>
-                        <li>Ambulancia</li>
-                        <li>Precio anual:</li>
-                      </ul>
-                      <div class="annual-price">
-                        <span class="old-price">$19,800</span>
-                        <span class="discount-price">$16,800*</span>
-                      </div>
-                      <p class="footnote">
-                        *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="{% static 'img/Membresia1.jpg' %}" class="d-block w-100" alt="...">
-                  <div class="icon-content">
-                    <div class="membership-card">
-                      <h4 class="membership-title">Vital pass +</h4>
-                      <ul class="membership-features">
-                        <li>Precio Mensual $1,990</li>
-                        <li>Suma Asegurada $2 M</li>
-                        <li>Renovación Anual de Cobertura</li>
-                        <li>Servicio de Urgencias</li>
-                        <li>Ambulancia</li>
-                        <li>Cobertura en el extranjero $50 mil USD</li>
-                        <li>Precio Anual: </li>
-                      </ul>
-                      <div class="annual-price">
-                        <span class="old-price">$23,800</span>
-                        <span class="discount-price">$20,500*</span>
-                      </div>
-                      <p class="footnote">
-                        *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="{% static 'img/Membresia2.jpg' %}" class="d-block w-100" alt="...">
-                  <div class="icon-content">
-                    <div class="membership-card">
-                      <h4 class="membership-title">Vital pass select</h4>
-                      <ul class="membership-features">
-                        <li>Precio Mensual $2,300</li>
-                        <li>Suma Asegurada $2 M</li>
-                        <li>Asistencia para mascotas</li>
-                        <li>Muerte accidental $490, 000 pesos</li>
-                        <li>Plan visual</li>
-                        <li>Cobertura en el extranjero $50 mil USD</li>
-                        <li>Precio Anual: </li>
-                      </ul>
-                      <div class="annual-price">
-                        <span class="old-price">$27,300</span>
-                        <span class="discount-price">$24,000*</span>
-                      </div>
-                      <p class="footnote">
-                        *EN CASO DE PAGAR DE MANERA ANUAL, SE TENDRÁ DERECHO A UN HIJO MENOR GRATIS
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
             </div>
-          </div>
-        </div>
+            
+          </section><!-- /Hero Section -->
           
           
           <!-- About Section -->
@@ -1391,7 +1284,7 @@
                       
                       <div class="container copyright text-center mt-4">
                         <img src="{% static 'img/logo-quantum.png' %}" alt="Logo" id="logo-quantum" class="img-fluid" style=" ">
-                        <p>Powered by <strong id="quantum">Quantum Qwerty</strong></p>
+                        <p>Powered by <strong id="quantum">Qwantum Qwerty</strong></p>
                         <!-- <p>© <span>Copyright</span> <strong class="px-1 sitename">Protego  Total</strong> <span>Todos los derechos reservados </span></p> -->
                       </div>
                       
