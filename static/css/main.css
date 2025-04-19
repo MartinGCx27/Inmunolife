@@ -964,8 +964,8 @@ section,
   position: relative;
   overflow: hidden;
 }
-
-.hero img {
+/* Se comenta clase del background de hero y se la da un nuevo nombre para que las imagenes del slider funcione -Emix */
+/* .hero img {
   position: absolute;
   inset: 0;
   display: block;
@@ -973,8 +973,15 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+} */
+.hero .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
-
 .hero .container {
   z-index: 3;
 }
@@ -2566,7 +2573,8 @@ body.error-page footer {
   background-color: lightblue;
 } */
  .carousel {
-  max-width: 450px;
+  max-width: 800px;
+  height: 600px;
   margin: auto;
   position: relative;
   z-index: 1;
@@ -2574,7 +2582,15 @@ body.error-page footer {
 .carousel-item {
   position: relative;
   overflow: hidden;
+  max-width: 110%;
+  height: 680px;
 }
+.carousel-item img {
+  max-width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  z-index: 2;
+} 
 .membership-card {
   position: absolute;
   top: 50%;
@@ -2594,10 +2610,6 @@ body.error-page footer {
 .carousel-item:hover .membership-card {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.05);
-}
-
-.carousel-item img {
-  transition: transform 0.3s ease;
 }
 
 .carousel-item:hover img {
@@ -2643,3 +2655,4 @@ body.error-page footer {
   color: #666;
   margin-top: 1rem;
 }
+/* Fin de las clases para el slider -Emix */
