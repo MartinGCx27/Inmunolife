@@ -15,20 +15,6 @@
   --default-font: "Montserrat", sans-serif;
   --heading-font: "Montserrat", sans-serif;
   --nav-font: "Montserrat", sans-serif;
-<<<<<<< HEAD
-=======
-  --negro: #393939;
-  --blanco: #ececec;
-  --sombra-ppal: #c9c9c9;
-  --sombra-sec: #ffffff;
-  --borde-negro: #00000050;
-  --marcado: rgb(127, 195, 255);
-  --negro: #ececec;
-  --blanco: #303030;
-  --sombra-ppal: #242424;
-  --sombra-sec: #3c3c3c;
-  --borde-negro: #FFFFFF50;
->>>>>>> ramaEmix
   /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -2743,95 +2729,84 @@ body.error-page footer {
 .contact_drop:hover {
   transform: scale(1.1);
 }
-
-/* Css para las clases del carrusel -Emix */
-/* .carrousel {
-  width: 50%;
-  height: 500px;
-  margin: 0 auto;
-  max-width: 120em;
-  padding: 2em;
-  color: var(--negro);
-  transition: all 0.4s ease;
-  border-radius: 1em;
-  background-color: var(--blanco);
-  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-  overflow: hidden;
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  /* Ajusta para que tu banner o contenido principal quepa */
 }
 
-.carrousel .big {
-  width: 300%;
-  height: 300px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  color: var(--negro);  
-  transition: all 0.5s ease;
-  border-radius: 1em;
-  background-color: var(--blanco);
-  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-  padding: 2em;
-  transition: all 0.5s ease-in-out;
-  transform: translateX(0%);
-  gap: 0;
-}
-
-.carrousel .img {
-  width: calc( 100% / 3 );
-  flex: 0 0 33.333%;
-  min-height: 10vh;
-  color: var(--negro);
-  transition: all 0.4s ease;
-  border-radius: 1em;
-  background-color: var(--blanco);
-  box-sizing: border-box; 
-  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-}
-
-.carrousel .points {
+.carousel-container {
+  position: relative;
   width: 100%;
-  margin: 1em 0 0;
-  padding: 0.4em;
-  display: flex;
-  flex-flow: row nowrap;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  /* O un alto fijo si quieres */
 }
 
-.carrousel .point {
-  width: 2em;
-  height: 2em;
-  margin: 1em 1em;
-  color: var(--negro);
-  transition: all 0.4s ease;
-  border-radius: 1em;
-  background-color: var(--blanco);
-  box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-}
-
-.carrousel .point.active {
-  background-color: lightblue;
-} */
-
-#carouselExampleControls {
-  max-width: 800px;
-  margin: 0 auto;
-  height: 500px;
-  border-radius: 1em;
+/* Pegado al fondo y centrado */
+.carousel {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 350px; /* Ajusta según tus tarjetas */
   overflow: hidden;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
-  background-color: #fff; /* opcional para ver el fondo si la imagen no carga */
+  z-index: 10; /* Para que quede por encima de la imagen */
 }
 
-.carousel-inner,
-.carousel-item,
-.carousel-item img {
+/* Animación y solapamiento de tarjetas */
+.carousel .card-box {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  animation: ciclo 6s infinite;
+  transition: opacity 0.5s ease;
+}
+.carousel .card-box:nth-child(1) { animation-delay: 0s; }
+.carousel .card-box:nth-child(2) { animation-delay: 3s; }
+/* etc. Ajusta el delay en múltiplos de la mitad del ciclo (si 6s, cada 3s) */
+
+@keyframes ciclo {
+  0%   { opacity: 1; }
+  45%  { opacity: 1; }
+  55%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Quita clip-path y conserva tu hover */
+.icon-box {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
   height: 100%;
+  /* etc. */
 }
 
-.carousel-item img {
-  object-fit: cover;
+.icon-image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
 }
+
+.icon-content {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* etc. */
+}
+
+.icon-box:hover .icon-content {
+  opacity: 1;
+}
+.icon-box:hover .icon-image {
+  opacity: 0;
+}
+
+

@@ -31,3 +31,6 @@ urlpatterns = [
 
 handler404 = 'core.views.handling_404' #URL para 404 -Emix
 handler500 = 'core.views.handling_500' #URL para 500 -Emix
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
