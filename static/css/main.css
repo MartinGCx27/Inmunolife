@@ -93,12 +93,12 @@ body {
 .title-protego{
   font-family: var(--default-font);
   font-weight: 700;
-  font-size: 3.5rem !important;
+  font-size: 3rem !important;
 }
 
 p, a, span, strong {
   font-family: var(--default-font);
-  font-weight: 400; /* Puedes ajustar aquí también si quieres */
+  font-weight: 400; 
 }
 
 a {
@@ -2573,25 +2573,30 @@ body.error-page footer {
   background-color: lightblue;
 } */
  .carousel {
-  /* max-width: 800px; */
-  height: 900px;
+  max-width: 1100px;
+  height: 540px;
   margin: auto;
+  border-radius: 15px;  
   position: relative;
   z-index: 1;
  }
 .carousel-item {
+  border-radius: 15px;
   position: relative;
   overflow: hidden;
-  max-width: 110%;
-  height: 880px;
+  max-width: 100%;
+  height: 540px;
 }
 .carousel-item img {
+  border-radius: 15px;
+  /* aspect-ratio: 1 / 1; */
   max-width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
   z-index: 2;
 } 
 .membership-card {
+  font-size: 1.15rem;
   max-width: 60%;
   max-height: 100%;
   position: absolute;
@@ -2661,4 +2666,37 @@ body.error-page footer {
   color: #666;
   margin-top: 1rem;
 }
+/* Clases para hacer el slider resposinve -Emix*/
+   @media (max-width: 576px) {
+    .membership-card .slid-2 {
+      font-size: 0.2rem;
+    }
+    .custom-carousel .icon-content {
+      bottom: 1.25rem;
+      width: 95%;
+      padding: 0 0.5rem;
+    }
+      .membership-card {
+      width: 90%;
+      padding: clamp(1rem, 4vw, 1.25rem);
+      border-radius: 0.5rem;
+    }
+    .membership-title {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    .membership-features li {
+      font-size: clamp(0.9rem, 3.5vw, 0.95rem);
+    }
+    .annual-price {
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+    .footnote {
+      font-size: clamp(0.75rem, 3vw, 0.85rem);
+    }
+  
+    .custom-carousel .carousel-item {
+      padding-bottom: 1rem;
+    }
+  }
+  
 /* Fin de las clases para el slider -Emix */
