@@ -1309,6 +1309,8 @@ section,
   color: #183050;
   border-color: var(--accent-color);
   background-color: #d3cfcf; /*Se agrega este background-color nuevo para dejar marcada la pregunta selccionada -LGS*/
+  border-left: 0.2rem solid var(--accent-color); /* Se agrega un borde para ver mas en que pregunta estas -LGS */
+  padding-left: 1rem;
 }
 
 .departments .tab-pane.active {
@@ -1371,17 +1373,32 @@ section,
 }
 
 @media (max-width: 992px) {
-  .departments .nav-link {
-    border: 0;
-    padding: 15px;
+  .departments img {
+    width: auto;
+    max-width: 100%;
+    min-width: unset;
+    height: auto;
+  }
+
+  #img-pulgar {
+    max-width: 20rem; 
+    width: 100%;  /* La imagen se adapta al ancho del contenedor -LGS*/
+    height: auto;
   }
 
   .departments .nav-link.active {
-    color: var(--accent-color);
-    background: var(--accent-color);
+    color: #183050;
+    background-color: #d3cfcf;
+    border-left: 3px solid var(--accent-color); /* Se agrega un borde para ver mas en que pregunta estas -LGS */
   }
 }
 
+/* nueva clase para el tamaño de las letras -LGS */
+.departments .faqs img {
+  width: 100%;
+  max-width: 27rem;
+  height: auto;
+}
 /*--------------------------------------------------------------
 # Doctors Section
 --------------------------------------------------------------*/
@@ -2746,4 +2763,62 @@ body.error-page footer {
 
 .contact_drop:hover {
   transform: scale(1.1);
+}
+
+/* clase para poner filtro a la img del video -LGS */
+#img-play{
+  filter: brightness(0.7) contrast(0.9) grayscale(0.3) saturate(1.7) sepia(0.1);
+}
+
+/* clases para modificar listas en acerca de nosotros -LGS */
+.secciones {
+  padding-left: 0;
+  margin: 0;
+}
+
+.bloque {
+  margin-bottom: 1.5rem;
+}
+
+.lista-valores {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.lista-mision {
+  list-style-type: disc !important;  /* Viñeta clásica redonda -LGS */
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 0.2rem; /* Espacio reducido -LGS */
+  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
+}
+
+.lista-vision {
+  list-style-type: square !important;  /* Viñeta cuadrada -LGS */
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 0.2rem; /* Espacio reducido -LGS */
+  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
+}
+
+.secciones h5 {
+  margin-bottom: 0.5rem; /* Ajustado a rem -LGS*/
+}
+
+/* Ajustar márgenes de li dentro de las listas -LGS*/
+.lista-mision li,
+.lista-vision li,
+.lista-valores li {
+  margin-bottom: 0.4rem;
+}
+
+.icon-valores
+.icon-mision
+.icon-vision{
+  margin-bottom: 0.5rem;
+}
+
+.faqs{
+  margin: auto;
 }

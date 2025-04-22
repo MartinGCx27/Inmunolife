@@ -2748,62 +2748,34 @@ body.error-page footer {
   transform: scale(1.1);
 }
 
-/* clase para poner filtro a la img del video -LGS */
 #img-play{
   filter: brightness(0.7) contrast(0.9) grayscale(0.3) saturate(1.7) sepia(0.1);
 }
 
-/* clases para modificar listas en acerca de nosotros -LGS */
 .secciones {
+  list-style-type: none;
   padding-left: 0;
   margin: 0;
 }
 
-.bloque {
-  margin-bottom: 1.5rem;
-}
-
 .lista-valores {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem;
+  list-style-type: decimal; /* números */
+  padding-left: 1.2em;
+  margin-top: 0.5em;
 }
 
 .lista-mision {
-  list-style-type: disc !important;  /* Viñeta clásica redonda -LGS */
-  list-style-position: outside;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem; /* Espacio reducido -LGS */
-  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
+  list-style-type: disc; /* viñeta clásica */
+  padding-left: 1.2em;
+  margin-top: 0.5em;
 }
 
 .lista-vision {
-  list-style-type: square !important;  /* Viñeta cuadrada -LGS */
-  list-style-position: outside;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem; /* Espacio reducido -LGS */
-  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
+  list-style-type: square; /* viñeta cuadrada */
+  padding-left: 1.2em;
+  margin-top: 0.5em;
 }
 
-.secciones h5 {
-  margin-bottom: 0.5rem; /* Ajustado a rem -LGS*/
-}
-
-/* Ajustar márgenes de li dentro de las listas -LGS*/
-.lista-mision li,
-.lista-vision li,
-.lista-valores li {
-  margin-bottom: 0.4rem;
-}
-
-.icon-valores
-icon-mision
-icon-vision{
-  margin-bottom: 0.5rem;
-}
-
-.video-sticky {
-  position: sticky;
-  top: 100px; /* Ajusta según lo que necesites */
-  z-index: 10;
+.secciones > li {
+  margin-bottom: 1.5em;
 }
