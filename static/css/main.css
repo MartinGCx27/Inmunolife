@@ -15,6 +15,17 @@
   --default-font: "Montserrat", sans-serif;
   --heading-font: "Montserrat", sans-serif;
   --nav-font: "Montserrat", sans-serif;
+  --negro: #393939;
+  --blanco: #ececec;
+  --sombra-ppal: #c9c9c9;
+  --sombra-sec: #ffffff;
+  --borde-negro: #00000050;
+  --marcado: rgb(127, 195, 255);
+  --negro: #ececec;
+  --blanco: #303030;
+  --sombra-ppal: #242424;
+  --sombra-sec: #3c3c3c;
+  --borde-negro: #FFFFFF50;
   /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -82,12 +93,12 @@ body {
 .title-protego{
   font-family: var(--default-font);
   font-weight: 700;
-  font-size: 3.5rem !important;
+  font-size: 3rem !important;
 }
 
 p, a, span, strong {
   font-family: var(--default-font);
-  font-weight: 400; /* Puedes ajustar aquí también si quieres */
+  font-weight: 400; 
 }
 
 a {
@@ -953,8 +964,8 @@ section,
   position: relative;
   overflow: hidden;
 }
-
-.hero img {
+/* Se comenta clase del background de hero y se la da un nuevo nombre para que las imagenes del slider funcione -Emix */
+/* .hero img {
   position: absolute;
   inset: 0;
   display: block;
@@ -962,8 +973,15 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+} */
+.hero .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
-
 .hero .container {
   z-index: 3;
 }
@@ -1942,266 +1960,9 @@ section,
 
 /* Fin de las clases para los modales */
 
-/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix  */
-
-/* 
-   1) Estilos específicos para la primera card (si aplica):
-      - Si la card es la primera dentro de .content,
-        el overlay (.icon-content) tendrá fondo #c02135 (rojo)
-        y el texto en blanco (#fff).
-*/
-.card-box{
-  min-width: 350px; 
-  max-width: 50px !important;        
-  min-height: 810px;    
-}
-.content .icon-box-container:nth-child(1) .icon-box .icon-content {
-  background-color: #183050;
-  color: #fff;
-}
-
-/* 
-   - Aplicamos color: inherit para que h3, p y a dentro del
-     overlay hereden el color blanco.
-*/
-.content .icon-box-container:nth-child(1) .icon-box .icon-content h3,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content h4,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content p,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content a {
-  color: inherit;
-}
-
-/* 
-   2) Estilos generales para las cards (imagen con overlay):
-      - .icon-box es el contenedor principal que aloja
-        la imagen de fondo y el overlay con el contenido.
-*/
-
-.icon-box {
-  position: relative;
-  overflow: hidden;
-  min-width: 350px; 
-  max-width: 250px !important;        
-  min-height: 810px;  
-  max-height: 100 !important;   
-  margin-bottom: 0;
-  display: flex;           /* Si mantienes display flex para centrar el overlay */
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 10px red);
-}
+/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix */
 
 
-.div-backgrd {
-  /* position: relative;
-  overflow: hidden;
-  width: 100%;             
-  min-height: 810px;     
-  margin-bottom: 0;
-  display: flex;           
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
-  filter: drop-shadow(0 0 400px rgb(255, 255, 255));}
-
-/* 
-   - .icon-image es la imagen de fondo:
-     * object-fit: cover la recorta para llenar el contenedor.
-     * transition: opacity para que pueda desvanecerse al hover.
-*/
-.icon-image {
-  width: 100% !important;
-  height: 97% !important;
-  display: block;   /* Haz que la imagen llene la altura del contenedor */
-  object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
-  transition: opacity 0.3s ease;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-  z-index: 0;
-} /* Queda detrás del overlay */
-
-/* 
-   - .icon-content es el overlay que aparecerá sobre la imagen:
-     * Por defecto, opacity: 0 (invisible).
-     * Se centra el contenido en vertical y horizontal.
-*/
-.icon-content {
-  width: 100% !important;
-  height: 100% !important;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0; 
-  transition: opacity 0.3s ease;
-  padding: 1rem;
-  z-index: 1;
-  box-shadow: 0 0 10px black !important;
-}
-
-
-/* 
-   - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).
-*/
-.icon-box:hover .icon-content {
-  opacity: 1;
-}
-
-/* 
-   - Al hacer hover sobre .icon-box, la imagen se desvanece (opacity:0).
-     Esto permite que se vea solo el overlay.
-*/
-.icon-box:hover .icon-image {
-  opacity: 0;
-}
-
-/* 
-   3) Estilos para títulos y párrafos dentro del overlay:
-      - Tipografía y efectos para resaltar el texto sobre la imagen.
-*/
-.icon-content h3, 
-.icon-content h4 {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  /* Pequeña sombra para hacer resaltar el texto */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.icon-content p {
-  font-family: 'Arial Black', sans;
-  font-size: 0.7rem !important;
-  line-height: 2.1;
-  margin-bottom: 1rem;
-}
-
-/* 
-   4) Estilo para el botón (.more-btn) dentro del overlay:
-      - Cambio de color al hacer hover.
-*/
-.more-btn {
-  background-color: #a3a3a3;  /* Gris claro */
-  color: #183050;            /* Rojo */
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.more-btn:hover {
-  background-color: #183050; /* Se vuelve rojo */
-  color: #ffffff;            /* Texto blanco */
-}
-
-/* 
-   5) Estilos para la Tarjeta de Membresía (.membership-card)
-      dentro del overlay:
-      - Caja blanca con borde, padding y sombra,
-        donde se muestra info del plan/precio.
-*/
-.membership-card {
-  background-color: #fff;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 10px;
-  padding: 2px;
-  text-align: center;
-  max-width: 290px;
-  margin: 0 auto; /* Centra la tarjeta */
-  box-shadow: 0 0 9px #183050;
-}
-/*Agregamos otra clase para mostrar el texto hexagonal*/
-.membership-cardd {
-  background-color: #fff;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 10px;
-  padding: 50px;
-  text-align: center;
-  max-width: 390px;
-  margin: 0 auto; /* Centra la tarjeta */
-  box-shadow: 0 0 9px #183050;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-/* 
-   - Título de la membresía (por ej. "Membresía 1"):
-     Se usa var(--heading-color) para mantener la paleta.
-*/
-.membership-title {
-  color: var(--heading-color);
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-/* 
-   - Lista de características (precio mensual, cobertura, etc.):
-     * Se remueven los bullets y se ajustan márgenes.
-*/
-.membership-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
-  color: var(--default-color);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.membership-features li {
-  margin-bottom: 0.5rem;
-}
-
-/* 
-   - .annual-price agrupa el precio viejo y el nuevo
-     (con descuento). 
-*/
-.annual-price {
-  margin: 1rem 0;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.5rem;
-  /* box-shadow: 0 0 10px black; */
-}
-
-/* 
-   - Precio anterior tachado, en un tono más claro.
-*/
-.old-price {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  text-decoration: line-through;
-  font-size: 1.2rem;
-}
-
-/* 
-   - Precio con descuento en verde (#28a745) 
-     y tamaño de fuente mayor.
-*/
-.discount-price {
-  color: #183050;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* 
-   - Pie de nota (footnote) para mensajes como
-     "*En caso de pagar de manera anual..."
-*/
-.footnote {
-  font-size: 0.9rem;
-  color: var(--default-color) !important;
-  margin-top: 1rem;
-}
-
-/* Ajusta el margen entre icon-box-container */
-.icon-box-container {
-  width: 33%;
-  margin-bottom: 2.5rem;
-   /* Ajusta el margen inferior */
-}
 
 
 /* Fin de las clases para las nuevas cards */
@@ -2822,3 +2583,194 @@ body.error-page footer {
 .faqs{
   margin: auto;
 }
+/* Css para las clases del carrusel -Emix */
+/* .carrousel {
+  width: 90%;
+  max-width: 120em;
+  padding: 2em;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  overflow: hidden;
+}
+
+.carrousel .grande {
+  width: 200%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  padding: 2em;
+  transition: all 0.5s ease;
+  transform: translateX(0%);
+}
+
+.carrousel .img {
+  width: calc( 100% / 2 - 2em);
+  min-height: 10vh;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+}
+
+.carrousel .puntos {
+  width: 100%;
+  margin: 1em 0 0;
+  padding: 0.4em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrousel .punto {
+  width: 2em;
+  height: 2em;
+  margin: 1em 1em 0;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+}
+
+.carrousel .punto.active {
+  background-color: lightblue;
+} */
+ .carousel {
+  max-width: 1100px;
+  height: 540px;
+  margin: auto;
+  border-radius: 15px;  
+  position: relative;
+  z-index: 1;
+ }
+.carousel-item {
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 540px;
+}
+.carousel-item img {
+  border-radius: 15px;
+  /* aspect-ratio: 1 / 1; */
+  max-width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease;
+  z-index: 2;
+} 
+.membership-card {
+  font-size: 1.15rem;
+  max-width: 60%;
+  max-height: 100%;
+  position: absolute;
+  text-align: center ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fffffff2;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 80%;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+  box-shadow: 0 10px 30px #00000033;
+}
+
+.carousel-item:hover .membership-card {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.7);
+}
+
+.membership-title {
+  color: #2a5298;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.membership-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.membership-features li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.annual-price {
+  /* display: flex; */
+  text-align: center ;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.old-price {
+  text-align: center ;
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discount-price {
+  text-align: center ;
+  color: #2a5298;
+  font-weight: bold;
+}
+
+.footnote {
+  text-align: center ;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 1rem;
+}
+/* Clases para hacer el slider resposinve -Emix*/
+   @media (max-width: 576px) {
+    .membership-card .slid-2 {
+      font-size: 0.2rem;
+    }
+    .custom-carousel .icon-content {
+      bottom: 1.25rem;
+      width: 95%;
+      padding: 0 0.5rem;
+    }
+      .membership-card {
+      width: 90%;
+      padding: clamp(1rem, 4vw, 1.25rem);
+      border-radius: 0.5rem;
+    }
+    .membership-title {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    .membership-features li {
+      font-size: clamp(0.9rem, 3.5vw, 0.95rem);
+    }
+    .annual-price {
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+    .footnote {
+      font-size: clamp(0.75rem, 3vw, 0.85rem);
+    }
+  
+    .custom-carousel .carousel-item {
+      padding-bottom: 1rem;
+    }
+  }
+  
+/* Fin de las clases para el slider -Emix */
