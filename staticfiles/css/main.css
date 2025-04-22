@@ -15,8 +15,6 @@
   --default-font: "Montserrat", sans-serif;
   --heading-font: "Montserrat", sans-serif;
   --nav-font: "Montserrat", sans-serif;
-<<<<<<< HEAD
-=======
   --negro: #393939;
   --blanco: #ececec;
   --sombra-ppal: #c9c9c9;
@@ -28,7 +26,6 @@
   --sombra-ppal: #242424;
   --sombra-sec: #3c3c3c;
   --borde-negro: #FFFFFF50;
->>>>>>> ramaEmix
   /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -967,8 +964,8 @@ section,
   position: relative;
   overflow: hidden;
 }
-
-.hero img {
+/* Se comenta clase del background de hero y se la da un nuevo nombre para que las imagenes del slider funcione -Emix */
+/* .hero img {
   position: absolute;
   inset: 0;
   display: block;
@@ -976,8 +973,15 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+} */
+.hero .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
-
 .hero .container {
   z-index: 3;
 }
@@ -1939,248 +1943,9 @@ section,
 
 /* Fin de las clases para los modales */
 
-/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix 
-
-.card-box{
-  min-width: 350px; 
-  max-width: 50px !important;        
-  min-height: 810px;    
-}
-.content .icon-box-container:nth-child(1) .icon-box .icon-content {
-  background-color: #183050;
-  color: #fff;
-}
-.content .icon-box-container:nth-child(1) .icon-box .icon-content h3,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content h4,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content p,
-.content .icon-box-container:nth-child(1) .icon-box .icon-content a {
-  color: inherit;
-}
+/* Estilos para las nuevas cards (Icon Box y Membership Card) -Emix */
 
 
-.icon-box {
-  position: relative;
-  overflow: hidden;
-  min-width: 350px; 
-  max-width: 250px !important;        
-  min-height: 810px;  
-  max-height: 100 !important;   
-  margin-bottom: 0;
-  display: flex;          
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 10px red);
-}
-
-
-.div-backgrd {
-  /* position: relative;
-  overflow: hidden;
-  width: 100%;             
-  min-height: 810px;     
-  margin-bottom: 0;
-  display: flex;           
-  align-items: center;
-  justify-content: center;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  filter: drop-shadow(0 0 400px rgb(255, 255, 255));}
-
-/* 
-   - .icon-image es la imagen de fondo:
-     * object-fit: cover la recorta para llenar el contenedor.
-     * transition: opacity para que pueda desvanecerse al hover.
-
-.icon-image {
-  width: 100% !important;
-  height: 97% !important;
-  display: block;   /* Haz que la imagen llene la altura del contenedor 
-  object-fit: cover; /* Recorta la imagen para que encaje sin deformarse 
-  transition: opacity 0.3s ease;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-  z-index: 0;
-} /* Queda detrás del overlay 
-
-/* 
-   - .icon-content es el overlay que aparecerá sobre la imagen:
-     * Por defecto, opacity: 0 (invisible).
-     * Se centra el contenido en vertical y horizontal.
-
-.icon-content {
-  width: 100% !important;
-  height: 100% !important;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0; 
-  transition: opacity 0.3s ease;
-  padding: 1rem;
-  z-index: 1;
-  box-shadow: 0 0 10px black !important;
-}
-
-
-/* 
-   - Al hacer hover sobre .icon-box, el overlay aparece (opacity:1).
-
-.icon-box:hover .icon-content {
-  opacity: 1;
-}
-
-/* 
-   - Al hacer hover sobre .icon-box, la imagen se desvanece (opacity:0).
-     Esto permite que se vea solo el overlay.
-
-.icon-box:hover .icon-image {
-  opacity: 0;
-}
-
-/* 
-   3) Estilos para títulos y párrafos dentro del overlay:
-      - Tipografía y efectos para resaltar el texto sobre la imagen.
-
-.icon-content h3, 
-.icon-content h4 {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  /* Pequeña sombra para hacer resaltar el texto 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.icon-content p {
-  font-family: 'Arial Black', sans;
-  font-size: 0.7rem !important;
-  line-height: 2.1;
-  margin-bottom: 1rem;
-}
-
-/* 
-   4) Estilo para el botón (.more-btn) dentro del overlay:
-      - Cambio de color al hacer hover.
-
-.more-btn {
-  background-color: #a3a3a3;  /* Gris claro 
-  color: #183050;            /* Rojo 
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.more-btn:hover {
-  background-color: #183050; /* Se vuelve rojo 
-  color: #ffffff;            /* Texto blanco 
-}
-
-/* 
-   5) Estilos para la Tarjeta de Membresía (.membership-card)
-      dentro del overlay:
-      - Caja blanca con borde, padding y sombra,
-        donde se muestra info del plan/precio.
-
-.membership-card {
-  background-color: #fff;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 10px;
-  padding: 2px;
-  text-align: center;
-  max-width: 290px;
-  margin: 0 auto; /* Centra la tarjeta 
-  box-shadow: 0 0 9px #183050;
-}
-/*Agregamos otra clase para mostrar el texto hexagonal
-.membership-cardd {
-  background-color: #fff;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 10px;
-  padding: 50px;
-  text-align: center;
-  max-width: 390px;
-  margin: 0 auto; /* Centra la tarjeta 
-  box-shadow: 0 0 9px #183050;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-/* 
-   - Título de la membresía (por ej. "Membresía 1"):
-     Se usa var(--heading-color) para mantener la paleta.
-
-.membership-title {
-  color: var(--heading-color);
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-/* 
-   - Lista de características (precio mensual, cobertura, etc.):
-     * Se remueven los bullets y se ajustan márgenes.
-
-.membership-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
-  color: var(--default-color);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.membership-features li {
-  margin-bottom: 0.5rem;
-}
-
-/* 
-   - .annual-price agrupa el precio viejo y el nuevo
-     (con descuento). 
-.annual-price {
-  margin: 1rem 0;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.5rem;
-  /* box-shadow: 0 0 10px black; 
-}
-
-/* 
-   - Precio anterior tachado, en un tono más claro.
-
-.old-price {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  text-decoration: line-through;
-  font-size: 1.2rem;
-}
-
-/* 
-   - Precio con descuento en verde (#28a745) 
-     y tamaño de fuente mayor.
-
-.discount-price {
-  color: #183050;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* 
-   - Pie de nota (footnote) para mensajes como
-     "*En caso de pagar de manera anual..."
-
-.footnote {
-  font-size: 0.9rem;
-  color: var(--default-color) !important;
-  margin-top: 1rem;
-}
-
-/* Ajusta el margen entre icon-box-container 
-.icon-box-container {
-  width: 33%;
-  margin-bottom: 2.5rem;
-   /* Ajusta el margen inferior
 
 
 /* Fin de las clases para las nuevas cards */
@@ -2746,9 +2511,7 @@ body.error-page footer {
 
 /* Css para las clases del carrusel -Emix */
 /* .carrousel {
-  width: 50%;
-  height: 500px;
-  margin: 0 auto;
+  width: 90%;
   max-width: 120em;
   padding: 2em;
   color: var(--negro);
@@ -2759,51 +2522,46 @@ body.error-page footer {
   overflow: hidden;
 }
 
-.carrousel .big {
-  width: 300%;
-  height: 300px;
+.carrousel .grande {
+  width: 200%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  color: var(--negro);  
-  transition: all 0.5s ease;
+  color: var(--negro);
+  transition: all 0.4s ease;
   border-radius: 1em;
   background-color: var(--blanco);
   box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
   padding: 2em;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease;
   transform: translateX(0%);
-  gap: 0;
 }
 
 .carrousel .img {
-  width: calc( 100% / 3 );
-  flex: 0 0 33.333%;
+  width: calc( 100% / 2 - 2em);
   min-height: 10vh;
   color: var(--negro);
   transition: all 0.4s ease;
   border-radius: 1em;
   background-color: var(--blanco);
-  box-sizing: border-box; 
   box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
 }
 
-.carrousel .points {
+.carrousel .puntos {
   width: 100%;
   margin: 1em 0 0;
   padding: 0.4em;
   display: flex;
   flex-flow: row nowrap;
-  list-style: none;
   justify-content: center;
   align-items: center;
 }
 
-.carrousel .point {
+.carrousel .punto {
   width: 2em;
   height: 2em;
-  margin: 1em 1em;
+  margin: 1em 1em 0;
   color: var(--negro);
   transition: all 0.4s ease;
   border-radius: 1em;
@@ -2811,27 +2569,90 @@ body.error-page footer {
   box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
 }
 
-.carrousel .point.active {
+.carrousel .punto.active {
   background-color: lightblue;
 } */
-
-#carouselExampleControls {
-  max-width: 800px;
-  margin: 0 auto;
-  height: 500px;
-  border-radius: 1em;
+ .carousel {
+  /* max-width: 800px; */
+  height: 600px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+ }
+.carousel-item {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
-  background-color: #fff; /* opcional para ver el fondo si la imagen no carga */
+  max-width: 110%;
+  height: 680px;
 }
-
-.carousel-inner,
-.carousel-item,
 .carousel-item img {
+  max-width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
+  z-index: 2;
+} 
+.membership-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fffffff2;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 400px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+  box-shadow: 0 10px 30px #00000033;
 }
 
-.carousel-item img {
-  object-fit: cover;
-  width: 100%;
+.carousel-item:hover .membership-card {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
 }
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.7);
+}
+
+.membership-title {
+  color: #2a5298;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.membership-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.membership-features li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.annual-price {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discount-price {
+  color: #2a5298;
+  font-weight: bold;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 1rem;
+}
+/* Fin de las clases para el slider -Emix */
