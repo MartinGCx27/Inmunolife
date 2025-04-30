@@ -1961,7 +1961,7 @@ section,
   color: #183050 !important; /* Texto rojo oscuro */
 }
 
-/* Borde grueso y color rojo de olvide contraseña -LGS*/
+/* Borde grueso de olvide contraseña -LGS*/
 #showPasswords {
   border: 2px solid #5279ab !important;
   border-radius: 0.25em;
@@ -1978,7 +1978,7 @@ section,
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
 }
 
-/* Label en rojo de olvide contraseña -LGS*/
+/* Label de olvide contraseña -LGS*/
 .form-check-label {
   color: #5279ab !important;
   margin-left: 8px;
@@ -2509,67 +2509,6 @@ body.error-page footer {
   transform: scale(1.1);
 }
 
-<<<<<<< HEAD
-/* clase para poner filtro a la img del video -LGS */
-#img-play{
-  filter: brightness(0.7) contrast(0.9) grayscale(0.3) saturate(1.7) sepia(0.1);
-}
-
-/* clases para modificar listas en acerca de nosotros -LGS */
-.secciones {
-  padding-left: 0;
-  margin: 0;
-}
-
-.bloque {
-  margin-bottom: 1.5rem;
-}
-
-.lista-valores {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem;
-}
-
-.lista-mision {
-  list-style-type: disc !important;  /* Viñeta clásica redonda -LGS */
-  list-style-position: outside;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem; /* Espacio reducido -LGS */
-  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
-}
-
-.lista-vision {
-  list-style-type: square !important;  /* Viñeta cuadrada -LGS */
-  list-style-position: outside;
-  padding-left: 1.5rem;
-  margin-top: 0.2rem; /* Espacio reducido -LGS */
-  margin-bottom: 0;  /* Elimina margen adicional debajo de la lista -LGS */
-}
-
-.secciones h5 {
-  margin-bottom: 0.5rem; /* Ajustado a rem -LGS*/
-}
-
-/* Ajustar márgenes de li dentro de las listas -LGS*/
-.lista-mision li,
-.lista-vision li,
-.lista-valores li {
-  margin-bottom: 0.4rem;
-}
-
-.icon-valores
-icon-mision
-icon-vision{
-  margin-bottom: 0.5rem;
-}
-
-.video-sticky {
-  position: sticky;
-  top: 100px; /* Ajusta según lo que necesites */
-  z-index: 10;
-}
-=======
 /* Css para las clases del carrusel -Emix */
 /* .carrousel {
   width: 90%;
@@ -2717,4 +2656,21 @@ icon-vision{
   margin-top: 1rem;
 }
 /* Fin de las clases para el slider -Emix */
->>>>>>> 201c5cde932c86a43a3a131c7d225e698d04c4f6
+
+/* clase para descargo de responsabilidad */
+
+.reserved {
+  background-color: #f8f9fa;
+  font-size: 0.85rem;
+}
+
+.responsabillity {
+  text-decoration: underline !important;
+  text-underline-offset: 2px; /* Da espacio entre texto y subrayado */
+  color: inherit;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
