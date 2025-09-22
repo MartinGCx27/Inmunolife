@@ -1,0 +1,270 @@
+[2025-07-22 05:44:11 +0000] [584896] [INFO] Starting gunicorn 23.0.0
+[2025-07-22 05:44:11 +0000] [584896] [INFO] Listening at: http://0.0.0.0:8000 (584896)
+[2025-07-22 05:44:11 +0000] [584896] [INFO] Using worker: sync
+[2025-07-22 05:44:11 +0000] [584897] [INFO] Booting worker with pid: 584897
+[2025-07-22 05:44:11 +0000] [584897] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:44:11 +0000] [584897] [INFO] Worker exiting (pid: 584897)
+[2025-07-22 05:44:11 +0000] [584896] [ERROR] Worker (pid:584897) exited with code 3
+[2025-07-22 05:44:11 +0000] [584896] [ERROR] Shutting down: Master
+[2025-07-22 05:44:11 +0000] [584896] [ERROR] Reason: Worker failed to boot.
+[2025-07-22 05:44:26 +0000] [584898] [INFO] Starting gunicorn 23.0.0
+[2025-07-22 05:44:26 +0000] [584898] [INFO] Listening at: http://0.0.0.0:8000 (584898)
+[2025-07-22 05:44:26 +0000] [584898] [INFO] Using worker: sync
+[2025-07-22 05:44:26 +0000] [584899] [INFO] Booting worker with pid: 584899
+[2025-07-22 05:44:26 +0000] [584899] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:44:26 +0000] [584899] [INFO] Worker exiting (pid: 584899)
+[2025-07-22 05:44:26 +0000] [584898] [ERROR] Worker (pid:584899) exited with code 3
+[2025-07-22 05:44:26 +0000] [584898] [ERROR] Shutting down: Master
+[2025-07-22 05:44:26 +0000] [584898] [ERROR] Reason: Worker failed to boot.
+[2025-07-22 05:44:38 +0000] [584900] [INFO] Starting gunicorn 23.0.0
+[2025-07-22 05:44:38 +0000] [584900] [INFO] Listening at: http://0.0.0.0:8000 (584900)
+[2025-07-22 05:44:38 +0000] [584900] [INFO] Using worker: sync
+[2025-07-22 05:44:38 +0000] [584901] [INFO] Booting worker with pid: 584901
+[2025-07-22 05:44:38 +0000] [584901] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:44:38 +0000] [584901] [INFO] Worker exiting (pid: 584901)
+[2025-07-22 05:44:38 +0000] [584900] [ERROR] Worker (pid:584901) exited with code 3
+[2025-07-22 05:44:38 +0000] [584900] [ERROR] Shutting down: Master
+[2025-07-22 05:44:38 +0000] [584900] [ERROR] Reason: Worker failed to boot.
+[2025-07-22 05:46:43 +0000] [584928] [INFO] Starting gunicorn 23.0.0
+[2025-07-22 05:46:43 +0000] [584928] [INFO] Listening at: http://0.0.0.0:8000 (584928)
+[2025-07-22 05:46:43 +0000] [584928] [INFO] Using worker: sync
+[2025-07-22 05:46:43 +0000] [584929] [INFO] Booting worker with pid: 584929
+[2025-07-22 05:46:43 +0000] [584929] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:46:43 +0000] [584929] [INFO] Worker exiting (pid: 584929)
+[2025-07-22 05:46:43 +0000] [584928] [ERROR] Worker (pid:584929) exited with code 3
+[2025-07-22 05:46:43 +0000] [584928] [ERROR] Shutting down: Master
+[2025-07-22 05:46:43 +0000] [584928] [ERROR] Reason: Worker failed to boot.
+[2025-07-22 05:56:18 +0000] [584997] [INFO] Starting gunicorn 20.1.0
+[2025-07-22 05:56:18 +0000] [584997] [INFO] Listening at: http://0.0.0.0:8000 (584997)
+[2025-07-22 05:56:18 +0000] [584997] [INFO] Using worker: sync
+[2025-07-22 05:56:18 +0000] [584998] [INFO] Booting worker with pid: 584998
+[2025-07-22 05:56:18 +0000] [584998] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/lib/python3/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/lib/python3/dist-packages/gunicorn/util.py", line 384, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:56:18 +0000] [584998] [INFO] Worker exiting (pid: 584998)
+[2025-07-22 05:56:18 +0000] [584997] [INFO] Shutting down: Master
+[2025-07-22 05:56:18 +0000] [584997] [INFO] Reason: Worker failed to boot.
+[2025-07-22 05:56:24 +0000] [584999] [INFO] Starting gunicorn 20.1.0
+[2025-07-22 05:56:24 +0000] [584999] [INFO] Listening at: http://0.0.0.0:8000 (584999)
+[2025-07-22 05:56:24 +0000] [584999] [INFO] Using worker: sync
+[2025-07-22 05:56:24 +0000] [585000] [INFO] Booting worker with pid: 585000
+[2025-07-22 05:56:24 +0000] [585000] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/lib/python3/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/lib/python3/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/lib/python3/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/lib/python3/dist-packages/gunicorn/util.py", line 384, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-22 05:56:24 +0000] [585000] [INFO] Worker exiting (pid: 585000)
+[2025-07-22 05:56:24 +0000] [584999] [INFO] Shutting down: Master
+[2025-07-22 05:56:24 +0000] [584999] [INFO] Reason: Worker failed to boot.
+[2025-07-24 07:13:14 +0000] [598626] [INFO] Starting gunicorn 23.0.0
+[2025-07-24 07:13:14 +0000] [598626] [INFO] Listening at: http://0.0.0.0:8000 (598626)
+[2025-07-24 07:13:14 +0000] [598626] [INFO] Using worker: sync
+[2025-07-24 07:13:14 +0000] [598627] [INFO] Booting worker with pid: 598627
+[2025-07-24 07:13:14 +0000] [598627] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-24 07:13:14 +0000] [598627] [INFO] Worker exiting (pid: 598627)
+[2025-07-24 07:13:14 +0000] [598626] [ERROR] Worker (pid:598627) exited with code 3
+[2025-07-24 07:13:14 +0000] [598626] [ERROR] Shutting down: Master
+[2025-07-24 07:13:14 +0000] [598626] [ERROR] Reason: Worker failed to boot.
+[2025-07-25 04:08:32 +0000] [601152] [INFO] Starting gunicorn 23.0.0
+[2025-07-25 04:08:32 +0000] [601152] [INFO] Listening at: http://0.0.0.0:8000 (601152)
+[2025-07-25 04:08:32 +0000] [601152] [INFO] Using worker: sync
+[2025-07-25 04:08:32 +0000] [601153] [INFO] Booting worker with pid: 601153
+[2025-07-25 04:08:32 +0000] [601153] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/opt/inmunovenv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'Inmunolife'
+[2025-07-25 04:08:32 +0000] [601153] [INFO] Worker exiting (pid: 601153)
+[2025-07-25 04:08:32 +0000] [601152] [ERROR] Worker (pid:601153) exited with code 3
+[2025-07-25 04:08:32 +0000] [601152] [ERROR] Shutting down: Master
+[2025-07-25 04:08:32 +0000] [601152] [ERROR] Reason: Worker failed to boot.
