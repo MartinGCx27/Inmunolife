@@ -33,6 +33,8 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=['*']))
 
+# Nota CSRF: Esencial para que Django acepte peticiones POST (logins, formularios) cuando Nginx actúa como proxy.
+CSRF_TRUSTED_ORIGINS = tuple(env.list('CSRF_TRUSTED_ORIGINS', default=['*']))
 
 # Application definition
 
@@ -144,12 +146,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' #MODIFICACIÓN PARA DESARROLLO DE ERROR 404 EN DESARROLLO
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #CONFIGURACIÓN PARA SERVER PROD
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' #MODIFICACIÓN PARA DESARROLLO DE ERROR 404 EN DESARROLLO
 
 #Se agregan nuevos captcha para InmunoLife -LGS
 RECAPTCHA_PUBLIC_KEY = '6LdeYBYrAAAAACO5Gaczent8FbS14xJL9u7M62fC'
-RECAPTCHA_SECRET_KEY =' 6LdeYBYrAAAAAKsiet4hLyCxVp_OgQ5ZbmdwaKVf'
+RECAPTCHA_SECRET_KEY = env.str('RECAPTCHA_SECRET_KEY')
 
 #Se agregan keys para el captcha -Emix
 #RECAPTCHA_PUBLIC_KEY = '6Ld9l_UqAAAAAAmI9BYtTU4WTvz1pF9fVI2cHm31'

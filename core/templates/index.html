@@ -60,6 +60,7 @@
 </head>
 
 <body class="index-page">
+  
   <!-- Se modifica header para mantener la navbar fija y solucionar problema de temblor -Emix/LGS -->
   {% comment %} <header id="header" class="header sticky-top"> {% endcomment %}
   <header id="header" class="header fixed-top">
@@ -68,7 +69,7 @@
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
           <!--Se agrega correo de Inmuno en la parte superior -Emix -->
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@Protegototal.com</a></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contacto@protegototal.com</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>55 2098 7426</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
@@ -528,7 +529,7 @@ Qué mala suerte, yeah  -->
               <!--Se le quita la siguiente etiqutea a las cards de services con class:streched-link: href="#hero" -Emix -->
               <a class="stretched-link">
               </a>
-              <h5>Personas de 18 a 63 años que no pueden permitirse una Membresía médica de
+              <h5 class="who">Personas de 18 a 63 años que no pueden permitirse una Membresía médica de
                 gastos mayores individual debido a su alto costo.</h5>
               </div>
             </div><!-- End Service Item -->
@@ -540,7 +541,7 @@ Qué mala suerte, yeah  -->
                 </div>
                 <a class="stretched-link">
                 </a>
-                <h5>
+                <h5 class="who">
                   Familias que buscan acceso a servicios médicos por
                   enfermedades de alto riego y emergencias por accidentes.
                 </h5>
@@ -554,7 +555,7 @@ Qué mala suerte, yeah  -->
                 </div>
                 <a href= class="stretched-link">
                 </a>
-                <h5>
+                <h5 class="who">
                   Trabajadores independientes o pequeños empresarios
                   interesados en proteger su salud y la de sus empleados.
                 </h5>
@@ -569,7 +570,7 @@ Qué mala suerte, yeah  -->
                 </div>
                 <a class="stretched-link">
                 </a>
-                <h5>
+                <h5 class="who">
                   Personas con un alto nivel de conciencia para evitar cualquier
                   contingencia medica en el futuro.
                 </h5>
@@ -1245,7 +1246,7 @@ Qué mala suerte, yeah  -->
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                           <h3>Nuestro Email:</h3>
-                          <p>contact@Protegototal.com</p>
+                          <p>contacto@protegototal.com</p>
                         </div>
                       </div><!-- End Info Item -->
 
@@ -1369,7 +1370,7 @@ Qué mala suerte, yeah  -->
                     <p><strong>Ubicación: </strong>Grulla #31,</p>
                     <p>Mayorazgos del bosque 52957, Atizapán</p>
                     <p class="mt-3"><strong>Teléfono: </strong><span>55 2098 7426</span></p>
-                    <p class="mt-3"><strong>Email: </strong> <span>contact@Protegototal.com</span></p>
+                    <p class="mt-3"><strong>Email: </strong> <span>contacto@protegototal.com</span></p>
                   </div>
                   <div class="social-links mt-4">
                     <h4>Nuestras Redes Sociales</h4>
@@ -1440,6 +1441,29 @@ Qué mala suerte, yeah  -->
             </div>
 
           </footer>
+<!-- Descargo de responsabilidad -LGS-->
+<div class="container-fluid py-3 reserved" style="background-color: #f8f9fa; font-size: 0.85rem; border-top: none solidrgb(0, 0, 0);">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Columna izquierda -LGS-->
+      <div class="col-md-2 text-start">
+        <p class="mb-2"><strong>Derechos reservados © Protego Total 2025</strong></p>
+        <a href="#hero" class="responsabillity">Aviso de privacidad</a>
+      </div>
+      
+      <!-- Columna derecha -LGS-->
+      <div class="col-md-10 text-start">
+        <p class="mb-0">
+          La información en este sitio es solo de carácter informativo. 
+          Protego Total no garantiza que sea exacta o completa, y no se 
+          hace responsable por cualquier daño o pérdida que pueda surgir de su uso.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
           <!-- Se termina de modificar ionformación del footer -->
 
@@ -1519,7 +1543,7 @@ Qué mala suerte, yeah  -->
               }
             }
           </script>
-
+<!-- Hola esto es una prueba para Fer -->
 
 
         </body>

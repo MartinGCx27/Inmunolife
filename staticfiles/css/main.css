@@ -123,6 +123,10 @@ h6 {
   font-weight: 700;
   font-size: 2rem;
 }
+/* Clase para h5 de sección services -Emix */
+.who{
+  font-size: 1.3rem !important;
+}
 
 /* Pulsating Play Button */
 .pulsating-play-btn {
